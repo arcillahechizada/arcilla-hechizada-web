@@ -1,0 +1,198 @@
+# -----------------------------------------------------------------
+# BACKEND: configuración REAL generada por DecapBridge para este sitio
+# (arcillahechizada/arcilla-hechizada-web), con autenticación PKCE.
+# -----------------------------------------------------------------
+backend:
+  name: git-gateway
+  repo: arcillahechizada/arcilla-hechizada-web
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/e023609e-6be1-4281-b017-c7fa382553b7/pkce
+  auth_token_endpoint: /sites/e023609e-6be1-4281-b017-c7fa382553b7/token
+  gateway_url: https://gateway.decapbridge.com
+
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+site_url: https://lively-alfajores-80e914.netlify.app
+
+media_folder: "img/uploads"
+public_folder: "img/uploads"
+
+locale: "es"
+
+collections:
+  - name: "productos"
+    label: "Productos"
+    files:
+      - file: "data/productos.json"
+        label: "Catálogo de productos"
+        name: "productos"
+        fields:
+          - label: "Productos"
+            name: "productos"
+            widget: "list"
+            label_singular: "Producto"
+            fields:
+              - { label: "Identificador (no lo cambies si el producto ya existe)", name: "id", widget: "string" }
+              - label: "Categoría"
+                name: "categoria"
+                widget: "select"
+                options: ["grimorios", "amuletos", "pociones", "mandala", "botellitas", "otros"]
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Precio (en euros, deja vacío si aún no lo sabes)", name: "precio", widget: "number", required: false, value_type: "float" }
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options:
+                  - { label: "Disponible", value: "disponible" }
+                  - { label: "Bajo pedido", value: "bajo_pedido" }
+                  - { label: "Agotado", value: "agotado" }
+                  - { label: "Vendido", value: "vendido" }
+                  - { label: "Oculto (no se muestra en la web)", value: "oculto" }
+              - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
+              - label: "Galería (varias fotos)"
+                name: "galeria"
+                widget: "list"
+                required: false
+                field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
+              - { label: "Vídeo (enlace, opcional)", name: "video", widget: "string", required: false }
+              - { label: "Descripción corta", name: "descripcionCorta", widget: "text", required: false }
+              - { label: "Descripción completa", name: "descripcionCompleta", widget: "text", required: false }
+              - { label: "Simbolismo / uso", name: "simbolismo", widget: "text", required: false }
+              - { label: "Materiales", name: "materiales", widget: "text", required: false }
+              - { label: "Medidas", name: "medidas", widget: "text", required: false }
+              - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
+              - { label: "Elaboración", name: "elaboracion", widget: "text", required: false }
+              - { label: "¿Se puede personalizar?", name: "personalizable", widget: "boolean", default: false }
+              - { label: "Opciones de personalización", name: "opcionesPersonalizacion", widget: "text", required: false }
+              - { label: "¿Se puede pedir en otro color no fotografiado?", name: "permiteOtroColor", widget: "boolean", default: false }
+              - label: "Variantes / colores"
+                name: "variantes"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Nombre del color", name: "color", widget: "string" }
+                  - label: "Fotos de esta variante"
+                    name: "imagenes"
+                    widget: "list"
+                    field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
+                  - { label: "¿Disponible?", name: "disponible", widget: "boolean", default: true }
+              - { label: "Nota interna (solo la ves tú, no aparece en la web)", name: "notaInterna", widget: "text", required: false }
+
+  - name: "piezas_unicas"
+    label: "Piezas Únicas"
+    files:
+      - file: "data/piezas-unicas.json"
+        label: "Piezas únicas"
+        name: "piezas"
+        fields:
+          - label: "Piezas"
+            name: "piezas"
+            widget: "list"
+            label_singular: "Pieza"
+            fields:
+              - { label: "Identificador", name: "id", widget: "string" }
+              - { label: "Nombre", name: "nombre", widget: "string" }
+              - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
+              - label: "Galería"
+                name: "galeria"
+                widget: "list"
+                required: false
+                field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
+              - { label: "Vídeo (opcional)", name: "video", widget: "string", required: false }
+              - { label: "Precio", name: "precio", widget: "number", required: false, value_type: "float" }
+              - { label: "Descripción", name: "descripcion", widget: "text", required: false }
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options:
+                  - { label: "Disponible", value: "disponible" }
+                  - { label: "Reservada", value: "reservada" }
+                  - { label: "Vendida", value: "vendida" }
+              - { label: "Fecha (opcional)", name: "fecha", widget: "string", required: false }
+
+  - name: "opiniones"
+    label: "Opiniones"
+    files:
+      - file: "data/opiniones.json"
+        label: "Opiniones"
+        name: "opiniones"
+        fields:
+          - label: "Opiniones"
+            name: "opiniones"
+            widget: "list"
+            label_singular: "Opinión"
+            fields:
+              - { label: "Identificador", name: "id", widget: "string" }
+              - { label: "Nombre o iniciales", name: "nombre", widget: "string" }
+              - { label: "Texto de la opinión", name: "texto", widget: "text" }
+              - { label: "Producto relacionado (opcional)", name: "producto", widget: "string", required: false }
+              - { label: "Fecha (opcional)", name: "fecha", widget: "string", required: false }
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options:
+                  - { label: "Publicada", value: "publicada" }
+                  - { label: "Pendiente de revisar", value: "pendiente" }
+                  - { label: "Oculta", value: "oculta" }
+
+  - name: "faq"
+    label: "Preguntas frecuentes"
+    files:
+      - file: "data/faq.json"
+        label: "FAQ"
+        name: "faq"
+        fields:
+          - label: "Preguntas"
+            name: "faq"
+            widget: "list"
+            label_singular: "Pregunta"
+            fields:
+              - { label: "Pregunta", name: "pregunta", widget: "string" }
+              - { label: "Respuesta", name: "respuesta", widget: "text" }
+              - label: "Estado"
+                name: "estado"
+                widget: "select"
+                options:
+                  - { label: "Publicada", value: "publicada" }
+                  - { label: "Borrador (no se ve en la web)", value: "borrador" }
+
+  - name: "blog"
+    label: "El Grimorio (Blog)"
+    folder: "el-grimorio-articulos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Imagen destacada", name: "imagen", widget: "image", required: false, choose_url: false }
+      - label: "Categoría"
+        name: "categoria"
+        widget: "select"
+        required: false
+        options: ["Simbolismo", "Artesanía", "Plantas", "Magia popular", "Regalos", "Cuidados"]
+      - label: "Estado"
+        name: "estado"
+        widget: "select"
+        default: "borrador"
+        options:
+          - { label: "Borrador", value: "borrador" }
+          - { label: "Publicado", value: "publicado" }
+      - { label: "Título SEO (opcional)", name: "seo_titulo", widget: "string", required: false }
+      - { label: "Descripción SEO (opcional)", name: "seo_descripcion", widget: "text", required: false }
+      - { label: "Contenido del artículo", name: "body", widget: "markdown" }

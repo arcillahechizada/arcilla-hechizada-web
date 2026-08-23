@@ -1,0 +1,28 @@
+{
+  "opiniones": [
+    {
+      "id": "op-1",
+      "nombre": "Clienta anónima",
+      "texto": "En fotos se ve bonito… pero en mano es impresionante.",
+      "producto": "",
+      "fecha": "",
+      "estado": "pendiente"
+    },
+    {
+      "id": "op-2",
+      "nombre": "Clienta anónima",
+      "texto": "Se nota que está hecho con amor.",
+      "producto": "",
+      "fecha": "",
+      "estado": "pendiente"
+    },
+    {
+      "id": "op-3",
+      "nombre": "Clienta anónima",
+      "texto": "Nunca había sentido algo así con un amuleto.",
+      "producto": "",
+      "fecha": "",
+      "estado": "pendiente"
+    }
+  ]
+}
