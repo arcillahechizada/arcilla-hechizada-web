@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tienda — Arcilla Hechizada</title>
-<meta name="description" content="Catálogo completo de piezas hechas a mano con arcilla natural. Grimorios, amuletos, pociones y objetos con intención.">
-<link rel="canonical" href="https://www.arcillahechizada.com/tienda.html">
+<title>Piezas Únicas — Arcilla Hechizada</title>
+<meta name="description" content="Piezas irrepetibles hechas a mano. Creaciones exclusivas de Arcilla Hechizada que existen una sola vez.">
+<link rel="canonical" href="https://www.arcillahechizada.com/piezas-unicas.html">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -45,27 +45,18 @@
 </header>
 
 <main class="contenedor seccion">
-  <div class="centro" style="margin-bottom:32px;">
-    <span class="eyebrow">Tienda</span>
-    <h1>Nuestras creaciones</h1>
-    <p class="lead">Cada categoría reúne piezas hechas y pintadas a mano con arcilla natural. Toca un producto para ver su ficha completa.</p>
+  <div class="centro" style="margin-bottom:40px;">
+    <span class="eyebrow">Piezas únicas</span>
+    <h1>Una sola pieza. Una sola historia.</h1>
+    <p class="lead">Algunas creaciones de Arcilla Hechizada existen una sola vez. No hay dos iguales, y cuando una encuentra a su persona, no vuelve a repetirse.</p>
   </div>
 
-  <!-- BÚSQUEDA Y FILTROS -->
-  <div class="controles-tienda">
-    <input type="search" id="input-busqueda" placeholder="Buscar por nombre o palabra clave..." aria-label="Buscar productos">
-    <div class="filtros-categoria" id="filtros-categoria">
-      <button class="btn-filtro activo" data-cat="todas">Todas</button>
-      <button class="btn-filtro" data-cat="grimorios">Grimorios</button>
-      <button class="btn-filtro" data-cat="amuletos">Amuletos</button>
-      <button class="btn-filtro" data-cat="pociones">Pociones</button>
-      <button class="btn-filtro" data-cat="mandala">Mandala</button>
-      <button class="btn-filtro" data-cat="botellitas">Botellitas</button>
-      <button class="btn-filtro" data-cat="otros">Difusores y plantas</button>
-    </div>
-  </div>
+  <h2>Disponibles ahora</h2>
+  <div id="contenedor-piezas-disponibles" class="grid-productos" style="margin-bottom:48px;"></div>
 
-  <div id="contenedor-categorias-tienda"></div>
+  <h2>Archivo de piezas vendidas</h2>
+  <p style="color:var(--marron-gris); margin-bottom:24px;">Estas piezas ya encontraron su hogar. Se conservan aquí como prueba de que cada creación es real.</p>
+  <div id="contenedor-piezas-vendidas" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -116,8 +107,7 @@
 <script src="js/main.js"></script>
 <script>
   cargarDatos().then(() => {
-    renderTiendaCompleta('contenedor-categorias-tienda');
-    inicializarFiltrosYBusqueda();
+    renderPiezasUnicas('contenedor-piezas-disponibles', 'contenedor-piezas-vendidas');
   });
 </script>
 </body>
