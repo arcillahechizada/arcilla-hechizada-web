@@ -114,7 +114,6 @@ p{ margin: 0 0 1em; color: var(--marron-gris); font-size: 1.02rem; }
   height: auto !important;
   object-fit: contain !important;
 }
-}
 
 .eyebrow{
   font-family: var(--font-titulo);
@@ -125,7 +124,6 @@ p{ margin: 0 0 1em; color: var(--marron-gris); font-size: 1.02rem; }
   margin-bottom: 0.4em;
   display:block;
 }
-
 .ornamento{
   width: 40px;
   height: 1px;
