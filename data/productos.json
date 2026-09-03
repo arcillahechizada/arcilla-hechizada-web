@@ -2,7 +2,7 @@
   "productos": [
     {
       "notaInterna": "Revisar la imagen enviada por el cliente en WhatsApp antes de moldear el relieve central.",
-      "opcionesPersonalizacion": "Imagen de la portada (símbolo, ilustración o fotografía enviada por el cliente).",
+      "opcionesPersonalizacion": "Imagen de la portada.",
       "descripcionCompleta": "No es una caja decorada para parecer un libro. Es arcilla natural moldeada desde cero hasta convertirse en uno: cubierta, lomo, textura de piel envejecida, todo nace de la misma pieza y se pinta a mano hasta lograr ese aspecto de tomo antiguo que ha viajado mucho.\n\nPor fuera guarda las apariencias. Por dentro, guarda lo que tú decidas: cartas de tarot, oráculos, runas, hierbas, amuletos, joyas o cualquier objeto al que quieras dar un lugar propio. Y en la portada, el detalle que hace que cada pieza sea irrepetible de verdad: una imagen personalizada. Envíanos tu foto, tu dibujo, tu símbolo o tu frase, y la trasladamos a la superficie de la caja.\n\nExisten dos tamaños: el mediano, equivalente aproximadamente a un A5, y el pequeño, pensado para el formato de cartas de tarot u oráculo. Si necesitas una medida distinta, se estudia como encargo especial con presupuesto propio.\n\nLos diseños de esta colección no son fijos: van cambiando con el tiempo, así que la pieza que encuentras hoy puede no repetirse mañana. Y como cada Grimorio Caja se modela y pinta a mano, ninguno sale exactamente igual a otro.\n\nQuizá ya sepas qué imagen quieres ver en la tuya.",
       "descripcionCorta": "Por fuera, un libro antiguo. Por dentro, un espacio real para guardar lo que te importa. El Grimorio Caja se construye desde cero en arcilla natural, con acabado efecto piel pintado a mano, y permite personalizar la imagen central: tu foto, tu símbolo, tu frase.",
       "estado": "disponible",
@@ -17,6 +17,24 @@
       "medidas": "Tamaño A5 aproximado (ideal para cuadernos estándar y objetos medianos).",
       "elaboracion": "Moldeada, tallada y pintada 100% a mano con arcilla natural de secado al aire. Acabado artesanal efecto piel con técnica propia.",
       "id": "grimorio-mediano"
+    },
+    {
+      "notaInterna": "Revisar la imagen enviada por el cliente en WhatsApp antes de moldear el relieve central.",
+      "opcionesPersonalizacion": "Imagen de la portada.",
+      "descripcionCompleta": "No es una caja decorada para parecer un libro. Es arcilla natural moldeada desde cero hasta convertirse en uno: cubierta, lomo, textura de piel envejecida, todo nace de la misma pieza y se pinta a mano hasta lograr ese aspecto de tomo antiguo que ha viajado mucho.\n\nPor fuera guarda las apariencias. Por dentro, guarda lo que tú decidas: cartas de tarot, oráculos, runas, hierbas, amuletos, joyas o cualquier objeto al que quieras dar un lugar propio. Y en la portada, el detalle que hace que cada pieza sea irrepetible de verdad: una imagen personalizada. Envíanos tu foto, tu dibujo, tu símbolo o tu frase, y la trasladamos a la superficie de la caja.\n\nExisten dos tamaños: el mediano, equivalente aproximadamente a un A5, y el pequeño, pensado para el formato de cartas de tarot u oráculo. Si necesitas una medida distinta, se estudia como encargo especial con presupuesto propio.\n\nLos diseños de esta colección no son fijos: van cambiando con el tiempo, así que la pieza que encuentras hoy puede no repetirse mañana. Y como cada Grimorio Caja se modela y pinta a mano, ninguno sale exactamente igual a otro.\n\nQuizá ya sepas qué imagen quieres ver en la tuya.",
+      "descripcionCorta": "Por fuera, un libro antiguo. Por dentro, un espacio real para guardar lo que te importa. El Grimorio Caja se construye desde cero en arcilla natural, con acabado efecto piel pintado a mano, y permite personalizar la imagen central: tu foto, tu símbolo, tu frase.",
+      "estado": "disponible",
+      "precio": 40,
+      "nombre": "Caja Grimorio Personalizable Tamaño pequeño – Libro Antiguo Artesanal Efecto Piel",
+      "personalizable": true,
+      "categoria": "grimorios",
+      "simbolismo": "La apariencia de libro antiguo conecta con la figura del grimorio dentro de la tradición esotérica: el cuaderno o volumen donde históricamente se recogían conocimientos, fórmulas y secretos de quien lo poseía. Esta pieza traslada esa idea a un objeto funcional distinto: una caja que oculta su verdadera naturaleza tras una apariencia familiar.\n\nDentro de esta interpretación, puede utilizarse como:\n\nCofre simbólico para cartas de tarot, oráculos o runas, guardando también la intención con la que se consultan.\n\nEspacio de resguardo para amuletos, hierbas o joyas con un significado personal.\n\nCaja para rituales, pensada como lugar reservado para objetos que se usan con intención.\n\nPieza decorativa que aporta presencia y misterio a cualquier rincón, incluso sin nada guardado dentro.\n\nLa personalización de la imagen permite que cada persona convierta esta interpretación general en algo propio, ligado a su historia, su práctica o su simbolismo particular.",
+      "cuidados": "Limpiar en seco con un paño suave o plumero. Evitar el contacto directo con agua abundante o humedad extrema.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua, barniz protector mate.",
+      "permiteOtroColor": false,
+      "medidas": "Tamaño perfecto para guardar cartas oráculo, tarot, etc.",
+      "elaboracion": "Moldeada, tallada y pintada 100% a mano con arcilla natural de secado al aire. Acabado artesanal efecto piel con técnica propia.",
+      "id": "grimorio-pequeño"
     }
   ]
 }
