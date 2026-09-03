@@ -138,7 +138,9 @@
     <a id="btn-volver" href="tienda.html" class="btn btn-secundario">← Volver a la Tienda</a>
   </div>
 
-  <div class="contenedor-ficha">
+  <div id="ficha-contenido"></div>
+
+<div class="contenedor-ficha">
     <div class="visor-imagen">
       <span class="badge-disponible" style="position:absolute; top:16px; left:16px;">Disponible</span>
       <img id="img-producto" src="" alt="" onerror="this.style.display='none';">
@@ -707,5 +709,7 @@
   }
 </script>
 <script src="js/main.js"></script>
+<script src="js/render.js"></script>
+<script>cargarDatos().then(() => renderFicha());</script>
 </body>
 </html>
