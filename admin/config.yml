@@ -73,7 +73,7 @@ collections:
               - { label: "Vídeo (enlace, opcional)", name: "video", widget: "string", required: false }
               - { label: "Descripción corta", name: "descripcionCorta", widget: "text", required: false }
               - { label: "Descripción completa", name: "descripcionCompleta", widget: "text", required: false }
-              - { label: "Simbolismo / uso", name: "simbolismo", widget: "text", required: false }
+              - { label: "Simbolismo y uso", name: "simbolismo", widget: "text", required: false }
               - { label: "Materiales", name: "materiales", widget: "text", required: false }
               - { label: "Medidas", name: "medidas", widget: "text", required: false }
               - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
