@@ -73,69 +73,7 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Creaciones artesanales cargadas de intención. Disponibles en formato collar, llavero o piezas decorativas.</p>
   </div>
 
-  <div class="grid-productos">
-
-    <!-- Producto 1: Amor Eterno -->
-    <a href="ficha.html?id=amor-eterno" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/botellita-amor-eterno.jpg" alt="Amor Eterno" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Amor Eterno</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 2: Agua de Luna -->
-    <a href="ficha.html?id=agua-de-luna" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/botellita-agua-de-luna.jpg" alt="Agua de Luna" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Agua de Luna</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 3: Botellita Protección -->
-    <a href="ficha.html?id=proteccion" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/botellita-proteccion.jpg" alt="Botellita Protección" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Botellita Protección</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 4: Protección Lágrima -->
-    <a href="ficha.html?id=proteccion-lagrima" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/botellita-lagrima.jpg" alt="Botellita Protección Lágrima" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Protección Lágrima</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 5: Guardián de los Bosques -->
-    <a href="ficha.html?id=guardian-bosques" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/guardian-de-los-bosques.jpg" alt="Lámpara Guardián de los Bosques" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Lámpara Guardián de los Bosques</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-  </div>
+  <div id="productos-botellitas" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -184,6 +122,8 @@
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(() => renderCategoria('productos-botellitas', 'botellitas'));</script>
 </body>
 </html>

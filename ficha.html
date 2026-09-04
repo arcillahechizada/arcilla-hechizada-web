@@ -7,49 +7,198 @@
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .contenedor-ficha { display:none; }
-  .ficha-dinamica { margin-top:24px; }
-  .detalles-producto h1 { font-size:2.2rem; margin-bottom:8px; }
-  .ficha-dinamica .ficha-precio { margin-bottom:12px; }
-  .badge-estado-ficha { display:inline-block; padding:6px 10px; border-radius:999px; background:var(--arena-suave,#f4efe6); margin:0 0 18px; font-size:.9rem; }
-  .opciones-personalizacion { background-color:var(--arena-suave,#f4efe6); padding:20px; border-radius:8px; margin:24px 0; display:flex; flex-direction:column; gap:16px; }
-  .bloque-opcion label { display:block; font-weight:bold; margin-bottom:8px; font-size:.95rem; }
-  .bloque-opcion select,.bloque-opcion input { width:100%; padding:10px 12px; border-radius:6px; border:1px solid #ccc; background:#fff; font-family:inherit; font-size:1rem; box-sizing:border-box; }
-  .ficha-flecha { position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border:0; border-radius:50%; background:rgba(255,255,255,.88); cursor:pointer; font-size:30px; line-height:1; z-index:2; }
-  .ficha-flecha-prev { left:12px; }.ficha-flecha-next { right:12px; }
-  .ficha-flecha:hover { background:#fff; }
-  .btn-whatsapp { text-decoration:none; }
-  @media(max-width:899px){ .detalles-producto h1{font-size:1.8rem;} }
+  .contenedor-ficha {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-top: 24px;
+  }
+  @media (min-width: 768px) {
+    .contenedor-ficha {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+  .visor-imagen {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background-color: var(--arena-suave, #f4efe6);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .visor-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .detalles-producto h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  .precio-ficha {
+    font-size: 1.5rem;
+    color: var(--carbon-claro, #5a4b41);
+    font-weight: bold;
+    margin-bottom: 24px;
+  }
+  .descripcion-ficha {
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .opciones-personalizacion {
+    background-color: var(--arena-suave, #f4efe6);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .bloque-opcion label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+  .bloque-opcion select, 
+  .bloque-opcion textarea,
+  .bloque-opcion input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  .info-simbolo {
+    font-size: 0.9rem;
+    color: #555;
+    background: #fff;
+    border-left: 3px solid var(--carbon, #2d241e);
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 8px;
+  }
+  .aviso-salud {
+    font-size: 0.85rem;
+    color: #666;
+    background: #fff;
+    border-left: 3px solid #d9a74a;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .estado-ficha { margin: 8px 0 8px; }
+  .ficha-universal .galeria-producto { min-width: 0; }
+  .video-ficha { margin-top: 14px; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; background: var(--beige, #eee); }
+  .video-ficha iframe { width:100%; height:100%; border:0; display:block; }
+  .opciones-ficha { background: var(--arena-suave, #f4efe6); padding: 18px; border-radius: 8px; margin-top: 20px; }
+  .opciones-ficha h3 { margin: 0 0 10px; }
+  .campo-opcion { margin-top: 12px; }
+  .campo-opcion label { display:block; font-weight:600; margin-bottom:7px; font-size:.95rem; }
+  .campo-opcion select, .campo-opcion input { width:100%; padding:10px 12px; border-radius:6px; border:1px solid #ccc; background:#fff; font:inherit; box-sizing:border-box; }
+  .ficha-detalle p { white-space: normal; line-height:1.7; }
+  .ficha-botones { margin-top: 24px; }
 </style>
 </head>
 <body>
 <div class="marca-agua" aria-hidden="true"><img src="logo.png" alt=""></div>
+
 <header class="site">
   <div class="header-inner">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Arcilla Hechizada" class="logo-img">Arcilla Hechizada</a>
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Arcilla Hechizada" class="logo-img">
+      Arcilla Hechizada
+    </a>
     <nav class="principal">
-      <a href="tienda.html" class="activo">Tienda</a><a href="piezas-unicas.html">Piezas únicas</a><a href="personalizados.html">Personalizados</a><a href="el-taller.html">Taller</a><a href="envios-y-recogida.html">Envíos</a><a href="faq.html">Preguntas</a><a href="para-tiendas.html">Tiendas</a><a href="contacto.html">Contacto</a>
+      <a href="tienda.html" class="activo">Tienda</a>
+      <a href="piezas-unicas.html">Piezas únicas</a>
+      <a href="personalizados.html">Personalizados</a>
+      <a href="el-taller.html">Taller</a>
+      <a href="envios-y-recogida.html">Envíos</a>
+      <a href="faq.html">Preguntas</a>
+      <a href="para-tiendas.html">Tiendas</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
     <a href="https://wa.me/34722379095" class="btn-whatsapp-header" target="_blank" rel="noopener">WhatsApp</a>
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </div>
   <div class="menu-movil">
-    <a href="tienda.html">Tienda</a><a href="piezas-unicas.html">Piezas únicas</a><a href="personalizados.html">Personalizados</a><a href="el-taller.html">El Taller</a><a href="opiniones.html">Opiniones</a><a href="faq.html">Preguntas frecuentes</a><a href="envios-y-recogida.html">Envíos y recogida</a><a href="https://wa.me/34722379095?text=Hola,%20me%20gustar%C3%ADa%20reservar%20un%20d%C3%ADa%20y%20hora%20para%20una%20llamada" target="_blank" rel="noopener">Reserva una llamada</a><a href="para-tiendas.html">Para tiendas</a><a href="contacto.html">Contacto</a>
+    <a href="tienda.html">Tienda</a>
+    <a href="piezas-unicas.html">Piezas únicas</a>
+    <a href="personalizados.html">Personalizados</a>
+    <a href="el-taller.html">El Taller</a>
+    <a href="opiniones.html">Opiniones</a>
+    <a href="faq.html">Preguntas frecuentes</a>
+    <a href="envios-y-recogida.html">Envíos y recogida</a>
+    <a href="https://wa.me/34722379095?text=Hola,%20me%20gustar%C3%ADa%20reservar%20un%20d%C3%ADa%20y%20hora%20para%20una%20llamada" target="_blank" rel="noopener">Reserva una llamada</a>
+    <a href="para-tiendas.html">Para tiendas</a>
+    <a href="contacto.html">Contacto</a>
   </div>
 </header>
+
 <main class="contenedor seccion">
-  <div style="margin-bottom:24px;"><a id="btn-volver" href="tienda.html" class="btn btn-secundario">← Volver a la Tienda</a></div>
+  <div style="margin-bottom: 24px;">
+    <a href="tienda.html" class="btn btn-secundario">← Volver a la Tienda</a>
+  </div>
+
   <div id="ficha-contenido"></div>
 </main>
+
 <footer class="site">
-  <div class="contenedor"><div class="footer-grid">
-    <div><h4>Arcilla Hechizada</h4><p style="opacity:.85;font-size:.9rem;">Artesanía mágica hecha a mano, pieza a pieza, con arcilla natural.</p></div>
-    <div><h4>Explora</h4><ul><li><a href="tienda.html">Tienda</a></li><li><a href="piezas-unicas.html">Piezas únicas</a></li><li><a href="personalizados.html">Personalizados</a></li><li><a href="el-grimorio.html">El Grimorio</a></li></ul></div>
-    <div><h4>Ayuda</h4><ul><li><a href="envios-y-recogida.html">Envíos y recogida</a></li><li><a href="faq.html">Preguntas frecuentes</a></li><li><a href="opiniones.html">Opiniones</a></li><li><a href="para-tiendas.html">Para tiendas</a></li></ul></div>
-    <div><h4>Contacto</h4><ul><li><a href="https://wa.me/34722379095" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:arcillahechizada@gmail.com">arcillahechizada@gmail.com</a></li><li><a href="https://www.instagram.com/arcillahechizada" target="_blank" rel="noopener">Instagram (@arcillahechizada)</a></li><li><a href="https://www.tiktok.com/@arcillahechizada" target="_blank" rel="noopener">TikTok (@arcillahechizada)</a></li><li><a href="https://www.facebook.com/arcillahechizada" target="_blank" rel="noopener">Facebook (@arcillahechizada)</a></li></ul></div>
-  </div><div class="footer-bottom"><span>© Arcilla Hechizada. Todos los derechos reservados.</span><span>Riells i Viabrea, Girona</span></div></div>
+  <div class="contenedor">
+    <div class="footer-grid">
+      <div>
+        <h4>Arcilla Hechizada</h4>
+        <p style="opacity:.85; font-size:.9rem;">Artesanía mágica hecha a mano, pieza a pieza, con arcilla natural.</p>
+      </div>
+      <div>
+        <h4>Explora</h4>
+        <ul>
+          <li><a href="tienda.html">Tienda</a></li>
+          <li><a href="piezas-unicas.html">Piezas únicas</a></li>
+          <li><a href="personalizados.html">Personalizados</a></li>
+          <li><a href="el-taller.html">Taller</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="envios-y-recogida.html">Envíos y recogida</a></li>
+          <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="opiniones.html">Opiniones</a></li>
+          <li><a href="para-tiendas.html">Para tiendas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/34722379095" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:arcillahechizada@gmail.com">arcillahechizada@gmail.com</a></li>
+          <li><a href="https://wa.me/34722379095?text=Hola,%20me%20gustar%C3%ADa%20reservar%20un%20d%C3%ADa%20y%20hora%20para%20una%20llamada" target="_blank" rel="noopener">Reserva una llamada</a></li>
+          <li><a href="https://www.instagram.com/arcillahechizada" target="_blank" rel="noopener">Instagram (@arcillahechizada)</a></li>
+          <li><a href="https://www.tiktok.com/@arcillahechizada" target="_blank" rel="noopener">TikTok (@arcillahechizada)</a></li>
+          <li><a href="https://www.facebook.com/arcillahechizada" target="_blank" rel="noopener">Facebook (@arcillahechizada)</a></li> 
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Arcilla Hechizada. Todos los derechos reservados.</span>
+      <span>Riells i Viabrea, Girona</span>
+    </div>
+  </div>
 </footer>
-<a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
-<script src="js/render.js"></script><script src="js/main.js"></script><script>cargarDatos().then(() => renderFicha());</script>
+
+<script src="js/main.js"></script>
+<script src="js/render.js"></script>
+<script>cargarDatos().then(() => renderFicha());</script>
 </body>
 </html>

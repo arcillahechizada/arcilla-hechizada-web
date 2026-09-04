@@ -73,48 +73,7 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Piezas de protección, equilibrio y energía positiva hechas a mano en arcilla natural.</p>
   </div>
 
-  <div class="grid-productos">
-
-    <!-- Producto 1: Nudo de Bruja -->
-    <a href="ficha.html?id=nudo-de-bruja" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/amuleto-nudo-de-bruja.jpg" alt="Nudo de Bruja" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Nudo de Bruja</h3>
-        <p style="font-size: 0.85rem; color: #666; margin: 4px 0;">Protección, unión y equilibrio energético</p>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 2: Mano de Fátima -->
-    <a href="ficha.html?id=mano-de-fatima" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/amuleto-mano-de-fatima.jpg" alt="Mano de Fátima" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Mano de Fátima</h3>
-        <p style="font-size: 0.85rem; color: #666; margin: 4px 0;">Protección, Mal de Ojo y Buena Suerte</p>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 3: Línea Efecto Piedra (12 Símbolos) -->
-    <a href="ficha.html?id=linea-efecto-piedra" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">12 Símbolos</span>
-        <img src="img/amuleto-efecto-piedra.jpg" alt="Línea Efecto Piedra" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Amuletos Línea Efecto Piedra</h3>
-        <p style="font-size: 0.85rem; color: #666; margin: 4px 0;">Acabado piedra grisácea mística</p>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-  </div>
+  <div id="productos-amuletos" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -163,6 +122,8 @@
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(() => renderCategoria('productos-amuletos', 'amuletos'));</script>
 </body>
 </html>

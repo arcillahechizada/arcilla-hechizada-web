@@ -73,45 +73,7 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Elementos aromáticos, botánicos y mezclas de plantas secas preparadas según tus necesidades.</p>
   </div>
 
-  <div class="grid-productos">
-
-    <!-- Producto 1: Difusor de Aroma -->
-    <a href="ficha.html?id=difusor-aroma" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/difusor-aroma.jpg" alt="Difusor de Aroma" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Difusor de Aroma Artesanal</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 2: Planta Aloe Vera -->
-    <a href="ficha.html?id=planta-aloe-vera" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/planta-aloe-vera.jpg" alt="Planta de Aloe Vera" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Planta de Aloe Vera</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 3: Mezcla de Infusiones Personalizadas -->
-    <a href="ficha.html?id=infusion-personalizada" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">A Medida</span>
-        <img src="img/infusion-personalizada.jpg" alt="Mezcla de Infusión Personalizada" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Mezcla de Infusión Herbal Personalizada</h3>
-        <p class="precio">Precio según mezcla</p>
-      </div>
-    </a>
-
-  </div>
+  <div id="productos-difusores" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -160,6 +122,8 @@
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(() => renderCategoria('productos-difusores', 'difusores'));</script>
 </body>
 </html>
