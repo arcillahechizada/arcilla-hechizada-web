@@ -73,69 +73,7 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Pociones decorativas y packs especiales creados a mano cargados de simbolismo, folclore y magia.</p>
   </div>
 
-  <div class="grid-productos">
-
-    <!-- Producto 1: Pack Corazón Guardián -->
-    <a href="ficha.html?id=corazon-guardian" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/pocion-corazon-guardian.jpg" alt="Pack Corazón Guardián" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Pack Corazón Guardián</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 2: Poción del Bosque -->
-    <a href="ficha.html?id=pocion-del-bosque" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/pocion-del-bosque.jpg" alt="Poción del Bosque" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Porta Silvarum – El Portal del Bosque</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 3: Poción Nocturna -->
-    <a href="ficha.html?id=pocion-nocturna" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/pocion-nocturna.jpg" alt="Poción Nocturna" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Poción Lunar (Misterio y Protección Nocturna)</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 4: Poción Belladona -->
-    <a href="ficha.html?id=pocion-belladona" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/pocion-belladona.jpg" alt="Pócima de Belladona" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Pócima de Belladona</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 5: Poción de Arce -->
-    <a href="ficha.html?id=pocion-de-arce" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/pocion-de-arce.jpg" alt="Elixir de Arce" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Elixir de Arce (Renacer y Transformación)</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-  </div>
+  <div id="productos-pociones" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -184,6 +122,8 @@
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(() => renderCategoria('productos-pociones', 'pociones'));</script>
 </body>
 </html>
