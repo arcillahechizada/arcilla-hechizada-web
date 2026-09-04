@@ -73,69 +73,7 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Piezas simbólicas y joyería artesanal modelada en arcilla natural de secado al aire y pintada a mano.</p>
   </div>
 
-  <div class="grid-productos">
-
-    <!-- Producto 1 -->
-    <a href="ficha.html?id=conjunto-mandala-floral" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/conjunto-mandala-floral.jpg" alt="Conjunto Collar y Pendientes Mandala Floral" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Conjunto Collar y Pendientes Mandala Floral</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 2 -->
-    <a href="ficha.html?id=collar-mandala-grande" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/collar-mandala-grande.jpg" alt="Collar Mandala Grande" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Collar Mandala Grande</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 3 -->
-    <a href="ficha.html?id=collar-mandala-pequeno" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/collar-mandala-pequeno.jpg" alt="Collar Mandala Pequeño" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Collar Mandala Pequeño</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 4 -->
-    <a href="ficha.html?id=collar-mandala-grande-sorprendeme" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/collar-mandala-grande-sorprendeme.jpg" alt="Collar Mandala Grande Sorpréndeme" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Collar Mandala Grande Sorpréndeme</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-    <!-- Producto 5 -->
-    <a href="ficha.html?id=collar-mandala-pequeno-sorprendeme" class="tarjeta-producto">
-      <div class="imagen-tarjeta">
-        <span class="badge-disponible">Disponible</span>
-        <img src="img/collar-mandala-pequeno-sorprendeme.jpg" alt="Collar Mandala Pequeño Sorpréndeme" onerror="this.style.display='none';">
-      </div>
-      <div class="info-tarjeta">
-        <h3>Collar Mandala Pequeño Sorpréndeme</h3>
-        <p class="precio">Precio pendiente</p>
-      </div>
-    </a>
-
-  </div>
+  <div id="productos-mandalas" class="grid-productos"></div>
 </main>
 
 <footer class="site">
@@ -184,6 +122,8 @@
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(() => renderCategoria('productos-mandalas', 'mandala'));</script>
 </body>
 </html>
