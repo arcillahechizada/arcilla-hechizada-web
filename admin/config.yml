@@ -52,9 +52,9 @@ collections:
               - label: "Categoría"
                 name: "categoria"
                 widget: "select"
-                options: ["grimorios", "amuletos", "pociones", "mandala", "botellitas", "otros"]
+                options: ["grimorios", "amuletos", "pociones", "mandala", "botellitas", "difusores", "otros"]
               - { label: "Nombre", name: "nombre", widget: "string" }
-              - { label: "Precio (en euros, deja vacío si aún no lo sabes)", name: "precio", widget: "number", required: false, value_type: "float" }
+              - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
               - label: "Estado"
                 name: "estado"
                 widget: "select"
@@ -63,7 +63,7 @@ collections:
                   - { label: "Bajo pedido", value: "bajo_pedido" }
                   - { label: "Agotado", value: "agotado" }
                   - { label: "Vendido", value: "vendido" }
-                  - { label: "Oculto (no se muestra en la web)", value: "oculto" }
+                  - { label: "Oculto (no se muestra)", value: "oculto" }
               - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
               - label: "Galería (varias fotos)"
                 name: "galeria"
@@ -71,27 +71,49 @@ collections:
                 required: false
                 field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
               - { label: "Vídeo (enlace, opcional)", name: "video", widget: "string", required: false }
-              - { label: "Descripción corta", name: "descripcionCorta", widget: "text", required: false }
-              - { label: "Descripción completa", name: "descripcionCompleta", widget: "text", required: false }
+              - { label: "Descripción corta (aparece en la tarjeta)", name: "descripcionCorta", widget: "text", required: false }
+              - { label: "Descripción completa (aparece en la ficha)", name: "descripcionCompleta", widget: "text", required: false }
               - { label: "Simbolismo y uso", name: "simbolismo", widget: "text", required: false }
               - { label: "Materiales", name: "materiales", widget: "text", required: false }
               - { label: "Medidas", name: "medidas", widget: "text", required: false }
               - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
-              - { label: "Elaboración", name: "elaboracion", widget: "text", required: false }
+              - { label: "Elaboración", name: "elaboracion", widget: "text", default: "100% a mano." }
               - { label: "¿Se puede personalizar?", name: "personalizable", widget: "boolean", default: false }
-              - { label: "Opciones de personalización", name: "opcionesPersonalizacion", widget: "text", required: false }
-              - { label: "¿Se puede pedir en otro color no fotografiado?", name: "permiteOtroColor", widget: "boolean", default: false }
+              - { label: "Texto de personalización que verá el cliente", name: "opcionesPersonalizacion", widget: "text", required: false, condition: { field: "personalizable", value: true } }
+              - { label: "Activar desplegables de personalización", name: "activarSelectorPersonalizacion", widget: "boolean", default: false, condition: { field: "personalizable", value: true } }
+              - label: "Opciones de personalización para el cliente"
+                name: "opcionesPersonalizacionCliente"
+                widget: "list"
+                required: false
+                condition: { field: "activarSelectorPersonalizacion", value: true }
+                fields:
+                  - { label: "Título de la opción", name: "nombre", widget: "string" }
+                  - label: "Opciones que podrá elegir el cliente"
+                    name: "opciones"
+                    widget: "list"
+                    field: { label: "Opción", name: "opcion", widget: "string" }
+              - { label: "Activar selector de variantes / colores", name: "mostrarVariantes", widget: "boolean", default: false }
               - label: "Variantes / colores"
                 name: "variantes"
                 widget: "list"
                 required: false
+                condition: { field: "mostrarVariantes", value: true }
                 fields:
-                  - { label: "Nombre del color", name: "color", widget: "string" }
+                  - { label: "Nombre del color / variante", name: "color", widget: "string" }
                   - label: "Fotos de esta variante"
                     name: "imagenes"
                     widget: "list"
+                    required: false
                     field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
                   - { label: "¿Disponible?", name: "disponible", widget: "boolean", default: true }
+              - { label: "Activar selector Collar / Llavero", name: "mostrarCollarLlavero", widget: "boolean", default: false }
+              - label: "Formatos disponibles"
+                name: "formatosDisponibles"
+                widget: "list"
+                required: false
+                condition: { field: "mostrarCollarLlavero", value: true }
+                field: { label: "Formato", name: "formato", widget: "string" }
+              - { label: "¿Se puede pedir otro color no fotografiado?", name: "permiteOtroColor", widget: "boolean", default: false }
               - { label: "Nota interna (solo la ves tú, no aparece en la web)", name: "notaInterna", widget: "text", required: false }
 
   - name: "piezas_unicas"
