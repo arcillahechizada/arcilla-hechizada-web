@@ -1,0 +1,38 @@
+name: Actualizar catálogo de productos
+
+on:
+  push:
+    paths:
+      - 'data/productos/*.json'
+      - 'data/infusiones/*.json'
+      - 'data/inciensos/*.json'
+      - 'scripts/generar-productos.py'
+      - '.github/workflows/generar-catalogo-productos.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Generar catálogo
+        run: python scripts/generar-productos.py
+      - name: Guardar catálogo generado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/productos.json
+          if git diff --cached --quiet; then
+            echo "No hay cambios en el catálogo."
+          else
+            git commit -m "Actualiza catálogo de productos"
+            git push
+          fi

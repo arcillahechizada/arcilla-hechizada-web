@@ -31,7 +31,8 @@
       "simbolismo": "El Ave Fénix se asocia en distintas tradiciones a la idea de morir y renacer. Aquí se interpreta como símbolo de transformación y resiliencia personal. Este significado pertenece al terreno de la tradición y la interpretación espiritual, no a una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 10
     },
     {
       "id": "caja-grimorio-mediano-personalizable",
@@ -68,7 +69,8 @@
         "Bizum",
         "PayPal",
         "Efectivo"
-      ]
+      ],
+      "orden": 20
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -97,7 +99,8 @@
       "simbolismo": "El mandala floral se utiliza en distintas prácticas como imagen de concentración y contemplación. En esta pieza representa calma, equilibrio y conexión personal con el aroma elegido.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 30
     },
     {
       "id": "eclipse-lunar",
@@ -128,7 +131,8 @@
         "PayPal",
         "Efectivo"
       ],
-      "galeria": []
+      "galeria": [],
+      "orden": 40
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -161,7 +165,8 @@
       "simbolismo": "La enredadera añade las ideas de unión, crecimiento y apoyo mutuo al símbolo central. En conjunto se interpreta como protección continua y conexión armoniosa con el entorno natural y personal. Es simbolismo espiritual, no una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 50
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -194,7 +199,8 @@
       "simbolismo": "La imagen se inspira en el imaginario de la brujería verde y del aquelarre como espacio de encuentro y apoyo. En esta pieza representa protección del grupo, conexión con el bosque y equilibrio entre fuerza individual y comunidad. Es simbolismo espiritual, no una promesa de protección objetiva.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 60
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -227,7 +233,8 @@
       "simbolismo": "La lanza y la punta de flecha se han asociado en distintas culturas con dirección, impulso y decisión. En esta pieza representa coraje, voluntad y determinación. Es una interpretación simbólica y personal, no una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 70
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -259,7 +266,8 @@
       "simbolismo": "La Mano de Fátima, o Hamsa, está documentada en distintas tradiciones y se vincula popularmente con la protección. Los matices de color pertenecen a la interpretación simbólica contemporánea. Su función protectora no es una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 80
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -292,7 +300,8 @@
       "simbolismo": "El nudo de bruja se interpreta en la tradición esotérica contemporánea como símbolo de protección continua y unión entre cuerpo, mente y espíritu. Su origen exacto no está firmemente documentado en una sola cultura o época. Este significado pertenece a la tradición y la interpretación personal.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 90
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -324,7 +333,8 @@
       "simbolismo": "El nudo de bruja se interpreta en la tradición esotérica contemporánea como símbolo de protección continua y unión entre cuerpo, mente y espíritu. Su significado pertenece a la tradición popular y a la interpretación personal.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 100
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -357,7 +367,8 @@
       "simbolismo": "El Ojo de Horus, o Wedjat, está documentado en el antiguo Egipto y se vinculó con protección, salud y restauración. En esta pieza se añade la interpretación contemporánea de intuición y percepción espiritual. Su función protectora pertenece a la tradición y la creencia, no a una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 110
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -390,7 +401,8 @@
       "simbolismo": "El círculo, la escoba, el gorro y la enredadera evocan unión, crecimiento y apoyo mutuo dentro del imaginario del aquelarre. Se interpreta como guía y conexión con quienes comparten un camino espiritual. Es un significado simbólico, no una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 120
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -423,7 +435,8 @@
       "simbolismo": "Dentro del diseño de esta colección, el Tetragrama representa equilibrio elemental y totalidad. El círculo refuerza la idea simbólica de protección. Este significado pertenece a la práctica espiritual personal y no a una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 130
     },
     {
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
@@ -456,7 +469,8 @@
       "simbolismo": "Cada símbolo aporta su propio significado dentro de esta colección: el Tetragrama representa la unión de los cuatro elementos con el espíritu; la media luna se asocia a la energía lunar y la intuición; y la triqueta representa la armonía. Este significado pertenece al terreno de la tradición y la interpretación simbólica, no a una propiedad demostrada.",
       "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
       "imagenPrincipal": "",
-      "galeria": []
+      "galeria": [],
+      "orden": 140
     }
   ]
 }

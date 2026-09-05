@@ -63,6 +63,7 @@ collections:
           - { label: "Plantas / Semillas", value: "plantas_semillas" }
           - { label: "Otros", value: "otros" }
       - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
       - label: "Colección (opcional)"
         name: "coleccion"
         widget: "select"
@@ -158,6 +159,7 @@ collections:
     fields:
       - { label: "Identificador (único, sin espacios)", name: "id", widget: "string" }
       - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
       - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
       - label: "Estado"
         name: "estado"
@@ -208,6 +210,7 @@ collections:
     fields:
       - { label: "Identificador (único, sin espacios)", name: "id", widget: "string" }
       - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
       - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
       - label: "Estado"
         name: "estado"
