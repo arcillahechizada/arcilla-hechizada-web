@@ -512,3 +512,84 @@ footer.site a:hover{ opacity:1; color: var(--bronce); }
 .ficha-botones-tienda .btn{cursor:pointer}.btn-carrito{border:0;background:var(--terracota);color:var(--blanco);font:inherit}.btn-carrito:hover{background:var(--terracota-oscuro)}.btn-whatsapp-producto{background:var(--oliva);color:var(--blanco)}.aviso-no-compra{margin-top:22px}
 @media(max-width:899px){.carrito-layout{grid-template-columns:1fr}.carrito-pago{position:static}.enlace-carrito{display:none}}
 @media(max-width:560px){.carrito-ticket,.carrito-pago{padding:18px}.carrito-item{grid-template-columns:56px minmax(0,1fr);gap:10px}.carrito-item-foto{width:56px;height:56px}.carrito-cantidad{grid-column:2;justify-content:flex-start}.carrito-eliminar{grid-column:2}.ticket-cabecera{font-size:1.15rem}}
+
+
+/* ---------- Navegación Tienda + carrito ---------- */
+.menu-tienda{position:relative;display:flex;align-items:center}
+.menu-tienda .tienda-trigger{display:inline-flex;align-items:center;gap:5px}
+.menu-tienda .tienda-trigger::after{content:'⌄';font-size:.75rem;transform:translateY(-1px)}
+.submenu-tienda{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:210px;padding:8px;background:var(--crema);border:1px solid var(--linea);border-radius:10px;box-shadow:var(--sombra-suave);display:none;z-index:80}
+.menu-tienda:hover .submenu-tienda,.menu-tienda:focus-within .submenu-tienda{display:block}
+.submenu-tienda a{display:block!important;padding:9px 12px!important;font-size:.88rem!important;border-radius:6px}
+.submenu-tienda a:hover{background:var(--beige)}
+.enlace-carrito{display:inline-flex;align-items:center;gap:6px;margin-left:12px;font-size:.9rem;font-weight:600;white-space:nowrap}
+.enlace-carrito span{min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--terracota);color:var(--blanco);display:inline-flex;align-items:center;justify-content:center;font-size:.72rem}
+.menu-tienda-movil{border-bottom:1px solid var(--linea)}
+.menu-tienda-movil summary{padding:12px 0;font-size:1rem;cursor:pointer;list-style:none}
+.menu-tienda-movil summary::-webkit-details-marker{display:none}
+.menu-tienda-movil summary::after{content:'⌄';float:right}
+.menu-tienda-movil[open] summary::after{content:'⌃'}
+.menu-tienda-movil a{display:block;padding:9px 0 9px 18px;border-bottom:0;font-size:.94rem}
+.enlace-carrito-movil{font-weight:600!important}
+.btn-whatsapp-header{display:none!important}
+
+/* ---------- Ficha limpia ---------- */
+.ficha-universal .detalles-ficha{min-width:0}
+.ficha-universal h1{overflow-wrap:anywhere}
+.ficha-detalle{border-top:1px solid var(--linea);padding-top:20px;margin-top:20px}
+.ficha-detalle h3{font-size:1.1rem}
+.ficha-detalle p{line-height:1.7}
+.ficha-acordeon{border-top:1px solid var(--linea);margin-top:20px;padding-top:0}
+.ficha-acordeon summary{cursor:pointer;list-style:none;font-family:var(--font-titulo);font-weight:600;font-size:1.1rem;padding:18px 0}
+.ficha-acordeon summary::-webkit-details-marker{display:none}
+.ficha-acordeon summary::after{content:'⌄';float:right;font-family:var(--font-texto);font-size:.9rem}
+.ficha-acordeon[open] summary::after{content:'⌃'}
+.acordeon-contenido{padding:0 0 18px}
+.leer-mas{margin-top:8px}
+.leer-mas summary{cursor:pointer;font-weight:600;text-decoration:underline;list-style:none;display:inline-block;padding:3px 0}
+.leer-mas summary::-webkit-details-marker{display:none}
+.leer-mas summary::after{content:''}
+.leer-mas .acordeon-contenido p{margin-top:14px}
+.opciones-ficha{background:var(--arena-suave,#f4efe6);padding:18px;border-radius:8px;margin-top:20px}
+.opciones-ficha h3{margin:0 0 10px}
+.campo-opcion{margin-top:12px}.campo-opcion label{display:block;font-weight:600;margin-bottom:7px;font-size:.95rem}
+.campo-opcion select,.campo-opcion input{width:100%;padding:10px 12px;border-radius:6px;border:1px solid #ccc;background:#fff;font:inherit;box-sizing:border-box}
+.ficha-botones-tienda{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn-carrito{border:0;background:var(--terracota);color:var(--blanco);font:inherit}.btn-carrito:hover{background:var(--terracota-oscuro)}
+.btn-whatsapp-producto{background:var(--oliva);color:var(--blanco)}
+.aviso-no-compra{margin-top:22px}
+
+/* ---------- Carrito ---------- */
+.carrito-item-foto,.carrito-producto-enlace{cursor:pointer}
+.carrito-producto-enlace:hover h3{color:var(--terracota)}
+.carrito-item-foto{color:var(--bronce);text-decoration:none}
+.carrito-item-foto img{transition:transform .2s ease}.carrito-item-foto:hover img{transform:scale(1.04)}
+.btn-pagar{background:var(--terracota);color:var(--blanco);font-weight:700;letter-spacing:.08em}.btn-pagar:hover{background:var(--terracota-oscuro)}
+.aviso-envio{font-size:.72rem!important;line-height:1.55;margin-top:15px!important;color:var(--carbon)!important}.aviso-envio a{text-decoration:underline}
+.marca-correos{font-weight:800;background:#ffd400;color:#111;padding:1px 4px;border-radius:2px}
+
+@media(max-width:899px){
+  .enlace-carrito{display:none!important}
+  .ficha-producto{grid-template-columns:1fr;gap:28px}
+  .ficha-universal{padding-left:10px;padding-right:10px}
+  .ficha-universal .galeria-producto,.ficha-universal .detalles-ficha{width:100%;max-width:760px;margin-left:auto;margin-right:auto}
+  .ficha-universal .detalles-ficha{text-align:left}
+}
+@media(max-width:560px){
+  .contenedor{padding-left:20px;padding-right:20px}
+  .ficha-universal{padding-left:4px;padding-right:4px}
+  .ficha-universal h1{font-size:2rem}
+  .ficha-botones-tienda .btn{width:100%}
+  .carrito-ticket,.carrito-pago{padding:18px}
+  .carrito-item{grid-template-columns:56px minmax(0,1fr);gap:10px}
+  .carrito-item-foto{width:56px;height:56px}
+  .carrito-cantidad{grid-column:2;justify-content:flex-start}
+  .carrito-eliminar{grid-column:2}
+}
+
+/* ---------- Infusiones: consulta personalizada ---------- */
+.cuestionario-infusiones{margin-left:-28px;margin-right:-28px}
+.formulario-consulta-plantas{max-width:760px;margin:0 auto;background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:28px;box-shadow:var(--sombra-suave)}
+.consentimiento{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;line-height:1.5;color:var(--carbon);margin:12px 0 18px}.consentimiento input{margin-top:4px;flex:0 0 auto}
+.cantidad-ficha{display:flex;align-items:center;gap:10px;margin:20px 0 0;padding:12px 14px;background:var(--beige);border:1px solid var(--linea);border-radius:8px;width:max-content}.cantidad-ficha span{font-size:.9rem;font-weight:600;margin-right:5px}.cantidad-ficha button{width:32px;height:32px;border:1px solid var(--linea);background:var(--blanco);border-radius:50%;cursor:pointer;font-size:1.1rem}.cantidad-ficha strong{min-width:20px;text-align:center}
+@media(max-width:899px){.cuestionario-infusiones{margin-left:-20px;margin-right:-20px}}

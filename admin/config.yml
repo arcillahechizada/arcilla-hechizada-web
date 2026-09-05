@@ -36,6 +36,9 @@ public_folder: "img/uploads"
 locale: "es"
 
 collections:
+  # ---------------------------------------------------------------
+  # PRODUCTOS ARTESANALES — un archivo independiente por producto
+  # ---------------------------------------------------------------
   - name: "productos"
     label: "Productos"
     label_singular: "Producto"
@@ -43,16 +46,22 @@ collections:
     create: true
     delete: true
     identifier_field: "nombre"
+    slug: "{{id}}"
     extension: "json"
     format: "json"
-    slug: "{{id}}"
-    summary: "{{nombre}} — {{categoria}} — {{estado}}"
     fields:
-      - { label: "Identificador (único, sin espacios)", name: "id", widget: "string", hint: "Ejemplo: pocion-bosque-01. No lo cambies después de publicar el producto." }
+      - { label: "Identificador (único, sin espacios)", name: "id", widget: "string", hint: "No lo cambies una vez publicado." }
       - label: "Categoría"
         name: "categoria"
         widget: "select"
-        options: ["grimorios", "amuletos", "pociones", "mandala", "botellitas", "difusores", "otros"]
+        options:
+          - { label: "Grimorios", value: "grimorios" }
+          - { label: "Amuletos", value: "amuletos" }
+          - { label: "Pociones", value: "pociones" }
+          - { label: "Mandala", value: "mandala" }
+          - { label: "Botellitas", value: "botellitas" }
+          - { label: "Plantas / Semillas", value: "plantas_semillas" }
+          - { label: "Otros", value: "otros" }
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
       - label: "Estado"
@@ -65,7 +74,6 @@ collections:
           - { label: "Agotado", value: "agotado" }
           - { label: "Vendido", value: "vendido" }
           - { label: "No publicar todavía", value: "oculto" }
-        hint: "Mientras estés preparando la ficha, déjalo en «No publicar todavía»."
       - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
       - label: "Galería (varias fotos)"
         name: "galeria"
@@ -74,27 +82,27 @@ collections:
         field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
       - { label: "Vídeo (enlace, opcional)", name: "video", widget: "string", required: false }
       - { label: "Descripción corta (solo tarjeta)", name: "descripcionCorta", widget: "text", required: false }
-      - { label: "Descripción completa (solo ficha individual)", name: "descripcionCompleta", widget: "text", required: false }
+      - { label: "Descripción completa (solo ficha)", name: "descripcionCompleta", widget: "text", required: false }
       - { label: "Simbolismo y uso", name: "simbolismo", widget: "text", required: false }
       - { label: "Materiales", name: "materiales", widget: "text", required: false }
       - { label: "Medidas", name: "medidas", widget: "text", required: false }
       - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
-      - { label: "Elaboración", name: "elaboracion", widget: "string", default: "100% a mano." }
+      - { label: "Elaboración", name: "elaboracion", widget: "hidden", default: "100% a mano." }
       - { label: "¿Se puede personalizar?", name: "personalizable", widget: "boolean", default: false }
       - { label: "Texto de personalización que verá el cliente", name: "opcionesPersonalizacion", widget: "text", required: false, condition: { field: "personalizable", value: true } }
-      - { label: "Activar desplegables de personalización", name: "activarSelectorPersonalizacion", widget: "boolean", default: false, condition: { field: "personalizable", value: true }, hint: "Actívalo si quieres que el cliente pueda elegir entre opciones." }
-      - label: "Desplegables de personalización para el cliente"
+      - { label: "Activar selector(es) de personalización para el cliente", name: "activarSelectorPersonalizacion", widget: "boolean", default: false, condition: { field: "personalizable", value: true } }
+      - label: "Opciones de personalización para el cliente"
         name: "opcionesPersonalizacionCliente"
         widget: "list"
         required: false
         condition: { field: "activarSelectorPersonalizacion", value: true }
         fields:
-          - { label: "Título del selector", name: "nombre", widget: "string" }
-          - label: "Opciones que podrá elegir el cliente"
+          - { label: "Nombre del selector", name: "nombre", widget: "string" }
+          - label: "Opciones"
             name: "opciones"
             widget: "list"
             field: { label: "Opción", name: "opcion", widget: "string" }
-      - { label: "Activar selector de variantes / colores", name: "mostrarVariantes", widget: "boolean", default: false, hint: "Actívalo solo si este producto tiene colores o variantes entre los que elegir." }
+      - { label: "Activar variantes / colores", name: "mostrarVariantes", widget: "boolean", default: false }
       - label: "Variantes / colores"
         name: "variantes"
         widget: "list"
@@ -102,13 +110,13 @@ collections:
         condition: { field: "mostrarVariantes", value: true }
         fields:
           - { label: "Nombre del color / variante", name: "color", widget: "string" }
-          - label: "Fotos de esta variante (opcional)"
+          - label: "Fotos de esta variante"
             name: "imagenes"
             widget: "list"
             required: false
             field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
           - { label: "¿Disponible?", name: "disponible", widget: "boolean", default: true }
-      - { label: "Activar selector Collar / Llavero", name: "mostrarCollarLlavero", widget: "boolean", default: false, hint: "Actívalo solo para productos que se puedan pedir en estos formatos." }
+      - { label: "Activar selector Collar / Llavero", name: "mostrarCollarLlavero", widget: "boolean", default: false }
       - label: "Formatos disponibles"
         name: "formatosDisponibles"
         widget: "list"
@@ -116,15 +124,116 @@ collections:
         condition: { field: "mostrarCollarLlavero", value: true }
         field: { label: "Formato", name: "formato", widget: "string" }
       - { label: "¿Se puede pedir otro color no fotografiado?", name: "permiteOtroColor", widget: "boolean", default: false }
-      - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false, hint: "Actívalo solo cuando quieras que aparezcan Añadir al carrito, WhatsApp y correo. Si el producto está Agotado o Vendido, no aparecerán aunque esté activado." }
-      - label: "Formas de pago aceptadas para este producto"
+      - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false, hint: "Si está desactivado, la ficha mostrará la información pero no mostrará carrito, WhatsApp ni correo." }
+      - label: "Formas de pago disponibles"
         name: "formasPagoDisponibles"
         widget: "list"
         required: false
         condition: { field: "activarCompra", value: true }
-        hint: "Puedes añadir o quitar métodos cuando quieras. Ejemplo: Bizum, PayPal, Efectivo o Tarjeta."
         field: { label: "Forma de pago", name: "forma", widget: "string" }
-      - { label: "Nota interna (solo tú la ves)", name: "notaInterna", widget: "text", required: false }
+      - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
+
+  # ---------------------------------------------------------------
+  # INFUSIONES — ficha especializada
+  # ---------------------------------------------------------------
+  - name: "infusiones"
+    label: "Infusiones"
+    label_singular: "Infusión"
+    folder: "data/infusiones"
+    create: true
+    delete: true
+    identifier_field: "nombre"
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Identificador (único, sin espacios)", name: "id", widget: "string" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
+      - label: "Estado"
+        name: "estado"
+        widget: "select"
+        default: "oculto"
+        options:
+          - { label: "Disponible", value: "disponible" }
+          - { label: "Bajo pedido", value: "bajo_pedido" }
+          - { label: "Agotado", value: "agotado" }
+          - { label: "Vendido", value: "vendido" }
+          - { label: "No publicar todavía", value: "oculto" }
+      - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
+      - label: "Galería"
+        name: "galeria"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
+      - { label: "Vídeo (opcional)", name: "video", widget: "string", required: false }
+      - { label: "Descripción corta (tarjeta)", name: "descripcionCorta", widget: "text", required: false }
+      - { label: "Descripción completa", name: "descripcionCompleta", widget: "text", required: false, hint: "El primer párrafo se verá al principio; el resto aparecerá al pulsar «Leer más»." }
+      - { label: "Modo de empleo", name: "modoEmpleo", widget: "text", required: false }
+      - { label: "Ingredientes", name: "ingredientes", widget: "text", required: false }
+      - { label: "Cantidad / formato", name: "medidas", widget: "string", required: false }
+      - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
+      - { label: "Elaboración", name: "elaboracion", widget: "hidden", default: "100% a mano." }
+      - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false }
+      - label: "Formas de pago disponibles"
+        name: "formasPagoDisponibles"
+        widget: "list"
+        required: false
+        condition: { field: "activarCompra", value: true }
+        field: { label: "Forma de pago", name: "forma", widget: "string" }
+      - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
+
+  # ---------------------------------------------------------------
+  # INCIENSOS — ficha especializada
+  # ---------------------------------------------------------------
+  - name: "inciensos"
+    label: "Inciensos"
+    label_singular: "Incienso"
+    folder: "data/inciensos"
+    create: true
+    delete: true
+    identifier_field: "nombre"
+    slug: "{{id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Identificador (único, sin espacios)", name: "id", widget: "string" }
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
+      - label: "Estado"
+        name: "estado"
+        widget: "select"
+        default: "oculto"
+        options:
+          - { label: "Disponible", value: "disponible" }
+          - { label: "Bajo pedido", value: "bajo_pedido" }
+          - { label: "Agotado", value: "agotado" }
+          - { label: "Vendido", value: "vendido" }
+          - { label: "No publicar todavía", value: "oculto" }
+      - { label: "Fotografía principal", name: "imagenPrincipal", widget: "image", required: false, choose_url: false }
+      - label: "Galería"
+        name: "galeria"
+        widget: "list"
+        required: false
+        field: { label: "Foto", name: "foto", widget: "image", choose_url: false }
+      - { label: "Vídeo (opcional)", name: "video", widget: "string", required: false }
+      - { label: "Descripción corta (tarjeta)", name: "descripcionCorta", widget: "text", required: false }
+      - { label: "Descripción completa", name: "descripcionCompleta", widget: "text", required: false, hint: "El primer párrafo se verá al principio; el resto aparecerá al pulsar «Leer más»." }
+      - { label: "Notas olfativas", name: "notasOlfativas", widget: "text", required: false }
+      - { label: "Modo de uso", name: "modoUso", widget: "text", required: false }
+      - { label: "Características", name: "caracteristicas", widget: "text", required: false }
+      - { label: "Ingredientes", name: "ingredientes", widget: "text", required: false }
+      - { label: "Cantidad / formato", name: "medidas", widget: "string", required: false }
+      - { label: "Cuidados", name: "cuidados", widget: "text", required: false }
+      - { label: "Elaboración", name: "elaboracion", widget: "hidden", default: "100% a mano." }
+      - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false }
+      - label: "Formas de pago disponibles"
+        name: "formasPagoDisponibles"
+        widget: "list"
+        required: false
+        condition: { field: "activarCompra", value: true }
+        field: { label: "Forma de pago", name: "forma", widget: "string" }
+      - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
 
   - name: "piezas_unicas"
     label: "Piezas Únicas"
