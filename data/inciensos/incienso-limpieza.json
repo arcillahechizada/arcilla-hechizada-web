@@ -1,0 +1,20 @@
+{
+  "descripcionCompleta": "Sientes que tú o tu hogar se siente pesado?           Con Incienso para realizar limpiezas energéticas, sentirás después de usarlo un cambio. Se respirará una sensación de paz en tú hogar, sentirás el ambiente más ligero... Y todavía eso no es todo. Con este incienso hecho con productos 100% naturales y completamente hechos a mano sus resultados te sorprenderás. No llevan ningún producto químico, así que ya podrás tener esa tranquilidad de no estar respirando ningún gas nocivo para tú salud. ",
+  "modoUso": "Encender con fosforo, cuando la punta esté roja agitar ligeramente y a disfrutar",
+  "descripcionCorta": "Incienso para realizar limpiezas energéticas",
+  "estado": "disponible",
+  "precio": 5,
+  "nombre": "Limpieza energética",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo "
+  ],
+  "cuidados": "Mantener en un lugar cerrado, seco y oscuro. ",
+  "notasOlfativas": "Amaderadas",
+  "medidas": "7",
+  "elaboracion": "100% a mano.",
+  "id": "incienso-limpieza",
+  "ingredientes": "Salvia, madera 100% natural, carbón vegetal, resinas vegetales"
+}
