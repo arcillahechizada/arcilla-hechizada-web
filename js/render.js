@@ -4,14 +4,47 @@
 let PRODUCTOS = [], PIEZAS_UNICAS = [], OPINIONES = [], FAQ = [];
 const WHATSAPP='34722379095', EMAIL='arcillahechizada@gmail.com', CART_KEY='arcillaHechizadaCarrito';
 
+const GITHUB_REPO='arcillahechizada/arcilla-hechizada-web';
+async function cargarCarpetaProductosGitHub(folder){
+  const api=`https://api.github.com/repos/${GITHUB_REPO}/contents/${folder}?ref=main`;
+  const r=await fetch(api,{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
+  if(!r.ok) throw new Error('No se pudo leer '+folder);
+  const files=await r.json();
+  const jsons=Array.isArray(files)?files.filter(f=>f.type==='file'&&/\.json$/i.test(f.name)):[];
+  const datos=await Promise.all(jsons.map(async f=>{
+    const rr=await fetch(f.download_url+`?t=${Date.now()}`,{cache:'no-store'});
+    if(!rr.ok) return null;
+    try{return await rr.json();}catch(e){return null;}
+  }));
+  return datos.filter(Boolean);
+}
 async function cargarDatos(){
-  const [productos,piezas,opiniones,faq]=await Promise.all([
+  const [productosFallback,piezas,opiniones,faq]=await Promise.all([
     fetch('data/productos.json',{cache:'no-store'}).then(r=>r.ok?r.json():{productos:[]}).catch(()=>({productos:[]})),
     fetch('data/piezas-unicas.json',{cache:'no-store'}).then(r=>r.ok?r.json():{piezas:[]}).catch(()=>({piezas:[]})),
     fetch('data/opiniones.json',{cache:'no-store'}).then(r=>r.ok?r.json():{opiniones:[]}).catch(()=>({opiniones:[]})),
     fetch('data/faq.json',{cache:'no-store'}).then(r=>r.ok?r.json():{faq:[]}).catch(()=>({faq:[]}))
   ]);
-  PRODUCTOS=Array.isArray(productos.productos)?productos.productos:[]; PIEZAS_UNICAS=Array.isArray(piezas.piezas)?piezas.piezas:[]; OPINIONES=Array.isArray(opiniones.opiniones)?opiniones.opiniones:[]; FAQ=Array.isArray(faq.faq)?faq.faq:[]; actualizarContadorCarrito();
+  try{
+    const [generales,infusiones,inciensos]=await Promise.all([
+      cargarCarpetaProductosGitHub('data/productos'),
+      cargarCarpetaProductosGitHub('data/infusiones'),
+      cargarCarpetaProductosGitHub('data/inciensos')
+    ]);
+    infusiones.forEach(p=>p.categoria='infusiones');
+    inciensos.forEach(p=>p.categoria='inciensos');
+    PRODUCTOS=[...generales,...infusiones,...inciensos];
+  }catch(e){
+    PRODUCTOS=Array.isArray(productosFallback.productos)?productosFallback.productos:[];
+  }
+  PRODUCTOS.sort(ordenProductos);
+  PIEZAS_UNICAS=Array.isArray(piezas.piezas)?piezas.piezas:[]; OPINIONES=Array.isArray(opiniones.opiniones)?opiniones.opiniones:[]; FAQ=Array.isArray(faq.faq)?faq.faq:[]; actualizarContadorCarrito();
+}
+function ordenProductos(a,b){
+  const oa=Number.isFinite(Number(a.orden))?Number(a.orden):999999;
+  const ob=Number.isFinite(Number(b.orden))?Number(b.orden):999999;
+  if(oa!==ob)return oa-ob;
+  return String(a.nombre||'').localeCompare(String(b.nombre||''),'es',{sensitivity:'base'});
 }
 function escHTML(v=''){return String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
 function texto(v=''){return escHTML(v).replace(/\n/g,'<br>');}
@@ -22,8 +55,8 @@ function etiquetaEstado(e){return ({disponible:'Disponible',bajo_pedido:'Bajo pe
 function imagenProducto(p){return p.imagenPrincipal||(Array.isArray(p.galeria)&&p.galeria[0])||'';}
 function bloqueSinFoto(){return '<div class="foto-pendiente">Fotografía pendiente</div>';}
 function tarjetaProductoHTML(p){const est=etiquetaEstado(p.estado);return `<a class="tarjeta-producto" href="ficha.html?id=${encodeURIComponent(p.id)}"><div class="foto imagen-tarjeta">${imagenProducto(p)?`<img src="${escHTML(imagenProducto(p))}" alt="${escHTML(p.nombre||'Producto')}" loading="lazy">`:bloqueSinFoto()}${est?`<span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span>`:''}</div><div class="info info-tarjeta"><h3>${escHTML(p.nombre||'Producto')}</h3><p class="precio">${precioTexto(p)}</p>${p.descripcionCorta?`<p>${texto(p.descripcionCorta)}</p>`:''}</div></a>`;}
-function renderCategoria(id,cat){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.categoria===cat&&p.estado!=='oculto'&&p.coleccion!=='linea_efecto_piedra');c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta categoría.</p>';}
-function renderColeccion(id,coleccion){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.coleccion===coleccion&&p.estado!=='oculto');c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta colección.</p>';}
+function renderCategoria(id,cat){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.categoria===cat&&p.estado!=='oculto'&&p.coleccion!=='linea_efecto_piedra').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta categoría.</p>';}
+function renderColeccion(id,coleccion){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.coleccion===coleccion&&p.estado!=='oculto').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta colección.</p>';}
 function renderPiezasUnicas(id){const c=document.getElementById(id);if(!c)return;c.innerHTML=PIEZAS_UNICAS.filter(p=>p.estado!=='oculto').map(tarjetaProductoHTML).join('');}
 function youtubeEmbed(url){if(!url)return'';const m=String(url).match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/);return m?`<div class="video-ficha"><iframe src="https://www.youtube.com/embed/${m[1]}" title="Vídeo del producto" loading="lazy" allowfullscreen></iframe></div>`:`<p><a class="btn btn-secundario" href="${escHTML(url)}" target="_blank" rel="noopener">Ver vídeo</a></p>`;}
 function imagenes(p){const a=[];[imagenProducto(p)].concat(Array.isArray(p.galeria)?p.galeria:[]).forEach(x=>{if(x&&!a.includes(x))a.push(x);});return a;}
@@ -60,5 +93,5 @@ function renderCarrito(){const root=document.getElementById('carrito-contenido')
 function pintar(){const subtotal=sub(),cp=document.getElementById('cp-envio')?.value||'',env=calcularEnvio(cp),total=env===null?subtotal:subtotal+env;root.innerHTML=`<div class="carrito-layout"><section class="carrito-ticket"><div class="ticket-cabecera"><span>Arcilla Hechizada</span><span>Tu pedido</span></div><div class="carrito-items">${c.map((i,idx)=>`<div class="carrito-item"><a class="carrito-item-foto carrito-enlace-producto" href="ficha.html?id=${encodeURIComponent(i.id)}" title="Volver al producto">${i.imagen?`<img src="${escHTML(i.imagen)}" alt="${escHTML(i.nombre)}">`:'✦'}</a><div class="carrito-item-info"><a class="carrito-producto-enlace" href="ficha.html?id=${encodeURIComponent(i.id)}"><h3>${escHTML(i.nombre)}</h3></a>${Object.entries(i.opciones||{}).map(([k,v])=>`<small>${escHTML(k)}: ${escHTML(v)}</small>`).join('')}<strong>${(Number(i.precio)||0).toFixed(2).replace('.',',')} €</strong></div><div class="carrito-cantidad"><button type="button" data-action="menos" data-i="${idx}">−</button><span>${i.cantidad}</span><button type="button" data-action="mas" data-i="${idx}">+</button></div><button type="button" class="carrito-eliminar" data-action="eliminar" data-i="${idx}">Eliminar</button></div>`).join('')}</div><div class="ticket-linea"><span>Subtotal</span><strong>${subtotal.toFixed(2).replace('.',',')} €</strong></div><div class="ticket-linea envio-linea"><span>Gastos de envío</span><strong>${env===null?'Se calcularán':env.toFixed(2).replace('.',',')+' €'}</strong></div><div class="ticket-total"><span>TOTAL</span><strong>${total.toFixed(2).replace('.',',')} €</strong></div></section><aside class="carrito-pago"><h2>Finalizar pedido</h2><label for="cp-envio">Código postal</label><input id="cp-envio" inputmode="numeric" maxlength="5" placeholder="Introduce tu código postal" value="${escHTML(cp)}"><p class="ayuda-cp">Introduce el código postal de entrega para calcular los gastos de envío.</p><button id="btn-pagar" class="btn btn-pagar" type="button">PAGAR</button><label for="metodo-pago" class="label-pago">Forma de pago</label><select id="metodo-pago">${pagos.map(p=>`<option>${escHTML(p)}</option>`).join('')}</select><p class="aviso-envio">Aviso: los gastos de envío se calculan según el código postal. Envíos desde <strong>4,50 €</strong> con <span class="marca-correos">Correos</span>. Más información en <a href="envios-y-recogida.html">Preguntas y Envíos</a>.</p><p class="aviso-envio">El pago se gestiona contigo por WhatsApp según la forma de pago que elijas. También puedes consultar cualquier duda antes de confirmar.</p></aside></div>`;
 root.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.i),a=b.dataset.action;if(a==='mas')c[i].cantidad++;if(a==='menos')c[i].cantidad=Math.max(1,c[i].cantidad-1);if(a==='eliminar')c.splice(i,1);guardarCarrito(c);pintar();}));
 const inp=document.getElementById('cp-envio');const update=()=>{const e=calcularEnvio(inp.value),line=root.querySelector('.envio-linea strong'),tot=root.querySelector('.ticket-total strong');if(line)line.textContent=e===null?'Se calcularán':e.toFixed(2).replace('.',',')+' €';if(tot)tot.textContent=(subtotal+(e||0)).toFixed(2).replace('.',',')+' €';};inp.addEventListener('input',update);
-document.getElementById('btn-pagar').addEventListener('click',()=>{const cpv=inp.value.trim(),env2=calcularEnvio(cpv);if(env2===null){alert('Introduce un código postal válido de 5 cifras para calcular el envío.');return;}const metodo=document.getElementById('metodo-pago').value,st=subtotal(),tot=st+env2;let m='Hola, quiero realizar este pedido en Arcilla Hechizada:\n\n';c.forEach(i=>{m+=`${i.nombre} × ${i.cantidad} = ${(i.precio*i.cantidad).toFixed(2).replace('.',',')} €\n`;Object.entries(i.opciones||{}).forEach(([k,v])=>m+=`  ${k}: ${v}\n`);});m+=`\nSUBTOTAL: ${st.toFixed(2).replace('.',',')} €\nGASTOS DE ENVÍO: ${env2.toFixed(2).replace('.',',')} €\nTOTAL: ${tot.toFixed(2).replace('.',',')} €\n\nCódigo postal de entrega: ${cpv}\nForma de pago elegida: ${metodo}\n\nQuedo a la espera de tus indicaciones para realizar el pago.`;location.href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;});}
+document.getElementById('btn-pagar').addEventListener('click',()=>{const cpv=inp.value.trim(),env2=calcularEnvio(cpv);if(env2===null){alert('Introduce un código postal válido de 5 cifras para calcular el envío.');return;}const metodo=document.getElementById('metodo-pago').value,st=subtotal(),tot=st+env2;let m='Hola, quiero realizar este pedido en Arcilla Hechizada:\n\n';c.forEach(i=>{m+=`${i.nombre} × ${i.cantidad} = ${(i.precio*i.cantidad).toFixed(2).replace('.',',')} €\n`;Object.entries(i.opciones||{}).forEach(([k,v])=>m+=`  ${k}: ${v}\n`);});m+=`\nSUBTOTAL: ${st.toFixed(2).replace('.',',')} €\nGASTOS DE ENVÍO: ${env2.toFixed(2).replace('.',',')} €\nTOTAL: ${tot.toFixed(2).replace('.',',')} €\n\nCódigo postal de entrega: ${cpv}\nForma de pago elegida: ${metodo}\n\nQuedo a la espera de tus indicaciones para realizar el pago.`;const url=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;const nueva=window.open(url,'_blank','noopener,noreferrer');if(!nueva){window.location.assign(url);}});}
 pintar();}

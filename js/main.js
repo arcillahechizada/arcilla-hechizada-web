@@ -51,6 +51,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Tienda desplegable y carrito en la barra superior.
   construirNavegacionTienda();
+
+  // Navegación contextual: vuelve a la página anterior dentro del sitio.
+  document.querySelectorAll('.btn-volver-atras').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      var ref = document.referrer || '';
+      var mismoSitio = false;
+      try { mismoSitio = ref && new URL(ref, window.location.href).origin === window.location.origin; } catch (_) {}
+      if (window.history.length > 1 && mismoSitio) { e.preventDefault(); window.history.back(); }
+    });
+  });
 });
 
 function construirNavegacionTienda() {

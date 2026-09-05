@@ -21,5 +21,6 @@ for folder, categoria_fija in FOLDERS:
             raise SystemExit(f"El producto {path} necesita al menos 'id' y 'nombre'.")
         productos.append(data)
 
+productos.sort(key=lambda x: (int(x.get("orden", 999999)) if str(x.get("orden", "")).strip().lstrip("-").isdigit() else 999999, str(x.get("nombre", "")).casefold()))
 OUTPUT.write_text(json.dumps({"productos": productos}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"Catálogo generado: {len(productos)} producto(s).")
