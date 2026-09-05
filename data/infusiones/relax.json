@@ -1,0 +1,19 @@
+{
+  "descripcionCompleta": "Esta mezcla de plantas está cuidadosamente preparada para que con una tazita puedas relajarte. Sientes después de un día duro de trabajo, de universidad o simplemente sientes que necesitas relajarte? Esta mezcla te ayudará a conseguirlo. No hay nada como la medicina natural para conseguir algo tan necesario como la relajación. Calienta la medida de una taza de agua hirviendo. Incorpora al agua hirviendo una cucharada de la mezcla de plantas, tapala dejala reposar 10 min. cuela y disfruta",
+  "descripcionCorta": "Infusión para relajarse",
+  "estado": "disponible",
+  "precio": 4.5,
+  "nombre": "Relax",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo "
+  ],
+  "cuidados": "Mantener en lugar oscuro y seco ",
+  "medidas": "300 gr.",
+  "modoEmpleo": " Calienta la medida de una taza de agua hirviendo. Incorpora al agua hirviendo una cucharada de la mezcla de plantas, tapa la deja la reposar 10 min. cuela y disfruta. También puedes tomar la enfrio, pasado esos 10 min. tapada y una vez colada añade hielo al gusto y listo!! Una infusión fría para relajarte",
+  "elaboracion": "100% a mano.",
+  "id": "relax",
+  "ingredientes": "Anís estrellado, salvia, lavanda, manzanilla"
+}
