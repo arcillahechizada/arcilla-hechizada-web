@@ -10,6 +10,11 @@
   "personalizable": true,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
   "categoria": "pociones",
   "mostrarVariantes": true,
   "variantes": [
