@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "sendero-del-aquelarre",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Sendero del Aquelarre",
+  "precio": 9,
+  "descripcionCorta": "Una escoba, un gorro y una enredadera grabados en círculo sobre arcilla con acabado efecto piedra.",
+  "descripcionCompleta": "Dentro de un círculo conviven una escoba, un gorro de bruja y una enredadera. Tallada a mano en arcilla natural con acabado efecto piedra, representa no la magia de una sola persona, sino la de un grupo que camina en la misma dirección.",
+  "simbolismo": "El círculo, la escoba, el gorro y la enredadera evocan unión, crecimiento y apoyo mutuo dentro del imaginario del aquelarre. Se interpreta como guía y conexión con quienes comparten un camino espiritual. Es un significado simbólico, no una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

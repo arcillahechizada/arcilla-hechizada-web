@@ -1,0 +1,32 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "mano-de-fatima",
+  "categoria": "amuletos",
+  "nombre": "Mano de Fátima",
+  "precio": 8,
+  "descripcionCorta": "Moldeada a mano en arcilla natural, la Mano de Fátima recoge un símbolo presente desde hace siglos en distintas culturas mediterráneas y de Oriente Próximo.",
+  "descripcionCompleta": "Pieza moldeada completamente a mano, de unos 3 cm de diámetro y 3 mm de grosor. Puedes elegirla en las variantes disponibles y, si quieres otro tono, solicitarlo antes de realizar el pedido.",
+  "simbolismo": "La Mano de Fátima, o Hamsa, está documentada en distintas tradiciones y se vincula popularmente con la protección. Los matices de color pertenecen a la interpretación simbólica contemporánea. Su función protectora no es una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

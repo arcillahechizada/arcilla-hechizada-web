@@ -63,6 +63,15 @@ collections:
           - { label: "Plantas / Semillas", value: "plantas_semillas" }
           - { label: "Otros", value: "otros" }
       - { label: "Nombre", name: "nombre", widget: "string" }
+      - label: "Colección (opcional)"
+        name: "coleccion"
+        widget: "select"
+        required: false
+        default: ""
+        options:
+          - { label: "Ninguna", value: "" }
+          - { label: "Línea Efecto Piedra", value: "linea_efecto_piedra" }
+        hint: "Usa Línea Efecto Piedra solo para los amuletos que pertenezcan a esa colección. Así aparecerán dentro de su propia página."
       - { label: "Precio (en euros)", name: "precio", widget: "number", required: false, value_type: "float" }
       - label: "Estado"
         name: "estado"

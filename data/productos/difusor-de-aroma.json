@@ -1,0 +1,29 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": false,
+  "formatosDisponibles": [],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "difusor-de-aroma",
+  "categoria": "amuletos",
+  "nombre": "Difusor de Aroma — Mandala Floral",
+  "precio": 10,
+  "descripcionCorta": "Un mandala floral grabado a mano en arcilla natural que se convierte en tu propio difusor personal: impregna un poco de algodón con tu aroma favorito y llévalo contigo.",
+  "descripcionCompleta": "Es una pieza decorativa y práctica: un mandala floral grabado a mano con un pequeño espacio para algodón impregnado con el aroma que elijas. Puede acompañarte en el trabajo, la meditación o los viajes sin necesidad de aplicar perfume directamente sobre la piel.",
+  "simbolismo": "El mandala floral se utiliza en distintas prácticas como imagen de concentración y contemplación. En esta pieza representa calma, equilibrio y conexión personal con el aroma elegido.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

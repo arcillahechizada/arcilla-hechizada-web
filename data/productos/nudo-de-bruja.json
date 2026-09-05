@@ -1,0 +1,32 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "nudo-de-bruja",
+  "categoria": "amuletos",
+  "nombre": "Nudo de Bruja",
+  "precio": 8,
+  "descripcionCorta": "Una línea continua, sin principio ni fin, tallada a mano en arcilla natural. Un amuleto de protección, unión y equilibrio.",
+  "descripcionCompleta": "El Nudo de Bruja es una pieza pequeña y versátil, de unos 3 cm y 3 mm de grosor, pensada para llevar como collar, llavero o talismán de bolsillo. Cada una conserva pequeñas diferencias propias del trabajo manual.",
+  "simbolismo": "El nudo de bruja se interpreta en la tradición esotérica contemporánea como símbolo de protección continua y unión entre cuerpo, mente y espíritu. Su significado pertenece a la tradición popular y a la interpretación personal.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

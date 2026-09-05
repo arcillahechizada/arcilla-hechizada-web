@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "ave-fenix",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Ave Fénix",
+  "precio": 9,
+  "descripcionCorta": "El Ave Fénix, tallada dentro de un círculo de arcilla con acabado efecto piedra, representa renacimiento, transformación y poder personal.",
+  "descripcionCompleta": "Pocas criaturas míticas han cruzado tantas culturas como el Ave Fénix. Esta pieza recoge esa imagen dentro de un círculo, tallada a mano en arcilla natural con acabado efecto piedra. Ninguna pieza sale exactamente igual a otra. Puede acompañar procesos de cambio o servir como recordatorio de que siempre es posible volver a empezar.",
+  "simbolismo": "El Ave Fénix se asocia en distintas tradiciones a la idea de morir y renacer. Aquí se interpreta como símbolo de transformación y resiliencia personal. Este significado pertenece al terreno de la tradición y la interpretación espiritual, no a una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

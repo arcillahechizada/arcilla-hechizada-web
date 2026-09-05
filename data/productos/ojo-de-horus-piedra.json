@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "ojo-de-horus-piedra",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Ojo de Horus — Línea Efecto Piedra",
+  "precio": 9,
+  "descripcionCorta": "Un símbolo milenario del antiguo Egipto, tallado en arcilla con acabado efecto piedra y pensado como talismán de protección.",
+  "descripcionCompleta": "El Ojo de Horus proviene del antiguo Egipto, donde aparece como amuleto protector. Esta pieza lo traduce a arcilla natural con el acabado efecto piedra, dándole un aspecto rugoso y antiguo. Su tamaño está pensado para llevarse como colgante o guardarse como talismán personal.",
+  "simbolismo": "El Ojo de Horus, o Wedjat, está documentado en el antiguo Egipto y se vinculó con protección, salud y restauración. En esta pieza se añade la interpretación contemporánea de intuición y percepción espiritual. Su función protectora pertenece a la tradición y la creencia, no a una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

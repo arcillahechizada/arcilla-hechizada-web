@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "triple-escudo",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Triple Escudo",
+  "precio": 9,
+  "descripcionCorta": "Tres símbolos en uno: Tetragrama, media luna y triqueta, reunidos en un círculo de arcilla con acabado efecto piedra. Representa protección, energía lunar y equilibrio.",
+  "descripcionCompleta": "No todos los amuletos representan una sola idea. Triple Escudo combina tres símbolos dentro de un mismo círculo, creando una pieza pensada como protección integral. Se elabora 100% a mano con acabado efecto piedra y puede llevarse a diario o colocarse en un altar.",
+  "simbolismo": "Cada símbolo aporta su propio significado dentro de esta colección: el Tetragrama representa la unión de los cuatro elementos con el espíritu; la media luna se asocia a la energía lunar y la intuición; y la triqueta representa la armonía. Este significado pertenece al terreno de la tradición y la interpretación simbólica, no a una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

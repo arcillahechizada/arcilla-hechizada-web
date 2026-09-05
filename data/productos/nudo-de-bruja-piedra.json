@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "nudo-de-bruja-piedra",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Nudo de Bruja — Línea Efecto Piedra",
+  "precio": 9,
+  "descripcionCorta": "Una línea entrelazada, sin principio ni fin, tallada en arcilla con el acabado efecto piedra de esta colección.",
+  "descripcionCompleta": "El Nudo de Bruja se talla a mano sobre arcilla natural con el acabado rugoso y antiguo de la colección. Con unos 3 cm de diámetro y 3 mm de grosor, puede llevarse como collar, llavero o talismán de bolsillo.",
+  "simbolismo": "El nudo de bruja se interpreta en la tradición esotérica contemporánea como símbolo de protección continua y unión entre cuerpo, mente y espíritu. Su origen exacto no está firmemente documentado en una sola cultura o época. Este significado pertenece a la tradición y la interpretación personal.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

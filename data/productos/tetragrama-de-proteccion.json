@@ -1,0 +1,33 @@
+{
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "elaboracion": "100% a mano.",
+  "estado": "disponible",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "id": "tetragrama-de-proteccion",
+  "categoria": "amuletos",
+  "coleccion": "linea_efecto_piedra",
+  "nombre": "Tetragrama de Protección",
+  "precio": 9,
+  "descripcionCorta": "El Tetragrama, enmarcado en un círculo y tallado a mano en arcilla con acabado efecto piedra. Una pieza asociada en esta colección a la unión de los cuatro elementos y el espíritu.",
+  "descripcionCompleta": "En el centro de un círculo se talla el Tetragrama, símbolo que en esta colección representa la unión entre tierra, aire, fuego y agua y el espíritu que los conecta. Se elabora 100% a mano con acabado efecto piedra y su tamaño compacto permite llevarlo o colocarlo en un altar.",
+  "simbolismo": "Dentro del diseño de esta colección, el Tetragrama representa equilibrio elemental y totalidad. El círculo refuerza la idea simbólica de protección. Este significado pertenece a la práctica espiritual personal y no a una propiedad demostrada.",
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "imagenPrincipal": "",
+  "galeria": []
+}

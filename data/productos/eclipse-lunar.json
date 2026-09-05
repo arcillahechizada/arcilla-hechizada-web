@@ -1,21 +1,31 @@
 {
-  "descripcionCompleta": "Hay un instante, durante un eclipse, en el que dos fuerzas que normalmente se turnan —el día y la noche, el sol y la luna— coinciden en el mismo punto del cielo. Esta pieza toma ese instante como punto de partida: un amuleto elaborado 100% a mano en arcilla natural, pintado con los colores del fuego y el crepúsculo para representar ese momento de encuentro.\n\nEl diseño combina simbólicamente el sol, en amarillos y naranjas, con la luna, en azules, lilas y violetas, unidos en el punto del eclipse. Al ser una pieza artesanal, los tonos y el acabado pueden variar ligeramente entre unidades.\n\nPuede llevarse como amuleto diario, colocarse en un altar entre velas doradas y lilas, o guardarse cerca durante la noche como pieza que acompaña momentos de reflexión o decisiones importantes.",
-  "descripcionCorta": "En el instante del eclipse, sol y luna se encuentran. Este amuleto, pintado a mano con los colores del fuego y el crepúsculo, representa ese punto exacto donde los opuestos se reconcilian.",
-  "estado": "disponible",
-  "activarSelectorPersonalizacion": false,
-  "precio": 9,
-  "nombre": "Eclipse Lunar",
-  "personalizable": false,
-  "activarCompra": true,
-  "mostrarCollarLlavero": true,
+  "id": "eclipse-lunar",
   "categoria": "amuletos",
-  "mostrarVariantes": false,
-  "variantes": [],
-  "simbolismo": "En distintas tradiciones antiguas, el eclipse se ha interpretado como un momento de reconciliación entre fuerzas opuestas: acción y calma, lo visible y lo oculto, el día y la noche. Esta pieza recoge esa idea general y la traduce en un diseño propio.\n\nDentro de esta interpretación simbólica:\n\nEl sol representa fuerza vital, energía y propósito.\n\nLa luna representa intuición, sueños y conexión con lo oculto.\n\nEl eclipse, como punto de encuentro entre ambos, representa transformación: la posibilidad de cerrar un ciclo y abrir otro.\n\nAlgunas personas utilizan este tipo de piezas como apoyo en rituales de armonización, en meditación, o como recordatorio simbólico al enfrentarse a decisiones importantes. Este significado pertenece al terreno de la interpretación espiritual y simbólica, no a un hecho demostrado.",
+  "nombre": "Eclipse Lunar",
+  "precio": 9,
+  "estado": "disponible",
+  "descripcionCorta": "En el instante del eclipse, sol y luna se encuentran. Este amuleto, pintado a mano con los colores del fuego y el crepúsculo, representa ese punto exacto donde los opuestos se reconcilian.",
+  "descripcionCompleta": "Hay un instante, durante un eclipse, en el que dos fuerzas que normalmente se turnan —el día y la noche, el sol y la luna— coinciden en el mismo punto del cielo. Esta pieza toma ese instante como punto de partida: un amuleto elaborado 100% a mano en arcilla natural, pintado con los colores del fuego y el crepúsculo para representar ese momento de encuentro.\n\nEl diseño combina simbólicamente el sol, en amarillos y naranjas, con la luna, en azules, lilas y violetas, unidos en el punto del eclipse.\nAl ser una pieza artesanal, los tonos y el acabado pueden variar ligeramente entre unidades.\n\nPuede llevarse como amuleto diario, colocarse en un altar entre velas doradas y lilas, o guardarse cerca durante la noche como pieza que acompaña momentos de reflexión o decisiones importantes.",
+  "simbolismo": "En distintas tradiciones antiguas, el eclipse se ha interpretado como un momento de reconciliación entre fuerzas opuestas: acción y calma, lo visible y lo oculto, el día y la noche. Esta pieza recoge esa idea general y la traduce en un diseño propio.\n\nDentro de esta interpretación simbólica, el sol representa fuerza vital, energía y propósito; la luna representa intuición, sueños y conexión con lo oculto; y el eclipse, como punto de encuentro entre ambos, representa transformación: la posibilidad de cerrar un ciclo y abrir otro.\n\nEste significado pertenece al terreno de la interpretación espiritual y simbólica, no a un hecho demostrado.",
   "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco",
   "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "permiteOtroColor": false,
   "medidas": "4 cm de diámetro aproximadamente",
   "elaboracion": "100% a mano.",
-  "id": "eclipse-lunar"
+  "personalizable": false,
+  "activarSelectorPersonalizacion": false,
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "permiteOtroColor": false,
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "galeria": []
 }
