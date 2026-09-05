@@ -1,0 +1,32 @@
+{
+  "id": "grimorio-pequeno",
+  "categoria": "grimorios",
+  "nombre": "Caja Grimorio Personalizable Tamaño pequeño – Libro Antiguo Artesanal Efecto Piel",
+  "precio": 40,
+  "estado": "oculto",
+  "descripcionCorta": "Caja artesanal con apariencia de grimorio antiguo, pensada para guardar cartas, amuletos y pequeños objetos especiales.",
+  "descripcionCompleta": "Una pequeña caja de arcilla natural moldeada y pintada a mano para parecer un libro antiguo. Su interior puede convertirse en un espacio propio para cartas, amuletos, hierbas, joyas u otros objetos con significado.",
+  "simbolismo": "La apariencia de grimorio representa un espacio reservado para guardar conocimientos y objetos con significado personal.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "medidas": "Tamaño pequeño, ideal para cartas de tarot u oráculo.",
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "elaboracion": "100% a mano.",
+  "personalizable": true,
+  "opcionesPersonalizacion": "Imagen de la portada.",
+  "activarSelectorPersonalizacion": true,
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Imagen de portada",
+      "opciones": [
+        "Imagen aportada por ti",
+        "Imagen diseñada por Arcilla Hechizada"
+      ]
+    }
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": false,
+  "formatosDisponibles": [],
+  "permiteOtroColor": false,
+  "notaInterna": "Ficha de prueba conservada como oculta."
+}

@@ -1,0 +1,32 @@
+{
+  "id": "grimorio-mediano",
+  "categoria": "grimorios",
+  "nombre": "Caja Grimorio Personalizable Tamaño A5 – Libro Antiguo Artesanal Efecto Piel",
+  "precio": 50,
+  "estado": "oculto",
+  "descripcionCorta": "Por fuera, un libro antiguo. Por dentro, un espacio real para guardar lo que te importa. El Grimorio Caja se construye desde cero en arcilla natural, con acabado efecto piel pintado a mano, y permite personalizar la imagen central.",
+  "descripcionCompleta": "No es una caja decorada para parecer un libro. Es arcilla natural moldeada desde cero hasta convertirse en uno: cubierta, lomo, textura de piel envejecida, todo nace de la misma pieza y se pinta a mano hasta lograr ese aspecto de tomo antiguo que ha viajado mucho.\n\nPor fuera guarda las apariencias. Por dentro, guarda lo que tú decidas: cartas de tarot, oráculos, runas, hierbas, amuletos, joyas o cualquier objeto al que quieras dar un lugar propio.",
+  "simbolismo": "La apariencia de libro antiguo conecta con la figura del grimorio dentro de la tradición esotérica: el volumen donde se recogían conocimientos, fórmulas y secretos de quien lo poseía.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "medidas": "Tamaño A5 aproximado.",
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "elaboracion": "100% a mano.",
+  "personalizable": true,
+  "opcionesPersonalizacion": "Imagen de la portada.",
+  "activarSelectorPersonalizacion": true,
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Imagen de portada",
+      "opciones": [
+        "Imagen aportada por ti",
+        "Imagen diseñada por Arcilla Hechizada"
+      ]
+    }
+  ],
+  "mostrarVariantes": false,
+  "variantes": [],
+  "mostrarCollarLlavero": false,
+  "formatosDisponibles": [],
+  "permiteOtroColor": false,
+  "notaInterna": "Ficha de prueba conservada como oculta. Puedes reutilizarla o eliminarla cuando quieras."
+}

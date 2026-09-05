@@ -1,0 +1,52 @@
+{
+  "id": "caja-grimorio-mediano-personalizable",
+  "categoria": "grimorios",
+  "nombre": "Caja Grimorio Personalizable Tamaño A5 – Libro Antiguo Artesanal Efecto Piel",
+  "precio": 50,
+  "estado": "bajo_pedido",
+  "descripcionCorta": "Por fuera, un libro antiguo. Por dentro, un espacio real para guardar lo que te importa. El Grimorio Caja se construye desde cero en arcilla natural, con acabado efecto piel pintado a mano, y permite personalizar la imagen central.",
+  "descripcionCompleta": "No es una caja decorada para parecer un libro. Es arcilla natural moldeada desde cero hasta convertirse en uno: cubierta, lomo, textura de piel envejecida, todo nace de la misma pieza y se pinta a mano hasta lograr ese aspecto de tomo antiguo que ha viajado mucho.\n\nPor fuera guarda las apariencias. Por dentro, guarda lo que tú decidas: cartas de tarot, oráculos, runas, hierbas, amuletos, joyas o cualquier objeto al que quieras dar un lugar propio. Y en la portada, el detalle que hace que cada pieza sea irrepetible de verdad: una imagen personalizada. Envíanos tu foto, tu dibujo, tu símbolo o tu frase, y la trasladamos a la superficie de la caja.",
+  "simbolismo": "La apariencia de libro antiguo conecta con la figura del grimorio dentro de la tradición esotérica: el cuaderno o volumen donde históricamente se recogían conocimientos, fórmulas y secretos de quien lo poseía. Esta pieza traslada esa idea a un objeto funcional distinto: una caja que oculta su verdadera naturaleza tras una apariencia familiar.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "medidas": "Tamaño A5 aproximado.",
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "elaboracion": "100% a mano.",
+  "personalizable": true,
+  "opcionesPersonalizacion": "Imagen de portada Personalizable",
+  "activarSelectorPersonalizacion": true,
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Imagen de portada",
+      "opciones": [
+        "Imagen aportada por ti",
+        "Imagen diseñada por Arcilla Hechizada"
+      ]
+    }
+  ],
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "color": "Marrón-Negro",
+      "imagenes": [],
+      "disponible": true
+    },
+    {
+      "color": "Marrón-rojo",
+      "imagenes": [],
+      "disponible": true
+    }
+  ],
+  "mostrarCollarLlavero": true,
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "permiteOtroColor": false,
+  "notaInterna": "Revisar la imagen enviada por el cliente en WhatsApp antes de moldear el relieve central.",
+  "activarCompra": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ]
+}

@@ -469,3 +469,46 @@ footer.site a:hover{ opacity:1; color: var(--bronce); }
   background: var(--beige); padding:8px 14px; border-radius:999px;
   font-size:0.85rem; color: var(--carbon); margin-bottom:10px;
 }
+
+/* Estado neutro cuando una ficha aún no tiene fotografía */
+.foto-pendiente {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: var(--arena-suave, #f4efe6);
+  color: inherit;
+  opacity: .65;
+  font-style: italic;
+}
+
+
+/* ---------- Carrito de compra ---------- */
+.enlace-carrito{display:inline-flex;align-items:center;gap:6px;margin-left:12px;font-size:.9rem;font-weight:600;white-space:nowrap}
+.enlace-carrito span{min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--terracota);color:var(--blanco);display:inline-flex;align-items:center;justify-content:center;font-size:.72rem}
+.enlace-carrito-movil{font-weight:600}
+.aviso-carrito{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:100;background:var(--carbon);color:var(--crema);padding:12px 18px;border-radius:999px;box-shadow:var(--sombra-suave);transition:.25s ease;font-size:.9rem}
+.aviso-carrito.visible{opacity:1;transform:translate(-50%,0)}
+.carrito-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:34px;align-items:start}
+.carrito-ticket{background:var(--blanco);border:1px solid var(--linea);border-radius:14px;padding:26px;box-shadow:var(--sombra-suave)}
+.ticket-cabecera{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--linea);padding-bottom:16px;margin-bottom:4px;font-family:var(--font-titulo);font-size:1.35rem}
+.ticket-cabecera span:last-child{font-family:var(--font-texto);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;align-self:center;color:var(--marron-gris)}
+.carrito-item{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:14px;align-items:center;padding:17px 0;border-bottom:1px dashed var(--linea);position:relative}
+.carrito-item-foto{width:72px;height:72px;border-radius:8px;background:var(--beige);overflow:hidden;display:flex;align-items:center;justify-content:center;font-family:var(--font-titulo);font-size:1.5rem;color:var(--bronce)}
+.carrito-item-foto img{width:100%;height:100%;object-fit:cover}
+.carrito-item-info h3{font-size:1.12rem;margin:0 0 4px}.carrito-item-info small{display:block;color:var(--marron-gris);font-size:.8rem}.carrito-item-info strong{display:block;margin-top:5px;font-size:.95rem}
+.carrito-cantidad{display:flex;align-items:center;gap:8px}.carrito-cantidad button{width:30px;height:30px;border:1px solid var(--linea);background:var(--crema);border-radius:50%;cursor:pointer;font-size:1.1rem}.carrito-cantidad span{min-width:20px;text-align:center;font-size:.9rem}
+.carrito-eliminar{grid-column:2/-1;justify-self:start;border:0;background:none;color:var(--marron-gris);text-decoration:underline;font-size:.76rem;cursor:pointer;padding:0}
+.ticket-linea,.ticket-total{display:flex;justify-content:space-between;gap:20px}.ticket-linea{padding-top:16px;font-size:.9rem;color:var(--marron-gris)}.ticket-total{border-top:2px solid var(--carbon);margin-top:14px;padding-top:18px;font-size:1.15rem}.ticket-total strong{font-size:1.35rem}
+.carrito-pago{background:var(--beige);border:1px solid var(--linea);border-radius:14px;padding:26px;position:sticky;top:100px}.carrito-pago h2{font-size:1.8rem}.carrito-pago label{display:block;font-size:.82rem;font-weight:600;margin:18px 0 6px}.carrito-pago input,.carrito-pago select{width:100%;padding:12px;border:1px solid var(--linea);border-radius:7px;background:var(--blanco);font:inherit;color:var(--carbon)}
+.ayuda-cp{font-size:.75rem;margin-top:6px}.btn-pagar{width:100%;border:0;background:var(--bronce);color:var(--blanco);font-weight:700;letter-spacing:.08em;font-size:1.02rem;padding:15px 20px;border-radius:8px;cursor:pointer;margin:18px 0 4px;box-shadow:0 3px 10px rgba(58,51,44,.12)}.btn-pagar:hover{background:var(--terracota)}
+.aviso-envio{font-size:.72rem!important;line-height:1.55;margin-top:15px!important;color:var(--carbon)!important}.aviso-envio a{text-decoration:underline}.marca-correos{font-weight:800;background:#ffd400;color:#111;padding:1px 4px;border-radius:2px}.label-pago{margin-top:4px!important}
+.carrito-vacio{text-align:center;background:var(--blanco);border:1px solid var(--linea);padding:60px 28px;border-radius:14px}.carrito-vacio p{max-width:520px;margin:0 auto 24px}
+.ficha-botones-tienda .btn{cursor:pointer}.btn-carrito{border:0;background:var(--terracota);color:var(--blanco);font:inherit}.btn-carrito:hover{background:var(--terracota-oscuro)}.btn-whatsapp-producto{background:var(--oliva);color:var(--blanco)}.aviso-no-compra{margin-top:22px}
+@media(max-width:899px){.carrito-layout{grid-template-columns:1fr}.carrito-pago{position:static}.enlace-carrito{display:none}}
+@media(max-width:560px){.carrito-ticket,.carrito-pago{padding:18px}.carrito-item{grid-template-columns:56px minmax(0,1fr);gap:10px}.carrito-item-foto{width:56px;height:56px}.carrito-cantidad{grid-column:2;justify-content:flex-start}.carrito-eliminar{grid-column:2}.ticket-cabecera{font-size:1.15rem}}
