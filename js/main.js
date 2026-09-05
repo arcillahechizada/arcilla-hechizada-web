@@ -64,10 +64,11 @@ function construirNavegacionTienda() {
     var tienda = Array.from(nav.children).find(function(a){ return a.tagName === 'A' && a.getAttribute('href') === 'tienda.html'; });
     if (!tienda) return;
     var wrap = document.createElement('div'); wrap.className='menu-tienda';
-    var link = document.createElement('a'); link.href='tienda.html#categorias-tienda'; link.textContent='Tienda'; link.className='tienda-trigger';
+    var link = document.createElement('a'); link.href='tienda.html#categorias-tienda'; link.textContent='Tienda'; link.className='tienda-trigger'; link.setAttribute('aria-haspopup','true'); link.setAttribute('aria-expanded','false');
     var sub = document.createElement('div'); sub.className='submenu-tienda';
     cats.forEach(function(c){ var a=document.createElement('a'); a.href=c[1]; a.textContent=c[0]; sub.appendChild(a); });
     wrap.appendChild(link); wrap.appendChild(sub); nav.replaceChild(wrap,tienda);
+    link.addEventListener('click', function(e){ e.preventDefault(); var abierto=wrap.classList.toggle('abierto'); link.setAttribute('aria-expanded', abierto?'true':'false'); });
     var cart=document.createElement('a'); cart.href='carrito.html'; cart.className='enlace-carrito'; cart.innerHTML='🛒 Carrito <span id="contador-carrito">0</span>'; nav.parentElement.appendChild(cart);
   });
   document.querySelectorAll('.menu-movil').forEach(function(menu){
