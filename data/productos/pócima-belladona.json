@@ -1,0 +1,35 @@
+{
+  "opcionesPersonalizacion": "Personaliza el color del Elixir",
+  "descripcionCompleta": "Pocas plantas cargan con una reputación tan dual como la belladona: en la tradición herbolaria y en el folclore europeo se la ha descrito históricamente como una planta de doble filo, capaz de sanar y de dañar según la mano que la trabaje. Esta pieza no contiene la planta real, sino que representa simbólicamente esa dualidad a través de una botella decorativa.\n\nSobre el cristal, hojas verdes y tres frutos morados modelados a mano evocan la planta y su carácter enigmático. El tapón, con un tetragrama tallado, cierra la pieza como sello protector, siguiendo la misma estética que el resto de la colección de pociones.\n\nEs una pieza completamente artesanal, con las variaciones propias de cada elaboración manual, pensada como objeto decorativo y simbólico para un altar o espacio de introspección.\n\n⚠️ Producto decorativo. No apto para consumo. No contiene la planta real.",
+  "coleccion": "",
+  "descripcionCorta": "La belladona es, en la tradición herbolaria y esotérica, la planta de la dualidad: veneno y remedio, luz y sombra. Esta pócima artesanal traduce esa dualidad en un talismán decorativo de arcilla, con hojas verdes y frutos morados modelados a mano.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 16,
+  "nombre": "Pócima de Belladona",
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "categoria": "pociones",
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Lila "
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    },
+    {
+      "disponible": true,
+      "color": "Rojo"
+    }
+  ],
+  "simbolismo": "La belladona (Atropa belladonna) es una planta real y tóxica, documentada en la tradición herbolaria europea por su doble uso histórico: como remedio en dosis controladas y como veneno, y también citada en el folclore relacionado con ungüentos rituales de brujas de siglos pasados. Esta pieza no contiene la planta ni pretende reproducir ningún preparado real: es una representación decorativa y simbólica de esa dualidad.\n\nDentro de esta interpretación simbólica, la pieza se asocia con:\n\nProtección frente a lo que se percibe como energía negativa.\n\nConexión con la intuición y con lo no visible, en línea con la fama histórica de la planta como puente hacia estados alterados de consciencia.\n\nAcompañamiento en procesos de transformación personal o trabajo introspectivo.\n\nEste significado pertenece al terreno del simbolismo y la tradición esotérica, no a una propiedad real de la pieza ni de la planta que representa.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": " Arcilla natural, corcho, líquido decorativo, detalles pintados a mano.",
+  "permiteOtroColor": true,
+  "elaboracion": "100% a mano.",
+  "id": "pócima-belladona"
+}
