@@ -1,0 +1,41 @@
+{
+  "opcionesPersonalizacion": "Quieres un color especial del elixir?",
+  "descripcionCompleta": "Su nombre ya lo dice: Porta Silvarum, la puerta del bosque. Y esa es exactamente la imagen que encierra: una puerta tallada en arcilla, rodeada de hojas, tras la que se mueve un líquido verde vibrante con destellos en movimiento, como si dentro del frasco siguiera latiendo algo vivo.\n\nCada pieza se elabora y se pinta a mano, se sella con cera verde y se marca con el sello de Arcilla Hechizada como garantía de que ha pasado por ese mismo proceso artesanal. Una cuerda de yute añade ese punto de conexión con las tradiciones más rústicas de los amuletos ligados al bosque.\n\nAl ser un proceso completamente manual, cada Porta Silvarum presenta ligeras variaciones en su acabado que la hacen exclusiva: ninguna se repite exactamente igual.\n\nPuede acompañar rituales, meditaciones o simplemente un altar personal, como recordatorio de que siempre existe un camino de vuelta a lo natural.\n\n⚠️ Producto decorativo. No apto para consumo.",
+  "coleccion": "",
+  "descripcionCorta": "La puerta del bosque\": un líquido verde vibrante tras una entrada tallada en arcilla, rodeada de hojas. Porta Silvarum es un amuleto sellado a mano con cera verde, pensado como talismán de conexión con la naturaleza.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": false,
+  "precio": 22,
+  "nombre": "Porta Silvarum",
+  "orden": 9999,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "pociones",
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Lila"
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    },
+    {
+      "disponible": true,
+      "color": "Azul"
+    }
+  ],
+  "simbolismo": "El nombre Porta Silvarum —\"puerta del bosque\" en latín— resume la idea central de esta pieza: un acceso simbólico al imaginario de la naturaleza y sus guardianes. Dentro de la brujería verde, el bosque se asocia tradicionalmente con la sabiduría, la protección y la conexión con fuerzas naturales.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nConexión natural, como recordatorio del vínculo con el bosque y sus energías.\n\nProtección energética, especialmente asociada a rituales, meditaciones o momentos de contacto directo con la naturaleza.\n\nTalismán personal, para tener en un altar o espacio propio como recordatorio de ese camino hacia lo natural.\n\nEste significado pertenece al terreno del simbolismo y la interpretación espiritual, no a un efecto comprobado sobre quien lo posee.",
+  "cuidados": "-Mantener alejado de niños y mascotas.\n\n-No mojar ni exponer a humedad.\n\n-Limpiar con paño seco y suave.",
+  "materiales": "Materiales: Arcilla natural, corcho, cera, cuerda de yute y líquido decorativo.\n\n-Hecho 100% a mano: Cada pieza es irrepetible, con ligeras variaciones que la hacen exclusiva.\n\n-Producto decorativo – No apto para consumo.",
+  "permiteOtroColor": true,
+  "elaboracion": "100% a mano.",
+  "id": "poción-silvarum"
+}
