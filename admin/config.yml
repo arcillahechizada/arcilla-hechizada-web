@@ -137,10 +137,13 @@ collections:
       - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false, hint: "Si está desactivado, la ficha mostrará la información pero no mostrará carrito, WhatsApp ni correo." }
       - label: "Formas de pago disponibles"
         name: "formasPagoDisponibles"
-        widget: "list"
+        widget: "select"
+        multiple: true
         required: false
         condition: { field: "activarCompra", value: true }
-        field: { label: "Forma de pago", name: "forma", widget: "string" }
+        options: ["Bizum", "PayPal", "Efectivo"]
+        default: ["Bizum", "PayPal", "Efectivo"]
+        hint: "Marca todas las formas de pago que aceptas para este producto."
       - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
 
   # ---------------------------------------------------------------
@@ -188,10 +191,13 @@ collections:
       - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false }
       - label: "Formas de pago disponibles"
         name: "formasPagoDisponibles"
-        widget: "list"
+        widget: "select"
+        multiple: true
         required: false
         condition: { field: "activarCompra", value: true }
-        field: { label: "Forma de pago", name: "forma", widget: "string" }
+        options: ["Bizum", "PayPal", "Efectivo"]
+        default: ["Bizum", "PayPal", "Efectivo"]
+        hint: "Marca todas las formas de pago que aceptas para este producto."
       - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
 
   # ---------------------------------------------------------------
@@ -241,10 +247,13 @@ collections:
       - { label: "Activar compra en la web", name: "activarCompra", widget: "boolean", default: false }
       - label: "Formas de pago disponibles"
         name: "formasPagoDisponibles"
-        widget: "list"
+        widget: "select"
+        multiple: true
         required: false
         condition: { field: "activarCompra", value: true }
-        field: { label: "Forma de pago", name: "forma", widget: "string" }
+        options: ["Bizum", "PayPal", "Efectivo"]
+        default: ["Bizum", "PayPal", "Efectivo"]
+        hint: "Marca todas las formas de pago que aceptas para este producto."
       - { label: "Nota interna (solo la ves tú)", name: "notaInterna", widget: "text", required: false }
 
   - name: "piezas_unicas"
