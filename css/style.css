@@ -603,3 +603,6 @@ footer.site a:hover{ opacity:1; color: var(--bronce); }
 .tarjeta-coleccion-foto span{font-size:3rem}.tarjeta-coleccion-foto small{text-transform:uppercase;letter-spacing:.12em;font-size:.72rem}
 .tarjeta-coleccion-info{padding:30px;display:flex;flex-direction:column;justify-content:center}.tarjeta-coleccion-info h2{margin:3px 0 10px}.tarjeta-coleccion-info p{max-width:560px}.tarjeta-coleccion-info strong{margin-top:12px;color:var(--terracota-oscuro)}
 @media(max-width:700px){.tarjeta-coleccion{grid-template-columns:1fr}.tarjeta-coleccion-foto{min-height:190px}.tarjeta-coleccion-info{padding:22px}}
+
+/* V10: PAGAR es un enlace real para que WhatsApp funcione incluso si falla un listener JS. */
+#btn-pagar{display:flex;align-items:center;justify-content:center;text-decoration:none;}
