@@ -1,14 +1,15 @@
 {
-  "opcionesPersonalizacion": "Quieres otro color del elixir?",
-  "descripcionCompleta": "Hay puertas que no se abren con las manos. Esta se abre con la mirada: una pequeña puerta de arcilla, moldeada y pintada a mano, enmarcada con hojas y flores, tras la que se mueve un líquido lila profundo con destellos que parecen tener vida propia.\n\nNo está pensada para beberse, sino para guardarse: es un amuleto sellado con un tapón de corcho, cerrado con cera y marcado con el sello de Arcilla Hechizada, siguiendo la estética de los antiguos frascos alquímicos. Una cuerda de yute completa la pieza, conectándola visualmente con la estética del bosque y de los amuletos más tradicionales.\n\nCada frasco se hace 100% a mano, por lo que el color, los destellos y el acabado de la puerta varían ligeramente entre piezas: no estás adquiriendo una copia, sino una versión única de la misma idea.\n\nPuede tener su lugar en un altar, en un rincón sagrado, o simplemente como pieza decorativa que acompaña un espacio con esta misma atmósfera.\n\n⚠️ Producto decorativo. No apto para consumo.",
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Incluye certificado y sello de autenticidad Arcilla Hechizada. Pieza única/irrepetible (no serie).",
+  "opcionesPersonalizacion": "Quieres otro color del elixir? Tiempo de creación aprox. 10-15 días laborables. Incluye certificado y sello de autenticidad Arcilla Hechizada. ",
+  "descripcionCompleta": "No es una poción para beber. Es un amuleto sellado con intención, pensado para quien siente la llamada del bosque, de lo oculto y de la energía ancestral.\n\nDentro del frasco, un líquido lila profundo se mueve con destellos que parecen respirar. Delante, una pequeña puerta de arcilla —hecha y pintada a mano, enmarcada con hojas y flores— hace de guardiana, como si protegiera algo que no debe salir a la luz. El tapón es de corcho, sellado con ceras y marcado con el sello de Arcilla Hechizada, tal y como se cerraban los antiguos frascos alquímicos, y todo se une con una cuerda de yute que conecta la pieza con la energía del bosque.\n\nPuedes colocarla en tu altar o rincón sagrado como guardiana energética, sostenerla mientras canalizas una intención que quede sellada en su interior, o simplemente dejar que decore tu espacio con una presencia propia. Es especialmente afín a quienes trabajan con elementales, espíritus del bosque o rituales lunares.\n\nCada poción se hace 100% a mano, así que ninguna es igual a otra: cada una lleva su propia huella energética.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
   "descripcionCorta": "Un líquido lila que se mueve como si respirara, tras una puerta de arcilla enmarcada en hojas y flores. La Poción del Bosque Encantado es un amuleto sellado a mano, no una poción para beber, pensado para quien siente la llamada del bosque y de lo oculto.",
   "estado": "disponible",
   "activarSelectorPersonalizacion": false,
   "precio": 22,
-  "nombre": "Poción del Bosque",
-  "orden": 9999,
-  "personalizable": false,
+  "nombre": "Poción del Bosque Encantado",
+  "orden": 10,
+  "personalizable": true,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
   "formasPagoDisponibles": [
@@ -32,10 +33,10 @@
       "color": "Azul"
     }
   ],
-  "simbolismo": "Dentro del imaginario de la brujería verde, los frascos sellados con intención se asocian tradicionalmente con la idea de contener algo simbólico en su interior: un deseo, una protección, una energía que se desea conservar en lugar de liberar.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en varios usos posibles:\n\nComo guardiana energética, colocada en un altar o rincón personal, dentro de la interpretación espiritual de proteger un espacio.\n\nComo apoyo para la manifestación de una intención, sosteniéndola mientras se formula un deseo que queda simbólicamente sellado en su interior.\n\nComo pieza de conexión con la naturaleza, para quienes trabajan con elementales, espíritus del bosque o rituales relacionados con los ciclos lunares.\n\nEstos usos pertenecen al terreno del simbolismo y la práctica espiritual personal, no a propiedades demostradas.",
-  "cuidados": "Producto decorativo – No beber ni aplicar sobre piel u ojos.\n\n-Mantener alejado de niños y mascotas.\n\n-No mojar ni exponer a humedad.\n\n-Limpiar con paño seco y suave.",
-  "materiales": "Materiales: Arcilla natural, corcho, ceras, cuerda de yute, líquido mágico con purpurina mineral.\n\n-Hecho 100% a mano: Cada poción es irrepetible y lleva su propia huella energética.",
+  "simbolismo": "Amuleto de protección espiritual y manifestación de intenciones. Pensada para colocar en altar o rincón sagrado, sostener al canalizar un deseo, o como pieza decorativa afín a trabajos con elementales, espíritus del bosque o rituales lunares.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos.",
+  "materiales": "Arcilla natural, corcho, ceras, cuerda de yute, líquido con purpurina mineral.",
   "permiteOtroColor": true,
   "elaboracion": "100% a mano.",
-  "id": "poción-bosque"
+  "id": "poción-bosque-encantado"
 }
