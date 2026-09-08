@@ -1,11 +1,11 @@
 {
   "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Incluye certificado y sello de autenticidad Arcilla Hechizada. Pieza única/irrepetible (no serie).",
-  "opcionesPersonalizacion": "Quieres otro color del elixir? Tiempo de creación aprox. 10-15 días laborables. Incluye certificado y sello de autenticidad Arcilla Hechizada. ",
+  "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible-",
   "descripcionCompleta": "No es una poción para beber. Es un amuleto sellado con intención, pensado para quien siente la llamada del bosque, de lo oculto y de la energía ancestral.\n\nDentro del frasco, un líquido lila profundo se mueve con destellos que parecen respirar. Delante, una pequeña puerta de arcilla —hecha y pintada a mano, enmarcada con hojas y flores— hace de guardiana, como si protegiera algo que no debe salir a la luz. El tapón es de corcho, sellado con ceras y marcado con el sello de Arcilla Hechizada, tal y como se cerraban los antiguos frascos alquímicos, y todo se une con una cuerda de yute que conecta la pieza con la energía del bosque.\n\nPuedes colocarla en tu altar o rincón sagrado como guardiana energética, sostenerla mientras canalizas una intención que quede sellada en su interior, o simplemente dejar que decore tu espacio con una presencia propia. Es especialmente afín a quienes trabajan con elementales, espíritus del bosque o rituales lunares.\n\nCada poción se hace 100% a mano, así que ninguna es igual a otra: cada una lleva su propia huella energética.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
   "descripcionCorta": "Un líquido lila que se mueve como si respirara, tras una puerta de arcilla enmarcada en hojas y flores. La Poción del Bosque Encantado es un amuleto sellado a mano, no una poción para beber, pensado para quien siente la llamada del bosque y de lo oculto.",
   "estado": "disponible",
-  "activarSelectorPersonalizacion": false,
+  "activarSelectorPersonalizacion": true,
   "precio": 22,
   "nombre": "Poción del Bosque Encantado",
   "orden": 10,
