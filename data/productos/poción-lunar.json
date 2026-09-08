@@ -8,8 +8,8 @@
   "activarSelectorPersonalizacion": true,
   "precio": 18,
   "nombre": "Poción Lunar",
-  "orden": 7,
-  "personalizable": false,
+  "orden": 17,
+  "personalizable": true,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
   "formasPagoDisponibles": [
