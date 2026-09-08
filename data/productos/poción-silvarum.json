@@ -1,6 +1,6 @@
 {
   "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
-  "opcionesPersonalizacion": "Quieres un color especial del elixir?",
+  "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
   "descripcionCompleta": "Porta Silvarum significa \"la puerta del bosque\". Es un amuleto pensado para proteger tu energía y acompañarte con la sabiduría de los árboles, no una poción para beber.\n\nDentro del frasco, un líquido verde vibrante se mueve con destellos que evocan la vida del bosque. Delante, una pequeña puerta tallada en arcilla, rodeada de hojas, hace de guardiana de secretos y mundos invisibles. El cierre es de corcho, sellado con cera verde y marcado con el sello de Arcilla Hechizada como garantía de autenticidad, y una cuerda de yute conecta la pieza con la tradición chamánica y los amuletos del pasado.\n\nPuedes usarla para potenciar tu vínculo con el bosque y sus espíritus guardianes, como apoyo en rituales, meditaciones o caminatas en la naturaleza, o simplemente como talismán en tu altar o espacio sagrado, recordando que siempre hay un camino hacia lo mágico.\n\nCada pieza se hace 100% a mano en arcilla natural, con ligeras variaciones que la hacen exclusiva e irrepetible. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
   "descripcionCorta": "\"La puerta del bosque\": un líquido verde vibrante tras una entrada tallada en arcilla, rodeada de hojas. Porta Silvarum es un amuleto sellado a mano, pensado como talismán de conexión con la naturaleza",
@@ -37,6 +37,7 @@
   "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo.",
   "materiales": "Arcilla natural, corcho, cera, cuerda de yute, líquido decorativo.",
   "permiteOtroColor": true,
+  "opcionesPersonalizacionCliente": [],
   "elaboracion": "100% a mano.",
   "id": "poción-silvarum"
 }
