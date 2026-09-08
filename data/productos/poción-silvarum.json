@@ -1,13 +1,14 @@
 {
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
   "opcionesPersonalizacion": "Quieres un color especial del elixir?",
-  "descripcionCompleta": "Su nombre ya lo dice: Porta Silvarum, la puerta del bosque. Y esa es exactamente la imagen que encierra: una puerta tallada en arcilla, rodeada de hojas, tras la que se mueve un líquido verde vibrante con destellos en movimiento, como si dentro del frasco siguiera latiendo algo vivo.\n\nCada pieza se elabora y se pinta a mano, se sella con cera verde y se marca con el sello de Arcilla Hechizada como garantía de que ha pasado por ese mismo proceso artesanal. Una cuerda de yute añade ese punto de conexión con las tradiciones más rústicas de los amuletos ligados al bosque.\n\nAl ser un proceso completamente manual, cada Porta Silvarum presenta ligeras variaciones en su acabado que la hacen exclusiva: ninguna se repite exactamente igual.\n\nPuede acompañar rituales, meditaciones o simplemente un altar personal, como recordatorio de que siempre existe un camino de vuelta a lo natural.\n\n⚠️ Producto decorativo. No apto para consumo.",
+  "descripcionCompleta": "Porta Silvarum significa \"la puerta del bosque\". Es un amuleto pensado para proteger tu energía y acompañarte con la sabiduría de los árboles, no una poción para beber.\n\nDentro del frasco, un líquido verde vibrante se mueve con destellos que evocan la vida del bosque. Delante, una pequeña puerta tallada en arcilla, rodeada de hojas, hace de guardiana de secretos y mundos invisibles. El cierre es de corcho, sellado con cera verde y marcado con el sello de Arcilla Hechizada como garantía de autenticidad, y una cuerda de yute conecta la pieza con la tradición chamánica y los amuletos del pasado.\n\nPuedes usarla para potenciar tu vínculo con el bosque y sus espíritus guardianes, como apoyo en rituales, meditaciones o caminatas en la naturaleza, o simplemente como talismán en tu altar o espacio sagrado, recordando que siempre hay un camino hacia lo mágico.\n\nCada pieza se hace 100% a mano en arcilla natural, con ligeras variaciones que la hacen exclusiva e irrepetible. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
-  "descripcionCorta": "La puerta del bosque\": un líquido verde vibrante tras una entrada tallada en arcilla, rodeada de hojas. Porta Silvarum es un amuleto sellado a mano con cera verde, pensado como talismán de conexión con la naturaleza.",
+  "descripcionCorta": "\"La puerta del bosque\": un líquido verde vibrante tras una entrada tallada en arcilla, rodeada de hojas. Porta Silvarum es un amuleto sellado a mano, pensado como talismán de conexión con la naturaleza",
   "estado": "disponible",
-  "activarSelectorPersonalizacion": false,
+  "activarSelectorPersonalizacion": true,
   "precio": 22,
   "nombre": "Porta Silvarum",
-  "orden": 9999,
+  "orden": 6,
   "personalizable": true,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
@@ -32,9 +33,9 @@
       "color": "Azul"
     }
   ],
-  "simbolismo": "El nombre Porta Silvarum —\"puerta del bosque\" en latín— resume la idea central de esta pieza: un acceso simbólico al imaginario de la naturaleza y sus guardianes. Dentro de la brujería verde, el bosque se asocia tradicionalmente con la sabiduría, la protección y la conexión con fuerzas naturales.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nConexión natural, como recordatorio del vínculo con el bosque y sus energías.\n\nProtección energética, especialmente asociada a rituales, meditaciones o momentos de contacto directo con la naturaleza.\n\nTalismán personal, para tener en un altar o espacio propio como recordatorio de ese camino hacia lo natural.\n\nEste significado pertenece al terreno del simbolismo y la interpretación espiritual, no a un efecto comprobado sobre quien lo posee.",
-  "cuidados": "-Mantener alejado de niños y mascotas.\n\n-No mojar ni exponer a humedad.\n\n-Limpiar con paño seco y suave.",
-  "materiales": "Materiales: Arcilla natural, corcho, cera, cuerda de yute y líquido decorativo.\n\n-Hecho 100% a mano: Cada pieza es irrepetible, con ligeras variaciones que la hacen exclusiva.\n\n-Producto decorativo – No apto para consumo.",
+  "simbolismo": "Amuleto de conexión con el bosque y sus espíritus guardianes. Pensado para rituales, meditaciones, caminatas en la naturaleza, o como talismán personal en altar o espacio sagrado.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo.",
+  "materiales": "Arcilla natural, corcho, cera, cuerda de yute, líquido decorativo.",
   "permiteOtroColor": true,
   "elaboracion": "100% a mano.",
   "id": "poción-silvarum"
