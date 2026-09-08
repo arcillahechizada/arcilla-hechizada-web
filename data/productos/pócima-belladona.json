@@ -1,12 +1,14 @@
 {
-  "opcionesPersonalizacion": "Personaliza el color del Elixir",
-  "descripcionCompleta": "Pocas plantas cargan con una reputación tan dual como la belladona: en la tradición herbolaria y en el folclore europeo se la ha descrito históricamente como una planta de doble filo, capaz de sanar y de dañar según la mano que la trabaje. Esta pieza no contiene la planta real, sino que representa simbólicamente esa dualidad a través de una botella decorativa.\n\nSobre el cristal, hojas verdes y tres frutos morados modelados a mano evocan la planta y su carácter enigmático. El tapón, con un tetragrama tallado, cierra la pieza como sello protector, siguiendo la misma estética que el resto de la colección de pociones.\n\nEs una pieza completamente artesanal, con las variaciones propias de cada elaboración manual, pensada como objeto decorativo y simbólico para un altar o espacio de introspección.\n\n⚠️ Producto decorativo. No apto para consumo. No contiene la planta real.",
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
+  "opcionesPersonalizacion": "Personaliza el color del Elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
+  "descripcionCompleta": "En la tradición mágica, la belladona es la planta de la dualidad: veneno y medicina, luz y sombra, peligro y sabiduría. Esta pócima recoge esa esencia en un frasco artesanal, pensado como talismán de protección, transformación y conexión con lo oculto.\n\nSobre el cristal, unas hojas verdes representan la vitalidad y el misterio de la planta, portadora de saberes antiguos, mientras tres frutos morados evocan sus bayas enigmáticas, asociadas tradicionalmente a los ungüentos de vuelo y a la apertura de portales hacia otros reinos. El tapón lleva grabado un tetragrama, sello que canaliza los cuatro elementos y el espíritu, manteniendo intacta la energía en su interior.\n\nPuedes usarla como apoyo frente a energías negativas, para potenciar la intuición y la conexión con lo invisible, como acompañante en rituales de transformación y trabajo de sombra, o simplemente como objeto sagrado en tu altar o espacio de meditación.\n\nCada pieza se elabora artesanalmente, con ligeras variaciones que la hacen única.",
   "coleccion": "",
   "descripcionCorta": "La belladona es, en la tradición herbolaria y esotérica, la planta de la dualidad: veneno y remedio, luz y sombra. Esta pócima artesanal traduce esa dualidad en un talismán decorativo de arcilla, con hojas verdes y frutos morados modelados a mano.",
   "estado": "disponible",
   "activarSelectorPersonalizacion": true,
   "precio": 16,
   "nombre": "Pócima de Belladona",
+  "orden": 18,
   "personalizable": true,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
@@ -31,10 +33,10 @@
       "color": "Rojo"
     }
   ],
-  "simbolismo": "La belladona (Atropa belladonna) es una planta real y tóxica, documentada en la tradición herbolaria europea por su doble uso histórico: como remedio en dosis controladas y como veneno, y también citada en el folclore relacionado con ungüentos rituales de brujas de siglos pasados. Esta pieza no contiene la planta ni pretende reproducir ningún preparado real: es una representación decorativa y simbólica de esa dualidad.\n\nDentro de esta interpretación simbólica, la pieza se asocia con:\n\nProtección frente a lo que se percibe como energía negativa.\n\nConexión con la intuición y con lo no visible, en línea con la fama histórica de la planta como puente hacia estados alterados de consciencia.\n\nAcompañamiento en procesos de transformación personal o trabajo introspectivo.\n\nEste significado pertenece al terreno del simbolismo y la tradición esotérica, no a una propiedad real de la pieza ni de la planta que representa.",
-  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "simbolismo": "La belladona simboliza la dualidad (veneno/medicina, luz/sombra). Las hojas representan vitalidad y saberes antiguos; los frutos morados evocan los ungüentos de vuelo y portales a otros reinos. El tetragrama del tapón protege canalizando los cuatro elementos y el espíritu. Pensada para protección, trabajo de sombra, rituales de transformación y altar de meditación.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo.",
   "materiales": " Arcilla natural, corcho, líquido decorativo, detalles pintados a mano.",
   "permiteOtroColor": true,
   "elaboracion": "100% a mano.",
-  "id": "pócima-belladona"
+  "id": "poción-belladona"
 }
