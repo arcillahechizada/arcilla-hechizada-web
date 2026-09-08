@@ -103,6 +103,37 @@
     </div>
   </section>
 
+<!-- RESERVA DE LLAMADA -->
+<section class="seccion seccion--alt" id="reserva-llamada">
+  <div class="contenedor">
+    <div class="centro" style="margin-bottom:28px;">
+      <span class="eyebrow">Reserva una llamada</span>
+      <h2>¿Quieres hablar directamente?</h2>
+      <p style="max-width:620px;margin:0 auto 22px;">Consulta los días y horas disponibles y reserva una llamada de 30 minutos. Si lo prefieres, también puedes escribir por WhatsApp.</p>
+      <a href="reserva-de-llamada.html" class="btn btn-primario">Ver calendario y reservar</a>
+    </div>
+    <div style="max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;min-height:620px;">
+      <div id="my-cal-inline-home-reserva" style="width:100%;min-height:620px;overflow:hidden;"></div>
+    </div>
+    <div class="centro" style="margin-top:20px;">
+      <a href="https://wa.me/34722379095?text=Hola%2C%20quiero%20reservar%20una%20llamada.%20%C2%BFQu%C3%A9%20d%C3%ADas%20y%20horas%20te%20quedan%20libres%3F" class="btn btn-secundario" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    </div>
+  </div>
+  <script type="text/javascript">
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); }; let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal, ar = arguments;
+        if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+        if (ar[0] === L) { const api=function(){p(api,arguments);}; const namespace=ar[1]; api.q=api.q||[]; if(typeof namespace==="string"){cal.ns[namespace]=api;p(api,ar);}else{p(cal,ar);} return; } p(cal,ar);
+      };
+    })(window,"https://app.cal.com/embed/embed.js","init");
+    Cal("init",{origin:"https://cal.com"});
+    Cal("inline",{elementOrSelector:"#my-cal-inline-home-reserva",calLink:"arcillahechizada/consulta-arcilla-hechizada",config:{layout:"month_view",theme:"light"}});
+    Cal("ui",{styles:{branding:{brandColor:"#B5652F"}},hideEventTypeDetails:false,layout:"month_view"});
+  </script>
+</section>
+
 <!-- CATEGORÍAS -->
 <section class="seccion">
   <div class="contenedor">
