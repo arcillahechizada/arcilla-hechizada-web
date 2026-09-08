@@ -1,6 +1,6 @@
 {
   "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie)",
-  "opcionesPersonalizacion": "¿Quieres otro color del elixir?",
+  "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
   "descripcionCompleta": "Bajo el manto de la noche y la luz plateada de la luna nace la Poción Lunar. No es una poción para beber: es un amuleto pensado para custodiar tu energía y acompañarte en tus viajes interiores.\n\nEn el centro de la botella está grabado un tetragrama protector, símbolo milenario que une los cuatro elementos y el espíritu como escudo frente a las energías negativas. A cada lado, dos lunas crecientes representan el flujo eterno de la energía mágica, la transformación y el poder de la intuición. Dentro, un líquido lila y azul oscuro se mueve con destellos, como una noche estrellada en movimiento. El tapón está diseñado con acabado mineral, como si sellara una piedra encantada, guardando la energía en su interior.\n\nPuedes usarla para reforzar tu intuición, acompañar sueños lúcidos y meditaciones, crear un ambiente protegido en tu hogar o altar, o como compañera en rituales ligados a las fases de la luna. También funciona simplemente como objeto decorativo que inspira misterio y conexión con el cosmos.\n\nCada pieza se hace 100% a mano, por lo que puede presentar pequeñas variaciones que la hacen única y exclusiva.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
   "descripcionCorta": "El tetragrama grabado en el corazón del frasco, dos lunas crecientes a los lados, y un líquido lila y azul oscuro que parece una noche estrellada en movimiento. La Poción Lunar es un amuleto artesanal pensado para acompañar la intuición y los rituales ligados a la luna.",
@@ -8,7 +8,7 @@
   "activarSelectorPersonalizacion": true,
   "precio": 18,
   "nombre": "Poción Lunar",
-  "orden": 73,
+  "orden": 7,
   "personalizable": false,
   "activarCompra": true,
   "mostrarCollarLlavero": false,
