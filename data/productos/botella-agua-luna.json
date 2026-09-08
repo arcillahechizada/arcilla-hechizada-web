@@ -1,0 +1,65 @@
+{
+  "notaInterna": "Tiempo de preparación 3-5 días laborables según personalización. Los tonos pueden variar ligeramente al ser artesanal.",
+  "opcionesPersonalizacion": "Elige un solo color o una combinación alquímica. Si buscas un color que no ves aquí, ¡pídelo!. Collar y/o Llavero",
+  "descripcionCompleta": "Inspiradas en las antiguas tradiciones de las brujas europeas, estas botellitas capturan la esencia de la luna llena y la sabiduría de la naturaleza. Según la tradición popular, recogen el rocío del amanecer —las \"lágrimas de la luna\"— cargándolas de poder oculto y de la bendición de los espíritus del bosque.\n\nCada color vibra con una energía distinta: el azul se asocia a la protección psíquica, la calma y la comunicación espiritual; el amarillo o dorado, a la energía solar, la claridad mental y la abundancia; el blanco, a la purificación y la renovación; el violeta, a la intuición y la conexión astral. También existen combinaciones: verde y azul como canal de comunicación con los espíritus de la naturaleza, dorado y violeta para sueños proféticos, blanco y verde para purificación sincronizada con los ciclos naturales, o azul y violeta para expansión psíquica y clarividencia.\n\nAl brillar en la oscuridad, cada botella revela su propio espíritu guardián interior, como un faro personal para quien la lleva. Disponible en formato recto o redondo, para que elijas el que mejor conecte contigo.\n\nSe recomienda dejar el frasco al exterior en cada luna llena, sobre tierra —preferiblemente en bosque o montaña— para recargar su energía.",
+  "coleccion": "",
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "descripcionCorta": "Botellitas de cristal que brillan en la oscuridad, inspiradas en el rocío de luna recogido por las brujas al amanecer. El Agua de Luna es un amuleto de protección y conexión espiritual, disponible en varios colores.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 5,
+  "nombre": "Agua de Luna",
+  "orden": 41,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "botellitas",
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Azul"
+    },
+    {
+      "disponible": true,
+      "color": "Alquímica"
+    },
+    {
+      "disponible": true,
+      "color": "Blanco"
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    },
+    {
+      "disponible": true,
+      "color": "Amarillo"
+    }
+  ],
+  "simbolismo": "Protección (sellar puertas y ventanas simbólicamente), ingrediente decorativo en filtros de amor, apoyo para despertar la intuición. Cada color y combinación de colores tiene un significado propio (detallado arriba). Se recarga simbólicamente dejándola al exterior en luna llena.",
+  "cuidados": "-No mojar ni exponer a humedad (artículo delicado por el corcho natural).\n-Limpiar con paño seco y suave.\n-Uso decorativo: no ingerir",
+  "materiales": "Cristal, corcho natural.",
+  "permiteOtroColor": true,
+  "medidas": "3 cm.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Forma Botellita",
+      "opciones": [
+        "Forma Recta",
+        "Forma Lagrima",
+        "Forma Poción"
+      ]
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "botella-agua-luna"
+}
