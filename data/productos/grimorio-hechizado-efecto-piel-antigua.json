@@ -1,0 +1,29 @@
+{
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única e irrepetible (no serie).",
+  "descripcionCompleta": "Desde siempre, el grimorio ha sido el confidente de la bruja: el lugar donde guardar lo que no se dice en voz alta. Este está pensado para continuar esa tradición, con tapas de arcilla natural moldeadas a mano y un acabado que imita el cuero envejecido de los libros antiguos.\n\nEn el centro de la tapa aparece tallada una Triqueta, símbolo de protección, ciclos y sabiduría ancestral, y el grimorio se cierra con un marcador en forma de Nudo de Bruja, pensado como sello energético para lo que escribas dentro.\n\nPor dentro, 200 hojas (400 páginas) en blanco esperan tu letra: hechizos, rituales, sueños, recetas de pociones o cualquier conocimiento que quieras conservar. Es una pieza única e irrepetible, hecha 100% a mano, así que ninguna otra será exactamente igual. Tiempo de creación aprox. 10-15 días laborables. Pieza única e irrepetible.",
+  "coleccion": "",
+  "descripcionCorta": "Un grimorio de tapas con efecto piel antigua, modelado en arcilla y tallado con una Triqueta central. 200 hojas en blanco esperando tus hechizos, sueños y secretos.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": false,
+  "precio": 40,
+  "nombre": "Grimorio Hechizado con Efecto Piel Antigua",
+  "orden": 2,
+  "personalizable": false,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "grimorios",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "La Triqueta central representa protección, ciclos y sabiduría ancestral. El marcador Nudo de Bruja simboliza protección continua, sellando energéticamente lo escrito. Pensado para registrar práctica mágica, rituales, sueños, recetas de pociones y conocimiento esotérico personal.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, modelada y con acabado efecto piel",
+  "permiteOtroColor": false,
+  "medidas": "Tamaño A5. 200 hojas / 400 páginas en blanco.",
+  "elaboracion": "100% a mano.",
+  "id": "grimorio-hechizado-efecto-piel-antigua"
+}
