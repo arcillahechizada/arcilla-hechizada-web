@@ -1,0 +1,47 @@
+{
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Incluye ritual de activación y limpieza/consagración previa al envío.",
+  "opcionesPersonalizacion": "Personaliza el color. Elige formato collar o llavero.",
+  "descripcionCompleta": "La Mano de Fátima es un escudo ancestral frente al mal de ojo y las malas vibras, asociado tradicionalmente a la buena suerte, la felicidad, la salud y la abundancia. Cada pieza se elabora 100% a mano en arcilla natural, con intención puesta en cada detalle.\n\nPuedes elegirla en distintos colores, cada uno con su propio matiz energético: negro para protección pura contra energías negativas, verde para sanación, abundancia y conexión con la naturaleza, gris sobre negro para equilibrio y protección espiritual, o negro sobre marrón para protección terrenal y fuerza interior. También es posible personalizar el color para elegir el que mejor conecte contigo.\n\nCada Mano de Fátima llega acompañada de la explicación del significado del símbolo y de un ritual sencillo para activar su poder, y pasa por una limpieza energética y consagración antes del envío, lista para acompañarte desde el primer momento.",
+  "coleccion": "",
+  "descripcionCorta": "Un escudo ancestral contra el mal de ojo, elaborado 100% a mano en arcilla natural. La Mano de Fátima está disponible en varios colores, cada uno con su propia energía, y llega lista para conectar contigo desde el primer momento.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 8,
+  "nombre": "Mano de Fátima",
+  "orden": 21,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "amuletos",
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Negro"
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    },
+    {
+      "disponible": true,
+      "color": "Gris sobre Negro"
+    },
+    {
+      "disponible": true,
+      "color": "Negro sobre marrón"
+    }
+  ],
+  "simbolismo": "Escudo ancestral contra el mal de ojo y las malas vibras. Atrae buena suerte, felicidad, salud y abundancia. El color elegido potencia una propiedad concreta: negro (protección), verde (sanación/abundancia), gris sobre negro (equilibrio/protección espiritual), negro sobre marrón (protección terrenal/fuerza interior).",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.   ",
+  "permiteOtroColor": true,
+  "medidas": "Diámetro aprox. 3 cm, grosor 3 mm.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-mano-fatima"
+}
