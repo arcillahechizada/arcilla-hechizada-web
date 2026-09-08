@@ -1,0 +1,41 @@
+{
+  "opcionesPersonalizacion": "Personaliza Forma recta o Forma de lágrima",
+  "descripcionCompleta": "Cada Botellita Protección contiene una sinergia de siete elementos mágicos, trabajando en armonía para crear un escudo invisible que te acompaña allá donde vayas: amatista, asociada a la protección espiritual, la claridad mental y la fortaleza intuitiva; salvia, purificador tradicional que limpia energías densas; pimienta, defensora frente a energías negativas; canela, vinculada a la prosperidad, el amor y la buena fortuna; y sal negra, guardiana frente a energías oscuras, junto a otros ingredientes que completan el conjunto.\n\nPensada para llevar cerca del cuerpo, funciona como collar para protección constante o como llavero para resguardar tu camino.",
+  "coleccion": "",
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "descripcionCorta": "Una pequeña botellita de cristal con siete ingredientes protectores ancestrales: amatista, salvia, pimienta, canela y sal negra, entre otros. Un escudo mágico portátil, disponible como collar o llavero.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 8,
+  "nombre": "Botellita Protección",
+  "orden": 42,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "botellitas",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "Amuleto de protección compuesto por siete ingredientes: amatista (protección espiritual, claridad mental), salvia (purificación), pimienta (defensa contra energías negativas), canela (prosperidad y buena fortuna), sal negra (protección contra energías oscuras), y otros ingredientes protectores. Se lleva como collar o llavero para protección personal.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Cristal, amatista, salvia, pimienta, canela, sal negra de Bruja. Un total de 7 ingredientes especialmente seleccionados para la protección.",
+  "permiteOtroColor": false,
+  "medidas": "3 cm",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Botellita recta"
+    },
+    {
+      "nombre": "Botellita Lágrima"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "botella-protección"
+}
