@@ -1,0 +1,35 @@
+{
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Los diseños disponibles van cambiando con el tiempo (no siempre hay el mismo modelo en stock",
+  "opcionesPersonalizacion": "Cuéntanos tu idea: una foto, un dibujo, una frase o un símbolo. Nosotros lo convertimos en la imagen central de tu Grimorio Caja. Tiempo de creación aprox. 10-15 días laborables.",
+  "descripcionCompleta": "Tiene forma de libro antiguo, textura de piel y un peso sorprendentemente ligero entre las manos. Pero el Grimorio Caja no es solo apariencia: al abrirlo descubres un espacio interior pensado para guardar aquello que quieres proteger.\n\nSu tapa se personaliza contigo: nos envías una fotografía, un dibujo, una frase o un símbolo, y lo convertimos en el grabado central de tu propia pieza. Así, cada caja termina siendo un objeto irrepetible, hecho para una historia concreta.\n\nPuede convertirse en el cofre de tus cartas de tarot, en el escondite de hierbas y amuletos, en el lugar donde guardas joyas con significado, o en tu propia caja de rituales. Tú decides qué secreto merece quedarse dentro.\n\nCada pieza se modela y pinta a mano en arcilla natural de secado al aire, así que ninguna caja sale exactamente igual a otra: las pequeñas variaciones son parte de su carácter, no un defecto.\n\n",
+  "coleccion": "",
+  "descripcionCorta": "Una caja con forma de libro antiguo, hecha a mano en arcilla, con la imagen que tú elijas grabada en su tapa. Un pequeño escondite mágico para guardar lo que más te importa",
+  "estado": "bajo_pedido",
+  "activarSelectorPersonalizacion": true,
+  "precio": 40,
+  "nombre": "Grimorio Caja – Imagen Personalizable Pequeño",
+  "orden": 2,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "grimorios",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "Pensada como cofre personal: para guardar cartas de tarot, oráculos o runas, hierbas y amuletos, joyas con valor emocional, o como caja secreta para rituales propios. También funciona como pieza decorativa con alma propia.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+  "materiales": "Arcilla natural de secado al aire, pintada a mano, con acabado efecto piel.",
+  "permiteOtroColor": false,
+  "medidas": "Disponible en dos tamaños — Pequeña tamaño cartas Tarot, Oráculo, etc. Mediana (aproximadamente A5, medio folio). Al estar hecha 100% a mano, cada pieza puede variar ligeramente en tamaño.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Imagen central"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "grimorio-caja-personalizable-pequeño"
+}
