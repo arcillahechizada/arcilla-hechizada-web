@@ -1,0 +1,30 @@
+{
+  "notaInterna": "Tiempo de preparación 5-10 días laborables según personalización",
+  "opcionesPersonalizacion": "Personaliza el líquido del interior",
+  "descripcionCompleta": "Siente la conexión con la tierra y el reino mágico en esta botellita, mucho más que un adorno: un amuleto cargado de energía y significado. Sobre una base con efecto madera, unas setas modeladas a mano en arcilla natural hacen de guía, símbolo de sabiduría ancestral y conexión espiritual. En su interior, un líquido de colores degradados evoca alquimia y transformación, y toda la pieza brilla en la oscuridad, como una pequeña luz que acompaña en momentos de incertidumbre.\n\nPuedes colocarla en tu altar, llevarla contigo en momentos importantes, o dejarla cerca de la cama como apoyo para sueños lúcidos y viajes astrales. También funciona como canal de conexión con los espíritus del bosque y como amuleto de manifestación para procesos de crecimiento personal.\n\nEl líquido de su interior se puede personalizar.",
+  "coleccion": "",
+  "descripcionCorta": "Una botellita mágica con base efecto madera y setas modeladas a mano en arcilla, que brilla en la oscuridad. El Guardián de los Bosques es un amuleto de conexión con la tierra, pensado para guiar y proteger en la noche y en los sueños.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 17,
+  "nombre": "Guardián de los Bosques",
+  "orden": 40,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "botellitas",
+  "mostrarVariantes": true,
+  "variantes": [],
+  "simbolismo": "Las setas simbolizan sabiduría ancestral y guía espiritual. El brillo en la oscuridad representa luz y protección en la incertidumbre. Pensada como amuleto de manifestación y crecimiento, protección personal, herramienta para sueños lúcidos y viajes astrales, y canal de conexión con los espíritus del bosque.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener fuera del alcance de niños y mascotas.\n-Artículo decorativo y amuleto energético: no ingerir",
+  "materiales": "Botella de cristal, líquido mágico con destellos, base efecto madera, detalles de setas en arcilla natural, material con brillo en la oscuridad.",
+  "permiteOtroColor": true,
+  "medidas": "Aproximadamente 18 cm de largo",
+  "elaboracion": "100% a mano.",
+  "id": "botella-guardian-bosque"
+}
