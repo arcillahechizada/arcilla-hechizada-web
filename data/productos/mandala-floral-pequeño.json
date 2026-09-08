@@ -1,0 +1,47 @@
+{
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Envían a toda España. Es la versión \"Grande\" — si existe una versión más pequeña, se hace ficha aparte.",
+  "opcionesPersonalizacion": "Personaliza color y/o forma.",
+  "descripcionCompleta": "Este mandala floral no es circular: su forma simboliza la expansión natural de la vida y el florecimiento del alma. Su diseño invita a la calma, la introspección y la conexión con tu centro interior, pensado como un pequeño portal de energía para tu hogar.\n\nPuedes elegirlo en distintos colores, cada uno con su propio significado: negro para misterio, protección ancestral e introspección; verde para vida, sanación y fertilidad; marrón madera para estabilidad, arraigo y fuerza ancestral; o terracota para creatividad, energía vital y conexión con la Madre Tierra.\n\nFunciona como armonizador de espacios, escudo energético para el aura o el hogar, y apoyo en procesos de sanación y crecimiento interior. También es un buen aliado en rituales de transformación, protección, renovación o meditación.\n\nCada mandala se modela y pinta a mano, imitando texturas naturales, así que cada pieza es única.",
+  "coleccion": "",
+  "descripcionCorta": "Un mandala no circular que simboliza la expansión de la vida y el florecimiento del alma, modelado y pintado a mano en arcilla natural. Disponible en varios colores, cada uno con su propio significado.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 8,
+  "nombre": "Mandalas Florales Pequeño",
+  "orden": 31,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "mandala",
+  "mostrarVariantes": false,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Negro"
+    },
+    {
+      "disponible": true,
+      "color": "Marrón madera"
+    },
+    {
+      "disponible": true,
+      "color": "Terracota"
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    }
+  ],
+  "simbolismo": "Simboliza expansión de la vida y florecimiento del alma. Color negro: misterio, protección ancestral, introspección. Verde: vida, sanación, fertilidad. Marrón madera: estabilidad, arraigo, fuerza ancestral. Terracota: creatividad, energía vital, conexión con la Tierra. Pensado para armonizar espacios, proteger el aura/hogar, y como apoyo en rituales de transformación, protección, renovación o meditación.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate. ",
+  "permiteOtroColor": true,
+  "medidas": "3 cm. Diámetro. 3mm. grosor",
+  "elaboracion": "100% a mano.",
+  "id": "mandala-floral-pequeño"
+}
