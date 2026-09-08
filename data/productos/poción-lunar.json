@@ -1,13 +1,16 @@
 {
-  "descripcionCompleta": "Dentro del cristal, la noche parece seguir moviéndose: un líquido lila y azul oscuro salpicado de destellos, como un cielo estrellado atrapado en un frasco. En el centro, un tetragrama tallado —símbolo que une tradicionalmente los cuatro elementos con el espíritu— flanqueado por dos lunas crecientes.\n\nEl tapón, con acabado mineral, cierra la pieza como si sellara una piedra encantada en lugar de un simple corcho. Todo el conjunto se elabora y pinta a mano, por lo que cada Poción Lunar presenta variaciones propias en su acabado: ninguna reproduce exactamente la misma noche.\n\nPuede acompañar rituales ligados a las fases lunares, meditaciones antes de dormir, o simplemente ocupar un lugar en un altar o espacio personal como pieza que invita al misterio y a la introspección.\n\n⚠️ Producto decorativo. No apto para consumo.",
+  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie)",
+  "opcionesPersonalizacion": "¿Quieres otro color del elixir?",
+  "descripcionCompleta": "Bajo el manto de la noche y la luz plateada de la luna nace la Poción Lunar. No es una poción para beber: es un amuleto pensado para custodiar tu energía y acompañarte en tus viajes interiores.\n\nEn el centro de la botella está grabado un tetragrama protector, símbolo milenario que une los cuatro elementos y el espíritu como escudo frente a las energías negativas. A cada lado, dos lunas crecientes representan el flujo eterno de la energía mágica, la transformación y el poder de la intuición. Dentro, un líquido lila y azul oscuro se mueve con destellos, como una noche estrellada en movimiento. El tapón está diseñado con acabado mineral, como si sellara una piedra encantada, guardando la energía en su interior.\n\nPuedes usarla para reforzar tu intuición, acompañar sueños lúcidos y meditaciones, crear un ambiente protegido en tu hogar o altar, o como compañera en rituales ligados a las fases de la luna. También funciona simplemente como objeto decorativo que inspira misterio y conexión con el cosmos.\n\nCada pieza se hace 100% a mano, por lo que puede presentar pequeñas variaciones que la hacen única y exclusiva.\n\n⚠️ Producto decorativo. No apto para consumo.",
   "coleccion": "",
-  "descripcionCorta": "Un tetragrama grabado en el corazón del frasco, dos lunas crecientes a los lados, y un líquido lila y azul oscuro que parece una noche estrellada en movimiento. La Poción Lunar es un amuleto artesanal pensado para acompañar la intuición y los rituales ligados a la luna.",
+  "descripcionCorta": "El tetragrama grabado en el corazón del frasco, dos lunas crecientes a los lados, y un líquido lila y azul oscuro que parece una noche estrellada en movimiento. La Poción Lunar es un amuleto artesanal pensado para acompañar la intuición y los rituales ligados a la luna.",
   "estado": "disponible",
-  "activarSelectorPersonalizacion": false,
+  "activarSelectorPersonalizacion": true,
   "precio": 18,
   "nombre": "Poción Lunar",
+  "orden": 7,
   "personalizable": false,
-  "activarCompra": false,
+  "activarCompra": true,
   "mostrarCollarLlavero": false,
   "formasPagoDisponibles": [
     "Bizum",
@@ -16,11 +19,26 @@
   ],
   "categoria": "pociones",
   "mostrarVariantes": false,
-  "variantes": [],
-  "simbolismo": "El tetragrama —también conocido como pentáculo de cuatro puntas o símbolo de los cuatro elementos más el espíritu— aparece en distintas tradiciones esotéricas asociado a la idea de equilibrio entre las fuerzas naturales. Las lunas crecientes, por su parte, se vinculan tradicionalmente con los ciclos, la intuición y la transformación.\n\nEn el diseño de esta pieza, estos símbolos se combinan para representar:\n\nRefuerzo de la intuición, asociado a la práctica de sueños lúcidos, meditación o búsqueda de claridad espiritual.\n\nProtección energética del espacio donde se coloca la pieza.\n\nAcompañamiento en rituales lunares, como pieza que se asocia simbólicamente a las distintas fases de la luna.\n\nEste simbolismo pertenece al terreno de la tradición esotérica y la interpretación espiritual personal, no a un efecto demostrado sobre quien la posee.",
-  "cuidados": "Producto decorativo – No beber ni aplicar sobre piel u ojos.\n\n-Mantener alejado de niños y mascotas.\n\n-No mojar ni exponer a humedad.\n\n-Limpiar con paño seco y suave.",
-  "materiales": "Materiales: Arcilla natural (en los detalles de pentagrama y lunas), corcho, líquido decorativo y sellos artesanales.\n\n-Producto decorativo – No apto para consumo",
-  "permiteOtroColor": false,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Azul"
+    },
+    {
+      "disponible": true,
+      "color": "Lila"
+    },
+    {
+      "disponible": true,
+      "color": "Verde"
+    }
+  ],
+  "simbolismo": "El tetragrama representa protección uniendo los cuatro elementos y el espíritu. Las lunas crecientes simbolizan el flujo de la energía mágica, la transformación y la intuición. Pensada para reforzar la intuición, meditaciones, protección del hogar/altar y rituales lunares.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo",
+  "materiales": "Arcilla natural (en los detalles de tetragrama y lunas), corcho, líquido decorativo, sellos artesanales.",
+  "permiteOtroColor": true,
+  "medidas": "16,5cm. Alto / 6,5cm. Ancho",
+  "opcionesPersonalizacionCliente": [],
   "elaboracion": "100% a mano.",
   "id": "poción-lunar"
 }
