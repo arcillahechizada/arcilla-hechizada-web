@@ -25,20 +25,30 @@ async function cargarDatos(){
     fetch('data/opiniones.json',{cache:'no-store'}).then(r=>r.ok?r.json():{opiniones:[]}).catch(()=>({opiniones:[]})),
     fetch('data/faq.json',{cache:'no-store'}).then(r=>r.ok?r.json():{faq:[]}).catch(()=>({faq:[]}))
   ]);
-  try{
-    const [generales,infusiones,inciensos]=await Promise.all([
-      cargarCarpetaProductosGitHub('data/productos'),
-      cargarCarpetaProductosGitHub('data/infusiones'),
-      cargarCarpetaProductosGitHub('data/inciensos')
-    ]);
-    infusiones.forEach(p=>p.categoria='infusiones');
-    inciensos.forEach(p=>p.categoria='inciensos');
-    PRODUCTOS=[...generales,...infusiones,...inciensos];
-  }catch(e){
-    PRODUCTOS=Array.isArray(productosFallback.productos)?productosFallback.productos:[];
-  }
+
+  // Cada carpeta se carga de forma independiente. Si una falla, las demás
+  // siguen funcionando y nunca hacen desaparecer el catálogo general.
+  const [generalesResult,infusionesResult,inciensosResult]=await Promise.all([
+    cargarCarpetaProductosGitHub('data/productos').catch(()=>[]),
+    cargarCarpetaProductosGitHub('data/infusiones').catch(()=>[]),
+    cargarCarpetaProductosGitHub('data/inciensos').catch(()=>[])
+  ]);
+
+  const fallbackGenerales=Array.isArray(productosFallback.productos)
+    ? productosFallback.productos.filter(p=>p.categoria!=='infusiones'&&p.categoria!=='inciensos')
+    : [];
+
+  const generales=generalesResult.length?generalesResult:fallbackGenerales;
+  const infusiones=infusionesResult.map(p=>({...p,categoria:'infusiones'}));
+  const inciensos=inciensosResult.map(p=>({...p,categoria:'inciensos'}));
+
+  PRODUCTOS=[...generales,...infusiones,...inciensos];
   PRODUCTOS.sort(ordenProductos);
-  PIEZAS_UNICAS=Array.isArray(piezas.piezas)?piezas.piezas:[]; OPINIONES=Array.isArray(opiniones.opiniones)?opiniones.opiniones:[]; FAQ=Array.isArray(faq.faq)?faq.faq:[]; actualizarContadorCarrito();
+
+  PIEZAS_UNICAS=Array.isArray(piezas.piezas)?piezas.piezas:[];
+  OPINIONES=Array.isArray(opiniones.opiniones)?opiniones.opiniones:[];
+  FAQ=Array.isArray(faq.faq)?faq.faq:[];
+  actualizarContadorCarrito();
 }
 function ordenProductos(a,b){
   const oa=Number.isFinite(Number(a.orden))?Number(a.orden):999999;
