@@ -1,0 +1,33 @@
+{
+  "opcionesPersonalizacion": "Elije collar o llavero.",
+  "descripcionCompleta": "Cabe en la palma de la mano, pero dentro reúne una combinación pensada específicamente para el amor: sal negra, cuarzo rosa, azúcar, canela y orégano, cerrados con un tapón de corcho en una botellita redonda de cristal de entre 2,5 y 3 cm de diámetro.\n\nPuede llevarse como collar, cerca del corazón, o como llavero, para que acompañe el día a día de quien lo lleva. Existe también en pack de dos unidades, pensado para que cada persona de la pareja tenga la suya, como un pequeño símbolo compartido entre ambas.\n\nAl ser una elaboración completamente artesanal, cada botellita puede presentar pequeñas diferencias naturales en la disposición de sus ingredientes: ninguna es idéntica a otra.\n\nAmor Eterno puede ser un regalo con un significado muy concreto para quien busca algo distinto a lo habitual para su pareja, o para sí misma como recordatorio personal de la relación que quiere cuidar.",
+  "coleccion": "",
+  "formatosDisponibles": [
+    "Collar ",
+    "Llavero"
+  ],
+  "descripcionCorta": "Una botellita redonda de cristal, apenas unos centímetros de diámetro, con sal negra, cuarzo rosa, canela y orégano en su interior. Este talismán artesanal para parejas está disponible en una unidad o en pack de dos.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": false,
+  "precio": 10,
+  "nombre": "Amor Eterno 1 unidad",
+  "orden": 42,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "botellitas",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "Dentro de la tradición esotérica popular, cada ingrediente de esta botellita se asocia con un significado relacionado con el amor y la protección de una relación:\n\nSal negra: vinculada tradicionalmente a la protección frente a energías que puedan afectar a un vínculo.\n\nCuarzo rosa: asociado popularmente con el amor, la ternura y la armonía emocional.\n\nCanela y azúcar: relacionadas en la tradición con la dulzura y el fortalecimiento del afecto.\n\nOrégano: presente en distintas tradiciones populares como símbolo de protección y fidelidad.\n\nEn conjunto, esta combinación se interpreta tradicionalmente como un talismán de acompañamiento para una pareja, un objeto simbólico para llevar cerca en los momentos importantes de la relación. Este significado pertenece al terreno de la tradición esotérica y la interpretación personal, no a un efecto garantizado sobre una relación.",
+  "cuidados": "Artículo delicado. No mojar por el corcho natural y los materiales naturales que contiene.",
+  "materiales": "Cristal, corcho natural, sal negra, cuarzo rosa, azúcar, canela (en rama y en polvo), orégano seco.",
+  "permiteOtroColor": false,
+  "medidas": "Entre 2,5 y 3 cm de diámetro.",
+  "elaboracion": "100% a mano.",
+  "id": "amor-eterno-pack1"
+}
