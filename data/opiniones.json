@@ -79,6 +79,41 @@
       "texto": "Cómo siempre todo genial gracias.",
       "producto": "Grimorio Imagen",
       "estado": "publicada"
+    },
+    {
+      "id": "op-12",
+      "texto": "Me llegó super rápido y muy bien embalado. La caja grimorio es preciosa, con detalles impecables.",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "producto": "Grimorio Caja Imagen",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-13",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "texto": "Una maravilla de artesanía. La textura y los colores transmiten muchísima paz.",
+      "producto": "Difusor de Aroma",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-14",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "texto": "Buscaba algo especial y único para regalar y fue un acierto total. Le encantó.",
+      "producto": "Grimorio Caja Imagen",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-15",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "texto": "El trato por WhatsApp insuperable, muy cercana y atenta. Repetiré seguro.",
+      "producto": "Mano de Fátima",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-16",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "texto": "Es una obra de arte. La energía que transmite al tenerla cerca es especial.",
+      "producto": "Poción Porta Silvarum",
+      "estado": "publicada"
     }
   ]
 }
