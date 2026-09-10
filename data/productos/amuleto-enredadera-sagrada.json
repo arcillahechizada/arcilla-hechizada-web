@@ -1,0 +1,45 @@
+{
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "En el centro, un tetragrama; alrededor, una enredadera que lo rodea por completo, como si lo sostuviera en un abrazo. Esa combinación es el corazón de esta pieza: dos símbolos distintos que, juntos, cuentan algo más que por separado.\n\nEl acabado efecto piedra, tallado a mano en arcilla natural, le da a la pieza ese carácter duradero y terroso propio de esta línea de amuletos. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "Un tetragrama envuelto por una enredadera tallada a mano, como un abrazo protector. Este amuleto en arcilla, con acabado efecto piedra, une los cuatro elementos con la fuerza de lo que crece.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Enredadera Sagrada",
+  "orden": 54,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "amuletos",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "El tetragrama, símbolo esotérico que representa tradicionalmente la unión de los cuatro elementos —tierra, agua, aire y fuego— con el espíritu, se combina en esta pieza con la imagen de una enredadera, motivo vegetal asociado habitualmente al crecimiento, la unión y el sostén mutuo.\n\nDentro de esta interpretación, la pieza representa:\n\nProtección energética continua y sagrada.\n\nConexión armoniosa con el propio entorno y con las personas cercanas.\n\nVínculo simbólico con la tierra y con fuerzas más amplias, dentro de la tradición esotérica de los cuatro elementos.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
+  "permiteOtroColor": false,
+  "medidas": "3 cm de diámetro, 3 mm de grosor.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Collar"
+    },
+    {
+      "nombre": "Pulsera"
+    },
+    {
+      "nombre": "Llavero"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-enredadera-sagrada"
+}
