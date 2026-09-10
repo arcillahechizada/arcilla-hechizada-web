@@ -1,0 +1,33 @@
+{
+  "opcionesPersonalizacion": "Elige la botellita pequeña, collar o llavero",
+  "descripcionCompleta": "Hay amuletos pensados para proteger desde fuera, y otros pensados para acompañar desde dentro. Corazón Guardián pertenece a los segundos: la misma botella corazón se combina aquí con una botellita más pequeña que contiene el mismo elixir en tonos rosa y rojo, para llevar siempre cerca.\n\nNo es una versión reducida de otra pieza, sino su continuación: mismo líquido, misma intención, en un formato pensado para el día a día. Al ser una elaboración artesanal, los tonos del elixir pueden presentar ligeras variaciones naturales entre piezas.\n\nPuede tener sentido como recordatorio personal de amor propio, o como pieza para regalar a alguien que necesite ese mismo mensaje: suavidad, armonía emocional, un guardián silencioso que acompaña sin imponerse.",
+  "coleccion": "",
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "descripcionCorta": "La misma botella corazón, acompañada esta vez del mismo elixir en tonos rosa para llevar contigo. Este amuleto de amor propio es un recordatorio suave que te acompaña cada día.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 20,
+  "nombre": "Corazón Guardián",
+  "orden": 17,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "pociones",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "El color rosa y rojo del elixir se asocia dentro de la tradición esotérica popular con el amor propio, la ternura y la armonía emocional. La forma de corazón de la botella principal refuerza directamente ese mismo simbolismo.\n\nDentro de esta interpretación, Corazón Guardián puede utilizarse como:\n\nRecordatorio diario de amor propio, llevado como colgante o guardado en un espacio personal.\n\nAcompañamiento emocional en momentos que piden suavidad y calma interior.\n\nRegalo con significado, para alguien a quien se quiera transmitir ese mismo mensaje de cuidado hacia una misma",
+  "cuidados": "Artículo delicado. No mojar, por el corcho natural y los materiales naturales que contiene.",
+  "materiales": "Botella de cristal, líquido decorativo (elixir en tonos rosa y rojo).",
+  "permiteOtroColor": true,
+  "medidas": "Botellita pequeña 3cm Botella corazón 8 cm",
+  "elaboracion": "100% a mano.",
+  "id": "corazon-guardian"
+}
