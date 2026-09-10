@@ -1,34 +1,47 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "No mira de frente. Está de espaldas, con su gorro característico, apoyada en la rama de un árbol, en una postura que no busca imponerse sino vigilar y cuidar. Esa es la esencia de esta pieza: la protección que nace de pertenecer a un grupo, no la fuerza de estar sola.\n\nTallada a mano en arcilla natural con acabado efecto piedra, disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Puede tener un lugar especial para quien siente conexión con la magia compartida en comunidad, o simplemente con la idea de sentirse acompañada por su propio clan espiritual.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "De espaldas, apoyada en la rama de un árbol, así vigila esta figura tallada a mano en arcilla. Este amuleto con efecto piedra representa la protección de un clan espiritual unido.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Guardiana del Aquelarre",
+  "orden": 55,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "guardiana-del-aquelarre",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Guardiana del Aquelarre",
-  "precio": 9,
-  "descripcionCorta": "Una bruja de espaldas, sentada en la rama de un árbol. Un amuleto de acabado efecto piedra que representa protección y unión del clan espiritual.",
-  "descripcionCompleta": "La Guardiana del Aquelarre está sentada de espaldas, apoyada en la rama de un árbol, en una postura que transmite vigilancia y calma. Tallada en arcilla natural con acabado efecto piedra, cada pieza conserva pequeñas diferencias propias del trabajo manual.",
-  "simbolismo": "La imagen se inspira en el imaginario de la brujería verde y del aquelarre como espacio de encuentro y apoyo. En esta pieza representa protección del grupo, conexión con el bosque y equilibrio entre fuerza individual y comunidad. Es simbolismo espiritual, no una promesa de protección objetiva.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "La imagen de la bruja apoyada en un árbol, vigilando de espaldas, se enmarca dentro del imaginario de la brujería verde y de la tradición del aquelarre como espacio de encuentro y protección mutua entre quienes practican juntas.\n\nDentro de esta interpretación, la pieza se asocia con:\n\nProtección del grupo espiritual o comunidad al que se pertenece.\n\nConexión con guías, ancestros y la magia ancestral ligada al bosque.\n\nEl equilibrio entre la fuerza individual y la fuerza colectiva.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
   "galeria": [],
-  "orden": 60
+  "permiteOtroColor": false,
+  "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Collar"
+    },
+    {
+      "nombre": "Pulsera"
+    },
+    {
+      "nombre": "Llavero"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-guardiana-aquelarre",
+  "imagenPrincipal": ""
 }
