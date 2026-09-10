@@ -1,0 +1,34 @@
+{
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "Tres curvas que se entrelazan sin un principio ni un final definidos: así es la triqueta, uno de los símbolos más reconocibles de la tradición celta. Esta pieza la talla a mano en arcilla natural, con acabado efecto piedra, en un tamaño práctico para llevar siempre contigo o guardar en el bolsillo.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es un amuleto pensado para quien busca un símbolo de equilibrio con raíces históricas claras, más allá de una estética puramente decorativa.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "Tres lazos entrelazados sin principio ni fin, con siglos de tradición celta detrás. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa la unión y el equilibrio.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Triqueta Elemental",
+  "orden": 59,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "amuletos",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "La triqueta es un símbolo documentado en el arte celta y nórdico, formado por tres arcos entrelazados sin principio ni fin visible, tradicionalmente asociado con la idea de unidad, ciclos y equilibrio entre tres fuerzas o planos.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nEquilibrio interno y conexión con las fuerzas naturales.\n\nEstabilidad emocional frente a energías dispersas.\n\nApoyo simbólico en procesos de armonización y crecimiento personal.\n\nEl origen histórico del símbolo está documentado; su interpretación como amuleto de equilibrio espiritual pertenece al terreno de la tradición y la creencia personal.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
+  "permiteOtroColor": false,
+  "medidas": "3 cm de diámetro, 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-triqueta-elemental"
+}
