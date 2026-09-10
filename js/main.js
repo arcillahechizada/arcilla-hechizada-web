@@ -79,9 +79,11 @@ function construirNavegacionTienda() {
     cats.forEach(function(c){ var a=document.createElement('a'); a.href=c[1]; a.textContent=c[0]; sub.appendChild(a); });
     wrap.appendChild(link); wrap.appendChild(sub); nav.replaceChild(wrap,tienda);
     wrap.addEventListener('mouseenter', function(){ link.setAttribute('aria-expanded','true'); });
-    wrap.addEventListener('mouseleave', function(){ link.setAttribute('aria-expanded','false'); });
+    wrap.addEventListener('mouseleave', function(){ if(!wrap.classList.contains('abierto')) link.setAttribute('aria-expanded','false'); });
     link.addEventListener('focus', function(){ link.setAttribute('aria-expanded','true'); });
-    wrap.addEventListener('focusout', function(e){ if(!wrap.contains(e.relatedTarget)) link.setAttribute('aria-expanded','false'); });
+    link.addEventListener('click', function(e){ e.preventDefault(); var abierto = wrap.classList.toggle('abierto'); link.setAttribute('aria-expanded', abierto ? 'true' : 'false'); });
+    wrap.addEventListener('focusout', function(e){ if(!wrap.contains(e.relatedTarget) && !wrap.classList.contains('abierto')) link.setAttribute('aria-expanded','false'); });
+    document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ wrap.classList.remove('abierto'); link.setAttribute('aria-expanded','false'); } });
     var cart=document.createElement('a'); cart.href='carrito.html'; cart.className='enlace-carrito'; cart.innerHTML='🛒 Carrito <span id="contador-carrito">0</span>'; nav.parentElement.appendChild(cart);
   });
   document.querySelectorAll('.menu-movil').forEach(function(menu){

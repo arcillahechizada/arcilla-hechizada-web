@@ -518,7 +518,7 @@ footer.site a:hover{ opacity:1; color: var(--bronce); }
 .menu-tienda{position:relative;display:flex;align-items:center}
 .menu-tienda .tienda-trigger{display:inline-flex;align-items:center;gap:5px}
 .menu-tienda .tienda-trigger::after{content:'⌄';font-size:.75rem;transform:translateY(-1px)}
-.submenu-tienda{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);min-width:210px;padding:8px;background:var(--crema);border:1px solid var(--linea);border-radius:10px;box-shadow:var(--sombra-suave);display:none;z-index:80}
+.submenu-tienda{position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:210px;padding:8px;background:var(--crema);border:1px solid var(--linea);border-radius:10px;box-shadow:var(--sombra-suave);display:none;z-index:80}
 .menu-tienda:hover .submenu-tienda,.menu-tienda:focus-within .submenu-tienda{display:block}
 .submenu-tienda a{display:block!important;padding:9px 12px!important;font-size:.88rem!important;border-radius:6px}
 .submenu-tienda a:hover{background:var(--beige)}
