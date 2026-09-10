@@ -67,7 +67,7 @@ function construirNavegacionTienda() {
   var cats = [
     ['Grimorios','grimorios.html'], ['Amuletos','amuletos.html'], ['Pociones','pociones.html'],
     ['Mandalas','mandalas.html'], ['Botellitas','botellitas.html'], ['Infusiones','infusiones.html'],
-    ['Inciensos','inciensos.html'], ['Plantas / Semillas','plantas-semillas.html'], ['Reserva una llamada','reserva-de-llamada.html']
+    ['Inciensos','inciensos.html'], ['Plantas / Semillas','plantas-semillas.html'], ['Opiniones','opiniones.html']
   ];
   document.querySelectorAll('nav.principal').forEach(function(nav) {
     if (nav.querySelector('.menu-tienda')) return;
@@ -90,26 +90,6 @@ function construirNavegacionTienda() {
     cats.forEach(function(c){var a=document.createElement('a');a.href=c[1];a.textContent=c[0];d.appendChild(a);});
     menu.replaceChild(d,tienda);
     var cart=document.createElement('a');cart.href='carrito.html';cart.className='enlace-carrito-movil';cart.textContent='🛒 Carrito';menu.insertBefore(cart,menu.firstChild);
-  });
-  document.querySelectorAll('nav.principal').forEach(function(nav) {
-    if (nav.querySelector('.menu-contacto')) return;
-    var contacto=Array.from(nav.children).find(function(a){return a.tagName==='A' && a.getAttribute('href')==='contacto.html';});
-    if (!contacto) return;
-    var wrap=document.createElement('div'); wrap.className='menu-tienda menu-contacto';
-    var link=document.createElement('a'); link.href='contacto.html'; link.textContent='Contacto'; link.className='tienda-trigger'; link.setAttribute('aria-haspopup','true'); link.setAttribute('aria-expanded','false');
-    var sub=document.createElement('div'); sub.className='submenu-tienda';
-    [['Contacto','contacto.html'],['Reserva una llamada','reserva-de-llamada.html']].forEach(function(c){var a=document.createElement('a');a.href=c[1];a.textContent=c[0];sub.appendChild(a);});
-    wrap.appendChild(link); wrap.appendChild(sub); nav.replaceChild(wrap,contacto);
-    link.addEventListener('click',function(e){e.preventDefault();var abierto=wrap.classList.toggle('abierto');link.setAttribute('aria-expanded',abierto?'true':'false');});
-  });
-  document.querySelectorAll('.menu-movil').forEach(function(menu){
-    if(menu.querySelector('.menu-contacto-movil')) return;
-    var contacto=Array.from(menu.children).find(function(a){return a.tagName==='A' && a.getAttribute('href')==='contacto.html';});
-    if(!contacto) return;
-    var d=document.createElement('details'); d.className='menu-tienda-movil menu-contacto-movil';
-    var sum=document.createElement('summary'); sum.textContent='Contacto'; d.appendChild(sum);
-    [['Contacto','contacto.html'],['Reserva una llamada','reserva-de-llamada.html']].forEach(function(c){var a=document.createElement('a');a.href=c[1];a.textContent=c[0];d.appendChild(a);});
-    menu.replaceChild(d,contacto);
   });
   var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});
 }
