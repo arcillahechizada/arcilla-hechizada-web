@@ -1,34 +1,36 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "Pocas figuras representan el renacimiento con tanta fuerza como el Fénix: el ave que arde y vuelve a nacer de sus propias cenizas. Esta pieza la sitúa dentro de un círculo, tallada a mano en arcilla natural con acabado efecto piedra, como recordatorio físico de esa misma capacidad de transformación. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza pensada para quien atraviesa un proceso de cambio, cierre de etapa o búsqueda espiritual, y quiere llevar consigo un símbolo que le recuerde su propia capacidad de resurgir.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Collar"
+  ],
+  "descripcionCorta": "Dentro de un círculo, un ave que renace de sus propias cenizas. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa la capacidad de resurgir tras un cambio.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Ave Fénix",
+  "orden": 57,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "ave-fenix",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Ave Fénix",
-  "precio": 9,
-  "descripcionCorta": "El Ave Fénix, tallada dentro de un círculo de arcilla con acabado efecto piedra, representa renacimiento, transformación y poder personal.",
-  "descripcionCompleta": "Pocas criaturas míticas han cruzado tantas culturas como el Ave Fénix. Esta pieza recoge esa imagen dentro de un círculo, tallada a mano en arcilla natural con acabado efecto piedra. Ninguna pieza sale exactamente igual a otra. Puede acompañar procesos de cambio o servir como recordatorio de que siempre es posible volver a empezar.",
-  "simbolismo": "El Ave Fénix se asocia en distintas tradiciones a la idea de morir y renacer. Aquí se interpreta como símbolo de transformación y resiliencia personal. Este significado pertenece al terreno de la tradición y la interpretación espiritual, no a una propiedad demostrada.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "El Fénix es una figura mítica presente en distintas tradiciones culturales —entre ellas la griega y la egipcia—, documentada históricamente como un ave que muere consumida por el fuego y renace de sus propias cenizas, convirtiéndose en un símbolo universal de renacimiento y transformación.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nCapacidad de renacer después de crisis o cambios importantes.\n\nFuerza interior y renovación personal.\n\nCoraje y perseverancia frente a las dificultades.\n\nEste significado pertenece al terreno del simbolismo cultural y la interpretación espiritual personal.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+  "materiales": "Arcilla natural, acabado efecto piedra",
   "galeria": [],
-  "orden": 10
+  "permiteOtroColor": false,
+  "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-ave-fenix",
+  "imagenPrincipal": ""
 }
