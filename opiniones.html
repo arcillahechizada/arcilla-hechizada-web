@@ -20,6 +20,7 @@
     </a>
     <nav class="principal">
       <a href="tienda.html">Tienda</a>
+      <a href="opiniones.html">Opiniones</a>
       <a href="piezas-unicas.html">Piezas únicas</a>
       <a href="personalizados.html">Personalizados</a>
       <a href="el-taller.html">El Taller</a>
@@ -27,6 +28,7 @@
       <a href="envios-y-recogida.html">Envíos y recogida</a>
       <a href="contacto.html">Contacto</a>
     </nav>
+    <a href="https://wa.me/34722379095" class="btn-whatsapp-header" target="_blank" rel="noopener">WhatsApp</a>
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </div>
   <div class="menu-movil">
@@ -100,10 +102,47 @@
     </div>
   </div>
 
-  <div class="centro" style="background:var(--blanco-suave); padding:32px; border-radius:12px; border:1px solid var(--borde-suave);">
-    <h3>¿Tienes ya una pieza en casa?</h3>
-    <p style="color:var(--marron-gris); margin-bottom:20px;">Me encantará conocer tu experiencia o ver dónde ha encontrado acomodo tu creación.</p>
-    <a href="https://wa.me/34722379095?text=¡Hola!%20Quería%20dejarte%20mi%20opinión%20sobre%20mi%20pedido." class="btn btn-primario" target="_blank" rel="noopener">Enviar valoración por WhatsApp</a>
+  <div class="centro opinion-formulario" style="background:var(--blanco-suave); padding:32px; border-radius:12px; border:1px solid var(--borde-suave);">
+    <h2>¿Tienes ya una pieza de Arcilla Hechizada?</h2>
+    <p style="color:var(--marron-gris); margin-bottom:24px;">Tu experiencia puede ayudar a otras personas a descubrir el cuidado y el trabajo que hay detrás de cada creación.</p>
+
+    <form id="form-opinion" class="form-opinion" novalidate>
+      <div class="campo-opinion">
+        <label>Tu valoración</label>
+        <div class="selector-estrellas" role="radiogroup" aria-label="Elige tu valoración de 1 a 5 estrellas">
+          <button type="button" class="estrella-opinion" data-valor="1" aria-label="1 estrella" aria-checked="false">★</button>
+          <button type="button" class="estrella-opinion" data-valor="2" aria-label="2 estrellas" aria-checked="false">★</button>
+          <button type="button" class="estrella-opinion" data-valor="3" aria-label="3 estrellas" aria-checked="false">★</button>
+          <button type="button" class="estrella-opinion" data-valor="4" aria-label="4 estrellas" aria-checked="false">★</button>
+          <button type="button" class="estrella-opinion" data-valor="5" aria-label="5 estrellas" aria-checked="false">★</button>
+        </div>
+        <input type="hidden" id="opinion-estrellas" value="">
+        <div id="opinion-estrellas-texto" class="ayuda-opinion">Elige de 1 a 5 estrellas</div>
+      </div>
+
+      <div class="campo-opinion">
+        <label for="opinion-producto">¿Qué artículo compraste?</label>
+        <select id="opinion-producto" required>
+          <option value="">Selecciona tu pieza</option>
+        </select>
+      </div>
+
+      <div class="campo-opinion">
+        <label for="opinion-texto">Tu opinión</label>
+        <textarea id="opinion-texto" rows="5" required placeholder="Cuéntame brevemente tu experiencia..."></textarea>
+      </div>
+
+      <div class="campo-opinion">
+        <label for="opinion-nombre">Nombre <span>(opcional)</span></label>
+        <input type="text" id="opinion-nombre" placeholder="Puedes dejarlo en blanco si prefieres anonimato.">
+      </div>
+
+      <p class="aviso-opinion">No necesitas indicar tu nombre. Puedes dejar tu opinión de forma anónima.</p>
+      <div class="opinion-canales">
+        <button type="submit" name="canal" value="whatsapp" class="btn btn-primario">Enviar por WhatsApp</button>
+        <button type="submit" name="canal" value="email" class="btn btn-secundario">Enviar por correo electrónico</button>
+      </div>
+    </form>
   </div>
 </main>
 
