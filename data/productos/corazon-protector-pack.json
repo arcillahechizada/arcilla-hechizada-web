@@ -1,0 +1,33 @@
+{
+  "opcionesPersonalizacion": "Elige la botellita pequeña, collar o llavero",
+  "descripcionCompleta": "Dos piezas, un mismo propósito: una botella con forma de corazón, de mayor presencia, y una botellita herbal más pequeña que la acompaña. Dentro de esta última conviven siete ingredientes rituales: amatista, sal negra de bruja, clavo y una selección de plantas protectoras, hasta completar una mezcla pensada específicamente para limpiar, cortar y fortalecer el campo energético personal.\n\nEl conjunto funciona como un pequeño ritual en sí mismo: la botella corazón como pieza central para tu espacio, y la botellita herbal como refuerzo simbólico que puedes llevar cerca o guardar junto a ella. Al tratarse de una elaboración artesanal, la combinación de ingredientes puede presentar ligeras variaciones naturales entre piezas.\n\nEs un conjunto pensado para quien busca reforzar simbólicamente su energía personal en momentos que piden claridad y fuerza interior. Existe también en versión de amor propio, bajo el nombre Corazón Guardián.",
+  "coleccion": "",
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "descripcionCorta": "Una botella corazón se une a una botellita ritual con siete ingredientes protectores, entre ellos amatista y sal negra. Este conjunto de amuletos está pensado para limpiar, cortar y fortalecer tu energía.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 24,
+  "nombre": "Corazón Protector",
+  "orden": 16,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": false,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "pociones",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "Cada uno de los siete ingredientes que forman la botellita herbal pertenece a la tradición esotérica popular, con un significado propio:\n\nAmatista: asociada tradicionalmente con la protección espiritual y la claridad mental.\n\nSal negra de bruja: utilizada en distintas tradiciones como símbolo de corte energético frente a influencias densas.\n\nClavo: vinculado popularmente a la protección y el fortalecimiento del ánimo.\n\nPlantas protectoras seleccionadas: elegidas dentro de esta misma tradición por su significado de resguardo y limpieza energética.\n\nEn conjunto, esta combinación se interpreta tradicionalmente como un escudo simbólico pequeño pero significativo, pensado para acompañar el día a día. Este significado pertenece al terreno de la tradición esotérica",
+  "cuidados": "Artículo delicado. No mojar, por el corcho natural y los materiales naturales que contiene.",
+  "materiales": "Botella de cristal, amatista, sal negra de bruja, clavo, plantas protectoras naturales.",
+  "permiteOtroColor": true,
+  "medidas": "Botellita pequeña 3cm Botella corazón 8 cm",
+  "elaboracion": "100% a mano.",
+  "id": "corazon-protector-pack"
+}
