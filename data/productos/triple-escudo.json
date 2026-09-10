@@ -1,34 +1,36 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "Tres símbolos, un mismo círculo: el tetragrama, una media luna y una triqueta conviven en esta pieza, cada uno aportando su propio significado dentro de un diseño compacto. Tallada a mano en arcilla natural con acabado efecto piedra, la pieza reúne en un solo amuleto tres tradiciones distintas del simbolismo esotérico.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza pensada para llevar siempre contigo o colocar en un altar, para quien busca reunir varias capas de significado en un único objeto.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "Tetragrama, media luna y triqueta reunidos dentro de un mismo círculo tallado a mano. Este amuleto en arcilla, con acabado efecto piedra, combina tres símbolos de protección en uno.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Triple Escudo",
+  "orden": 59,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "triple-escudo",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Triple Escudo",
-  "precio": 9,
-  "descripcionCorta": "Tres símbolos en uno: Tetragrama, media luna y triqueta, reunidos en un círculo de arcilla con acabado efecto piedra. Representa protección, energía lunar y equilibrio.",
-  "descripcionCompleta": "No todos los amuletos representan una sola idea. Triple Escudo combina tres símbolos dentro de un mismo círculo, creando una pieza pensada como protección integral. Se elabora 100% a mano con acabado efecto piedra y puede llevarse a diario o colocarse en un altar.",
-  "simbolismo": "Cada símbolo aporta su propio significado dentro de esta colección: el Tetragrama representa la unión de los cuatro elementos con el espíritu; la media luna se asocia a la energía lunar y la intuición; y la triqueta representa la armonía. Este significado pertenece al terreno de la tradición y la interpretación simbólica, no a una propiedad demostrada.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "Cada uno de los tres símbolos que forman esta pieza pertenece a una tradición documentada dentro del esoterismo: el tetragrama representa la unión de los cuatro elementos con el espíritu; la media luna se asocia tradicionalmente con los ciclos y la energía lunar; la triqueta, de origen celta, representa la unión de tres fuerzas o planos.\n\nEn conjunto, dentro del diseño de esta pieza, representan:\n\nProtección integral frente a energías que se perciben como negativas.\n\nConexión con la energía lunar y con la intuición.\n\nEquilibrio entre cuerpo, mente y espíritu.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
   "galeria": [],
-  "orden": 140
+  "permiteOtroColor": false,
+  "medidas": "3 cm de diámetro y 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-triple-escudo",
+  "imagenPrincipal": ""
 }
