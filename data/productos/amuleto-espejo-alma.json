@@ -1,0 +1,35 @@
+{
+  "notaInterna": "Pedir inicial",
+  "opcionesPersonalizacion": "Personaliza con la inicial que elijas.\n\nElige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "No refleja tu imagen, sino una letra: la inicial que elijas, tallada en el centro de un espejo antiguo modelado en arcilla. Esa es la diferencia que convierte a esta pieza en algo verdaderamente personal, más allá del diseño que comparte con el resto de la colección.\n\nEl acabado efecto piedra le da un aire elegante y atemporal, mientras que la personalización con tu inicial hace que ninguna copia de este amuleto sea exactamente como la tuya. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "Un espejo antiguo tallado en arcilla, con acabado efecto piedra y tu inicial personalizada en el centro. Este amuleto de introspección es único para cada persona que lo elige.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Espejo del Alma",
+  "orden": 56,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "amuletos",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "La forma de espejo se asocia tradicionalmente, dentro del imaginario esotérico, con la introspección y el autoconocimiento: la idea de mirar hacia dentro en lugar de hacia fuera. En esta pieza, esa idea se combina con la personalización de una inicial, reforzando el vínculo entre el símbolo y quien lo lleva.\n\nDentro de esta interpretación, el Espejo del Alma se asocia con:\n\nReflexión interna y búsqueda de la propia verdad.\n\nProtección personal, entendida como el cuidado de los propios límites energéticos.\n\nUn vínculo más íntimo con el amuleto, gracias a su personalización.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
+  "permiteOtroColor": false,
+  "medidas": "3 cm de diámetro, 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-espejo-alma"
+}
