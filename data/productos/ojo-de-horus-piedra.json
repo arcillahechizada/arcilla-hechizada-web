@@ -1,34 +1,47 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige Collar, Pulsera y Llavero",
+  "descripcionCompleta": "ocos símbolos han atravesado tanto tiempo sin perder su fuerza como el Ojo de Horus. Esta pieza lo recoge con un acabado efecto piedra que refuerza su carácter ancestral, tallado con el cuidado suficiente para que cada detalle del diseño se distinga con claridad.\n\nCada amuleto se elabora a mano en arcilla natural, en un tamaño de 3 cm de diámetro y 3 mm de grosor, disponible en formato collar, pulsera o llavero. Es una pieza pensada para llevarse a diario, ideal para quien busca un símbolo con peso histórico real detrás, además de una estética marcada.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "n símbolo egipcio con miles de años de historia, tallado en arcilla con acabado efecto piedra. Este amuleto representa protección y una percepción más allá de lo evidente.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Ojo de Horus — Línea Efecto Piedra",
+  "orden": 53,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "ojo-de-horus-piedra",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Ojo de Horus — Línea Efecto Piedra",
-  "precio": 9,
-  "descripcionCorta": "Un símbolo milenario del antiguo Egipto, tallado en arcilla con acabado efecto piedra y pensado como talismán de protección.",
-  "descripcionCompleta": "El Ojo de Horus proviene del antiguo Egipto, donde aparece como amuleto protector. Esta pieza lo traduce a arcilla natural con el acabado efecto piedra, dándole un aspecto rugoso y antiguo. Su tamaño está pensado para llevarse como colgante o guardarse como talismán personal.",
-  "simbolismo": "El Ojo de Horus, o Wedjat, está documentado en el antiguo Egipto y se vinculó con protección, salud y restauración. En esta pieza se añade la interpretación contemporánea de intuición y percepción espiritual. Su función protectora pertenece a la tradición y la creencia, no a una propiedad demostrada.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "El Ojo de Horus, también conocido como Wedjat, es un símbolo documentado en el antiguo Egipto, asociado tradicionalmente a la protección, la salud y la realeza, y vinculado al mito de Horus y su ojo perdido y restaurado. Es uno de los amuletos más representativos y estudiados de esa civilización.\n\nEn el diseño de esta pieza, ese simbolismo histórico se traduce en una interpretación espiritual actual:\n\nProtección frente a energías que se perciben como dañinas.\n\nRefuerzo de la intuición y la percepción, en línea con su asociación tradicional con la visión más allá de lo evidente.\n\nApoyo simbólico en la búsqueda de equilibrio interior.\n\nEl origen histórico del símbolo está documentado; su uso como amuleto de protección espiritual pertenece al terreno de la tradición y la creencia personal.",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
   "galeria": [],
-  "orden": 110
+  "permiteOtroColor": false,
+  "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Collar"
+    },
+    {
+      "nombre": "Pulsera "
+    },
+    {
+      "nombre": "Llavero"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-ojo-horus",
+  "imagenPrincipal": ""
 }
