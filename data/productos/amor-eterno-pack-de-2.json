@@ -9,7 +9,7 @@
   ],
   "descripcionCorta": "Una botellita redonda de cristal, apenas unos centímetros de diámetro, con sal negra, cuarzo rosa, canela, orégano... en su interior. Este talismán artesanal para parejas está disponible en una unidad o en pack de dos.",
   "estado": "disponible",
-  "activarSelectorPersonalizacion": false,
+  "activarSelectorPersonalizacion": true,
   "precio": 17,
   "nombre": "Amor Eterno-pack de 2",
   "orden": 43,
@@ -29,6 +29,14 @@
   "materiales": "Cristal, corcho natural, sal negra, cuarzo rosa, azúcar, canela (en rama y en polvo), orégano seco...",
   "permiteOtroColor": false,
   "medidas": "Entre 2,5 y 3 cm de diámetro.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Pack-2 uni. 17€"
+    },
+    {
+      "nombre": "Pack-1 uni. 10€"
+    }
+  ],
   "elaboracion": "100% a mano.",
   "id": "amor-eterno-pack de 2"
 }
