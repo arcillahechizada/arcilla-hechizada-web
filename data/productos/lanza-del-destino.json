@@ -1,34 +1,36 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "Su forma no da lugar a dudas: una lanza, o una punta de flecha, apunta siempre hacia delante. Esta pieza traduce esa dirección clara en un amuleto tallado a mano en arcilla natural, con acabado efecto piedra, pensado como recordatorio físico de avanzar sin desviarse.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza que puede tener sentido para quien está atravesando un proceso de cambio, tomando decisiones importantes, o simplemente necesita un empujón simbólico de determinación en su día a día, ya sea en lo personal, lo deportivo o lo profesional.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "Su forma no da lugar a dudas: apunta siempre hacia delante. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa el coraje para avanzar sin desviarte.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Lanza del Destino",
+  "orden": 58,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "lanza-del-destino",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Lanza del Destino",
-  "precio": 9,
-  "descripcionCorta": "Una punta de lanza tallada en arcilla con acabado efecto piedra, símbolo de determinación, coraje y avance.",
-  "descripcionCompleta": "Su forma directa representa el impulso de avanzar, la precisión de saber hacia dónde dirigirse y la fuerza para atravesar obstáculos. Elaborada 100% a mano en arcilla natural con acabado efecto piedra, está pensada para llevarse como talismán personal o colocarse en un altar.",
-  "simbolismo": "La lanza y la punta de flecha se han asociado en distintas culturas con dirección, impulso y decisión. En esta pieza representa coraje, voluntad y determinación. Es una interpretación simbólica y personal, no una propiedad demostrada.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "La forma de lanza o punta de flecha se asocia, dentro del imaginario simbólico, con el impulso directo y la precisión: la idea de avanzar hacia un objetivo concreto sin desviarse del camino.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nCoraje para enfrentar desafíos y superar miedos.\n\nDeterminación para tomar decisiones firmes.\n\nAcompañamiento simbólico en viajes o procesos de cambio, tanto físicos como personales",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
   "galeria": [],
-  "orden": 70
+  "permiteOtroColor": false,
+  "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-lanza-destino",
+  "imagenPrincipal": ""
 }
