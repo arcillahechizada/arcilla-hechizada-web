@@ -1,34 +1,47 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+  "descripcionCompleta": "Dentro de un círculo, el tetragrama concentra en un solo trazo la idea de cuatro fuerzas distintas —tierra, aire, fuego y agua— unidas por un quinto elemento: el espíritu. Esta pieza traduce ese equilibrio en un amuleto compacto, tallado en arcilla natural con acabado efecto piedra.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor, fácil de llevar a diario o de colocar en un altar como punto de referencia visual para ese mismo equilibrio elemental.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero"
+  ],
+  "descripcionCorta": "El símbolo de los cuatro elementos y el espíritu, tallado dentro de un círculo en arcilla con acabado efecto piedra. Un amuleto compacto para llevar contigo o colocar en tu altar.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Tetragrama de Protección",
+  "orden": 54,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
-  ],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "tetragrama-de-proteccion",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Tetragrama de Protección",
-  "precio": 9,
-  "descripcionCorta": "El Tetragrama, enmarcado en un círculo y tallado a mano en arcilla con acabado efecto piedra. Una pieza asociada en esta colección a la unión de los cuatro elementos y el espíritu.",
-  "descripcionCompleta": "En el centro de un círculo se talla el Tetragrama, símbolo que en esta colección representa la unión entre tierra, aire, fuego y agua y el espíritu que los conecta. Se elabora 100% a mano con acabado efecto piedra y su tamaño compacto permite llevarlo o colocarlo en un altar.",
-  "simbolismo": "Dentro del diseño de esta colección, el Tetragrama representa equilibrio elemental y totalidad. El círculo refuerza la idea simbólica de protección. Este significado pertenece a la práctica espiritual personal y no a una propiedad demostrada.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "simbolismo": "El tetragrama —también conocido como pentáculo de cinco puntas— es un símbolo esotérico ampliamente documentado, presente en distintas tradiciones espirituales y asociado tradicionalmente a la unión de los cuatro elementos naturales con el espíritu.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nProtección frente a energías que se perciben como negativas.\n\nEquilibrio entre las fuerzas elementales, tanto internas como del entorno.\n\nRefuerzo de la conexión espiritual personal.\n\nEste significado pertenece al terreno de la tradición esotérica",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
   "galeria": [],
-  "orden": 130
+  "permiteOtroColor": false,
+  "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+  "opcionesPersonalizacionCliente": [
+    {
+      "nombre": "Collar"
+    },
+    {
+      "nombre": "Pulsera"
+    },
+    {
+      "nombre": "Llavero"
+    }
+  ],
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-tetragrama-proteccion",
+  "imagenPrincipal": ""
 }
