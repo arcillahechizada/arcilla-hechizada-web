@@ -1,0 +1,34 @@
+{
+  "opcionesPersonalizacion": "Elige el formato. Collar, Pulsera o Llavero",
+  "descripcionCompleta": "Pocas figuras de la mitología griega concentran tanto poder como Medusa: la Gorgona cuya mirada era capaz de petrificar a quien la enfrentara. Esta pieza toma esa fuerza y la convierte en amuleto, tallado con detalles que evocan esa mirada y esa energía de transformación.\n\nEl acabado efecto piedra —logrado con un tono específico dentro de esta línea de amuletos de Arcilla Hechizada— refuerza visualmente la idea de algo capaz de resistir, de plantar cara. Cada pieza se elabora a mano en arcilla natural, en un tamaño pensado para llevarse como talismán diario o colgante.\n\nEs una pieza que puede tener sentido para quien atraviesa un momento en el que necesita reforzar su fuerza interior, marcar límites o simplemente llevar consigo un símbolo de defensa frente a lo que percibe como hostil.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Pulsera",
+    "Llavero "
+  ],
+  "descripcionCorta": "Inspirado en el mito de Medusa, cuya mirada convertía en piedra a quien la enfrentaba. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa fuerza y protección.",
+  "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 9,
+  "nombre": "Égida de la Gorgona",
+  "orden": 50,
+  "personalizable": true,
+  "activarCompra": true,
+  "mostrarCollarLlavero": true,
+  "formasPagoDisponibles": [
+    "Bizum",
+    "PayPal",
+    "Efectivo"
+  ],
+  "categoria": "amuletos",
+  "mostrarVariantes": false,
+  "variantes": [],
+  "simbolismo": "Medusa, la Gorgona de la mitología griega, es una figura documentada en el relato clásico como una fuerza capaz de convertir en piedra con su sola mirada a quien se enfrentara a ella. A lo largo del tiempo, esta figura ha sido reinterpretada en distintos contextos culturales como símbolo de poder y de defensa ante la agresión.\n\nEn el diseño de esta pieza, esa fuerza se traduce en:\n\nProtección frente a envidias, malas intenciones o energías que se perciben como dañinas.\n\nRefuerzo simbólico de la autoestima y el poder interior.\n\nApoyo en la transformación de situaciones difíciles, como quien \"petrifica\" aquello que le hace daño para poder dejarlo atrás.\n",
+  "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+  "materiales": "Arcilla natural, acabado efecto piedra.",
+  "permiteOtroColor": false,
+  "medidas": "3 cm de diámetro, 3mm grosor",
+  "elaboracion": "100% a mano.",
+  "id": "amuleto-egida-gorgona"
+}
