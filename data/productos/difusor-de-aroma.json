@@ -1,30 +1,40 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "opcionesPersonalizacion": "Escoge el color.",
+  "descripcionCompleta": "En el centro, un mandala floral grabado a mano en arcilla natural. Alrededor, un pequeño espacio interior pensado para guardar un trozo de algodón impregnado con el aroma que elijas: un aceite esencial diluido, agua florida, colonia o tu perfume habitual.\n\nNo es solo una pieza decorativa, sino un difusor portátil personal: puedes llevarlo cerca del cuerpo para tener tu aroma contigo a lo largo del día, sin necesidad de aplicar el perfume directamente sobre la piel, algo especialmente útil para quienes tienen la piel sensible.\n\nCada Difusor de Aroma se elabora a mano, por lo que el grabado y el tono pueden presentar pequeñas variaciones entre piezas: ningún mandala sale exactamente igual a otro.\n\nPuede acompañarte en el trabajo, en un momento de meditación, en un viaje o simplemente en el día a día, como un pequeño ritual personal de calma.",
+  "formatosDisponibles": [],
+  "descripcionCorta": "Un mandala floral grabado a mano en arcilla natural, pensado para llevar tu aroma favorito contigo. Este difusor amuleto impregna algodón con aceites o perfumes suaves, sin contacto directo con la piel.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": true,
+  "precio": 10,
+  "nombre": "Difusor de Aroma Mandala Floral",
+  "orden": 33,
+  "personalizable": true,
   "activarCompra": true,
+  "mostrarCollarLlavero": false,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
-  "mostrarVariantes": false,
-  "variantes": [],
-  "mostrarCollarLlavero": false,
-  "formatosDisponibles": [],
-  "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "difusor-de-aroma",
   "categoria": "amuletos",
-  "nombre": "Difusor de Aroma — Mandala Floral",
-  "precio": 10,
-  "descripcionCorta": "Un mandala floral grabado a mano en arcilla natural que se convierte en tu propio difusor personal: impregna un poco de algodón con tu aroma favorito y llévalo contigo.",
-  "descripcionCompleta": "Es una pieza decorativa y práctica: un mandala floral grabado a mano con un pequeño espacio para algodón impregnado con el aroma que elijas. Puede acompañarte en el trabajo, la meditación o los viajes sin necesidad de aplicar perfume directamente sobre la piel.",
-  "simbolismo": "El mandala floral se utiliza en distintas prácticas como imagen de concentración y contemplación. En esta pieza representa calma, equilibrio y conexión personal con el aroma elegido.",
-  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
+  "mostrarVariantes": true,
+  "variantes": [
+    {
+      "disponible": true,
+      "color": "Negro"
+    },
+    {
+      "disponible": true,
+      "color": "Marrón "
+    }
+  ],
+  "simbolismo": "Dentro de distintas tradiciones espirituales y de meditación, el mandala floral se asocia simbólicamente con la búsqueda de equilibrio, claridad mental y armonía interior. En el diseño de esta pieza, esa forma se combina con la función de difusor de aroma, uniendo lo visual y lo olfativo en un mismo objeto.\n\nAlgunas formas en las que se puede incorporar a la práctica personal:\n\nComo recordatorio de calma, llevándolo cerca del cuerpo con un aroma que asocies a bienestar o tranquilidad.\n\nComo apoyo en momentos de meditación o descanso, impregnando el algodón con un aroma que ayude a marcar ese espacio de pausa.\n\nComo pieza de intención personal, asociando un aroma concreto a un propósito o estado de ánimo que quieras reforzar simbólicamente.\n\nEstos usos pertenecen al terreno de la práctica personal; el aroma puede acompañar un momento de calma, pero no sustituye ningún tratamiento médico tiene un efecto objetivo sobre el estado de ánimo o la energía de quien lo lleva.",
+  "cuidados": "-No mojar ni exponer a humedad excesiva, para preservar la arcilla.\n-Utilizar únicamente aceites naturales o perfumes aptos para contacto con la piel, evitando aceites esenciales puros sin diluir.\n-Cambiar el algodón interior periódicamente para mantener el aroma limpio.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
   "galeria": [],
-  "orden": 30
+  "permiteOtroColor": true,
+  "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+  "elaboracion": "100% a mano.",
+  "id": "difusor-aroma-mandala-floral",
+  "imagenPrincipal": ""
 }
