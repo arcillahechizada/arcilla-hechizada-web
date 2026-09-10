@@ -2,27 +2,83 @@
   "opiniones": [
     {
       "id": "op-1",
-      "nombre": "Clienta anónima",
+      "nombre": "⭐⭐⭐⭐⭐",
       "texto": "En fotos se ve bonito… pero en mano es impresionante.",
-      "producto": "",
+      "producto": "Grimorio imagen.",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
     },
     {
       "id": "op-2",
-      "nombre": "Clienta anónima",
+      "nombre": "⭐⭐⭐⭐⭐",
       "texto": "Se nota que está hecho con amor.",
-      "producto": "",
+      "producto": "Nudo de Bruja",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
     },
     {
       "id": "op-3",
-      "nombre": "Clienta anónima",
+      "nombre": "⭐⭐⭐⭐⭐",
       "texto": "Nunca había sentido algo así con un amuleto.",
-      "producto": "",
+      "producto": "Égida de la Gorgona",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
+    },
+    {
+      "id": "op-4",
+      "texto": "¡El mejor servicio que he recibido! La comunicación fue fluida y el producto es de la mejor calidad",
+      "nombre": "⭐⭐⭐⭐⭐",
+      "producto": "Grimorio Caja Imagen",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "texto": "Recomendable 100%Lo hace particular para cada persona con mucho amor, muy buena atención",
+      "producto": "Poción y Grimorio Libreta",
+      "estado": "publicada",
+      "id": "o-5"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-6",
+      "texto": "Da gusto encontrarse con gente así, a parte de todo super detallista, muchas gracias!!",
+      "producto": "Nudo de Bruja",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-7",
+      "texto": "Ha sido un placer conocer a esta persona tan mágica! Me ha encantado el pedido!​",
+      "producto": "Agua de Luna 3 unidades",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-8",
+      "texto": "Este Grimorio es una obra de arte. Cada detalle de la encuadernación refleja dedicación, a parte de venir con un par de detalles100% recomendable",
+      "producto": "Grimorio Libreta",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-9",
+      "texto": "Me has hecho un Bellísimo Amuleto y perfumero me has dejado feliz con tu magia, atención y amistad. Gracias tesoro por tu dedicación, Amor y simpatía. ",
+      "producto": "Difusor de Aroma",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-10",
+      "texto": "Espectacular no tengo palabras",
+      "producto": "Grimorio Imagen",
+      "estado": "publicada"
+    },
+    {
+      "nombre": "⭐⭐⭐⭐⭐",
+      "id": "op-11",
+      "texto": "Cómo siempre todo genial gracias.",
+      "producto": "Grimorio Imagen",
+      "estado": "publicada"
     }
   ]
 }
