@@ -49,6 +49,7 @@
   "cuidados": "-No mojar ni exponer a humedad (artículo delicado por el corcho natural).\n-Limpiar con paño seco y suave.\n-Uso decorativo: no ingerir",
   "materiales": "Cristal, corcho natural.",
   "galeria": [
+    "img/uploads/agua-luna-canva.png",
     "img/uploads/botellitas-canva.png",
     "img/uploads/botellitas-cesped.png",
     "img/uploads/diseño-sin-título.png",
@@ -68,5 +69,5 @@
   ],
   "elaboracion": "100% a mano.",
   "id": "botella-agua-luna",
-  "imagenPrincipal": "img/uploads/botellitas-cesped.png"
+  "imagenPrincipal": ""
 }
