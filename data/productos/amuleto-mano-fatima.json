@@ -41,10 +41,12 @@
   "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
   "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.   ",
   "galeria": [
+    "img/uploads/fatima-negro-gris-cesped.png",
+    "img/uploads/fatima-marron-cesped.png",
+    "img/uploads/fatima-verde-canva.png",
     "img/uploads/fatima-negro-gris-canva.png",
     "img/uploads/mano-fatima-marron-canva.png",
     "img/uploads/mano-fatima-negro-desgastado-canva.png",
-    "img/uploads/fatima-verde-canva.png",
     "img/uploads/mano-fatima-collage.png"
   ],
   "permiteOtroColor": true,
