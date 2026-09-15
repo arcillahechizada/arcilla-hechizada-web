@@ -48,6 +48,12 @@
   "simbolismo": "Protección (sellar puertas y ventanas simbólicamente), ingrediente decorativo en filtros de amor, apoyo para despertar la intuición. Cada color y combinación de colores tiene un significado propio (detallado arriba). Se recarga simbólicamente dejándola al exterior en luna llena.",
   "cuidados": "-No mojar ni exponer a humedad (artículo delicado por el corcho natural).\n-Limpiar con paño seco y suave.\n-Uso decorativo: no ingerir",
   "materiales": "Cristal, corcho natural.",
+  "galeria": [
+    "img/uploads/botellitas-canva.png",
+    "img/uploads/botellitas-cesped.png",
+    "img/uploads/diseño-sin-título.png",
+    "img/uploads/botellita-vrde-cesped.png"
+  ],
   "permiteOtroColor": true,
   "medidas": "3 cm.",
   "opcionesPersonalizacionCliente": [
@@ -61,5 +67,6 @@
     }
   ],
   "elaboracion": "100% a mano.",
-  "id": "botella-agua-luna"
+  "id": "botella-agua-luna",
+  "imagenPrincipal": "img/uploads/botellitas-cesped.png"
 }
