@@ -1,34 +1,37 @@
 {
-  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
-  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
-  "elaboracion": "100% a mano.",
+  "descripcionCompleta": "En el centro hay un símbolo de protección rodeado por una enredadera, como si la propia naturaleza lo abrazara. Tallada 100% a mano en arcilla natural con el acabado efecto piedra de la colección, cada pieza conserva pequeñas irregularidades del trabajo manual.",
+  "coleccion": "linea_efecto_piedra",
+  "formatosDisponibles": [
+    "Collar",
+    "Llavero"
+  ],
+  "descripcionCorta": "Un símbolo de protección envuelto por una enredadera. Una pieza que une protección y crecimiento natural en acabado efecto piedra.",
   "estado": "disponible",
+  "activarSelectorPersonalizacion": false,
+  "precio": 9,
+  "nombre": "Enredadera Sagrada",
+  "orden": 50,
+  "personalizable": false,
   "activarCompra": true,
+  "mostrarCollarLlavero": true,
   "formasPagoDisponibles": [
     "Bizum",
     "PayPal",
     "Efectivo"
   ],
+  "categoria": "amuletos",
   "mostrarVariantes": false,
   "variantes": [],
-  "mostrarCollarLlavero": true,
-  "formatosDisponibles": [
-    "Collar",
-    "Llavero"
+  "simbolismo": "La enredadera añade las ideas de unión, crecimiento y apoyo mutuo al símbolo central. En conjunto se interpreta como protección continua y conexión armoniosa con el entorno natural y personal. Es simbolismo espiritual, no una propiedad demostrada.",
+  "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
+  "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+  "galeria": [
+    "img/uploads/enredadera-sagrada-canva.png",
+    "img/uploads/enredadera-canva2.png"
   ],
   "permiteOtroColor": false,
-  "personalizable": false,
-  "activarSelectorPersonalizacion": false,
-  "id": "enredadera-sagrada",
-  "categoria": "amuletos",
-  "coleccion": "linea_efecto_piedra",
-  "nombre": "Enredadera Sagrada",
-  "precio": 9,
-  "descripcionCorta": "Un símbolo de protección envuelto por una enredadera. Una pieza que une protección y crecimiento natural en acabado efecto piedra.",
-  "descripcionCompleta": "En el centro hay un símbolo de protección rodeado por una enredadera, como si la propia naturaleza lo abrazara. Tallada 100% a mano en arcilla natural con el acabado efecto piedra de la colección, cada pieza conserva pequeñas irregularidades del trabajo manual.",
-  "simbolismo": "La enredadera añade las ideas de unión, crecimiento y apoyo mutuo al símbolo central. En conjunto se interpreta como protección continua y conexión armoniosa con el entorno natural y personal. Es simbolismo espiritual, no una propiedad demostrada.",
   "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
-  "imagenPrincipal": "",
-  "galeria": [],
-  "orden": 50
+  "elaboracion": "100% a mano.",
+  "id": "enredadera-sagrada",
+  "imagenPrincipal": ""
 }
