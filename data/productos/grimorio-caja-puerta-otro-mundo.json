@@ -22,6 +22,10 @@
   "simbolismo": "Representa un portal entre mundos, protegido por símbolos que enmarcan el umbral. Pensada para guardar herramientas mágicas, cartas o secretos personales, y también como pieza decorativa con fuerte carga simbólica.",
   "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
   "materiales": "Arcilla natural de secado al aire, pintada a mano.",
+  "galeria": [
+    "img/uploads/grimorio-puerta.png",
+    "img/uploads/grimorio-puerta-canva.png"
+  ],
   "permiteOtroColor": false,
   "medidas": "Tamaño Mediano, aproximadamente A5 (medio folio). Al estar hecha 100% a mano, el tamaño puede variar ligeramente.",
   "elaboracion": "100% a mano.",
