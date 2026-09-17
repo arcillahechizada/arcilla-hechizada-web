@@ -35,10 +35,18 @@
   "medidas": "3 cm",
   "opcionesPersonalizacionCliente": [
     {
-      "nombre": "Botellita recta"
+      "nombre": "Botellita recta ",
+      "opciones": [
+        "Nudo Celta ",
+        "Árbol de la Vida"
+      ]
     },
     {
-      "nombre": "Botellita Lágrima"
+      "nombre": "Botellita Lágrima",
+      "opciones": [
+        "Nudo Celta",
+        "Árbol de la Vida"
+      ]
     }
   ],
   "elaboracion": "100% a mano.",
