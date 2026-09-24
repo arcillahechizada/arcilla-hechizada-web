@@ -2,7 +2,12 @@
   "faq": [
     {
       "pregunta": "¿Cómo hago un pedido?",
-      "respuesta": "Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos juntas los detalles y el pedido.",
+      "respuesta": ".Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos contigo los detalles y el pedido.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Qué pasa si una pieza única ya está vendida?",
+      "respuesta": "Si una pieza única se vende, queda marcada como VENDIDA y permanece visible en el archivo de Piezas Únicas, formando parte de la historia del taller. Si te has enamorado de una pieza que ya no está disponible, puedes pedirnos una inspirada en ella: como cada pieza se hace 100% a mano, nunca sale exactamente igual a la anterior, y podemos ajustar color o tamaño según lo que prefieras.",
       "estado": "publicada"
     },
     {
@@ -22,23 +27,18 @@
     },
     {
       "pregunta": "¿Cómo reservo una llamada?",
-      "respuesta": "Desde la sección Reserva una llamada, eligiendo uno de los horarios disponibles.",
-      "estado": "publicada"
-    },
-    {
-      "pregunta": "¿Qué pasa si una pieza única ya está vendida?",
-      "respuesta": "Se conserva en el archivo de Piezas Únicas marcada como VENDIDA, como parte de la historia del taller.",
+      "respuesta": "Desde la sección Reserva una llamada, eligiendo uno de los horarios disponibles. Si lo prefieres, también puedes reservar la llamada directamente por WhatsApp.",
       "estado": "publicada"
     },
     {
       "pregunta": "¿De qué materiales están hechas las piezas?",
-      "respuesta": "[CONTENIDO PENDIENTE]",
-      "estado": "borrador"
+      "respuesta": "Cada pieza parte de arcilla natural de secado al aire. Según el tipo de producto, puede incorporar otros materiales — corcho, cristal, ingredientes naturales, metal, entre otros —, siempre detallados en la ficha de cada pieza.",
+      "estado": "publicada"
     },
     {
       "pregunta": "¿Cómo cuido mi pieza de arcilla?",
-      "respuesta": "[CONTENIDO PENDIENTE]",
-      "estado": "borrador"
+      "respuesta": "Para conservar su belleza:\n-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "estado": "publicada"
     }
   ]
 }
