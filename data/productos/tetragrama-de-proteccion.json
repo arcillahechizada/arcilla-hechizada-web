@@ -27,7 +27,10 @@
   "simbolismo": "El tetragrama —también conocido como pentáculo de cinco puntas— es un símbolo esotérico ampliamente documentado, presente en distintas tradiciones espirituales y asociado tradicionalmente a la unión de los cuatro elementos naturales con el espíritu.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nProtección frente a energías que se perciben como negativas.\n\nEquilibrio entre las fuerzas elementales, tanto internas como del entorno.\n\nRefuerzo de la conexión espiritual personal.\n\nEste significado pertenece al terreno de la tradición esotérica",
   "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
   "materiales": "Arcilla natural, acabado efecto piedra.",
-  "galeria": [],
+  "galeria": [
+    "img/uploads/tetagrama-canva1.png",
+    "img/uploads/tetragrama-canva2.png"
+  ],
   "permiteOtroColor": false,
   "medidas": " 3 cm de diámetro y 3 mm de grosor.",
   "opcionesPersonalizacionCliente": [
@@ -43,5 +46,5 @@
   ],
   "elaboracion": "100% a mano.",
   "id": "amuleto-tetragrama-proteccion",
-  "imagenPrincipal": ""
+  "imagenPrincipal": "img/uploads/tetagrama-canva1.png"
 }
