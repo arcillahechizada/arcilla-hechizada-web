@@ -1,3 +1,21 @@
 {
-  "piezas": []
+  "piezas": [
+    {
+      "id": "grimorio-nudo-bruja",
+      "nombre": "Grimorio Nudo de Bruja",
+      "galeria": [
+        "img/uploads/combining_product_images_and_bac…_2k_20260924124726.jpeg",
+        "img/uploads/grimorio-nudo-vanva7.png",
+        "img/uploads/grimorio-nudo-canva6.png",
+        "img/uploads/grimorio-nudo-canva1.png",
+        "img/uploads/grimorio-nudo-canva9.png",
+        "img/uploads/grimorio-nudo-vanva8.png",
+        "img/uploads/grimorio-nudo-canva2.png",
+        "img/uploads/grimorio-nudo-canva5.png"
+      ],
+      "precio": 75,
+      "descripcion": "Hay libros que se leen. Y hay libros que se abren con respeto, porque algo en ellos parece estar despierto.\n\nEste grimorio tiene el peso y la presencia de un objeto que ha vivido mucho antes de llegar a tus manos: tapas oscuras texturizadas, esquinas reforzadas en tono plateado —como las que protegían los tomos más valiosos de una biblioteca antigua— y, en el centro, un nudo de bruja que emerge desde el cuero con un resplandor verde propio, como si guardara una brasa que nunca se apaga.\n\nEl nudo de bruja es un símbolo con raíces reales: en distintas tradiciones populares europeas aparecía tallado o colgado en puertas y cunas como protección frente a maldiciones y malas energías, un nudo que \"atrapaba\" lo que no debía entrar. En Arcilla Hechizada recuperamos esa simbología y la convertimos en el corazón visual de este grimorio, acompañada de un dije colgante con el mismo nudo y un tetragrama, dos marcadores de página para no perder nunca el hilo de lo que escribes, y un interior con 700 hojas —1.400 páginas— para hechizos, rituales, sueños o cualquier secreto que merezca quedar guardado.\n\nNo es un cuaderno cualquiera. Es un compañero de años: el tipo de objeto que se abre cientos de veces y que, con cada uso, se va impregnando un poco más de quien lo escribe.",
+      "estado": "vendida"
+    }
+  ]
 }
