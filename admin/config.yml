@@ -358,3 +358,94 @@ collections:
       - { label: "Título SEO (opcional)", name: "seo_titulo", widget: "string", required: false }
       - { label: "Descripción SEO (opcional)", name: "seo_descripcion", widget: "text", required: false }
       - { label: "Contenido del artículo", name: "body", widget: "markdown" }
+
+  # ---------------------------------------------------------------
+  # INICIO — fotos y vídeos de las cuatro secciones multimedia
+  # ---------------------------------------------------------------
+  - name: "inicio"
+    label: "Inicio — Fotos y vídeos"
+    files:
+      - file: "data/inicio.json"
+        label: "Fotos y vídeos de la página de inicio"
+        name: "inicio"
+        fields:
+          - label: "Portada — Magia hecha con las manos"
+            name: "hero"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                fields:
+                  - label: "Tipo"
+                    name: "tipo"
+                    widget: "select"
+                    options:
+                      - { label: "Foto", value: "imagen" }
+                      - { label: "Vídeo", value: "video" }
+                    default: "imagen"
+                  - label: "Foto"
+                    name: "src"
+                    widget: "image"
+                    required: false
+                    choose_url: false
+                    hint: "Selecciona una foto de tu biblioteca. Si eliges Vídeo arriba, deja este campo vacío."
+                  - label: "Vídeo"
+                    name: "video"
+                    widget: "file"
+                    required: false
+                    choose_url: false
+                    hint: "Sube un vídeo MP4. Si eliges Foto arriba, deja este campo vacío."
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+
+          - label: "Hecho a mano — manos trabajando la arcilla"
+            name: "hecho_a_mano"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                fields:
+                  - { label: "Tipo", name: "tipo", widget: "select", options: [{ label: "Foto", value: "imagen" }, { label: "Vídeo", value: "video" }], default: "imagen" }
+                  - { label: "Foto", name: "src", widget: "image", required: false, choose_url: false }
+                  - { label: "Vídeo", name: "video", widget: "file", required: false, choose_url: false, hint: "Vídeo MP4" }
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+
+          - label: "Personalización — pieza personalizada"
+            name: "personalizacion"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                fields:
+                  - { label: "Tipo", name: "tipo", widget: "select", options: [{ label: "Foto", value: "imagen" }, { label: "Vídeo", value: "video" }], default: "imagen" }
+                  - { label: "Foto", name: "src", widget: "image", required: false, choose_url: false }
+                  - { label: "Vídeo", name: "video", widget: "file", required: false, choose_url: false, hint: "Vídeo MP4" }
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+
+          - label: "El Taller — taller o artesana"
+            name: "taller"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                fields:
+                  - { label: "Tipo", name: "tipo", widget: "select", options: [{ label: "Foto", value: "imagen" }, { label: "Vídeo", value: "video" }], default: "imagen" }
+                  - { label: "Foto", name: "src", widget: "image", required: false, choose_url: false }
+                  - { label: "Vídeo", name: "video", widget: "file", required: false, choose_url: false, hint: "Vídeo MP4" }
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+

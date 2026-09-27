@@ -87,13 +87,13 @@
       <a href="tienda.html#categorias-tienda" class="btn btn-primario">Ver la tienda</a>
       <a href="el-taller.html" class="btn btn-secundario">Conoce el taller</a>
     </div>
-    <div class="hero-imagen">Foto o vídeo real del taller / de una pieza destacada — pendiente de incorporar</div>
+    <div id="hero-media" class="hero-media-slot"></div>
   </section>
 
   <!-- HECHO A MANO -->
   <section class="seccion seccion--alt">
     <div class="contenedor bloque-2col">
-      <div class="imagen-placeholder">Foto de manos trabajando la arcilla — pendiente</div>
+      <div id="manos-media" class="imagen-placeholder-slot"></div>
       <div>
         <span class="eyebrow">Hecho a mano, de verdad</span>
         <h2>Cada pieza empieza siendo solo arcilla</h2>
@@ -140,14 +140,14 @@
         <p>Especialmente las Cajas Grimorio pueden personalizarse. Cuéntame tu idea y le damos forma.</p>
         <a href="personalizados.html" class="btn btn-secundario">Ver personalizados</a>
       </div>
-      <div class="imagen-placeholder">Foto de una pieza personalizada real — pendiente</div>
+      <div id="personalizacion-media" class="imagen-placeholder-slot"></div>
     </div>
   </section>
 
   <!-- EL TALLER -->
   <section class="seccion">
     <div class="contenedor bloque-2col">
-      <div class="imagen-placeholder">Foto del taller / de la artesana — pendiente</div>
+      <div id="taller-media" class="imagen-placeholder-slot"></div>
       <div>
         <span class="eyebrow">El Taller</span>
         <h2>Detrás de cada pieza hay una persona real</h2>
@@ -249,5 +249,8 @@
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <script src="js/opiniones.js"></script>
 <script src="js/main.js"></script>
+<script>
+  cargarDatos().then(function(){ renderInicio(); });
+</script>
 </body>
 </html>

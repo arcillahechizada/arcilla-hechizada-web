@@ -1,7 +1,7 @@
 // ============================================================
 // ARCILLA HECHIZADA — catálogo universal + carrito
 // ============================================================
-let PRODUCTOS = [], PIEZAS_UNICAS = [], OPINIONES = [], FAQ = [];
+let PRODUCTOS = [], PIEZAS_UNICAS = [], OPINIONES = [], FAQ = [], INICIO = {};
 const WHATSAPP='34722379095', EMAIL='arcillahechizada@gmail.com', CART_KEY='arcillaHechizadaCarrito';
 
 const GITHUB_REPO='arcillahechizada/arcilla-hechizada-web';
@@ -19,11 +19,12 @@ async function cargarCarpetaProductosGitHub(folder){
   return datos.filter(Boolean);
 }
 async function cargarDatos(){
-  const [productosFallback,piezas,opiniones,faq]=await Promise.all([
+  const [productosFallback,piezas,opiniones,faq,inicio]=await Promise.all([
     fetch('data/productos.json',{cache:'no-store'}).then(r=>r.ok?r.json():{productos:[]}).catch(()=>({productos:[]})),
     fetch('data/piezas-unicas.json',{cache:'no-store'}).then(r=>r.ok?r.json():{piezas:[]}).catch(()=>({piezas:[]})),
     fetch('data/opiniones.json',{cache:'no-store'}).then(r=>r.ok?r.json():{opiniones:[]}).catch(()=>({opiniones:[]})),
-    fetch('data/faq.json',{cache:'no-store'}).then(r=>r.ok?r.json():{faq:[]}).catch(()=>({faq:[]}))
+    fetch('data/faq.json',{cache:'no-store'}).then(r=>r.ok?r.json():{faq:[]}).catch(()=>({faq:[]})),
+    fetch('data/inicio.json',{cache:'no-store'}).then(r=>r.ok?r.json():{}).catch(()=>({}))
   ]);
 
   // Cada carpeta se carga de forma independiente. Si una falla, las demás
@@ -48,6 +49,7 @@ async function cargarDatos(){
   PIEZAS_UNICAS=Array.isArray(piezas.piezas)?piezas.piezas:[];
   OPINIONES=Array.isArray(opiniones.opiniones)?opiniones.opiniones:[];
   FAQ=Array.isArray(faq.faq)?faq.faq:[];
+  INICIO=inicio&&typeof inicio==='object'?inicio:{};
   actualizarContadorCarrito();
 }
 function ordenProductos(a,b){
@@ -65,6 +67,40 @@ function etiquetaEstado(e){return ({disponible:'Disponible',bajo_pedido:'Bajo pe
 function imagenProducto(p){return p.imagenPrincipal||(Array.isArray(p.galeria)&&p.galeria[0])||'';}
 function bloqueSinFoto(){return '<div class="foto-pendiente">Fotografía pendiente</div>';}
 function tarjetaProductoHTML(p){const est=etiquetaEstado(p.estado);return `<a class="tarjeta-producto" href="ficha.html?id=${encodeURIComponent(p.id)}"><div class="foto imagen-tarjeta">${imagenProducto(p)?`<img src="${escHTML(imagenProducto(p))}" alt="${escHTML(p.nombre||'Producto')}" loading="lazy">`:bloqueSinFoto()}${est?`<span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span>`:''}</div><div class="info info-tarjeta"><h3>${escHTML(p.nombre||'Producto')}</h3><p class="precio">${precioTexto(p)}</p>${p.descripcionCorta?`<p>${texto(p.descripcionCorta)}</p>`:''}</div></a>`;}
+
+function mediaInicioHTML(seccion, alt){
+  const datos=INICIO&&INICIO[seccion] ? INICIO[seccion] : {};
+  const media=Array.isArray(datos.media)?datos.media.filter(x=>x&&(x.src||x.video)):[];
+  if(!media.length) return '<div class="inicio-media-placeholder">Foto o vídeo pendiente de incorporar</div>';
+  const id='inicio-media-'+seccion;
+  return `<div class="inicio-media" id="${id}" data-count="${media.length}">
+    <div class="inicio-media-viewport">
+      ${media.map((m,i)=>{
+        const tipo=String(m.tipo||'imagen').toLowerCase();
+        const src=m.src||m.video||'';
+        const activo=i===0?' activa':'';
+        const caption=m.titulo?`<div class="inicio-media-caption">${escHTML(m.titulo)}</div>`:'';
+        if(tipo==='video') return `<div class="inicio-media-slide${activo}" data-index="${i}"><video controls playsinline preload="metadata" src="${escHTML(src)}" aria-label="${escHTML(alt)}"></video>${caption}</div>`;
+        return `<div class="inicio-media-slide${activo}" data-index="${i}"><img src="${escHTML(src)}" alt="${escHTML(m.alt||alt)}" loading="lazy">${caption}</div>`;
+      }).join('')}
+    </div>
+    ${media.length>1?`<button class="inicio-media-prev" type="button" aria-label="Anterior">‹</button><button class="inicio-media-next" type="button" aria-label="Siguiente">›</button><div class="inicio-media-dots">${media.map((_,i)=>`<button type="button" class="inicio-media-dot${i===0?' activa':''}" data-index="${i}" aria-label="Ir a la imagen ${i+1}"></button>`).join('')}</div>`:''}
+  </div>`;
+}
+function renderInicio(){
+  const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana']];
+  map.forEach(([key,id,alt])=>{const c=document.getElementById(id);if(c)c.innerHTML=mediaInicioHTML(key,alt);});
+  document.querySelectorAll('.inicio-media').forEach(g=>{
+    const slides=[...g.querySelectorAll('.inicio-media-slide')],dots=[...g.querySelectorAll('.inicio-media-dot')];
+    if(slides.length<2)return;
+    let n=0;
+    const show=i=>{n=(i+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('activa',j===n));dots.forEach((x,j)=>x.classList.toggle('activa',j===n));};
+    g.querySelector('.inicio-media-prev')?.addEventListener('click',()=>show(n-1));
+    g.querySelector('.inicio-media-next')?.addEventListener('click',()=>show(n+1));
+    dots.forEach(d=>d.addEventListener('click',()=>show(Number(d.dataset.index)||0)));
+  });
+}
+
 function renderCategoria(id,cat){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.categoria===cat&&p.estado!=='oculto'&&p.coleccion!=='linea_efecto_piedra').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta categoría.</p>';}
 function renderColeccion(id,coleccion){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.coleccion===coleccion&&p.estado!=='oculto').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta colección.</p>';}
 function renderPiezasUnicas(id){const c=document.getElementById(id);if(!c)return;c.innerHTML=PIEZAS_UNICAS.filter(p=>p.estado!=='oculto').map(tarjetaProductoHTML).join('');}
