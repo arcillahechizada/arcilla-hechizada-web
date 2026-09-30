@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 <script>
-  window.ARCILLA_PAYPAL_BACKEND = '';
+  window.ARCILLA_PAYPAL_BACKEND = 'https://wonderful-sawine-8541d2.netlify.app';
   window.paypalSdkReady = new Promise(function(resolve){ window.__arcillaPayPalResolve = resolve; });
   function onPayPalWebSdkLoaded(){ window.__arcillaPayPalResolve(); }
 </script>
@@ -59,7 +59,7 @@
 </footer>
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <script src="js/main.js"></script>
-<script src="js/render.js"></script>
+<script src="js/render.js?v=20260930-pagos"></script>
 <script>cargarDatos().then(function(){ renderCarrito(); });</script>
 </body>
 </html>
