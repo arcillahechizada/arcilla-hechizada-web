@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/paypal-api/auth/browser-safe-client-token"
+  to = "/.netlify/functions/paypal-auth"
+  status = 200
+
+[[redirects]]
+  from = "/paypal-api/checkout/orders/create"
+  to = "/.netlify/functions/paypal-create-order"
+  status = 200
+
+[[redirects]]
+  from = "/paypal-api/checkout/orders/capture"
+  to = "/.netlify/functions/paypal-capture-order"
+  status = 200
