@@ -217,7 +217,7 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
   const sdkInstance=await sdk.createInstance({clientToken:tokenData.accessToken,components:['paypal-payments','card-fields'],pageType:'checkout'});
   async function crearOrden(){
     const r=await paypalBackend('/paypal-api/checkout/orders/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(i=>({id:i.id,quantity:i.cantidad})),cp:cliente.cp})});
-    return r.id;
+    return {orderId:r.id};
   }
   async function capturar(orderId){
     const r=await paypalBackend('/paypal-api/checkout/orders/capture?orderId='+encodeURIComponent(orderId),{method:'POST'});
@@ -234,6 +234,8 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
     if(!methods.isEligible('paypal')){box.innerHTML='<p>No se puede mostrar PayPal para este pedido en este momento.</p>';return;}
     btn.addEventListener('click',async()=>{try{await session.start({presentationMode:'auto'},crearOrden());}catch(e){console.error(e);alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');}});
   }else{
+    const methods=await sdkInstance.findEligibleMethods({currencyCode:'EUR'});
+    if(!methods.isEligible('advanced_cards')){box.innerHTML='<div class="pago-instrucciones"><h3>Pago con tarjeta</h3><p>PayPal todavía no ha habilitado los pagos avanzados con tarjeta para esta aplicación. La opción está preparada, pero hay que completar la activación de pagos con tarjeta en PayPal.</p></div>';return;}
     box.innerHTML='<div class="paypal-card-fields"><label>Tarjeta</label><div id="paypal-card-number"></div><div class="card-fields-row"><div id="paypal-card-expiry"></div><div id="paypal-card-cvv"></div></div><button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button></div>';
     const session=sdkInstance.createCardFieldsOneTimePaymentSession();
     const numberField=session.createCardFieldsComponent({type:'number',placeholder:'Número de tarjeta'});

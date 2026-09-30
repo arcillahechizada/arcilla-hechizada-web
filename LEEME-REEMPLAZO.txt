@@ -1,0 +1,29 @@
+ARCILLA HECHIZADA — REEMPLAZO DE PAGOS
+
+ESTOS SON LOS ARCHIVOS QUE HAY QUE SUSTITUIR EN GITHUB:
+
+1) carrito.html              -> raíz del repositorio
+2) js/render.js              -> carpeta js
+3) css/style.css             -> carpeta css
+
+MUY IMPORTANTE:
+- NO subas este ZIP entero como un archivo .zip a GitHub.
+- En GitHub hay que subir/reemplazar los 3 archivos en sus mismas rutas.
+- No borres el resto de la web.
+
+carrito.html ya contiene:
+window.ARCILLA_PAYPAL_BACKEND = 'https://wonderful-sawine-8541d2.netlify.app';
+
+render.js ya contiene:
+- Tarjeta
+- Bizum
+- PayPal
+- Efectivo
+- Bizum 722379095
+- Formspree https://formspree.io/f/xqpanapp
+- pedidos #AH-DDMMHH:MM
+- checkout PayPal v6
+- Card Fields de PayPal
+
+NO PONGAS EL CLIENT SECRET DE PAYPAL EN GITHUB.
+El Client Secret debe permanecer en las variables de entorno de Netlify.
