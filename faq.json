@@ -1,0 +1,44 @@
+{
+  "faq": [
+    {
+      "pregunta": "¿Cómo hago un pedido?",
+      "respuesta": "Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos juntas los detalles y el pedido.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Puedo personalizar una pieza?",
+      "respuesta": "Sí, especialmente las Cajas Grimorio, a través de la sección Personalizados.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Cuánto tarda el envío?",
+      "respuesta": "Depende de la opción elegida: Exprés (24/48h), Certificado (72h) u Ordinario.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Puedo recoger mi pedido en persona?",
+      "respuesta": "Sí, en Riells i Viabrea (Girona), siempre con cita previa. La dirección exacta se comparte de forma privada tras confirmar la cita.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Cómo reservo una llamada?",
+      "respuesta": "Desde la sección Reserva una llamada, eligiendo uno de los horarios disponibles.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿Qué pasa si una pieza única ya está vendida?",
+      "respuesta": "Se conserva en el archivo de Piezas Únicas marcada como VENDIDA, como parte de la historia del taller.",
+      "estado": "publicada"
+    },
+    {
+      "pregunta": "¿De qué materiales están hechas las piezas?",
+      "respuesta": "[CONTENIDO PENDIENTE]",
+      "estado": "borrador"
+    },
+    {
+      "pregunta": "¿Cómo cuido mi pieza de arcilla?",
+      "respuesta": "[CONTENIDO PENDIENTE]",
+      "estado": "borrador"
+    }
+  ]
+}
