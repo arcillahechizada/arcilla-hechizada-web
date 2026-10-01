@@ -138,7 +138,7 @@ function renderFicha(){const id=new URLSearchParams(location.search).get('id')||
  if(comprable){let cantidad=1;const cv=c.querySelector('#cantidad-valor');const menos=c.querySelector('#cantidad-menos');const mas=c.querySelector('#cantidad-mas');if(cv&&menos&&mas){menos.addEventListener('click',()=>{cantidad=Math.max(1,cantidad-1);cv.textContent=cantidad;});mas.addEventListener('click',()=>{cantidad++;cv.textContent=cantidad;});}document.getElementById('btn-carrito').addEventListener('click',()=>añadirAlCarrito(p,opcionesSeleccionadas(),cantidad));document.querySelectorAll('#ficha-contenido select[data-tipo],#ficha-contenido input[data-tipo]').forEach(e=>{e.addEventListener('change',actualizarPedido);e.addEventListener('input',actualizarPedido);});actualizarPedido();}
 }
 function calcularEnvio(cp){const s=String(cp||'').replace(/\D/g,'');if(!/^\d{5}$/.test(s))return null;const pref=Number(s.slice(0,2));if([35,38,51,52].includes(pref))return 7.50;return 6.50;}
-function metodosPagoCarrito(c){const listas=c.map(i=>{const actual=PRODUCTOS.find(p=>p.id===i.id)||PIEZAS_UNICAS.find(p=>p.id===i.id);const metodosActuales=actual?normalizarMetodosPago(actual.formasPagoDisponibles):[];return metodosActuales.length?metodosActuales:(normalizarMetodosPago(i.pagos).length?normalizarMetodosPago(i.pagos):['Tarjeta','Bizum','PayPal','Efectivo']);});if(!listas.length)return['Tarjeta','Bizum','PayPal','Efectivo'];const union=[...new Set(listas.flat())];const orden=['Tarjeta','Bizum','PayPal','Efectivo'];return [...orden.filter(x=>union.includes(x)),...union.filter(x=>!orden.includes(x))];}
+function metodosPagoCarrito(c){const listas=c.map(i=>{const actual=PRODUCTOS.find(p=>p.id===i.id)||PIEZAS_UNICAS.find(p=>p.id===i.id);const metodosActuales=actual?normalizarMetodosPago(actual.formasPagoDisponibles):[];return metodosActuales.length?metodosActuales:(normalizarMetodosPago(i.pagos).length?normalizarMetodosPago(i.pagos):['Bizum','PayPal','Efectivo']);});if(!listas.length)return['Bizum','PayPal','Efectivo'];const union=[...new Set(listas.flat())];const orden=['Bizum','PayPal','Efectivo'];return [...orden.filter(x=>union.includes(x)),...union.filter(x=>!orden.includes(x))];}
 function generarNumeroPedido(){
   const d=new Date();
   const dd=String(d.getDate()).padStart(2,'0');
@@ -217,7 +217,7 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
   const sdkInstance=await sdk.createInstance({clientToken:tokenData.accessToken,components:['paypal-payments','card-fields'],pageType:'checkout'});
   async function crearOrden(){
     const r=await paypalBackend('/paypal-api/checkout/orders/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(i=>({id:i.id,quantity:i.cantidad})),cp:cliente.cp})});
-    return {orderId:r.id};
+    return r.id;
   }
   async function capturar(orderId){
     const r=await paypalBackend('/paypal-api/checkout/orders/capture?orderId='+encodeURIComponent(orderId),{method:'POST'});
@@ -234,8 +234,6 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
     if(!methods.isEligible('paypal')){box.innerHTML='<p>No se puede mostrar PayPal para este pedido en este momento.</p>';return;}
     btn.addEventListener('click',async()=>{try{await session.start({presentationMode:'auto'},crearOrden());}catch(e){console.error(e);alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');}});
   }else{
-    const methods=await sdkInstance.findEligibleMethods({currencyCode:'EUR'});
-    if(!methods.isEligible('advanced_cards')){box.innerHTML='<div class="pago-instrucciones"><h3>Pago con tarjeta</h3><p>PayPal todavía no ha habilitado los pagos avanzados con tarjeta para esta aplicación. La opción está preparada, pero hay que completar la activación de pagos con tarjeta en PayPal.</p></div>';return;}
     box.innerHTML='<div class="paypal-card-fields"><label>Tarjeta</label><div id="paypal-card-number"></div><div class="card-fields-row"><div id="paypal-card-expiry"></div><div id="paypal-card-cvv"></div></div><button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button></div>';
     const session=sdkInstance.createCardFieldsOneTimePaymentSession();
     const numberField=session.createCardFieldsComponent({type:'number',placeholder:'Número de tarjeta'});
