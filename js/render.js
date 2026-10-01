@@ -203,49 +203,99 @@ function mostrarOpcionesPago(){
   if(!select)return;
   select.innerHTML='<option value="Tarjeta">💳 Tarjeta</option><option value="Bizum">📲 Bizum</option><option value="PayPal">🅿️ PayPal</option><option value="Efectivo">💶 Efectivo</option>';
 }
-async function paypalBackend(path,options={}){const base=PAYPAL_BACKEND_BASE.replace(/\/$/,'');const url=base+path;const r=await fetch(url,options);const data=await r.json();if(!r.ok)throw new Error(data.error||'PayPal error');return data;}
-async function cargarPayPalSdk(){
-  if(window.paypal)return window.paypal;
-  if(window.paypalSdkReady){await window.paypalSdkReady;return window.paypal;}
+async function paypalBackend(path, options = {}) {
+  const base = PAYPAL_BACKEND_BASE.replace(/\/$/, '');
+  const url = base + path;
+  const r = await fetch(url, options);
+  const data = await r.json();
+  if (!r.ok) throw new Error(data.error || 'PayPal error');
+  return data;
+}
+
+async function cargarPayPalSdk() {
+  if (window.paypal) return window.paypal;
+  if (window.paypalSdkReady) {
+    await window.paypalSdkReady;
+    return window.paypal;
+  }
   throw new Error('PayPal SDK no disponible');
 }
-async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
-  const box=document.getElementById('paypal-payment-box'); if(!box)return;
-  box.innerHTML='<p class="ayuda-cp">Cargando el pago seguro…</p>';
-  const sdk=await cargarPayPalSdk();
-  const tokenData=await paypalBackend('/paypal-api/auth/browser-safe-client-token');
-  const sdkInstance=await sdk.createInstance({clientToken:tokenData.accessToken,components:['paypal-payments','card-fields'],pageType:'checkout'});
-  async function crearOrden(){
-    const r=await paypalBackend('/paypal-api/checkout/orders/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(i=>({id:i.id,quantity:i.cantidad})),cp:cliente.cp})});
+
+async function inicializarPayPalUI(items, cliente, subtotal, envio, numero, metodo) {
+  const box = document.getElementById('paypal-payment-box');
+  if (!box) return;
+
+  box.replaceChildren();
+  const msgCargando = document.createElement('p');
+  msgCargando.className = 'ayuda-cp';
+  msgCargando.textContent = 'Cargando el pago seguro…';
+  box.appendChild(msgCargando);
+
+  const sdk = await cargarPayPalSdk();
+  const tokenData = await paypalBackend('/paypal-api/auth/browser-safe-client-token');
+  const sdkInstance = await sdk.createInstance({
+    clientToken: tokenData.accessToken,
+    components: ['paypal-payments'],
+    pageType: 'checkout'
+  });
+
+  async function crearOrden() {
+    const r = await paypalBackend('/paypal-api/checkout/orders/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: items.map(i => ({ id: i.id, quantity: i.cantidad })),
+        cp: cliente.cp
+      })
+    });
     return r.id;
   }
-  async function capturar(orderId){
-    const r=await paypalBackend('/paypal-api/checkout/orders/capture?orderId='+encodeURIComponent(orderId),{method:'POST'});
-    if(r.status!=='COMPLETED')throw new Error('El pago no ha quedado completado');
-    await enviarPedidoFormspree(items,subtotal,envio,cliente,metodo,numero);
-    mostrarPagoCompletado(numero,subtotal+envio,metodo);
+
+  async function capturar(orderId) {
+    const r = await paypalBackend('/paypal-api/checkout/orders/capture?orderId=' + encodeURIComponent(orderId), {
+      method: 'POST'
+    });
+    if (r.status !== 'COMPLETED') throw new Error('El pago no ha quedado completado');
+    await enviarPedidoFormspree(items, subtotal, envio, cliente, metodo, numero);
+    mostrarPagoCompletado(numero, subtotal + envio, metodo);
     return r;
   }
-  if(metodo==='PayPal'){
-    const methods=await sdkInstance.findEligibleMethods({currencyCode:'EUR'});
-    box.innerHTML='<paypal-button id="paypal-btn-ah" type="pay"></paypal-button>';
-    const session=sdkInstance.createPayPalOneTimePaymentSession({onApprove:async({orderId})=>capturar(orderId),onCancel:()=>{},onError:e=>{console.error(e);alert('PayPal no ha podido completar el pago. Puedes intentarlo de nuevo.')}});
-    const btn=document.getElementById('paypal-btn-ah');
-    if(!methods.isEligible('paypal')){box.innerHTML='<p>No se puede mostrar PayPal para este pedido en este momento.</p>';return;}
-    btn.addEventListener('click',async()=>{try{await session.start({presentationMode:'auto'},crearOrden());}catch(e){console.error(e);alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');}});
-  }else{
-    box.innerHTML='<div class="paypal-card-fields"><label>Tarjeta</label><div id="paypal-card-number"></div><div class="card-fields-row"><div id="paypal-card-expiry"></div><div id="paypal-card-cvv"></div></div><button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button></div>';
-    const session=sdkInstance.createCardFieldsOneTimePaymentSession();
-    const numberField=session.createCardFieldsComponent({type:'number',placeholder:'Número de tarjeta'});
-    const expiryField=session.createCardFieldsComponent({type:'expiry',placeholder:'MM/AA'});
-    const cvvField=session.createCardFieldsComponent({type:'cvv',placeholder:'CVV'});
-    document.getElementById('paypal-card-number').appendChild(numberField);document.getElementById('paypal-card-expiry').appendChild(expiryField);document.getElementById('paypal-card-cvv').appendChild(cvvField);
-    document.getElementById('paypal-card-submit').addEventListener('click',async()=>{
-      const b=document.getElementById('paypal-card-submit');b.disabled=true;b.textContent='Procesando…';
-      try{const orderId=await crearOrden();const result=await session.submit(orderId,{billingAddress:{postalCode:cliente.cp,countryCode:'ES'}});if(result.state==='succeeded'){await capturar(result.data.orderId||orderId);}else if(result.state==='canceled'){alert('Has cancelado la autenticación del pago.');}else{throw new Error(result.data?.message||'Pago rechazado');}}
-      catch(e){console.error(e);alert('No se ha podido completar el pago con tarjeta. Puedes intentarlo de nuevo.');b.disabled=false;b.textContent='Pagar con tarjeta';}
-    });
-  }
+
+  box.replaceChildren();
+  const wrapper = document.createElement('div');
+  wrapper.style.marginTop = '15px';
+  wrapper.style.textAlign = 'center';
+
+  const txt = document.createElement('p');
+  txt.style.fontSize = '0.9rem';
+  txt.style.marginBottom = '12px';
+  txt.textContent = 'Haz clic a continuación para pagar de forma segura con PayPal o Tarjeta:';
+
+  const btnPaypal = document.createElement('paypal-button');
+  btnPaypal.id = 'paypal-btn-ah';
+  btnPaypal.setAttribute('type', 'pay');
+
+  wrapper.appendChild(txt);
+  wrapper.appendChild(btnPaypal);
+  box.appendChild(wrapper);
+
+  const session = sdkInstance.createPayPalOneTimePaymentSession({
+    onApprove: async ({ orderId }) => capturar(orderId),
+    onCancel: () => {},
+    onError: e => {
+      console.error(e);
+      alert('PayPal no ha podido completar el pago. Puedes intentarlo de nuevo.');
+    }
+  });
+
+  btnPaypal.addEventListener('click', async () => {
+    try {
+      await session.start({ presentationMode: 'auto' }, crearOrden());
+    } catch (e) {
+      console.error(e);
+      alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');
+    }
+  });
 }
 function mostrarPagoCompletado(numero,total,metodo){const box=document.getElementById('checkout-accion');if(box)box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(total)}</strong></p><p>Forma de pago: <strong>${escHTML(metodo)}</strong></p><p>Hemos enviado los datos del pedido al correo que has indicado.</p></div>`;}
 function renderCarrito(){
