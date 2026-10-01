@@ -25,76 +25,65 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', alScrollear, { passive: true });
   }
 
-  // Aparición suave de secciones
+  // Aparición suave de secciones al entrar en pantalla
   var secciones = document.querySelectorAll('.seccion');
   if (secciones.length && 'IntersectionObserver' in window && !sinMovimiento) {
     secciones.forEach(function (s) { s.classList.add('por-revelar'); });
     var observador = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (entrada) {
-        if (entrada.isIntersecting) { entrada.target.classList.add('en-vista'); observador.unobserve(entrada.target); }
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add('en-vista');
+          observador.unobserve(entrada.target);
+        }
       });
     }, { threshold: 0.08 });
     secciones.forEach(function (s) { observador.observe(s); });
   }
 
-  // Marca de agua
+  // Marca de agua: movimiento extremadamente sutil con scroll y cursor
   var marcaAgua = document.querySelector('.marca-agua');
   if (marcaAgua && !sinMovimiento) {
     var mx = 0, my = 0;
-    window.addEventListener('scroll', function () { var despl = Math.min(window.scrollY * 0.03, 24); marcaAgua.style.transform = 'translateY(' + despl + 'px) translate(' + mx + 'px,' + my + 'px)'; }, { passive: true });
-    window.addEventListener('mousemove', function (e) { mx = (e.clientX / window.innerWidth - 0.5) * 10; my = (e.clientY / window.innerHeight - 0.5) * 10; marcaAgua.style.transform = 'translate(' + mx + 'px,' + my + 'px)'; });
+    window.addEventListener('scroll', function () {
+      var despl = Math.min(window.scrollY * 0.03, 24);
+      marcaAgua.style.transform = 'translateY(' + despl + 'px) translate(' + mx + 'px,' + my + 'px)';
+    }, { passive: true });
+    window.addEventListener('mousemove', function (e) {
+      mx = (e.clientX / window.innerWidth - 0.5) * 10;
+      my = (e.clientY / window.innerHeight - 0.5) * 10;
+      marcaAgua.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    });
   }
 
-  // FAQ: solo uno abierto a la vez
+  // Enlaces de WhatsApp con mensaje prellenado según el producto
+  var numeroWhatsApp = '34722379095';
+  document.querySelectorAll('[data-whatsapp-producto]').forEach(function (el) {
+    var nombreProducto = el.getAttribute('data-whatsapp-producto');
+    var mensaje = 'Hola, estoy interesada/o en el producto "' + nombreProducto + '" de Arcilla Hechizada.';
+    el.href = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
+  });
+
+  // Galería de fotos de producto: clic en miniatura cambia la foto principal
+  document.querySelectorAll('.galeria-producto').forEach(function (galeria) {
+    var principal = galeria.querySelector('.foto-principal img');
+    galeria.querySelectorAll('.miniatura').forEach(function (mini) {
+      mini.addEventListener('click', function () {
+        if (principal) principal.src = mini.src;
+        galeria.querySelectorAll('.miniatura').forEach(function (m) { m.classList.remove('activa'); });
+        mini.classList.add('activa');
+      });
+    });
+  });
+
+  // FAQ: acordeón simple (usa <details> nativo, esto solo cierra los demás al abrir uno)
   var faqs = document.querySelectorAll('.faq-item');
-  faqs.forEach(function (item) { item.addEventListener('toggle', function () { if (item.open) faqs.forEach(function (otro) { if (otro !== item) otro.open = false; }); }); });
-
-  // Tienda desplegable y carrito en la barra superior.
-  construirNavegacionTienda();
-
-  // Navegación contextual: vuelve a la página anterior dentro del sitio.
-  document.querySelectorAll('.btn-volver-atras').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      var ref = document.referrer || '';
-      var mismoSitio = false;
-      try { mismoSitio = ref && new URL(ref, window.location.href).origin === window.location.origin; } catch (_) {}
-      if (window.history.length > 1 && mismoSitio) { e.preventDefault(); window.history.back(); }
+  faqs.forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (item.open) {
+        faqs.forEach(function (otro) {
+          if (otro !== item) otro.open = false;
+        });
+      }
     });
   });
 });
-
-function construirNavegacionTienda() {
-  var cats = [
-    ['Ver tienda','tienda.html'], ['Grimorios','grimorios.html'], ['Amuletos','amuletos.html'], ['Pociones','pociones.html'],
-    ['Mandalas','mandalas.html'], ['Botellitas','botellitas.html'], ['Infusiones','infusiones.html'],
-    ['Inciensos','inciensos.html'], ['Plantas / Semillas','plantas-semillas.html'], ['Opiniones','opiniones.html']
-  ];
-  document.querySelectorAll('nav.principal').forEach(function(nav) {
-    if (nav.querySelector('.menu-tienda')) return;
-    var tienda = Array.from(nav.children).find(function(a){ return a.tagName === 'A' && a.getAttribute('href') === 'tienda.html'; });
-    if (!tienda) return;
-    var wrap = document.createElement('div'); wrap.className='menu-tienda';
-    var link = document.createElement('a'); link.href='tienda.html'; link.textContent='Tienda'; link.className='tienda-trigger'; link.setAttribute('aria-haspopup','true'); link.setAttribute('aria-expanded','false');
-    var sub = document.createElement('div'); sub.className='submenu-tienda';
-    cats.forEach(function(c){ var a=document.createElement('a'); a.href=c[1]; a.textContent=c[0]; sub.appendChild(a); });
-    wrap.appendChild(link); wrap.appendChild(sub); nav.replaceChild(wrap,tienda);
-    wrap.addEventListener('mouseenter', function(){ link.setAttribute('aria-expanded','true'); });
-    wrap.addEventListener('mouseleave', function(){ if(!wrap.classList.contains('abierto')) link.setAttribute('aria-expanded','false'); });
-    link.addEventListener('focus', function(){ link.setAttribute('aria-expanded','true'); });
-    link.addEventListener('click', function(e){ e.preventDefault(); var abierto = wrap.classList.toggle('abierto'); link.setAttribute('aria-expanded', abierto ? 'true' : 'false'); });
-    wrap.addEventListener('focusout', function(e){ if(!wrap.contains(e.relatedTarget) && !wrap.classList.contains('abierto')) link.setAttribute('aria-expanded','false'); });
-    document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ wrap.classList.remove('abierto'); link.setAttribute('aria-expanded','false'); } });
-    var cart=document.createElement('a'); cart.href='carrito.html'; cart.className='enlace-carrito'; cart.innerHTML='🛒 Carrito <span id="contador-carrito">0</span>'; nav.parentElement.appendChild(cart);
-  });
-  document.querySelectorAll('.menu-movil').forEach(function(menu){
-    if(menu.querySelector('.menu-tienda-movil')) return;
-    var tienda=Array.from(menu.children).find(function(a){return a.tagName==='A' && a.getAttribute('href')==='tienda.html';});
-    if(!tienda) return;
-    var d=document.createElement('details'); d.className='menu-tienda-movil';
-    var sum=document.createElement('summary'); sum.textContent='Tienda'; d.appendChild(sum);
-    cats.forEach(function(c){var a=document.createElement('a');a.href=c[1];a.textContent=c[0];d.appendChild(a);});
-    menu.replaceChild(d,tienda);
-    var cart=document.createElement('a');cart.href='carrito.html';cart.className='enlace-carrito-movil';cart.textContent='🛒 Carrito';menu.insertBefore(cart,menu.firstChild);
-  });
-  var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});
-}

@@ -3,6 +3,9 @@
 // ============================================================
 let PRODUCTOS = [], PIEZAS_UNICAS = [], OPINIONES = [], FAQ = [], INICIO = {};
 const WHATSAPP='34722379095', EMAIL='arcillahechizada@gmail.com', CART_KEY='arcillaHechizadaCarrito';
+const BIZUM='722379095';
+const FORMSPREE_ENDPOINT='https://formspree.io/f/xqpanapp';
+const PAYPAL_BACKEND_BASE=window.ARCILLA_PAYPAL_BACKEND||'';
 
 const GITHUB_REPO='arcillahechizada/arcilla-hechizada-web';
 async function cargarCarpetaProductosGitHub(folder){
@@ -136,54 +139,149 @@ function renderFicha(){const id=new URLSearchParams(location.search).get('id')||
 }
 function calcularEnvio(cp){const s=String(cp||'').replace(/\D/g,'');if(!/^\d{5}$/.test(s))return null;const pref=Number(s.slice(0,2));if([35,38,51,52].includes(pref))return 7.50;return 6.50;}
 function metodosPagoCarrito(c){const listas=c.map(i=>{const actual=PRODUCTOS.find(p=>p.id===i.id)||PIEZAS_UNICAS.find(p=>p.id===i.id);const metodosActuales=actual?normalizarMetodosPago(actual.formasPagoDisponibles):[];return metodosActuales.length?metodosActuales:(normalizarMetodosPago(i.pagos).length?normalizarMetodosPago(i.pagos):['Bizum','PayPal','Efectivo']);});if(!listas.length)return['Bizum','PayPal','Efectivo'];const union=[...new Set(listas.flat())];const orden=['Bizum','PayPal','Efectivo'];return [...orden.filter(x=>union.includes(x)),...union.filter(x=>!orden.includes(x))];}
-function construirMensajePedido(c, subtotal, envio, cp, metodo){
-  let m='Hola, quiero realizar este pedido en Arcilla Hechizada:\n\n';
+function generarNumeroPedido(){
+  const d=new Date();
+  const dd=String(d.getDate()).padStart(2,'0');
+  const mm=String(d.getMonth()+1).padStart(2,'0');
+  const hh=String(d.getHours()).padStart(2,'0');
+  const min=String(d.getMinutes()).padStart(2,'0');
+  return `#AH-${dd}${mm}${hh}:${min}`;
+}
+function formatoEuros(n){return Number(n||0).toFixed(2).replace('.',',')+' €';}
+function datosCliente(){
+  const get=id=>(document.getElementById(id)?.value||'').trim();
+  return {nombre:get('cliente-nombre'),email:get('cliente-email'),telefono:get('cliente-telefono'),direccion:get('cliente-direccion'),cp:get('cp-envio')};
+}
+function construirDetallePedido(c,subtotal,envio,cliente,metodo,numero){
+  const total=subtotal+(envio||0);
+  let texto=`Pedido ${numero}\n\n`;
+  texto+=`Cliente: ${cliente.nombre}\nTeléfono: ${cliente.telefono}\nEmail: ${cliente.email}\nDirección: ${cliente.direccion}\nCódigo postal: ${cliente.cp}\n\n`;
+  texto+='PRODUCTOS:\n';
   c.forEach(i=>{
     const precio=Number(i.precio)||0, cantidad=Number(i.cantidad)||1;
-    m+=`${i.nombre} × ${cantidad} = ${(precio*cantidad).toFixed(2).replace('.',',')} €\n`;
-    Object.entries(i.opciones||{}).forEach(([k,v])=>{m+=`  ${k}: ${v}\n`;});
+    texto+=`- ${i.nombre} × ${cantidad} — ${formatoEuros(precio*cantidad)}\n`;
+    Object.entries(i.opciones||{}).forEach(([k,v])=>texto+=`  ${k}: ${v}\n`);
   });
-  m+=`\nSUBTOTAL: ${subtotal.toFixed(2).replace('.',',')} €\n`;
-  m+=`GASTOS DE ENVÍO: ${envio===null?'Por calcular':envio.toFixed(2).replace('.',',')+' €'}\n`;
-  if(envio!==null) m+=`TOTAL: ${(subtotal+envio).toFixed(2).replace('.',',')} €\n`;
-  else m+=`TOTAL: Por calcular\n`;
-  m+=`\nCódigo postal de entrega: ${cp||'Pendiente'}\nForma de pago elegida: ${metodo||'Pendiente'}\n\nQuedo a la espera de tus indicaciones para realizar el pago.`;
-  return m;
+  texto+=`\nSubtotal: ${formatoEuros(subtotal)}\nEnvío: ${formatoEuros(envio)}\nTOTAL: ${formatoEuros(total)}\nForma de pago: ${metodo}\n`;
+  return texto;
 }
-function urlWhatsAppPedido(mensaje){return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`;}
-function actualizarEnlacePagar(c, subtotalFn){
-  const boton=document.getElementById('btn-pagar');
-  const inp=document.getElementById('cp-envio');
+function construirMensajeBizum(c,subtotal,envio,cliente,numero){
+  return `Hola ${cliente.nombre},\n\nTu pedido ${numero} en Arcilla Hechizada está preparado para completar el pago por Bizum.\n\nIMPORTE TOTAL: ${formatoEuros(subtotal+envio)}\nNúmero Bizum: ${BIZUM}\nConcepto: ${numero}\n\nRealiza el Bizum indicando como concepto exactamente ${numero}.\n\nTe enviaremos la confirmación del pedido al correo indicado.`;
+}
+function enviarPedidoFormspree(c,subtotal,envio,cliente,metodo,numero){
+  const detalle=construirDetallePedido(c,subtotal,envio,cliente,metodo,numero);
+  const fd=new FormData();
+  fd.append('subject',`Nuevo pedido ${numero} — ${cliente.nombre}`);
+  fd.append('email',cliente.email);
+  fd.append('name',cliente.nombre);
+  fd.append('phone',cliente.telefono);
+  fd.append('address',cliente.direccion);
+  fd.append('codigo_postal',cliente.cp);
+  fd.append('numero_pedido',numero);
+  fd.append('forma_pago',metodo);
+  fd.append('total',formatoEuros(subtotal+envio));
+  fd.append('message',detalle);
+  return fetch(FORMSPREE_ENDPOINT,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+}
+function validarDatosCheckout(cliente){
+  if(!cliente.nombre||!cliente.email||!cliente.telefono||!cliente.direccion||!/^[0-9]{5}$/.test(cliente.cp)){
+    alert('Completa nombre y apellidos, correo, teléfono, dirección y un código postal válido de 5 cifras antes de continuar.');
+    return false;
+  }
+  return true;
+}
+function actualizarResumenCheckout(c){
+  const cp=document.getElementById('cp-envio')?.value||'';
+  const env=calcularEnvio(cp); const subtotal=c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);
+  const envioEl=document.querySelector('.envio-linea strong'),totalEl=document.querySelector('.ticket-total strong');
+  if(envioEl)envioEl.textContent=env===null?'Se calcularán':formatoEuros(env);
+  if(totalEl)totalEl.textContent=formatoEuros(subtotal+(env||0));
+  return {subtotal,env};
+}
+function mostrarOpcionesPago(){
   const select=document.getElementById('metodo-pago');
-  if(!boton||!inp||!select)return;
-  const cp=inp.value.trim(), envio=calcularEnvio(cp), subtotal=subtotalFn(), metodo=select.value||'Pendiente';
-  boton.href=urlWhatsAppPedido(construirMensajePedido(c,subtotal,envio,cp,metodo));
-  boton.dataset.cpValido=envio===null?'no':'si';
-  boton.setAttribute('aria-label',envio===null?'Introduce un código postal válido antes de confirmar el pedido':'Confirmar pedido por WhatsApp');
+  if(!select)return;
+  select.innerHTML='<option value="Tarjeta">💳 Tarjeta</option><option value="Bizum">📲 Bizum</option><option value="PayPal">🅿️ PayPal</option><option value="Efectivo">💶 Efectivo</option>';
 }
+async function paypalBackend(path,options={}){const base=PAYPAL_BACKEND_BASE.replace(/\/$/,'');const url=base+path;const r=await fetch(url,options);const data=await r.json();if(!r.ok)throw new Error(data.error||'PayPal error');return data;}
+async function cargarPayPalSdk(){
+  if(window.paypal)return window.paypal;
+  if(window.paypalSdkReady){await window.paypalSdkReady;return window.paypal;}
+  throw new Error('PayPal SDK no disponible');
+}
+async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
+  const box=document.getElementById('paypal-payment-box'); if(!box)return;
+  box.innerHTML='<p class="ayuda-cp">Cargando el pago seguro…</p>';
+  const sdk=await cargarPayPalSdk();
+  const tokenData=await paypalBackend('/paypal-api/auth/browser-safe-client-token');
+  const sdkInstance=await sdk.createInstance({clientToken:tokenData.accessToken,components:['paypal-payments','card-fields'],pageType:'checkout'});
+  async function crearOrden(){
+    const r=await paypalBackend('/paypal-api/checkout/orders/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(i=>({id:i.id,quantity:i.cantidad})),cp:cliente.cp})});
+    return r.id;
+  }
+  async function capturar(orderId){
+    const r=await paypalBackend('/paypal-api/checkout/orders/capture?orderId='+encodeURIComponent(orderId),{method:'POST'});
+    if(r.status!=='COMPLETED')throw new Error('El pago no ha quedado completado');
+    await enviarPedidoFormspree(items,subtotal,envio,cliente,metodo,numero);
+    mostrarPagoCompletado(numero,subtotal+envio,metodo);
+    return r;
+  }
+  if(metodo==='PayPal'){
+    const methods=await sdkInstance.findEligibleMethods({currencyCode:'EUR'});
+    box.innerHTML='<paypal-button id="paypal-btn-ah" type="pay"></paypal-button>';
+    const session=sdkInstance.createPayPalOneTimePaymentSession({onApprove:async({orderId})=>capturar(orderId),onCancel:()=>{},onError:e=>{console.error(e);alert('PayPal no ha podido completar el pago. Puedes intentarlo de nuevo.')}});
+    const btn=document.getElementById('paypal-btn-ah');
+    if(!methods.isEligible('paypal')){box.innerHTML='<p>No se puede mostrar PayPal para este pedido en este momento.</p>';return;}
+    btn.addEventListener('click',async()=>{try{await session.start({presentationMode:'auto'},crearOrden());}catch(e){console.error(e);alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');}});
+  }else{
+    box.innerHTML='<div class="paypal-card-fields"><label>Tarjeta</label><div id="paypal-card-number"></div><div class="card-fields-row"><div id="paypal-card-expiry"></div><div id="paypal-card-cvv"></div></div><button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button></div>';
+    const session=sdkInstance.createCardFieldsOneTimePaymentSession();
+    const numberField=session.createCardFieldsComponent({type:'number',placeholder:'Número de tarjeta'});
+    const expiryField=session.createCardFieldsComponent({type:'expiry',placeholder:'MM/AA'});
+    const cvvField=session.createCardFieldsComponent({type:'cvv',placeholder:'CVV'});
+    document.getElementById('paypal-card-number').appendChild(numberField);document.getElementById('paypal-card-expiry').appendChild(expiryField);document.getElementById('paypal-card-cvv').appendChild(cvvField);
+    document.getElementById('paypal-card-submit').addEventListener('click',async()=>{
+      const b=document.getElementById('paypal-card-submit');b.disabled=true;b.textContent='Procesando…';
+      try{const orderId=await crearOrden();const result=await session.submit(orderId,{billingAddress:{postalCode:cliente.cp,countryCode:'ES'}});if(result.state==='succeeded'){await capturar(result.data.orderId||orderId);}else if(result.state==='canceled'){alert('Has cancelado la autenticación del pago.');}else{throw new Error(result.data?.message||'Pago rechazado');}}
+      catch(e){console.error(e);alert('No se ha podido completar el pago con tarjeta. Puedes intentarlo de nuevo.');b.disabled=false;b.textContent='Pagar con tarjeta';}
+    });
+  }
+}
+function mostrarPagoCompletado(numero,total,metodo){const box=document.getElementById('checkout-accion');if(box)box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(total)}</strong></p><p>Forma de pago: <strong>${escHTML(metodo)}</strong></p><p>Hemos enviado los datos del pedido al correo que has indicado.</p></div>`;}
 function renderCarrito(){
   const root=document.getElementById('carrito-contenido');
   if(!root)return;
   let c=leerCarrito();
   if(!c.length){root.innerHTML='<div class="carrito-vacio"><h1>Tu carrito está vacío</h1><p>Cuando encuentres algo que quieras conservar, añádelo aquí.</p><a class="btn btn-primario" href="tienda.html#categorias-tienda">Explorar la tienda</a></div>';return;}
   const sub=()=>c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);
-  const pagos=metodosPagoCarrito(c);
   function pintar(){
-    const subtotal=sub(),cp=document.getElementById('cp-envio')?.value||'',env=calcularEnvio(cp),total=env===null?subtotal:subtotal+env;
-    root.innerHTML=`<div class="carrito-layout"><section class="carrito-ticket"><div class="ticket-cabecera"><span>Arcilla Hechizada</span><span>Tu pedido</span></div><div class="carrito-items">${c.map((i,idx)=>`<div class="carrito-item"><a class="carrito-item-foto carrito-enlace-producto" href="ficha.html?id=${encodeURIComponent(i.id)}" title="Volver al producto">${i.imagen?`<img src="${escHTML(i.imagen)}" alt="${escHTML(i.nombre)}">`:'✦'}</a><div class="carrito-item-info"><a class="carrito-producto-enlace" href="ficha.html?id=${encodeURIComponent(i.id)}"><h3>${escHTML(i.nombre)}</h3></a>${Object.entries(i.opciones||{}).map(([k,v])=>`<small>${escHTML(k)}: ${escHTML(v)}</small>`).join('')}<strong>${(Number(i.precio)||0).toFixed(2).replace('.',',')} €</strong></div><div class="carrito-cantidad"><button type="button" data-action="menos" data-i="${idx}">−</button><span>${i.cantidad}</span><button type="button" data-action="mas" data-i="${idx}">+</button></div><button type="button" class="carrito-eliminar" data-action="eliminar" data-i="${idx}">Eliminar</button></div>`).join('')}</div><div class="ticket-linea"><span>Subtotal</span><strong>${subtotal.toFixed(2).replace('.',',')} €</strong></div><div class="ticket-linea envio-linea"><span>Gastos de envío</span><strong>${env===null?'Se calcularán':env.toFixed(2).replace('.',',')+' €'}</strong></div><div class="ticket-total"><span>TOTAL</span><strong>${total.toFixed(2).replace('.',',')} €</strong></div></section><aside class="carrito-pago"><h2>Finalizar pedido</h2><label for="cp-envio">Código postal</label><input id="cp-envio" inputmode="numeric" maxlength="5" placeholder="Introduce tu código postal" value="${escHTML(cp)}"><p class="ayuda-cp">Introduce el código postal de entrega para calcular los gastos de envío.</p><a id="btn-pagar" class="btn btn-pagar" href="${urlWhatsAppPedido(construirMensajePedido(c,subtotal,env,cp,pagos[0]||'Pendiente'))}">PAGAR</a><label for="metodo-pago" class="label-pago">Forma de pago</label><select id="metodo-pago">${pagos.map(p=>`<option>${escHTML(p)}</option>`).join('')}</select><p class="aviso-envio">Aviso: los gastos de envío se calculan según el código postal. Envíos desde <strong>4,50 €</strong> con <span class="marca-correos">Correos</span>. Más información en <a href="envios-y-recogida.html">Preguntas y Envíos</a>.</p><p class="aviso-envio">El pago se gestiona contigo por WhatsApp según la forma de pago que elijas. También puedes consultar cualquier duda antes de confirmar.</p></aside></div>`;
+    const clientePrev=datosCliente(); const env=calcularEnvio(clientePrev.cp); const subtotal=sub(); const total=env===null?subtotal:subtotal+env;
+    root.innerHTML=`<div class="carrito-layout"><section class="carrito-ticket"><div class="ticket-cabecera"><span>Arcilla Hechizada</span><span>Tu pedido</span></div><div class="carrito-items">${c.map((i,idx)=>`<div class="carrito-item"><a class="carrito-item-foto carrito-enlace-producto" href="ficha.html?id=${encodeURIComponent(i.id)}" title="Volver al producto">${i.imagen?`<img src="${escHTML(i.imagen)}" alt="${escHTML(i.nombre)}">`:'✦'}</a><div class="carrito-item-info"><a class="carrito-producto-enlace" href="ficha.html?id=${encodeURIComponent(i.id)}"><h3>${escHTML(i.nombre)}</h3></a>${Object.entries(i.opciones||{}).map(([k,v])=>`<small>${escHTML(k)}: ${escHTML(v)}</small>`).join('')}<strong>${formatoEuros((Number(i.precio)||0)*(Number(i.cantidad)||1))}</strong></div><div class="carrito-cantidad"><button type="button" data-action="menos" data-i="${idx}">−</button><span>${i.cantidad}</span><button type="button" data-action="mas" data-i="${idx}">+</button></div><button type="button" class="carrito-eliminar" data-action="eliminar" data-i="${idx}">Eliminar</button></div>`).join('')}</div><div class="ticket-linea"><span>Subtotal</span><strong>${formatoEuros(subtotal)}</strong></div><div class="ticket-linea envio-linea"><span>Gastos de envío</span><strong>${env===null?'Se calcularán':formatoEuros(env)}</strong></div><div class="ticket-total"><span>TOTAL</span><strong>${formatoEuros(total)}</strong></div></section><aside class="carrito-pago"><h2>Finalizar pedido</h2><label for="cliente-nombre">Nombre y apellidos</label><input id="cliente-nombre" autocomplete="name" placeholder="Tu nombre y apellidos" value="${escHTML(clientePrev.nombre)}"><label for="cliente-email">Correo electrónico</label><input id="cliente-email" type="email" autocomplete="email" placeholder="tu@email.com" value="${escHTML(clientePrev.email)}"><label for="cliente-telefono">Teléfono</label><input id="cliente-telefono" type="tel" autocomplete="tel" placeholder="Tu teléfono" value="${escHTML(clientePrev.telefono)}"><label for="cliente-direccion">Dirección de entrega</label><input id="cliente-direccion" autocomplete="street-address" placeholder="Calle, número, piso..." value="${escHTML(clientePrev.direccion)}"><label for="cp-envio">Código postal</label><input id="cp-envio" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="Introduce tu código postal" value="${escHTML(clientePrev.cp)}"><p class="ayuda-cp">Introduce el código postal de entrega para calcular los gastos de envío.</p><label for="metodo-pago" class="label-pago">Forma de pago</label><select id="metodo-pago"><option value="Tarjeta">💳 Tarjeta</option><option value="Bizum">📲 Bizum</option><option value="PayPal">🅿️ PayPal</option><option value="Efectivo">💶 Efectivo</option></select><div class="pagos-protegidos" aria-label="Pago protegido"><strong>🔒 Pago protegido</strong><span>Los pagos con tarjeta y PayPal se gestionarán mediante PayPal.</span></div><div id="checkout-accion"><button id="btn-pagar" class="btn btn-pagar" type="button">Continuar con el pago</button></div><p class="aviso-envio">Gastos de envío calculados según el código postal. Más información en <a href="envios-y-recogida.html">Preguntas y Envíos</a>.</p></aside></div>`;
     root.querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.i),a=b.dataset.action;if(a==='mas')c[i].cantidad++;if(a==='menos')c[i].cantidad=Math.max(1,c[i].cantidad-1);if(a==='eliminar')c.splice(i,1);guardarCarrito(c);pintar();}));
-    const inp=document.getElementById('cp-envio');
-    const select=document.getElementById('metodo-pago');
-    const boton=document.getElementById('btn-pagar');
-    const update=()=>{const e=calcularEnvio(inp.value),line=root.querySelector('.envio-linea strong'),tot=root.querySelector('.ticket-total strong');if(line)line.textContent=e===null?'Se calcularán':e.toFixed(2).replace('.',',')+' €';if(tot)tot.textContent=(subtotal+(e||0)).toFixed(2).replace('.',',')+' €';actualizarEnlacePagar(c,sub);};
-    inp.addEventListener('input',update); inp.addEventListener('change',update); select.addEventListener('change',()=>actualizarEnlacePagar(c,sub));
-    boton.addEventListener('click',function(e){
-      const ecp=calcularEnvio(inp.value.trim());
-      if(ecp===null){e.preventDefault();alert('Introduce un código postal válido de 5 cifras para calcular el envío.');inp.focus();return;}
-      actualizarEnlacePagar(c,sub);
-      // El destino es un enlace real; no usamos window.open ni window.location.assign.
-    });
-    actualizarEnlacePagar(c,sub);
+    const fields=['cliente-nombre','cliente-email','cliente-telefono','cliente-direccion','cp-envio']; fields.forEach(id=>document.getElementById(id)?.addEventListener('input',()=>actualizarResumenCheckout(c)));
+    document.getElementById('metodo-pago').addEventListener('change',()=>{});
+    document.getElementById('btn-pagar').addEventListener('click',()=>procesarCheckout(c));
+    actualizarResumenCheckout(c);
   }
+  async function procesarCheckout(items){
+    const cliente=datosCliente(); if(!validarDatosCheckout(cliente))return;
+    const {subtotal,env}=actualizarResumenCheckout(items); if(env===null){alert('Introduce un código postal válido de 5 cifras para calcular el envío.');return;}
+    const metodo=document.getElementById('metodo-pago').value; const numero=generarNumeroPedido();
+    const boton=document.getElementById('btn-pagar'); if(boton){boton.disabled=true;boton.textContent='Preparando…';}
+    try{
+      if(metodo==='Bizum'){
+        await enviarPedidoFormspree(items,subtotal,env,cliente,metodo,numero);
+        document.getElementById('checkout-accion').innerHTML=`<div class="pago-instrucciones"><h3>Pedido ${escHTML(numero)}</h3><p>Para completar el pedido, realiza un Bizum de <strong>${formatoEuros(subtotal+env)}</strong>.</p><p><strong>Número Bizum:</strong> ${BIZUM}</p><p><strong>Concepto:</strong> ${escHTML(numero)}</p><p>Tu pedido y tus datos ya han sido enviados a Arcilla Hechizada. Guarda tu número de pedido.</p><a class="btn btn-pagar" href="https://wa.me/34722379095?text=${encodeURIComponent(construirMensajeBizum(items,subtotal,env,cliente,numero))}" target="_blank" rel="noopener">Ayuda con el pago</a></div>`;
+      } else if(metodo==='Efectivo'){
+        await enviarPedidoFormspree(items,subtotal,env,cliente,metodo,numero);
+        document.getElementById('checkout-accion').innerHTML=`<div class="pago-instrucciones"><h3>Pedido ${escHTML(numero)} recibido</h3><p>Hemos recibido los datos de tu pedido. La forma de pago seleccionada es <strong>Efectivo</strong>.</p><p>Nos pondremos en contacto contigo para concretar la recogida.</p></div>`;
+      } else {
+        document.getElementById('checkout-accion').innerHTML='<div id="paypal-payment-box"></div>';
+        await inicializarPayPalUI(items,cliente,subtotal,env,numero,metodo);
+      }
+      localStorage.setItem('arcillaHechizadaUltimoPedido',JSON.stringify({numero,metodo,total:subtotal+env}));
+    }catch(e){console.error(e);alert('No hemos podido preparar el pago. Inténtalo de nuevo en unos segundos.');if(boton){boton.disabled=false;boton.textContent='Continuar con el pago';}}
+  }
+
   pintar();
 }
