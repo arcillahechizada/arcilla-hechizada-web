@@ -1,0 +1,60 @@
+ARCILLA HECHIZADA — PAGOS Y PEDIDOS
+
+ESTADO DE ESTA ENTREGA
+Esta carpeta incorpora el checkout, los datos del cliente, el número de pedido, Formspree, el flujo de Bizum manual, la recogida en taller para pago en efectivo y las funciones de servidor preparadas para PayPal/Tarjeta.
+
+1. BIZUM
+El Bizum personal no puede convertirse en un checkout online integrado simplemente poniendo el número de teléfono. Bizum describe el pago online integrado como un servicio para comercios, en el que el cliente introduce su propio teléfono y valida la operación en su banco. Por eso esta web NO finge que un Bizum personal sea una pasarela automática.
+
+La opción Bizum de esta versión:
+- genera un número de pedido #AH-DDMMHH:MM
+- muestra el número Bizum de Arcilla Hechizada: 722379095
+- muestra el importe exacto
+- indica el número de pedido como concepto
+- registra el pedido mediante Formspree
+- no muestra ningún número personal distinto del de Arcilla Hechizada
+
+2. FORMspree
+Endpoint: https://formspree.io/f/xqpanapp
+El pedido se envía a Formspree con nombre, correo, teléfono, dirección, código postal, productos, cantidades, total y forma de pago.
+
+Para que Formspree envíe automáticamente al cliente un correo de confirmación con los datos del pedido, hay que activar Autoresponse en Formspree. La documentación actual de Formspree indica que esta función está disponible en Professional y Business.
+
+3. PAYPAL / TARJETA
+PayPal JavaScript SDK v6 necesita un backend para crear/capturar el pedido de forma segura. El Client Secret NO debe estar en GitHub ni en JavaScript público.
+
+Este proyecto incluye funciones Netlify en /netlify/functions/.
+
+Variables privadas del servicio que ejecute las funciones:
+PAYPAL_CLIENT_ID = Client ID LIVE de PayPal
+PAYPAL_CLIENT_SECRET = Client Secret LIVE (SOLO variable de entorno privada)
+PAYPAL_API_BASE = https://api-m.paypal.com
+
+4. IMPORTANTE SOBRE GITHUB PAGES
+GitHub Pages sirve la parte pública de la web, pero no ejecuta las funciones Netlify. Si el frontend continúa en GitHub Pages, hay que indicar en carrito.html la URL pública del servicio que ejecute /netlify/functions/.
+
+En carrito.html existe actualmente:
+window.ARCILLA_PAYPAL_BACKEND = 'https://wonderful-sawine-8541d2.netlify.app';
+
+En esta entrega ya está conectada a: https://wonderful-sawine-8541d2.netlify.app. No se debe poner ahí el Client Secret.
+
+5. NÚMERO DE PEDIDO
+Formato visible solicitado: #AH-DDMMHH:MM
+Ejemplo: #AH-290914:10
+
+6. NO SUBIR SECRETOS
+Nunca subir PAYPAL_CLIENT_SECRET, claves privadas, tokens o contraseñas a GitHub.
+
+7. CAMBIO DE ESTA ENTREGA
+Se ha añadido una versión de caché al enlace de render.js para evitar que GitHub Pages/navegador siga utilizando una versión anterior del JavaScript. También se han añadido respuestas CORS/OPTIONS a las funciones de creación y captura para permitir las peticiones desde GitHub Pages.
+
+8. TARJETA Y PAYPAL — CAMBIO DE FLUJO
+La opción Tarjeta utiliza el flujo de pago con tarjeta como invitado alojado por PayPal (PayPal Guest Payments). El formulario de tarjeta aparece en la interfaz segura de PayPal y la web no recibe ni almacena el número de tarjeta. PayPal documenta este flujo con el componente paypal-guest-payments y el formulario superpuesto de PayPal.
+
+La opción PayPal utiliza el botón oficial de PayPal y su sesión de pago v6.
+
+9. EFECTIVO / RECOGIDA EN TALLER
+La opción Efectivo es exclusivamente para recogida en el taller. No solicita dirección ni código postal y no añade gastos de envío. El pedido se registra con Formspree y se informa al cliente de que el pago se realizará en efectivo el día acordado de la recogida.
+
+10. EMAILS
+Este proyecto mantiene Formspree como sistema de recepción de pedidos. No se ha añadido EmailJS ni se dejan campos del tipo «PON AQUÍ TU ID». La respuesta automática al cliente depende de la configuración de Autoresponse de la cuenta de Formspree.

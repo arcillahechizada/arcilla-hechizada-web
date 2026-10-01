@@ -639,21 +639,18 @@ footer.site a:hover{ opacity:1; color: var(--bronce); }
 .inicio-media-dot.activa{background:#fff;}
 .inicio-media-placeholder{width:100%;height:100%;min-height:160px;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;color:var(--marron-gris);font-size:.9rem;}
 @media(max-width:799px){.imagen-placeholder-slot .inicio-media{aspect-ratio:4/3}.inicio-media-prev,.inicio-media-next{width:34px;height:34px;font-size:24px;}}
-/* ---------- Ajuste de altura para campos de tarjeta de PayPal ---------- */
-#card-number-field,
-#card-expiry-field,
-#card-cvv-field,
-.card-field-container {
-  height: 45px !important;
-  min-height: 45px !important;
-  max-height: 48px !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
 
-#card-number-field iframe,
-#card-expiry-field iframe,
-#card-cvv-field iframe {
-  height: 100% !important;
-  min-height: 45px !important;
-}
+/* Checkout: pequeños añadidos sobre el diseño existente */
+.carrito-pago input:focus,.carrito-pago select:focus{outline:2px solid var(--terracota);outline-offset:1px}
+.pagos-protegidos{display:flex;flex-direction:column;gap:4px;margin:16px 0;padding:12px 14px;border:1px solid var(--linea);border-radius:9px;background:rgba(255,255,255,.55);font-size:.78rem}
+.pagos-protegidos strong{font-size:.84rem}
+.pago-instrucciones{margin-top:18px;padding:16px;border:1px solid var(--linea);border-radius:10px;background:var(--blanco);line-height:1.55}
+.pago-instrucciones h3{margin-top:0}
+.btn-pagar:disabled{opacity:.65;cursor:wait}
+.paypal-card-fields{margin-top:14px}.paypal-card-fields>label{margin-top:0}.paypal-card-fields>div[id^="paypal-card-"]{min-height:46px;background:var(--blanco);border:1px solid var(--linea);border-radius:7px;padding:10px;margin-bottom:10px}.card-fields-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card-fields-row>div{min-height:46px;background:var(--blanco);border:1px solid var(--linea);border-radius:7px;padding:10px}.paypal-card-fields .btn{width:100%;margin-top:4px}
+
+/* PayPal — pago con tarjeta alojado por PayPal */
+#paypal-payment-box{margin-top:16px}
+#paypal-payment-box paypal-basic-card-container{display:block;width:100%}
+#paypal-payment-box paypal-basic-card-button{display:block;width:100%}
+#paypal-payment-box paypal-button{display:block;width:100%;max-width:420px;margin:0 auto}

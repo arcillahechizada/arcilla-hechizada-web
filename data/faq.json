@@ -1,28 +1,13 @@
 {
   "faq": [
     {
-      "pregunta": "¿Todas las piezas se entregan activadas?",
-      "respuesta": "Sí. Cada pieza que sale del taller se activa con su propia intención antes de ser enviada, como parte del proceso de creación.",
-      "estado": "publicada"
-    },
-    {
       "pregunta": "¿Cómo hago un pedido?",
-      "respuesta": ".Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos contigo los detalles y el pedido.",
-      "estado": "publicada"
-    },
-    {
-      "pregunta": "¿Qué pasa si una pieza única ya está vendida?",
-      "respuesta": "Si una pieza única se vende, queda marcada como VENDIDA y permanece visible en el archivo de Piezas Únicas, formando parte de la historia del taller. Si te has enamorado de una pieza que ya no está disponible, puedes pedirnos una inspirada en ella: como cada pieza se hace 100% a mano, nunca sale exactamente igual a la anterior, y podemos ajustar color o tamaño según lo que prefieras.",
+      "respuesta": "Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos juntas los detalles y el pedido.",
       "estado": "publicada"
     },
     {
       "pregunta": "¿Puedo personalizar una pieza?",
       "respuesta": "Sí, especialmente las Cajas Grimorio, a través de la sección Personalizados.",
-      "estado": "publicada"
-    },
-    {
-      "pregunta": "¿Cómo sé si mi pieza personalizada quedará como yo la imagino?",
-      "respuesta": "Durante todo el proceso de creación te enviamos vídeos y fotos, para que puedas seguir cada paso y ver cómo va tomando forma tu pieza antes de que llegue a tus manos.",
       "estado": "publicada"
     },
     {
@@ -36,29 +21,24 @@
       "estado": "publicada"
     },
     {
-      "pregunta": "¿Enviáis fuera de España?",
-      "respuesta": "Sí, enviamos tanto dentro como fuera de España. Siempre nos aseguramos de elegir la modalidad de envío adecuada para que la pieza llegue en buenas condiciones.",
+      "pregunta": "¿Cómo reservo una llamada?",
+      "respuesta": "Desde la sección Reserva una llamada, eligiendo uno de los horarios disponibles.",
       "estado": "publicada"
     },
     {
-      "pregunta": "¿Cómo reservo una llamada?",
-      "respuesta": "Desde la sección Reserva una llamada, eligiendo uno de los horarios disponibles. Si lo prefieres, también puedes reservar la llamada directamente por WhatsApp.",
+      "pregunta": "¿Qué pasa si una pieza única ya está vendida?",
+      "respuesta": "Se conserva en el archivo de Piezas Únicas marcada como VENDIDA, como parte de la historia del taller.",
       "estado": "publicada"
     },
     {
       "pregunta": "¿De qué materiales están hechas las piezas?",
-      "respuesta": "Cada pieza parte de arcilla natural de secado al aire. Según el tipo de producto, puede incorporar otros materiales — corcho, cristal, ingredientes naturales, metal, entre otros —, siempre detallados en la ficha de cada pieza.",
-      "estado": "publicada"
+      "respuesta": "[CONTENIDO PENDIENTE]",
+      "estado": "borrador"
     },
     {
       "pregunta": "¿Cómo cuido mi pieza de arcilla?",
-      "respuesta": "Para conservar su belleza:\n-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
-      "estado": "publicada"
-    },
-    {
-      "pregunta": "¿Cuánto tiempo tarda en fabricarse mi pedido?",
-      "respuesta": "Depende de la pieza. Los amuletos pequeños son los más rápidos: se elaboran en un día, tardan entre 24 y 48h en secar, y después dejamos que carguen un día con la energía del sol y la luna antes de enviarlos — en total, unos 3 días como mínimo. El resto de piezas puede llevar más tiempo según su tamaño y complejidad; consulta el plazo indicado en la ficha de cada producto.",
-      "estado": "publicada"
+      "respuesta": "[CONTENIDO PENDIENTE]",
+      "estado": "borrador"
     }
   ]
 }
