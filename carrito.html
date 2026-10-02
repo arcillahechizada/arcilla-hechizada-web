@@ -8,7 +8,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css">
 <script>
-  window.ARCILLA_PAYPAL_BACKEND = 'https://wonderful-sawine-8541d2.netlify.app';
+  window.ARCILLA_PAYPAL_BACKEND = 'https://wonderful-sawine-8541d2.netlify.app/.netlify/functions';
   window.paypalSdkReady = new Promise(function(resolve){ window.__arcillaPayPalResolve = resolve; });
   function onPayPalWebSdkLoaded(){ window.__arcillaPayPalResolve(); }
 </script>
@@ -19,47 +19,26 @@
   <div class="header-inner">
     <a href="index.html" class="logo"><img src="logo.png" alt="Arcilla Hechizada" class="logo-img">Arcilla Hechizada</a>
     <nav class="principal">
-      <a href="tienda.html">Tienda</a>
-      <a href="piezas-unicas.html">Piezas únicas</a>
-      <a href="personalizados.html">Personalizados</a>
-      <a href="el-taller.html">Taller</a>
-      <a href="envios-y-recogida.html">Envíos</a>
-      <a href="faq.html">Preguntas</a>
-      <a href="para-tiendas.html">Tiendas</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="tienda.html">Tienda</a><a href="piezas-unicas.html">Piezas únicas</a><a href="personalizados.html">Personalizados</a>
+      <a href="el-taller.html">Taller</a><a href="envios-y-recogida.html">Envíos</a><a href="faq.html">Preguntas</a>
+      <a href="para-tiendas.html">Tiendas</a><a href="contacto.html">Contacto</a>
     </nav>
     <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </div>
   <div class="menu-movil">
-    <a href="tienda.html">Tienda</a>
-    <a href="piezas-unicas.html">Piezas únicas</a>
-    <a href="personalizados.html">Personalizados</a>
-    <a href="el-taller.html">El Taller</a>
-    <a href="opiniones.html">Opiniones</a>
-    <a href="faq.html">Preguntas frecuentes</a>
-    <a href="envios-y-recogida.html">Envíos y recogida</a>
-    <a href="para-tiendas.html">Para tiendas</a>
-    <a href="contacto.html">Contacto</a>
+    <a href="tienda.html">Tienda</a><a href="piezas-unicas.html">Piezas únicas</a><a href="personalizados.html">Personalizados</a>
+    <a href="el-taller.html">El Taller</a><a href="opiniones.html">Opiniones</a><a href="faq.html">Preguntas frecuentes</a>
+    <a href="envios-y-recogida.html">Envíos y recogida</a><a href="para-tiendas.html">Para tiendas</a><a href="contacto.html">Contacto</a>
   </div>
 </header>
-<main>
-  <section class="seccion">
-    <div class="contenedor">
-      <div class="centro" style="margin-bottom:30px;">
-        <span class="eyebrow">Arcilla Hechizada</span>
-        <h1>Tu pedido</h1>
-        <p>Revisa tu selección, completa tus datos y elige cómo quieres pagar.</p>
-      </div>
-      <div id="carrito-contenido"></div>
-    </div>
-  </section>
-</main>
-<footer class="site">
-  <div class="contenedor"><div class="footer-bottom"><span>© Arcilla Hechizada. Todos los derechos reservados.</span><span>Riells i Viabrea, Girona</span></div></div>
-</footer>
+<main><section class="seccion"><div class="contenedor">
+  <div class="centro" style="margin-bottom:30px;"><span class="eyebrow">Arcilla Hechizada</span><h1>Tu pedido</h1><p>Revisa tu selección, completa tus datos y elige cómo quieres pagar.</p></div>
+  <div id="carrito-contenido"></div>
+</div></section></main>
+<footer class="site"><div class="contenedor"><div class="footer-bottom"><span>© Arcilla Hechizada. Todos los derechos reservados.</span><span>Riells i Viabrea, Girona</span></div></div></footer>
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <script src="js/main.js"></script>
-<script src="js/render.js?v=20261002-checkout1"></script>
+<script src="js/render.js?v=20261002-pagos"></script>
 <script>cargarDatos().then(function(){ renderCarrito(); });</script>
 </body>
 </html>
