@@ -58,3 +58,6 @@ La opción Efectivo es exclusivamente para recogida en el taller. No solicita di
 
 10. EMAILS
 Este proyecto mantiene Formspree como sistema de recepción de pedidos. No se ha añadido EmailJS ni se dejan campos del tipo «PON AQUÍ TU ID». La respuesta automática al cliente depende de la configuración de Autoresponse de la cuenta de Formspree.
+
+
+VERSION PAGOS 2026-10-02: guest card PayPal inicializado con Client ID y formulario modal alojado por PayPal; efectivo = recogida en taller sin dirección ni envío.
