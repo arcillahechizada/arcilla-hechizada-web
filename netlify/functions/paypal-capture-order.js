@@ -1,16 +1,27 @@
+// Captura el pago de un pedido ya aprobado por el comprador.
+const { PAYPAL_BASE, respuesta, preflight, tokenServidor } = require('./lib/paypal');
+
 exports.handler = async function (event) {
-  if (event.httpMethod === 'OPTIONS') return {statusCode:204,headers:{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'POST, OPTIONS'},body:''};
-  if (event.httpMethod !== 'POST') return {statusCode:405,headers:{'Access-Control-Allow-Origin':'*'},body:'Method Not Allowed'};
+  if (event.httpMethod === 'OPTIONS') return preflight();
+  if (event.httpMethod !== 'POST') return respuesta(405, { error: 'Método no permitido.' });
   try {
-    const id=process.env.PAYPAL_CLIENT_ID, secret=process.env.PAYPAL_CLIENT_SECRET;
-    const base=process.env.PAYPAL_API_BASE || 'https://api-m.paypal.com';
-    const orderId=(event.queryStringParameters||{}).orderId;
-    if(!id||!secret||!orderId) return {statusCode:400,headers:{'Content-Type':'application/json'},body:JSON.stringify({error:'Missing configuration or order ID.'})};
-    const auth=Buffer.from(`${id}:${secret}`).toString('base64');
-    const tok=await fetch(`${base}/v1/oauth2/token`,{method:'POST',headers:{Authorization:`Basic ${auth}`,'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=client_credentials'});
-    const td=await tok.json(); if(!tok.ok) throw new Error('token');
-    const r=await fetch(`${base}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`,{method:'POST',headers:{Authorization:`Bearer ${td.access_token}`,'Content-Type':'application/json'}});
-    const data=await r.json();
-    return {statusCode:r.status,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},body:JSON.stringify(data)};
-  }catch(e){return {statusCode:500,headers:{'Content-Type':'application/json'},body:JSON.stringify({error:'Could not capture PayPal order.'})};}
+    let orderID = (event.queryStringParameters || {}).orderId || (event.queryStringParameters || {}).orderID;
+    try { const b = JSON.parse(event.body || '{}'); orderID = orderID || b.orderID || b.orderId; } catch (e) {}
+    if (!orderID || !/^[A-Za-z0-9_-]{5,64}$/.test(String(orderID))) return respuesta(400, { error: 'Falta el identificador del pedido.' });
+
+    const token = await tokenServidor();
+    const r = await fetch(PAYPAL_BASE + '/v2/checkout/orders/' + encodeURIComponent(orderID) + '/capture', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json', 'PayPal-Request-Id': 'cap-' + orderID }
+    });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) {
+      console.error('capture PayPal', r.status, JSON.stringify(d).slice(0, 500));
+      return respuesta(r.status >= 500 ? 502 : 400, { error: 'PayPal no ha podido capturar el pago.', detalle: d.name || r.status, status: d.status });
+    }
+    return respuesta(200, { status: d.status, id: d.id });
+  } catch (e) {
+    console.error('paypal-capture-order:', e.message);
+    return respuesta(500, { error: 'No se pudo capturar el pago.', code: e.message });
+  }
 };

@@ -1,14 +1,14 @@
+// Devuelve el token seguro para el navegador (browser-safe client token, SDK v6).
+const { respuesta, preflight, tokenNavegador } = require('./lib/paypal');
+
 exports.handler = async function (event) {
-  if (event && event.httpMethod === 'OPTIONS') return {statusCode:204,headers:{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'GET, OPTIONS'},body:''};
+  if (event.httpMethod === 'OPTIONS') return preflight();
+  if (event.httpMethod !== 'GET' && event.httpMethod !== 'POST') return respuesta(405, { error: 'Método no permitido.' });
   try {
-    const id = process.env.PAYPAL_CLIENT_ID;
-    const secret = process.env.PAYPAL_CLIENT_SECRET;
-    const base = process.env.PAYPAL_API_BASE || 'https://api-m.paypal.com';
-    if (!id || !secret) return { statusCode: 500, headers: {'Content-Type':'application/json','Access-Control-Allow-Origin':'*'}, body: JSON.stringify({error:'PayPal credentials are not configured on the server.'}) };
-    const auth = Buffer.from(`${id}:${secret}`).toString('base64');
-    const r = await fetch(`${base}/v1/oauth2/token`, {method:'POST',headers:{Authorization:`Basic ${auth}`,'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=client_credentials&response_type=client_token&intent=sdk_init'});
-    const data = await r.json();
-    if (!r.ok) return {statusCode:r.status,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},body:JSON.stringify({error:'Could not obtain PayPal client token.'})};
-    return {statusCode:200,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},body:JSON.stringify({accessToken:data.access_token,clientId:id})};
-  } catch(e){ return {statusCode:500,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},body:JSON.stringify({error:'PayPal authentication error.'})}; }
+    const t = await tokenNavegador();
+    return respuesta(200, { accessToken: t, clientToken: t });
+  } catch (e) {
+    console.error('paypal-auth:', e.message);
+    return respuesta(500, { error: 'No se pudo obtener el token de PayPal.', code: e.message });
+  }
 };
