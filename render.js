@@ -225,7 +225,7 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
   const sdk=await cargarPayPalSdk();
   const tokenData=await paypalBackend('/paypal-api/auth/browser-safe-client-token');
   const components=metodo==='Tarjeta'?['paypal-guest-payments']:['paypal-payments'];
-  const sdkInstance=await sdk.createInstance({clientToken:tokenData.accessToken,components,pageType:'checkout'});
+  const sdkInstance=await sdk.createInstance({clientId:tokenData.clientId,components,pageType:'checkout',locale:'es-ES'});
   async function crearOrden(){
     const r=await paypalBackend('/paypal-api/checkout/orders/create',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(i=>({id:i.id,quantity:i.cantidad})),cp:cliente.cp})});
     return {orderId:r.id};
@@ -262,7 +262,7 @@ async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
   });
   box.innerHTML='<paypal-basic-card-container><paypal-basic-card-button id="paypal-card-button"></paypal-basic-card-button></paypal-basic-card-container>';
   document.getElementById('paypal-card-button').addEventListener('click',async()=>{
-    try{await session.start({presentationMode:'auto',targetElement:document.getElementById('paypal-card-button')},crearOrden());}
+    try{await session.start({presentationMode:'modal',targetElement:document.getElementById('paypal-card-button')},crearOrden());}
     catch(e){console.error(e);alert('No se ha podido abrir el pago con tarjeta. Inténtalo de nuevo.');}
   });
 }
