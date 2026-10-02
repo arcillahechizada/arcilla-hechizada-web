@@ -1,0 +1,23 @@
+ARCHILLA HECHIZADA — ARCHIVOS DE PAGO CORREGIDOS
+
+SUBIR/SUSTITUIR ÚNICAMENTE:
+1. carrito.html
+2. js/render.js
+3. netlify/functions/paypal-auth.js
+4. netlify/functions/paypal-create-order.js
+5. netlify/functions/paypal-capture-order.js
+6. netlify.toml
+
+IMPORTANTE:
+- No borres las imágenes ni el resto de la web.
+- En GitHub sustituye esos archivos por estos.
+- En Netlify sustituye las 3 funciones y vuelve a desplegar/publicar.
+- Las variables PAYPAL_CLIENT_ID y PAYPAL_CLIENT_SECRET deben seguir existiendo en Netlify.
+- No pongas el Client Secret en GitHub.
+- Formspree ya está configurado en render.js con https://formspree.io/f/xqpanapp
+
+COMPORTAMIENTO:
+- Tarjeta: campos alojados por PayPal (PayPal Web SDK v6), no un formulario casero.
+- PayPal: checkout de PayPal.
+- Bizum: muestra número 722379095, importe y pedido #AH-DDMMHH:MM.
+- Efectivo: recogida en taller, sin dirección ni gastos de envío.

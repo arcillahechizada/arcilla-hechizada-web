@@ -1,15 +1,28 @@
-exports.handler = async function (event) {
-  if (event.httpMethod !== 'POST') return {statusCode:405,body:'Method Not Allowed'};
-  try {
+const fetch = require('node-fetch');
+
+exports.handler = async (event) => {
+  const cors={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'POST, OPTIONS'};
+  if(event.httpMethod==='OPTIONS') return {statusCode:204,headers:cors,body:''};
+  try{
+    const body=JSON.parse(event.body||'{}');
+    const orderID=body.orderID;
+    if(!orderID) return {statusCode:400,headers:cors,body:JSON.stringify({error:'Falta orderID'})};
+
     const id=process.env.PAYPAL_CLIENT_ID, secret=process.env.PAYPAL_CLIENT_SECRET;
-    const base=process.env.PAYPAL_API_BASE || 'https://api-m.paypal.com';
-    const orderId=(event.queryStringParameters||{}).orderId;
-    if(!id||!secret||!orderId) return {statusCode:400,headers:{'Content-Type':'application/json'},body:JSON.stringify({error:'Missing configuration or order ID.'})};
     const auth=Buffer.from(`${id}:${secret}`).toString('base64');
-    const tok=await fetch(`${base}/v1/oauth2/token`,{method:'POST',headers:{Authorization:`Basic ${auth}`,'Content-Type':'application/x-www-form-urlencoded'},body:'grant_type=client_credentials'});
-    const td=await tok.json(); if(!tok.ok) throw new Error('token');
-    const r=await fetch(`${base}/v2/checkout/orders/${encodeURIComponent(orderId)}/capture`,{method:'POST',headers:{Authorization:`Bearer ${td.access_token}`,'Content-Type':'application/json'}});
-    const data=await r.json();
-    return {statusCode:r.status,headers:{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},body:JSON.stringify(data)};
-  }catch(e){return {statusCode:500,headers:{'Content-Type':'application/json'},body:JSON.stringify({error:'Could not capture PayPal order.'})};}
+    const authRes=await fetch('https://api-m.paypal.com/v1/oauth2/token',{
+      method:'POST',headers:{'Authorization':`Basic ${auth}`,'Content-Type':'application/x-www-form-urlencoded'},
+      body:'grant_type=client_credentials'
+    });
+    const authData=await authRes.json();
+    if(!authRes.ok) return {statusCode:authRes.status,headers:cors,body:JSON.stringify(authData)};
+
+    const captureRes=await fetch(`https://api-m.paypal.com/v2/checkout/orders/${encodeURIComponent(orderID)}/capture`,{
+      method:'POST',headers:{'Authorization':`Bearer ${authData.access_token}`,'Content-Type':'application/json'}
+    });
+    const captureData=await captureRes.json();
+    return {statusCode:captureRes.status,headers:{...cors,'Content-Type':'application/json'},body:JSON.stringify(captureData)};
+  }catch(error){
+    return {statusCode:500,headers:cors,body:JSON.stringify({error:error.message})};
+  }
 };
