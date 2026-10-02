@@ -149,196 +149,370 @@ function generarNumeroPedido(){
   return `#AH-${dd}${mm}${hh}:${min}`;
 }
 function formatoEuros(n){return Number(n||0).toFixed(2).replace('.',',')+' €';}
-function datosCliente(){
-  const get=id=>(document.getElementById(id)?.value||'').trim();
-  return {
-    nombre:get('cliente-nombre'),
-    email:get('cliente-email'),
-    telefono:get('cliente-telefono'),
-    direccion:get('cliente-direccion'),
-    cp:get('cp-envio')
-  };
+
+// ------------------------------------------------------------
+// CHECKOUT — estado compartido
+// ------------------------------------------------------------
+const BIZUM_VISIBLE='722 37 90 95';
+const CHK={sdk:{},seq:0,ocupado:false,terminado:false,numero:null,numeroTs:0,ctx:null};
+function esEfectivo(m){return m==='Efectivo';}
+function numeroPedidoActual(){
+  if(!CHK.numero||Date.now()-CHK.numeroTs>20*60*1000){CHK.numero=generarNumeroPedido();CHK.numeroTs=Date.now();}
+  return CHK.numero;
 }
-function construirDetallePedido(c,subtotal,envio,cliente,metodo,numero){
+function mostrarError(msg){
+  const e=document.getElementById('pago-error');
+  if(!e)return;
+  e.textContent=msg||'';
+  e.hidden=!msg;
+}
+function datosClienteCrudo(){
+  const get=id=>(document.getElementById(id)?.value||'').trim();
+  return {nombre:get('cliente-nombre'),email:get('cliente-email'),telefono:get('cliente-telefono'),direccion:get('cliente-direccion'),cp:get('cp-envio')};
+}
+// En Efectivo (recogida en taller) no se usa ni se envía dirección ni código postal.
+function datosCliente(metodo){
+  const c=datosClienteCrudo();
+  const m=metodo||document.getElementById('metodo-pago')?.value||'';
+  if(esEfectivo(m)){c.direccion='';c.cp='';}
+  return c;
+}
+function validarDatosCheckout(cliente,metodo){
+  if(!cliente.nombre||!cliente.email||!cliente.telefono) return 'Completa nombre y apellidos, correo electrónico y teléfono antes de continuar.';
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cliente.email)) return 'El correo electrónico no parece válido. Revísalo para poder enviarte la confirmación.';
+  if(!esEfectivo(metodo)&&(!cliente.direccion||!/^[0-9]{5}$/.test(cliente.cp))) return 'Completa la dirección de entrega y un código postal válido de 5 cifras.';
+  return '';
+}
+function subtotalCarrito(c){return c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);}
+function actualizarResumenCheckout(c,metodo){
+  const subtotal=subtotalCarrito(c);
+  const cp=document.getElementById('cp-envio')?.value||'';
+  const efectivo=esEfectivo(metodo);
+  const env=efectivo?0:calcularEnvio(cp);
+  const envioEl=document.querySelector('.envio-linea strong'),totalEl=document.querySelector('.ticket-total strong');
+  if(envioEl) envioEl.textContent=efectivo?'No aplica (recogida en taller)':(env===null?'Se calcularán':formatoEuros(env));
+  if(totalEl) totalEl.textContent=formatoEuros(subtotal+(env||0));
+  return {subtotal,env};
+}
+function lineasProductos(c){
+  return c.map(i=>{
+    const precio=Number(i.precio)||0,cantidad=Number(i.cantidad)||1;
+    let t=`- ${i.nombre} × ${cantidad} — ${formatoEuros(precio*cantidad)}`;
+    Object.entries(i.opciones||{}).forEach(([k,v])=>t+=`\n  ${k}: ${v}`);
+    return t;
+  }).join('\n');
+}
+function construirDetallePedido(c,subtotal,envio,cliente,metodo,numero,estado){
   const total=subtotal+(envio||0);
   let t=`Pedido ${numero}\n\n`;
   t+=`Cliente: ${cliente.nombre}\nTeléfono: ${cliente.telefono}\nEmail: ${cliente.email}\n`;
   if(cliente.direccion) t+=`Dirección: ${cliente.direccion}\n`;
   if(cliente.cp) t+=`Código postal: ${cliente.cp}\n`;
-  t+='\nPRODUCTOS:\n';
-  c.forEach(i=>{
-    const precio=Number(i.precio)||0, cantidad=Number(i.cantidad)||1;
-    t+=`- ${i.nombre} × ${cantidad} — ${formatoEuros(precio*cantidad)}\n`;
-    Object.entries(i.opciones||{}).forEach(([k,v])=>t+=`  ${k}: ${v}\n`);
-  });
+  t+=`\nPRODUCTOS:\n${lineasProductos(c)}\n`;
   t+=`\nSubtotal: ${formatoEuros(subtotal)}\n`;
-  if(envio>0) t+=`Envío: ${formatoEuros(envio)}\n`;
-  else if(metodo==='Efectivo') t+='Envío: No aplica — recogida en taller\n';
+  if(esEfectivo(metodo)) t+='Envío: No aplica — recogida en taller\n';
+  else t+=`Envío: ${formatoEuros(envio||0)}\n`;
   t+=`TOTAL: ${formatoEuros(total)}\nForma de pago: ${metodo}\n`;
+  if(estado) t+=`Estado del pago: ${estado}\n`;
   return t;
 }
-function construirMensajeBizum(c,subtotal,cliente,numero){
-  return `Hola ${cliente.nombre},\n\nTu pedido ${numero} en Arcilla Hechizada está preparado para completar el pago por Bizum.\n\nIMPORTE TOTAL: ${formatoEuros(subtotal)}\nNúmero Bizum: ${BIZUM}\nConcepto: ${numero}\n\nRealiza el Bizum indicando como concepto exactamente ${numero}.\n\nGracias por tu compra.`;
-}
-async function enviarPedidoFormspree(c,subtotal,envio,cliente,metodo,numero){
-  const detalle=construirDetallePedido(c,subtotal,envio,cliente,metodo,numero);
+const esperar=ms=>new Promise(r=>setTimeout(r,ms));
+async function enviarPedidoFormspree(c,subtotal,envio,cliente,metodo,numero,extra={}){
+  const total=subtotal+(envio||0);
   const fd=new FormData();
-  fd.append('subject',`Nuevo pedido ${numero} — ${cliente.nombre}`);
-  fd.append('email',cliente.email);
+  fd.append('_subject',`Nuevo pedido ${numero} — ${cliente.nombre}`);
+  fd.append('email',cliente.email);            // Formspree usa exactamente este campo
   fd.append('name',cliente.nombre);
   fd.append('phone',cliente.telefono);
-  fd.append('address',cliente.direccion||'Recogida en taller');
-  fd.append('codigo_postal',cliente.cp||'No aplica');
   fd.append('numero_pedido',numero);
   fd.append('forma_pago',metodo);
-  fd.append('total',formatoEuros(subtotal+envio));
-  fd.append('message',detalle);
-  const r=await fetch(FORMSPREE_ENDPOINT,{method:'POST',body:fd,headers:{Accept:'application/json'}});
-  if(!r.ok) throw new Error('Formspree no ha aceptado el pedido');
-  return r;
-}
-function validarDatosCheckout(cliente,metodo){
-  if(!cliente.nombre||!cliente.email||!cliente.telefono){
-    alert('Completa nombre y apellidos, correo electrónico y teléfono antes de continuar.');
-    return false;
+  fd.append('estado_pago',extra.estado||'');
+  if(extra.paypalOrderId) fd.append('paypal_order_id',extra.paypalOrderId);
+  fd.append('productos',lineasProductos(c));
+  fd.append('subtotal',formatoEuros(subtotal));
+  fd.append('gastos_envio',esEfectivo(metodo)?'No aplica — recogida en taller':formatoEuros(envio||0));
+  fd.append('total',formatoEuros(total));
+  fd.append('address',cliente.direccion||'Recogida en taller');
+  fd.append('codigo_postal',cliente.cp||'No aplica');
+  fd.append('message',construirDetallePedido(c,subtotal,envio,cliente,metodo,numero,extra.estado));
+  let ultimo;
+  for(let intento=1;intento<=2;intento++){
+    try{
+      const r=await fetch(FORMSPREE_ENDPOINT,{method:'POST',body:fd,headers:{Accept:'application/json'}});
+      if(r.ok) return r;
+      ultimo=new Error('Formspree respondió '+r.status);
+      if(r.status<500) break;            // error de datos: reintentar no ayuda
+    }catch(e){ultimo=e;}
+    await esperar(900);
   }
-  if(metodo!=='Efectivo' && (!cliente.direccion||!/^[0-9]{5}$/.test(cliente.cp))){
-    alert('Completa la dirección de entrega y un código postal válido de 5 cifras.');
-    return false;
-  }
-  return true;
+  throw ultimo||new Error('Formspree no ha aceptado el pedido');
 }
-function actualizarResumenCheckout(c,metodo){
-  const subtotal=c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);
-  const cp=document.getElementById('cp-envio')?.value||'';
-  const env=metodo==='Efectivo'?0:calcularEnvio(cp);
-  const envioEl=document.querySelector('.envio-linea strong'),totalEl=document.querySelector('.ticket-total strong');
-  if(envioEl) envioEl.textContent=metodo==='Efectivo'?'No aplica — recogida en taller':(env===null?'Se calcularán':formatoEuros(env));
-  if(totalEl) totalEl.textContent=formatoEuros(subtotal+(env||0));
-  return {subtotal,env};
-}
-function pintarCamposCheckout(metodo){
-  const efectivo=metodo==='Efectivo';
-  const d=document.getElementById('datos-entrega');
-  if(d) d.hidden=efectivo;
-  const cp=document.getElementById('cp-envio');
-  const direccion=document.getElementById('cliente-direccion');
-  if(cp) cp.required=!efectivo;
-  if(direccion) direccion.required=!efectivo;
-  const aviso=document.getElementById('aviso-efectivo');
-  if(aviso) aviso.hidden=!efectivo;
-  actualizarResumenCheckout(leerCarrito(),metodo);
-}
+
+// ------------------------------------------------------------
+// BACKEND NETLIFY / PAYPAL
+// ------------------------------------------------------------
 async function paypalBackend(path,options={}){
   const base=PAYPAL_BACKEND_BASE.replace(/\/$/,'');
-  const r=await fetch(base+path,options);
+  const ctl=typeof AbortController!=='undefined'?new AbortController():null;
+  const timer=ctl?setTimeout(()=>ctl.abort(),30000):null;
+  let r;
+  try{ r=await fetch(base+path,Object.assign({},options,ctl?{signal:ctl.signal}:{})); }
+  finally{ if(timer)clearTimeout(timer); }
   let data={}; try{data=await r.json();}catch(_){}
-  if(!r.ok) throw new Error(data.error||data.message||`Error PayPal (${r.status})`);
+  if(!r.ok){
+    const e=new Error(data.error||data.message||`Error del servidor de pagos (${r.status})`);
+    e.status=r.status;
+    if(r.status===400||r.status===503) e.userMessage=data.error;   // mensajes pensados para el cliente
+    throw e;
+  }
   return data;
 }
 async function cargarPayPalSdk(){
-  if(window.paypal&&typeof window.paypal.createInstance==='function') return window.paypal;
-  if(window.paypalSdkReady) await window.paypalSdkReady;
-  if(window.paypal&&typeof window.paypal.createInstance==='function') return window.paypal;
+  const listo=()=>window.paypal&&typeof window.paypal.createInstance==='function';
+  if(listo()) return window.paypal;
+  if(window.paypalSdkReady) await Promise.race([window.paypalSdkReady,esperar(15000)]);
+  if(listo()) return window.paypal;
   throw new Error('El SDK de PayPal no se ha cargado');
 }
-async function inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo){
-  const box=document.getElementById('paypal-payment-box');
-  if(!box)return;
-  box.innerHTML='<p class="ayuda-cp">Cargando el pago seguro de PayPal…</p>';
+async function obtenerSdk(tipo){
+  const hit=CHK.sdk[tipo];
+  if(hit&&Date.now()-hit.ts<10*60*1000) return hit;   // el token caduca a los 15 min
   const sdk=await cargarPayPalSdk();
-  const token=await paypalBackend('/paypal-auth');
-  const clientToken=token.accessToken||token.clientToken;
+  const t=await paypalBackend('/paypal-auth');
+  const clientToken=t.accessToken||t.clientToken;
   if(!clientToken) throw new Error('PayPal no ha devuelto el token de cliente');
-  const sdkInstance=await sdk.createInstance({
-    clientToken,
-    components: metodo==='Tarjeta'?['card-fields']:['paypal-payments'],
-    pageType:'checkout'
-  });
-  const methods=await sdkInstance.findEligibleMethods({currencyCode:'EUR'});
-  if(metodo==='Tarjeta'){
-    if(!methods.isEligible('advanced_cards')){
-      box.innerHTML='<div class="pago-instrucciones"><h3>Tarjeta no disponible todavía</h3><p>PayPal todavía no ha habilitado los pagos avanzados con tarjeta para esta cuenta o dominio. El resto de la tienda sigue funcionando con normalidad.</p></div>';
-      return;
-    }
-    box.innerHTML=`<div class="paypal-card-fields">
-      <div class="paypal-card-title"><strong>Pago seguro con tarjeta</strong><span>Procesado de forma segura por PayPal</span></div>
-      <label>Nombre del titular</label><div id="paypal-card-name"></div>
-      <label>Número de tarjeta</label><div id="paypal-card-number"></div>
-      <div class="card-fields-row"><div><label>Caducidad</label><div id="paypal-card-expiry"></div></div><div><label>CVV</label><div id="paypal-card-cvv"></div></div></div>
-      <button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button>
-    </div>`;
-    const session=sdkInstance.createCardFieldsOneTimePaymentSession();
-    const style={input:{fontSize:'16px',fontFamily:'Arial, sans-serif'}};
-    const fields=[
-      ['paypal-card-name','name','Nombre del titular'],
-      ['paypal-card-number','number','Número de tarjeta'],
-      ['paypal-card-expiry','expiry','MM/AA'],
-      ['paypal-card-cvv','cvv','CVV']
-    ];
-    fields.forEach(([id,type,placeholder])=>{
-      const el=session.createCardFieldsComponent({type,placeholder,style});
-      document.getElementById(id).appendChild(el);
-    });
-    document.getElementById('paypal-card-submit').addEventListener('click',async()=>{
-      const b=document.getElementById('paypal-card-submit');
-      b.disabled=true;b.textContent='Procesando pago…';
-      try{
-        const order=await paypalBackend('/paypal-create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:(subtotal+envio).toFixed(2)})});
-        const result=await session.submit(order.id,{billingAddress:{postalCode:cliente.cp,countryCode:'ES'}});
-        if(result.state==='succeeded'){
-          await paypalBackend('/paypal-capture-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderID:result.data?.orderId||order.id})});
-          await enviarPedidoFormspree(items,subtotal,envio,cliente,metodo,numero);
-          mostrarPagoCompletado(numero,subtotal+envio,metodo);
-        }else{
-          throw new Error(result.data?.message||'El pago no ha sido aceptado');
-        }
-      }catch(e){
-        console.error(e);
-        alert('No se ha podido completar el pago con tarjeta. Puedes intentarlo de nuevo.');
-        b.disabled=false;b.textContent='Pagar con tarjeta';
-      }
-    });
-  }else{
-    if(!methods.isEligible('paypal')){
-      box.innerHTML='<p class="pago-instrucciones">PayPal no está disponible para este pedido en este momento.</p>';
-      return;
-    }
-    box.innerHTML='<paypal-button id="paypal-btn-ah" type="pay"></paypal-button>';
-    const session=sdkInstance.createPayPalOneTimePaymentSession({
-      onApprove:async({orderId})=>{
-        await paypalBackend('/paypal-capture-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderID:orderId})});
-        await enviarPedidoFormspree(items,subtotal,envio,cliente,metodo,numero);
-        mostrarPagoCompletado(numero,subtotal+envio,metodo);
-      },
-      onCancel:()=>{},
-      onError:e=>{console.error(e);alert('PayPal no ha podido completar el pago. Puedes intentarlo de nuevo.');}
-    });
-    document.getElementById('paypal-btn-ah').addEventListener('click',async()=>{
-      try{
-        const order=await paypalBackend('/paypal-create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({amount:(subtotal+envio).toFixed(2)})});
-        await session.start({presentationMode:'auto'},Promise.resolve(order.id));
-      }catch(e){console.error(e);alert('No se ha podido abrir PayPal. Inténtalo de nuevo.');}
-    });
-  }
+  const inst=await sdk.createInstance({clientToken,components:[tipo==='tarjeta'?'card-fields':'paypal-payments'],pageType:'checkout'});
+  const methods=await inst.findEligibleMethods({currencyCode:'EUR'});
+  CHK.sdk[tipo]={inst,methods,ts:Date.now()};
+  return CHK.sdk[tipo];
 }
-function mostrarPagoCompletado(numero,total,metodo){
-  const box=document.getElementById('checkout-accion');
-  if(box) box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(total)}</strong></p><p>Forma de pago: <strong>${escHTML(metodo)}</strong></p><p>Hemos enviado los datos del pedido al correo indicado.</p></div>`;
-  localStorage.removeItem(CART_KEY);
+async function crearOrdenPayPal(p){
+  const order=await paypalBackend('/paypal-create-order',{
+    method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,numeroPedido:p.numero})
+  });
+  if(!order.id) throw new Error('PayPal no ha devuelto el número de pedido');
+  if(Math.abs(Number(order.total)-p.total)>0.005){
+    const e=new Error('El importe calculado no coincide');
+    e.userMessage=`El importe del pedido ha cambiado (ahora ${formatoEuros(Number(order.total))}). Revisa tu pedido y vuelve a intentarlo.`;
+    throw e;
+  }
+  return order;
+}
+async function capturarOrden(orderID){
+  let d;
+  try{ d=await paypalBackend('/paypal-capture-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({orderID})}); }
+  catch(e){e.fase='captura';throw e;}
+  if(d.status!=='COMPLETED'){const e=new Error('Estado de captura: '+d.status);e.fase='captura';throw e;}
+  return d;
+}
+
+// ------------------------------------------------------------
+// CHECKOUT — flujo común
+// ------------------------------------------------------------
+function prepararPedido(metodo){
+  const items=leerCarrito();
+  if(!items.length){mostrarError('Tu carrito está vacío.');return null;}
+  const cliente=datosCliente(metodo);
+  const err=validarDatosCheckout(cliente,metodo);
+  if(err){mostrarError(err);return null;}
+  const calc=actualizarResumenCheckout(items,metodo);
+  if(!esEfectivo(metodo)&&calc.env===null){mostrarError('Introduce un código postal válido de 5 cifras para calcular el envío.');return null;}
+  const envio=calc.env||0;
+  return {items,cliente,metodo,subtotal:calc.subtotal,envio,total:calc.subtotal+envio,numero:numeroPedidoActual()};
+}
+function cerrarPedido(p){
+  CHK.terminado=true;CHK.numero=null;
+  try{localStorage.setItem('arcillaHechizadaUltimoPedido',JSON.stringify({numero:p.numero,metodo:p.metodo,total:p.total}));}catch(_){}
+  try{localStorage.removeItem(CART_KEY);}catch(_){}
   actualizarContadorCarrito();
 }
+function mostrarPagoCompletado(p,correoOk){
+  const box=document.getElementById('checkout-accion');
+  mostrarError('');
+  if(box) box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(p.numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(p.total)}</strong></p><p>Forma de pago: <strong>${escHTML(p.metodo)}</strong></p>${correoOk?'<p>Hemos enviado los datos del pedido al correo indicado.</p>':`<p>El pago se ha completado, pero no hemos podido enviar el correo de confirmación. Guarda tu número de pedido <strong>${escHTML(p.numero)}</strong> y escríbenos a <a href="mailto:${EMAIL}">${EMAIL}</a> si lo necesitas.</p>`}</div>`;
+}
+// Se llama cuando el cobro YA está capturado: nunca debe presentarse como un fallo de pago.
+async function terminarPagoOnline(p,orderId){
+  let correoOk=true;
+  try{ await enviarPedidoFormspree(p.items,p.subtotal,p.envio,p.cliente,p.metodo,p.numero,{estado:'PAGADO a través de PayPal',paypalOrderId:orderId}); }
+  catch(e){correoOk=false;console.error('Pedido cobrado, pero Formspree ha fallado:',e);}
+  cerrarPedido(p);
+  mostrarPagoCompletado(p,correoOk);
+}
+function mensajeFalloCaptura(p){
+  return `El pago ha sido autorizado pero no hemos podido confirmar el cobro. NO repitas el pago: escríbenos por WhatsApp o a ${EMAIL} indicando el pedido ${p.numero}.`;
+}
+function mensajeUsuario(e,porDefecto){return (e&&e.userMessage)||porDefecto;}
+
+async function pagarConTarjeta(sesion,btn){
+  if(CHK.ocupado||CHK.terminado)return;
+  const p=prepararPedido('Tarjeta'); if(!p)return;
+  CHK.ocupado=true;mostrarError('');
+  btn.disabled=true;btn.textContent='Procesando pago…';
+  let completado=false;
+  try{
+    const order=await crearOrdenPayPal(p);
+    const res=await sesion.submit(order.id,{billingAddress:{postalCode:p.cliente.cp,countryCode:'ES'}});
+    if(res&&res.state==='succeeded'){
+      const orderId=(res.data&&res.data.orderId)||order.id;
+      await capturarOrden(orderId);
+      completado=true;
+      await terminarPagoOnline(p,orderId);
+    }else if(res&&res.state==='canceled'){
+      mostrarError('Has cancelado la verificación del banco. Puedes intentarlo de nuevo.');
+    }else{
+      console.warn('Tarjeta rechazada',res);
+      mostrarError('No se ha podido procesar la tarjeta. Revisa los datos o prueba con otra tarjeta. No se ha realizado ningún cargo.');
+    }
+  }catch(e){
+    console.error(e);
+    if(e&&e.fase==='captura') mostrarError(mensajeFalloCaptura(p));
+    else mostrarError(mensajeUsuario(e,'No se ha podido completar el pago con tarjeta. Inténtalo de nuevo en unos segundos.'));
+  }finally{
+    CHK.ocupado=false;
+    if(!completado&&!CHK.terminado&&btn.isConnected){btn.disabled=false;btn.textContent='Pagar con tarjeta';}
+  }
+}
+async function montarTarjeta(seq){
+  const {inst,methods}=await obtenerSdk('tarjeta');
+  if(seq!==CHK.seq)return;
+  const box=document.getElementById('paypal-payment-box'); if(!box)return;
+  if(!methods.isEligible('advanced_cards')){
+    box.innerHTML='<div class="pago-instrucciones"><h3>Tarjeta no disponible en este momento</h3><p>Ahora mismo PayPal no permite pagar con tarjeta directamente en esta tienda. Puedes elegir PayPal, Bizum o Efectivo (recogida en el taller).</p></div>';
+    return;
+  }
+  const caja='height:48px;padding:0;overflow:hidden';
+  box.innerHTML=`<div class="paypal-card-fields">
+    <div class="paypal-card-title"><strong>Pago seguro con tarjeta</strong><br><span class="ayuda-cp">Procesado de forma segura por PayPal</span></div>
+    <label>Nombre del titular</label><div id="paypal-card-name" style="${caja}"></div>
+    <label>Número de tarjeta</label><div id="paypal-card-number" style="${caja}"></div>
+    <div class="card-fields-row"><label style="margin:0 0 6px">Caducidad</label><label style="margin:0 0 6px">CVV</label></div>
+    <div class="card-fields-row" style="margin-bottom:10px"><div id="paypal-card-expiry" style="${caja}"></div><div id="paypal-card-cvv" style="${caja}"></div></div>
+    <button id="paypal-card-submit" class="btn btn-pagar" type="button">Pagar con tarjeta</button>
+  </div>`;
+  const sesion=inst.createCardFieldsOneTimePaymentSession();
+  const style={input:{fontSize:'16px',fontFamily:'Inter, Arial, sans-serif',color:'#3A332C',background:'transparent',border:'none',padding:'0 12px',height:'46px'},'.invalid':{color:'#9A5325'}};
+  [['paypal-card-name','name','Nombre del titular'],['paypal-card-number','number','Número de tarjeta'],['paypal-card-expiry','expiry','MM/AA'],['paypal-card-cvv','cvv','CVV']].forEach(([id,type,placeholder])=>{
+    document.getElementById(id).appendChild(sesion.createCardFieldsComponent({type,placeholder,style}));
+  });
+  const btn=document.getElementById('paypal-card-submit');
+  btn.addEventListener('click',()=>pagarConTarjeta(sesion,btn));
+}
+async function montarPayPal(seq){
+  const {inst,methods}=await obtenerSdk('paypal');
+  if(seq!==CHK.seq)return;
+  const box=document.getElementById('paypal-payment-box'); if(!box)return;
+  if(!methods.isEligible('paypal')){
+    box.innerHTML='<div class="pago-instrucciones"><p>PayPal no está disponible para este pedido en este momento. Puedes elegir otra forma de pago.</p></div>';
+    return;
+  }
+  box.innerHTML='<paypal-button id="paypal-btn-ah" type="pay" class="paypal-gold"></paypal-button>';
+  const sesion=inst.createPayPalOneTimePaymentSession({
+    onApprove:async(data)=>{
+      const p=CHK.ctx; if(!p)return;
+      try{
+        await capturarOrden(data.orderId);
+        await terminarPagoOnline(p,data.orderId);
+      }catch(e){
+        console.error(e);
+        mostrarError(e&&e.fase==='captura'?mensajeFalloCaptura(p):'PayPal no ha podido completar el pago. Inténtalo de nuevo.');
+      }finally{CHK.ocupado=false;}
+    },
+    onCancel:()=>{CHK.ocupado=false;mostrarError('Has cancelado el pago en PayPal. Puedes intentarlo de nuevo cuando quieras.');},
+    onError:(e)=>{console.error('PayPal',e);CHK.ocupado=false;mostrarError('PayPal no ha podido completar el pago. Inténtalo de nuevo.');}
+  });
+  document.getElementById('paypal-btn-ah').addEventListener('click',()=>{
+    if(CHK.ocupado||CHK.terminado)return;
+    const p=prepararPedido('PayPal'); if(!p)return;
+    CHK.ocupado=true;CHK.ctx=p;mostrarError('');
+    // start() debe llamarse dentro del clic; el pedido se crea mientras se abre la ventana de PayPal.
+    sesion.start({presentationMode:'auto'},crearOrdenPayPal(p).then(o=>({orderId:o.id}))).catch(e=>{
+      console.error(e);CHK.ocupado=false;
+      mostrarError(mensajeUsuario(e,'No se ha podido abrir PayPal. Inténtalo de nuevo.'));
+    });
+  });
+}
+function falloCargaPago(seq,e){
+  console.error('No se pudo preparar el pago:',e);
+  if(seq!==CHK.seq)return;
+  const box=document.getElementById('paypal-payment-box'); if(!box)return;
+  box.innerHTML=`<div class="pago-instrucciones"><h3>No hemos podido cargar el pago seguro</h3><p>Recarga la página e inténtalo de nuevo. Si el problema continúa, puedes pagar por Bizum o escribirnos por <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>.</p></div>`;
+}
+async function copiarTexto(t,aviso){
+  try{await navigator.clipboard.writeText(t);mostrarAvisoCarrito(aviso);}catch(_){alert(t);}
+}
+async function confirmarPedidoSinPagoOnline(metodo){
+  if(CHK.ocupado||CHK.terminado)return;
+  const p=prepararPedido(metodo); if(!p)return;
+  const btn=document.getElementById('btn-pagar');
+  CHK.ocupado=true;mostrarError('');
+  if(btn){btn.disabled=true;btn.textContent='Enviando pedido…';}
+  try{
+    const bizum=metodo==='Bizum';
+    await enviarPedidoFormspree(p.items,p.subtotal,p.envio,p.cliente,metodo,p.numero,{estado:bizum?'PENDIENTE — esperando el Bizum del cliente':'PENDIENTE — pago en efectivo en el taller el día de la recogida'});
+    cerrarPedido(p);
+    const box=document.getElementById('checkout-accion');
+    if(bizum){
+      box.innerHTML=`<div class="pago-instrucciones">
+        <h3>Pago mediante Bizum</h3>
+        <p>Tu pedido <strong>${escHTML(p.numero)}</strong> está registrado. Para completarlo, haz este Bizum desde la app de tu banco:</p>
+        <p><strong>Número:</strong> ${BIZUM_VISIBLE}</p>
+        <p><strong>Importe:</strong> ${formatoEuros(p.total)}</p>
+        <p><strong>Concepto:</strong> ${escHTML(p.numero)}</p>
+        <p>El pedido quedará pendiente de confirmación hasta que recibamos el Bizum. Te hemos enviado los datos al correo indicado.</p>
+        <button type="button" class="btn btn-pagar" id="copiar-bizum">Copiar número Bizum</button>
+        <button type="button" class="btn btn-pagar" id="copiar-concepto">Copiar concepto</button>
+      </div>`;
+      document.getElementById('copiar-bizum').addEventListener('click',()=>copiarTexto(BIZUM,'Número Bizum copiado.'));
+      document.getElementById('copiar-concepto').addEventListener('click',()=>copiarTexto(p.numero,'Concepto copiado.'));
+    }else{
+      box.innerHTML=`<div class="pago-instrucciones">
+        <h3>Pedido ${escHTML(p.numero)} recibido</h3>
+        <p><strong>Pago en efectivo en el taller.</strong> El pago se efectuará el día acordado para la recogida. No se aplican gastos de envío.</p>
+        <p><strong>Total a pagar: ${formatoEuros(p.total)}</strong></p>
+        <p>Te hemos enviado la confirmación al correo indicado.</p>
+      </div>`;
+    }
+  }catch(e){
+    console.error(e);
+    mostrarError('No hemos podido registrar tu pedido. Inténtalo de nuevo en unos segundos o escríbenos por WhatsApp.');
+    if(btn&&btn.isConnected){btn.disabled=false;btn.textContent=metodo==='Bizum'?'Confirmar pedido y ver datos de Bizum':'Confirmar pedido (pago en el taller)';}
+  }finally{CHK.ocupado=false;}
+}
+// Muestra SOLO lo que corresponde al método elegido.
+function pintarAccion(metodo){
+  const box=document.getElementById('checkout-accion'); if(!box||CHK.terminado)return;
+  const seq=++CHK.seq;
+  mostrarError('');
+  if(metodo==='Tarjeta'||metodo==='PayPal'){
+    box.innerHTML=`<div id="paypal-payment-box"><p class="ayuda-cp">Cargando el pago seguro de PayPal…</p></div>`;
+    (metodo==='Tarjeta'?montarTarjeta(seq):montarPayPal(seq)).catch(e=>falloCargaPago(seq,e));
+  }else{
+    box.innerHTML=`<button id="btn-pagar" class="btn btn-pagar" type="button">${metodo==='Bizum'?'Confirmar pedido y ver datos de Bizum':'Confirmar pedido (pago en el taller)'}</button>`;
+    document.getElementById('btn-pagar').addEventListener('click',()=>confirmarPedidoSinPagoOnline(metodo));
+  }
+}
+function pintarCamposCheckout(metodo){
+  const efectivo=esEfectivo(metodo);
+  const d=document.getElementById('datos-entrega');
+  if(d) d.hidden=efectivo;
+  const aviso=document.getElementById('aviso-efectivo');
+  if(aviso) aviso.hidden=!efectivo;
+  actualizarResumenCheckout(leerCarrito(),metodo);
+  pintarAccion(metodo);
+}
+function htmlCarritoVacio(){return '<div class="carrito-vacio"><h1>Tu carrito está vacío</h1><p>Cuando encuentres algo que quieras conservar, añádelo aquí.</p><a class="btn btn-primario" href="tienda.html#categorias-tienda">Explorar la tienda</a></div>';}
 function renderCarrito(){
   const root=document.getElementById('carrito-contenido');
   if(!root)return;
   let c=leerCarrito();
-  if(!c.length){
-    root.innerHTML='<div class="carrito-vacio"><h1>Tu carrito está vacío</h1><p>Cuando encuentres algo que quieras conservar, añádelo aquí.</p><a class="btn btn-primario" href="tienda.html#categorias-tienda">Explorar la tienda</a></div>';
-    return;
-  }
-  const sub=()=>c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);
+  if(!c.length){root.innerHTML=htmlCarritoVacio();return;}
+  const sub=()=>subtotalCarrito(c);
   function pintar(){
-    const clientePrev=datosCliente();
+    if(!c.length){root.innerHTML=htmlCarritoVacio();return;}
+    const clientePrev=datosClienteCrudo();
+    const metodoPrev=document.getElementById('metodo-pago')?.value||'Tarjeta';
     const subtotal=sub();
     root.innerHTML=`<div class="carrito-layout">
       <section class="carrito-ticket">
@@ -372,7 +546,8 @@ function renderCarrito(){
           <option value="Efectivo">💶 Efectivo</option>
         </select>
         <div class="pagos-protegidos" aria-label="Pago protegido"><strong>🔒 Pago protegido</strong><span>Los pagos con tarjeta y PayPal se gestionan de forma segura mediante PayPal.</span></div>
-        <div id="checkout-accion"><button id="btn-pagar" class="btn btn-pagar" type="button">Continuar con el pago</button></div>
+        <div id="checkout-accion"></div>
+        <p id="pago-error" class="ayuda-cp" role="alert" hidden style="color:#9A5325;font-weight:600;font-size:.85rem;margin-top:10px"></p>
         <p class="aviso-envio">Los gastos de envío solo se aplican a pedidos con entrega. Más información en <a href="envios-y-recogida.html">Preguntas y Envíos</a>.</p>
       </aside>
     </div>`;
@@ -384,61 +559,12 @@ function renderCarrito(){
       guardarCarrito(c);pintar();
     }));
     const select=document.getElementById('metodo-pago');
+    select.value=metodoPrev;
     select.addEventListener('change',()=>pintarCamposCheckout(select.value));
     ['cliente-nombre','cliente-email','cliente-telefono','cliente-direccion','cp-envio'].forEach(id=>{
-      document.getElementById(id)?.addEventListener('input',()=>{
-        const metodo=select.value;
-        actualizarResumenCheckout(c,metodo);
-      });
+      document.getElementById(id)?.addEventListener('input',()=>{mostrarError('');actualizarResumenCheckout(c,select.value);});
     });
-    document.getElementById('btn-pagar').addEventListener('click',()=>procesarCheckout(c));
-    pintarCamposCheckout('Tarjeta');
-  }
-  async function procesarCheckout(items){
-    const metodo=document.getElementById('metodo-pago').value;
-    const cliente=datosCliente();
-    if(!validarDatosCheckout(cliente,metodo))return;
-    const calc=actualizarResumenCheckout(items,metodo);
-    if(metodo!=='Efectivo' && calc.env===null){
-      alert('Introduce un código postal válido de 5 cifras para calcular el envío.');
-      return;
-    }
-    const envio=calc.env||0, subtotal=calc.subtotal, total=subtotal+envio, numero=generarNumeroPedido();
-    const boton=document.getElementById('btn-pagar');
-    if(boton){boton.disabled=true;boton.textContent='Preparando…';}
-    try{
-      if(metodo==='Bizum'){
-        await enviarPedidoFormspree(items,subtotal,0,cliente,metodo,numero);
-        document.getElementById('checkout-accion').innerHTML=`<div class="pago-instrucciones">
-          <h3>Pedido ${escHTML(numero)}</h3>
-          <p>Para completar tu compra, realiza un Bizum de <strong>${formatoEuros(subtotal)}</strong>.</p>
-          <p><strong>Número Bizum:</strong> <span>${BIZUM}</span></p>
-          <p><strong>Concepto:</strong> ${escHTML(numero)}</p>
-          <p>El pedido quedará pendiente de confirmación hasta recibir el Bizum.</p>
-          <button type="button" class="btn btn-pagar" id="copiar-bizum">Copiar número Bizum</button>
-        </div>`;
-        document.getElementById('copiar-bizum').addEventListener('click',async()=>{
-          try{await navigator.clipboard.writeText(BIZUM);mostrarAvisoCarrito('Número Bizum copiado.');}catch(_){alert('Número Bizum: '+BIZUM);}
-        });
-      }else if(metodo==='Efectivo'){
-        await enviarPedidoFormspree(items,subtotal,0,cliente,metodo,numero);
-        document.getElementById('checkout-accion').innerHTML=`<div class="pago-instrucciones">
-          <h3>Pedido ${escHTML(numero)} recibido</h3>
-          <p>Has elegido <strong>pago en efectivo en el taller</strong>.</p>
-          <p>El pago se efectuará el día acordado para la recogida de tu pedido.</p>
-          <p><strong>Total a pagar: ${formatoEuros(subtotal)}</strong></p>
-          <p>Te enviaremos la confirmación al correo indicado.</p>
-        </div>`;
-      }else{
-        document.getElementById('checkout-accion').innerHTML='<div id="paypal-payment-box"></div>';
-        await inicializarPayPalUI(items,cliente,subtotal,envio,numero,metodo);
-      }
-      localStorage.setItem('arcillaHechizadaUltimoPedido',JSON.stringify({numero,metodo,total}));
-    }catch(e){
-      console.error(e);
-      alert('No hemos podido preparar el pago. Inténtalo de nuevo en unos segundos.');
-      if(boton){boton.disabled=false;boton.textContent='Continuar con el pago';}
-    }
+    pintarCamposCheckout(select.value);
   }
   pintar();
 }

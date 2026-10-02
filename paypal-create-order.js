@@ -1,30 +1,56 @@
-const fetch = require('node-fetch');
+// Crea el pedido en PayPal. El importe se calcula AQUÍ con los precios reales
+// del catálogo, nunca con un importe enviado por el navegador.
+const { PAYPAL_BASE, respuesta, preflight, tokenServidor, envio, cargarCatalogo } = require('./lib/paypal');
 
-exports.handler = async (event) => {
-  const cors={'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'Content-Type','Access-Control-Allow-Methods':'POST, OPTIONS'};
-  if(event.httpMethod==='OPTIONS') return {statusCode:204,headers:cors,body:''};
-  try{
-    const body=JSON.parse(event.body||'{}');
-    const amount=Number(body.amount);
-    if(!Number.isFinite(amount)||amount<=0) return {statusCode:400,headers:cors,body:JSON.stringify({error:'Importe de pedido no válido'})};
+const NO_VENDIBLE = ['agotado', 'vendido', 'vendida', 'reservada', 'oculto'];
 
-    const id=process.env.PAYPAL_CLIENT_ID, secret=process.env.PAYPAL_CLIENT_SECRET;
-    const auth=Buffer.from(`${id}:${secret}`).toString('base64');
-    const authRes=await fetch('https://api-m.paypal.com/v1/oauth2/token',{
-      method:'POST',headers:{'Authorization':`Basic ${auth}`,'Content-Type':'application/x-www-form-urlencoded'},
-      body:'grant_type=client_credentials'
+exports.handler = async function (event) {
+  if (event.httpMethod === 'OPTIONS') return preflight();
+  if (event.httpMethod !== 'POST') return respuesta(405, { error: 'Método no permitido.' });
+  try {
+    const b = JSON.parse(event.body || '{}');
+    const items = Array.isArray(b.items) ? b.items : [];
+    const ship = envio(b.cp);
+    const numero = String(b.numeroPedido || '').slice(0, 60);
+    if (!items.length || ship === null) return respuesta(400, { error: 'Carrito o código postal no válidos.' });
+
+    const catalogo = await cargarCatalogo();
+    if (!catalogo.length) return respuesta(503, { error: 'No se pudo comprobar el catálogo. Inténtalo de nuevo en unos segundos.' });
+
+    let subtotal = 0;
+    for (const it of items) {
+      const p = catalogo.find(x => x.id === it.id);
+      const q = Math.max(1, Math.min(99, parseInt(it.cantidad, 10) || 1));
+      const precio = p ? Number(p.precio) : NaN;
+      if (!p || NO_VENDIBLE.includes(p.estado) || !Number.isFinite(precio)) {
+        return respuesta(400, { error: 'Alguno de los productos ya no está disponible.', producto: it.id });
+      }
+      subtotal += Math.round(precio * 100) * q;
+    }
+    const totalCent = subtotal + Math.round(ship * 100);
+    const total = (totalCent / 100).toFixed(2);
+
+    const token = await tokenServidor();
+    const r = await fetch(PAYPAL_BASE + '/v2/checkout/orders', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        intent: 'CAPTURE',
+        purchase_units: [{
+          custom_id: numero || undefined,
+          description: ('Arcilla Hechizada ' + numero).trim().slice(0, 127),
+          amount: { currency_code: 'EUR', value: total }
+        }]
+      })
     });
-    const authData=await authRes.json();
-    if(!authRes.ok) return {statusCode:authRes.status,headers:cors,body:JSON.stringify(authData)};
-
-    const orderRes=await fetch('https://api-m.paypal.com/v2/checkout/orders',{
-      method:'POST',
-      headers:{'Authorization':`Bearer ${authData.access_token}`,'Content-Type':'application/json'},
-      body:JSON.stringify({intent:'CAPTURE',purchase_units:[{amount:{currency_code:'EUR',value:amount.toFixed(2)}}]})
-    });
-    const orderData=await orderRes.json();
-    return {statusCode:orderRes.status,headers:{...cors,'Content-Type':'application/json'},body:JSON.stringify(orderData)};
-  }catch(error){
-    return {statusCode:500,headers:cors,body:JSON.stringify({error:error.message})};
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok || !d.id) {
+      console.error('create-order PayPal', r.status, JSON.stringify(d).slice(0, 500));
+      return respuesta(502, { error: 'PayPal no ha aceptado el pedido.', detalle: d.name || r.status });
+    }
+    return respuesta(200, { id: d.id, total: total, envio: ship.toFixed(2), subtotal: (subtotal / 100).toFixed(2) });
+  } catch (e) {
+    console.error('paypal-create-order:', e.message);
+    return respuesta(500, { error: 'No se pudo crear el pedido de PayPal.', code: e.message });
   }
 };
