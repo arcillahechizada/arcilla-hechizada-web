@@ -1,6 +1,39 @@
 {
   "hero": {
-    "media": []
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano6.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano2.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano3.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano4.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano5.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano8.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano7.png"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/carpesano6.png"
+      }
+    ]
   },
   "hecho_a_mano": {
     "media": []
