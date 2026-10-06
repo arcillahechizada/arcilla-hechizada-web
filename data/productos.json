@@ -1,6 +1,512 @@
 {
   "productos": [
     {
+      "notaInterna": "Preguntar que opción quiere.",
+      "opcionesPersonalizacion": "Escoge collar o llavero",
+      "descripcionCompleta": "Cabe en la palma de la mano, pero dentro reúne una combinación pensada específicamente para el amor: sal negra, cuarzo rosa, azúcar, canela y orégano, cerrados con un tapón de corcho en una botellita redonda de cristal de entre 2,5 y 3 cm de diámetro.\n\nPuede llevarse como collar, cerca del corazón, o como llavero, para que acompañe el día a día de quien lo lleva. Existe también en pack de dos unidades, pensado para que cada persona de la pareja tenga la suya, como un pequeño símbolo compartido entre ambas.\n\nAl ser una elaboración completamente artesanal, cada botellita puede presentar pequeñas diferencias naturales en la disposición de sus ingredientes: ninguna es idéntica a otra.\n\nAmor Eterno puede ser un regalo con un significado muy concreto para quien busca algo distinto a lo habitual para su pareja, o para sí misma como recordatorio personal de la relación que quiere cuidar. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Una botellita redonda de cristal, apenas unos centímetros de diámetro, con sal negra, cuarzo rosa, canela, orégano... en su interior. Este talismán artesanal para parejas está disponible en una unidad o en pack de dos.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 17,
+      "nombre": "Amor Eterno-pack de 2",
+      "orden": 43,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "botellitas",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Dentro de la tradición esotérica popular, cada ingrediente de esta botellita se asocia con un significado relacionado con el amor y la protección de una relación:\n\nSal negra: vinculada tradicionalmente a la protección frente a energías que puedan afectar a un vínculo.\n\nCuarzo rosa: asociado popularmente con el amor, la ternura y la armonía emocional.\n\nCanela y azúcar: relacionadas en la tradición con la dulzura y el fortalecimiento del afecto.\n\nOrégano: presente en distintas tradiciones populares como símbolo de protección y fidelidad.\n\nEn conjunto, esta combinación se interpreta tradicionalmente como un talismán de acompañamiento para una pareja, un objeto simbólico para llevar cerca en los momentos importantes de la relación. Este significado pertenece al terreno de la tradición esotérica y la interpretación personal, no a un efecto garantizado sobre una relación. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "Artículo delicado. No mojar por el corcho natural y los materiales naturales que contiene.",
+      "materiales": "Cristal, corcho natural, sal negra, cuarzo rosa, azúcar, canela (en rama y en polvo), orégano seco...",
+      "galeria": [
+        "img/uploads/amor-eterno.png",
+        "img/uploads/amor-eterno2.png",
+        "img/uploads/amor-eterno3.png",
+        "img/uploads/amor-eterno-flow.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "Entre 2,5 y 3 cm de diámetro.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Pack-2 uni. 17€"
+        },
+        {
+          "nombre": "Pack-1 uni. 10€"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "amor-eterno-pack de 2"
+    },
+    {
+      "opcionesPersonalizacion": "Elije collar o llavero.",
+      "descripcionCompleta": "Cabe en la palma de la mano, pero dentro reúne una combinación pensada específicamente para el amor: sal negra, cuarzo rosa, azúcar, canela y orégano, cerrados con un tapón de corcho en una botellita redonda de cristal de entre 2,5 y 3 cm de diámetro.\n\nPuede llevarse como collar, cerca del corazón, o como llavero, para que acompañe el día a día de quien lo lleva. Existe también en pack de dos unidades, pensado para que cada persona de la pareja tenga la suya, como un pequeño símbolo compartido entre ambas.\n\nAl ser una elaboración completamente artesanal, cada botellita puede presentar pequeñas diferencias naturales en la disposición de sus ingredientes: ninguna es idéntica a otra.\n\nAmor Eterno puede ser un regalo con un significado muy concreto para quien busca algo distinto a lo habitual para su pareja, o para sí misma como recordatorio personal de la relación que quiere cuidar. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar ",
+        "Llavero"
+      ],
+      "descripcionCorta": "Una botellita redonda de cristal, apenas unos centímetros de diámetro, con sal negra, cuarzo rosa, canela y orégano en su interior. Este talismán artesanal para parejas está disponible en una unidad o en pack de dos.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": false,
+      "precio": 10,
+      "nombre": "Amor Eterno 1 unidad",
+      "orden": 44,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "botellitas",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Dentro de la tradición esotérica popular, cada ingrediente de esta botellita se asocia con un significado relacionado con el amor y la protección de una relación:\n\nSal negra: vinculada tradicionalmente a la protección frente a energías que puedan afectar a un vínculo.\n\nCuarzo rosa: asociado popularmente con el amor, la ternura y la armonía emocional.\n\nCanela y azúcar: relacionadas en la tradición con la dulzura y el fortalecimiento del afecto.\n\nOrégano: presente en distintas tradiciones populares como símbolo de protección y fidelidad.\n\nEn conjunto, esta combinación se interpreta tradicionalmente como un talismán de acompañamiento para una pareja, un objeto simbólico para llevar cerca en los momentos importantes de la relación. Este significado pertenece al terreno de la tradición esotérica y la interpretación personal, no a un efecto garantizado sobre una relación. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "Artículo delicado. No mojar por el corcho natural y los materiales naturales que contiene.",
+      "materiales": "Cristal, corcho natural, sal negra, cuarzo rosa, azúcar, canela (en rama y en polvo), orégano seco.",
+      "galeria": [
+        "img/uploads/amor-eterno-1uni.png",
+        "img/uploads/amor-eterno-flow.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "Entre 2,5 y 3 cm de diámetro.",
+      "elaboracion": "100% a mano.",
+      "id": "amor-eterno-pack1"
+    },
+    {
+      "opcionesPersonalizacion": "Elige el formato. Collar, Pulsera o Llavero",
+      "descripcionCompleta": "Pocas figuras de la mitología griega concentran tanto poder como Medusa: la Gorgona cuya mirada era capaz de petrificar a quien la enfrentara. Esta pieza toma esa fuerza y la convierte en amuleto, tallado con detalles que evocan esa mirada y esa energía de transformación.\n\nEl acabado efecto piedra —logrado con un tono específico dentro de esta línea de amuletos de Arcilla Hechizada— refuerza visualmente la idea de algo capaz de resistir, de plantar cara. Cada pieza se elabora a mano en arcilla natural, en un tamaño pensado para llevarse como talismán diario o colgante.\n\nEs una pieza que puede tener sentido para quien atraviesa un momento en el que necesita reforzar su fuerza interior, marcar límites o simplemente llevar consigo un símbolo de defensa frente a lo que percibe como hostil. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero "
+      ],
+      "descripcionCorta": "Inspirado en el mito de Medusa, cuya mirada convertía en piedra a quien la enfrentaba. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa fuerza y protección.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Égida de la Gorgona",
+      "orden": 50,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Medusa, la Gorgona de la mitología griega, es una figura documentada en el relato clásico como una fuerza capaz de convertir en piedra con su sola mirada a quien se enfrentara a ella. A lo largo del tiempo, esta figura ha sido reinterpretada en distintos contextos culturales como símbolo de poder y de defensa ante la agresión.\n\nEn el diseño de esta pieza, esa fuerza se traduce en:\n\nProtección frente a envidias, malas intenciones o energías que se perciben como dañinas.\n\nRefuerzo de la autoestima y el poder interior.\n\nApoyo en la transformación de situaciones difíciles, como quien \"petrifica\" aquello que le hace daño para poder dejarlo atrás. Se entrega activada con su propia intención antes de salir del taller.\n",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/egida-gorgona-canva.png",
+        "img/uploads/gorgona1.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm de diámetro, 3mm grosor",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-egida-gorgona"
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "En el centro, un tetragrama; alrededor, una enredadera que lo rodea por completo, como si lo sostuviera en un abrazo. Esa combinación es el corazón de esta pieza: dos símbolos distintos que, juntos, cuentan algo más que por separado.\n\nEl acabado efecto piedra, tallado a mano en arcilla natural, le da a la pieza ese carácter duradero y terroso propio de esta línea de amuletos. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Un tetragrama envuelto por una enredadera tallada a mano, como un abrazo protector. Este amuleto en arcilla, con acabado efecto piedra, une los cuatro elementos con la fuerza de lo que crece.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Enredadera Sagrada",
+      "orden": 54,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El tetragrama, símbolo esotérico que representa tradicionalmente la unión de los cuatro elementos —tierra, agua, aire y fuego— con el espíritu, se combina en esta pieza con la imagen de una enredadera, motivo vegetal asociado habitualmente al crecimiento, la unión y el sostén mutuo.\n\nDentro de esta interpretación, la pieza representa:\n\nProtección energética continua y sagrada.\n\nConexión armoniosa con el propio entorno y con las personas cercanas.\n\nVínculo con la tierra y con fuerzas más amplias, dentro de la tradición esotérica de los cuatro elementos. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/enredadera-sagrada-canva2.png",
+        "img/uploads/enredadera-sagrada1.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm de diámetro, 3 mm de grosor.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Collar"
+        },
+        {
+          "nombre": "Pulsera"
+        },
+        {
+          "nombre": "Llavero"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-enredadera-sagrada"
+    },
+    {
+      "notaInterna": "Pedir inicial",
+      "opcionesPersonalizacion": "Personaliza con la inicial que elijas.\n\nElige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "No refleja tu imagen, sino una letra: la inicial que elijas, tallada en el centro de un espejo antiguo modelado en arcilla. Esa es la diferencia que convierte a esta pieza en algo verdaderamente personal, más allá del diseño que comparte con el resto de la colección.\n\nEl acabado efecto piedra le da un aire elegante y atemporal, mientras que la personalización con tu inicial hace que ninguna copia de este amuleto sea exactamente como la tuya. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Un espejo antiguo tallado en arcilla, con acabado efecto piedra y tu inicial personalizada en el centro. Este amuleto de introspección es único para cada persona que lo elige.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Espejo del Alma",
+      "orden": 56,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La forma de espejo se asocia tradicionalmente, dentro de lo esotérico, con la introspección y el autoconocimiento: la idea de mirar hacia dentro en lugar de hacia fuera. En esta pieza, esa idea se combina con la personalización de una inicial, reforzando el vínculo entre el símbolo y quien lo lleva.\n\nDentro de esta interpretación, el Espejo del Alma se asocia con:\n\nReflexión interna y búsqueda de la propia verdad.\n\nProtección personal, entendida como el cuidado de los propios límites energéticos.\n\nUn vínculo más íntimo con el amuleto, gracias a su personalización. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/espejo-collage.png",
+        "img/uploads/espejo-b-canva.png",
+        "img/uploads/espejo-n-canva.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm de diámetro, 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-espejo-alma"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Incluye ritual de activación y limpieza/consagración previa al envío.",
+      "opcionesPersonalizacion": "Personaliza el color. Elige formato collar o llavero.",
+      "descripcionCompleta": "La Mano de Fátima es un escudo ancestral frente al mal de ojo y las malas vibras, asociado tradicionalmente a la buena suerte, la felicidad, la salud y la abundancia. Cada pieza se elabora 100% a mano en arcilla natural, con intención puesta en cada detalle.\n\nPuedes elegirla en distintos colores, cada uno con su propio matiz energético: negro para protección pura contra energías negativas, verde para sanación, abundancia y conexión con la naturaleza, gris sobre negro para equilibrio y protección espiritual, o negro sobre marrón para protección terrenal y fuerza interior. También es posible personalizar el color para elegir el que mejor conecte contigo.\n\nCada Mano de Fátima llega acompañada de la explicación del significado del símbolo y de un ritual sencillo para activar su poder, y pasa por una limpieza energética y consagración antes del envío, lista para acompañarte desde el primer momento. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un símbolo milenario de protección, moldeado a mano en arcilla natural.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 8,
+      "nombre": "Mano de Fátima",
+      "orden": 21,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Gris sobre Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Negro sobre marrón"
+        }
+      ],
+      "simbolismo": "Escudo ancestral contra el mal de ojo y las malas vibras. Atrae buena suerte, felicidad, salud y abundancia. El color elegido potencia una propiedad concreta: negro (protección), verde (sanación/abundancia), gris sobre negro (equilibrio/protección espiritual), negro sobre marrón (protección terrenal/fuerza interior). Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.   ",
+      "galeria": [
+        "img/uploads/fatima-negro-gris-cesped.png",
+        "img/uploads/fatima-marron-cesped.png",
+        "img/uploads/fatima-verde-canva.png",
+        "img/uploads/fatima-negro-gris-canva.png",
+        "img/uploads/mano-fatima-marron-canva.png",
+        "img/uploads/mano-fatima-negro-desgastado-canva.png",
+        "img/uploads/mano-fatima-collage.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Diámetro aprox. 3 cm, grosor 3 mm.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-mano-fatima"
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "Tres curvas que se entrelazan sin un principio ni un final definidos: así es la triqueta, uno de los símbolos más reconocibles de la tradición celta. Esta pieza la talla a mano en arcilla natural, con acabado efecto piedra, en un tamaño práctico para llevar siempre contigo o guardar en el bolsillo.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es un amuleto pensado para quien busca un símbolo de equilibrio con raíces históricas claras, más allá de una estética puramente decorativa. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Tres lazos entrelazados sin principio ni fin, con siglos de tradición celta detrás. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa la unión y el equilibrio.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Triqueta Elemental",
+      "orden": 59,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La triqueta es un símbolo documentado en el arte celta y nórdico, formado por tres arcos entrelazados sin principio ni fin visible, tradicionalmente asociado con la idea de unidad, ciclos y equilibrio entre tres fuerzas o planos.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nEquilibrio interno y conexión con las fuerzas naturales.\n\nEstabilidad emocional frente a energías dispersas.\n\nApoyo en procesos de armonización y crecimiento personal.\n\nEl origen histórico del símbolo está documentado; su interpretación como amuleto de equilibrio espiritual pertenece al terreno de la tradición y la creencia personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/triqueta.png",
+        "img/uploads/triqueta-anva.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm de diámetro, 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-triqueta-elemental"
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "Pocas figuras representan el renacimiento con tanta fuerza como el Fénix: el ave que arde y vuelve a nacer de sus propias cenizas. Esta pieza la sitúa dentro de un círculo, tallada a mano en arcilla natural con acabado efecto piedra, como recordatorio físico de esa misma capacidad de transformación. Disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza pensada para quien atraviesa un proceso de cambio, cierre de etapa o búsqueda espiritual, y quiere llevar consigo un símbolo que le recuerde su propia capacidad de resurgir. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Collar"
+      ],
+      "descripcionCorta": "Dentro de un círculo, un ave que renace de sus propias cenizas. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa la capacidad de resurgir tras un cambio.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Ave Fénix",
+      "orden": 57,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El Fénix es una figura mítica presente en distintas tradiciones culturales —entre ellas la griega y la egipcia—, documentada históricamente como un ave que muere consumida por el fuego y renace de sus propias cenizas, convirtiéndose en un símbolo universal de renacimiento y transformación.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nCapacidad de renacer después de crisis o cambios importantes.\n\nFuerza interior y renovación personal.\n\nCoraje y perseverancia frente a las dificultades.\n\nEste significado pertenece al terreno del simbolismo cultural y la interpretación espiritual personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural, acabado efecto piedra",
+      "galeria": [
+        "img/uploads/ave-fenix-canva.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-ave-fenix",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de preparación 3-5 días laborables según personalización. Los tonos pueden variar ligeramente al ser artesanal.",
+      "opcionesPersonalizacion": "Elige un solo color o una combinación alquímica. Si buscas un color que no ves aquí, ¡pídelo!. Collar y/o Llavero",
+      "descripcionCompleta": "Inspiradas en las antiguas tradiciones de las brujas europeas, estas botellitas capturan la esencia de la luna llena y la sabiduría de la naturaleza. Según la tradición popular, recogen el rocío del amanecer —las \"lágrimas de la luna\"— cargándolas de poder oculto y de la bendición de los espíritus del bosque.\n\nCada color vibra con una energía distinta: el azul se asocia a la protección psíquica, la calma y la comunicación espiritual; el amarillo o dorado, a la energía solar, la claridad mental y la abundancia; el blanco, a la purificación y la renovación; el violeta, a la intuición y la conexión astral. También existen combinaciones: verde y azul como canal de comunicación con los espíritus de la naturaleza, dorado y violeta para sueños proféticos, blanco y verde para purificación sincronizada con los ciclos naturales, o azul y violeta para expansión psíquica y clarividencia.\n\nAl brillar en la oscuridad, cada botella revela su propio espíritu guardián interior, como un faro personal para quien la lleva. Disponible en formato recto o redondo, para que elijas el que mejor conecte contigo.\n\nSe recomienda dejar el frasco al exterior en cada luna llena, sobre tierra —preferiblemente en bosque o montaña— para recargar su energía. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Una botellita de cristal con brillo especial en la oscuridad, en formato recto o redondo. Este amuleto artesanal está disponible en varios colores, cada uno con su propio significado.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 5,
+      "nombre": "Agua de Luna",
+      "orden": 41,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "botellitas",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Azul"
+        },
+        {
+          "disponible": true,
+          "color": "Alquímica"
+        },
+        {
+          "disponible": true,
+          "color": "Blanco"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Amarillo"
+        }
+      ],
+      "simbolismo": "Protección (sellar puertas y ventanas simbólicamente), ingrediente decorativo en filtros de amor, apoyo para despertar la intuición. Cada color y combinación de colores tiene un significado propio (detallado arriba). Se recarga simbólicamente dejándola al exterior en luna llena. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad (artículo delicado por el corcho natural).\n-Limpiar con paño seco y suave.\n-Uso decorativo: no ingerir",
+      "materiales": "Cristal, corcho natural.",
+      "galeria": [
+        "img/uploads/agua-luna-canva.png",
+        "img/uploads/botellitas-canva.png",
+        "img/uploads/botellitas-cesped.png",
+        "img/uploads/diseño-sin-título.png",
+        "img/uploads/botellita-vrde-cesped.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "3 cm.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Forma Botellita",
+          "opciones": [
+            "Forma Recta",
+            "Forma Lágrima",
+            "Forma Poción"
+          ]
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "botella-agua-luna",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de preparación 5-10 días laborables según personalización",
+      "opcionesPersonalizacion": "Personaliza el líquido del interior",
+      "descripcionCompleta": "Siente la conexión con la tierra y el reino mágico en esta botellita, mucho más que un adorno: un amuleto cargado de energía y significado. Sobre una base con efecto madera, unas setas modeladas a mano en arcilla natural hacen de guía, símbolo de sabiduría ancestral y conexión espiritual. En su interior, un líquido de colores degradados evoca alquimia y transformación, y toda la pieza brilla en la oscuridad, como una pequeña luz que acompaña en momentos de incertidumbre.\n\nPuedes colocarla en tu altar, llevarla contigo en momentos importantes, o dejarla cerca de la cama como apoyo para sueños lúcidos y viajes astrales. También funciona como canal de conexión con los espíritus del bosque y como amuleto de manifestación para procesos de crecimiento personal.\n\nEl líquido de su interior se puede personalizar. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Guardián de los Bosques\nPequeñas setas talladas a mano sobre una base con efecto madera, con brillo en la oscuridad. Esta botellita amuleto conecta con la sabiduría simbólica del bosque y sus ciclos ocultos.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 17,
+      "nombre": "Guardián de los Bosques",
+      "orden": 40,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "botellitas",
+      "mostrarVariantes": true,
+      "variantes": [],
+      "simbolismo": "Las setas simbolizan sabiduría ancestral y guía espiritual. El brillo en la oscuridad representa luz y protección en la incertidumbre. Pensada como amuleto de manifestación y crecimiento, protección personal, herramienta para sueños lúcidos y viajes astrales, y canal de conexión con los espíritus del bosque. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener fuera del alcance de niños y mascotas.\n-Artículo decorativo y amuleto energético: no ingerir",
+      "materiales": "Botella de cristal, líquido mágico con destellos, base efecto madera, detalles de setas en arcilla natural, material con brillo en la oscuridad.",
+      "galeria": [
+        "img/uploads/guardian-canva-1.png",
+        "img/uploads/guardian-flow.png",
+        "img/uploads/guardian.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Aproximadamente 18 cm de largo",
+      "elaboracion": "100% a mano.",
+      "id": "botella-guardian-bosque"
+    },
+    {
+      "opcionesPersonalizacion": "Personaliza Forma recta o Forma de lágrima",
+      "descripcionCompleta": "Cada Botellita Protección contiene una sinergia de siete elementos mágicos, trabajando en armonía para crear un escudo invisible que te acompaña allá donde vayas: amatista, asociada a la protección espiritual, la claridad mental y la fortaleza intuitiva; salvia, purificador tradicional que limpia energías densas; pimienta, defensora frente a energías negativas; canela, vinculada a la prosperidad, el amor y la buena fortuna; y sal negra, guardiana frente a energías oscuras, junto a otros ingredientes que completan el conjunto.\n\nPensada para llevar cerca del cuerpo, funciona como collar para protección constante o como llavero para resguardar tu camino. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Siete ingredientes rituales reunidos en un frasco de cristal, entre ellos amatista, sal negra, clavo... Este amuleto de protección puede llevarse como collar o como llavero, siempre cerca de ti.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 8,
+      "nombre": "Botellita Protección",
+      "orden": 42,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "botellitas",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Amuleto de protección compuesto por siete ingredientes: amatista (protección espiritual, claridad mental), salvia (purificación), pimienta (defensa contra energías negativas), canela (prosperidad y buena fortuna), sal negra (protección contra energías oscuras), y otros ingredientes protectores. Se lleva como collar o llavero para protección personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Cristal, amatista, salvia, pimienta, canela, sal negra de Bruja. Un total de 7 ingredientes especialmente seleccionados para la protección.",
+      "galeria": [
+        "img/uploads/botellita-protectora-llavero.png",
+        "img/uploads/botellita-flow.png",
+        "img/uploads/botellita-collar.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Botellita recta ",
+          "opciones": [
+            "Nudo Celta ",
+            "Árbol de la Vida"
+          ]
+        },
+        {
+          "nombre": "Botellita Lágrima",
+          "opciones": [
+            "Nudo Celta",
+            "Árbol de la Vida"
+          ]
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "botella-protección"
+    },
+    {
       "id": "caja-grimorio-mediano-personalizable",
       "categoria": "grimorios",
       "nombre": "Caja Grimorio Personalizable Tamaño A5 – Libro Antiguo Artesanal Efecto Piel",
@@ -45,6 +551,285 @@
       ],
       "permiteOtroColor": false,
       "notaInterna": "Revisar la imagen enviada por el cliente en WhatsApp antes de moldear el relieve central."
+    },
+    {
+      "opcionesPersonalizacion": "Elige la botellita pequeña, collar o llavero",
+      "descripcionCompleta": "Hay amuletos pensados para proteger desde fuera, y otros pensados para acompañar desde dentro. Corazón Guardián pertenece a los segundos: la misma botella corazón se combina aquí con una botellita más pequeña que contiene el mismo elixir en tonos rosa y rojo, para llevar siempre cerca.\n\nNo es una versión reducida de otra pieza, sino su continuación: mismo líquido, misma intención, en un formato pensado para el día a día. Al ser una elaboración artesanal, los tonos del elixir pueden presentar ligeras variaciones naturales entre piezas.\n\nPuede tener sentido como recordatorio personal de amor propio, o como pieza para regalar a alguien que necesite ese mismo mensaje: suavidad, armonía emocional, un guardián silencioso que acompaña sin imponerse. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "La misma botella corazón, acompañada esta vez del mismo elixir en tonos rosa para llevar contigo. Este amuleto de amor propio es un recordatorio suave que te acompaña cada día.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 20,
+      "nombre": "Corazón Guardián",
+      "orden": 17,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El color rosa y rojo del elixir se asocia dentro de la tradición esotérica popular con el amor propio, la ternura y la armonía emocional. La forma de corazón de la botella principal refuerza directamente ese mismo simbolismo.\n\nDentro de esta interpretación, Corazón Guardián puede utilizarse como:\n\nRecordatorio diario de amor propio, llevado como colgante o guardado en un espacio personal.\n\nAcompañamiento emocional en momentos que piden suavidad y calma interior.\n\nRegalo con significado, para alguien a quien se quiera transmitir ese mismo mensaje de cuidado hacia una misma. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "Artículo delicado. No mojar, por el corcho natural y los materiales naturales que contiene.",
+      "materiales": "Botella de cristal, líquido decorativo (elixir en tonos rosa y rojo).",
+      "galeria": [
+        "img/uploads/poción-corazón2.png",
+        "img/uploads/corazón-canva2.png",
+        "img/uploads/poción-corazón3.png",
+        "img/uploads/poción-corazon1.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Botellita pequeña 3cm Botella corazón 8 cm",
+      "elaboracion": "100% a mano.",
+      "id": "corazon-guardian"
+    },
+    {
+      "opcionesPersonalizacion": "Elige la botellita pequeña, collar o llavero",
+      "descripcionCompleta": "Dos piezas, un mismo propósito: una botella con forma de corazón, de mayor presencia, y una botellita herbal más pequeña que la acompaña. Dentro de esta última conviven siete ingredientes rituales: amatista, sal negra de bruja, clavo y una selección de plantas protectoras, hasta completar una mezcla pensada específicamente para limpiar, cortar y fortalecer el campo energético personal.\n\nEl conjunto funciona como un pequeño ritual en sí mismo: la botella corazón como pieza central para tu espacio, y la botellita herbal como refuerzo simbólico que puedes llevar cerca o guardar junto a ella. Al tratarse de una elaboración artesanal, la combinación de ingredientes puede presentar ligeras variaciones naturales entre piezas.\n\nEs un conjunto pensado para quien busca reforzar simbólicamente su energía personal en momentos que piden claridad y fuerza interior. Existe también en versión de amor propio, bajo el nombre Corazón Guardián. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Una botella corazón se une a una botellita ritual con siete ingredientes protectores, entre ellos amatista y sal negra. Este conjunto de amuletos está pensado para limpiar, cortar y fortalecer tu energía.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 24,
+      "nombre": "Corazón Protector",
+      "orden": 16,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Cada uno de los siete ingredientes que forman la botellita herbal pertenece a la tradición esotérica popular, con un significado propio:\n\nAmatista: asociada tradicionalmente con la protección espiritual y la claridad mental.\n\nSal negra de bruja: utilizada en distintas tradiciones como símbolo de corte energético frente a influencias densas.\n\nClavo: vinculado popularmente a la protección y el fortalecimiento del ánimo.\n\nPlantas protectoras seleccionadas: elegidas dentro de esta misma tradición por su significado de resguardo y limpieza energética.\n\nEn conjunto, esta combinación se interpreta tradicionalmente como un escudo simbólico pequeño pero significativo, pensado para acompañar el día a día. Este significado pertenece al terreno de la tradición esotérica. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "Artículo delicado. No mojar, por el corcho natural y los materiales naturales que contiene.",
+      "materiales": "Botella de cristal, amatista, sal negra de bruja, clavo, plantas protectoras naturales.",
+      "galeria": [
+        "img/uploads/poción-corazon-planta1.png",
+        "img/uploads/corazón-canva.png",
+        "img/uploads/corazón-planta3.png",
+        "img/uploads/poción-corazon1.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Botellita pequeña 3cm Botella corazón 8 cm",
+      "elaboracion": "100% a mano.",
+      "id": "corazon-protector-pack"
+    },
+    {
+      "opcionesPersonalizacion": "Escoge el color.",
+      "descripcionCompleta": "En el centro, un mandala floral grabado a mano en arcilla natural. Alrededor, un pequeño espacio interior pensado para guardar un trozo de algodón impregnado con el aroma que elijas: un aceite esencial diluido, agua florida, colonia o tu perfume habitual.\n\nNo es solo una pieza decorativa, sino un difusor portátil personal: puedes llevarlo cerca del cuerpo para tener tu aroma contigo a lo largo del día, sin necesidad de aplicar el perfume directamente sobre la piel, algo especialmente útil para quienes tienen la piel sensible.\n\nCada Difusor de Aroma se elabora a mano, por lo que el grabado y el tono pueden presentar pequeñas variaciones entre piezas: ningún mandala sale exactamente igual a otro.\n\nPuede acompañarte en el trabajo, en un momento de meditación, en un viaje o simplemente en el día a día, como un pequeño ritual personal de calma. Se entrega activada con su propia intención antes de salir del taller.",
+      "formatosDisponibles": [],
+      "descripcionCorta": "Un mandala floral grabado a mano en arcilla natural, pensado para llevar tu aroma favorito contigo. Este difusor amuleto impregna algodón con aceites o perfumes suaves, sin contacto directo con la piel.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 10,
+      "nombre": "Difusor de Aroma Mandala Floral",
+      "orden": 33,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Marrón "
+        }
+      ],
+      "simbolismo": "Dentro de distintas tradiciones espirituales y de meditación, el mandala floral se asocia simbólicamente con la búsqueda de equilibrio, claridad mental y armonía interior. En el diseño de esta pieza, esa forma se combina con la función de difusor de aroma, uniendo lo visual y lo olfativo en un mismo objeto.\n\nAlgunas formas en las que se puede incorporar a la práctica personal:\n\nComo recordatorio de calma, llevándolo cerca del cuerpo con un aroma que asocies a bienestar o tranquilidad.\n\nComo apoyo en momentos de meditación o descanso, impregnando el algodón con un aroma que ayude a marcar ese espacio de pausa.\n\nComo pieza de intención personal, asociando un aroma concreto a un propósito o estado de ánimo que quieras reforzar simbólicamente.\n\nEstos usos pertenecen al terreno de la práctica personal; el aroma puede acompañar un momento de calma, pero no sustituye ningún tratamiento médico tiene un efecto objetivo sobre el estado de ánimo o la energía de quien lo lleva. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad excesiva, para preservar la arcilla.\n-Utilizar únicamente aceites naturales o perfumes aptos para contacto con la piel, evitando aceites esenciales puros sin diluir.\n-Cambiar el algodón interior periódicamente para mantener el aroma limpio.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+      "galeria": [
+        "img/uploads/difusor-canva2.png",
+        "img/uploads/016ec68c-367c-4534-b41b-730e998d06c2.jpg",
+        "img/uploads/difusor-canva.png",
+        "img/uploads/difusor-canva3.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Aproximadamente 3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "difusor-aroma-mandala-floral",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 5-10 días laborables (más corto que en otros productos, que suelen ser 10-15",
+      "descripcionCompleta": "Cuentan los antiguos sabios que, en cada eclipse, el universo suspira. Durante ese instante en que el sol y la luna se funden, los opuestos se reconcilian: acción y calma, lo visible y lo oculto, lo masculino y lo femenino, el día y la noche.\n\nEste amuleto, elaborado 100% a mano en arcilla natural y pintado con los colores del fuego y el crepúsculo, representa ese momento de equilibrio cósmico. El sol, en amarillo y naranja, simboliza fuerza vital, energía y claridad; la luna, en azul, lila y violeta, representa intuición, sueños y conexión con lo oculto; y el eclipse en sí marca ese punto de transformación, la puerta mágica que une extremos, abre ciclos y permite cerrar lo que ya no sirve.\n\nPuedes llevarlo como amuleto diario para mantenerte centrado, colocarlo en tu altar entre velas doradas y lilas para potenciar su energía, o ponerlo bajo la almohada para calmar la mente y favorecer sueños profundos. También es un buen aliado en rituales para armonizar cuerpo, mente y espíritu, en meditación profunda, o como apoyo en decisiones importantes cuando necesitas claridad entre luz y sombra. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Un amuleto pintado con los colores del fuego y el crepúsculo, que representa el instante en que el sol y la luna se funden. El Eclipse Lunar simboliza el equilibrio entre opuestos: acción y calma, lo visible y lo oculto",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": false,
+      "precio": 9,
+      "nombre": "Eclipse Lunar",
+      "orden": 22,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El sol representa fuerza vital, energía y claridad; la luna, intuición, sueños y conexión con lo oculto; el eclipse simboliza transformación y el punto de unión entre extremos. Pensado para protección energética, armonización de cuerpo-mente-espíritu, meditación profunda y apoyo en decisiones importantes. Se puede llevar a diario, colocar en el altar o poner bajo la almohada. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+      "galeria": [
+        "img/uploads/eclipse-canva.png",
+        "img/uploads/eclipse-canva2.png",
+        "img/uploads/eclipse-canva3.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "4 cm de diámetro aproximadamente",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-eclipse-lunar"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Los diseños disponibles van cambiando con el tiempo (no siempre hay el mismo modelo en stock",
+      "opcionesPersonalizacion": "Cuéntanos tu idea: una foto, un dibujo, una frase o un símbolo. Nosotros lo convertimos en la imagen central de tu Grimorio Caja. Tiempo de creación aprox. 10-15 días laborables.",
+      "descripcionCompleta": "Tiene forma de libro antiguo, textura de piel y un peso sorprendentemente ligero entre las manos. Pero el Grimorio Caja no es solo apariencia: al abrirlo descubres un espacio interior pensado para guardar aquello que quieres proteger.\n\nSu tapa se personaliza contigo: nos envías una fotografía, un dibujo, una frase o un símbolo, y lo convertimos en el grabado central de tu propia pieza. Así, cada caja termina siendo un objeto irrepetible, hecho para una historia concreta.\n\nPuede convertirse en el cofre de tus cartas de tarot, en el escondite de hierbas y amuletos, en el lugar donde guardas joyas con significado, o en tu propia caja de rituales. Tú decides qué secreto merece quedarse dentro.\n\nCada pieza se modela y pinta a mano en arcilla natural de secado al aire, así que ninguna caja sale exactamente igual a otra: las pequeñas variaciones son parte de su carácter, no un defecto. Se entrega activada con su propia intención antes de salir del taller.\n\n",
+      "coleccion": "",
+      "descripcionCorta": "Grimorio Caja – Imagen Personalizable\nPor fuera parece un libro antiguo, por dentro guarda un espacio real. Este grimorio caja se construye desde cero en arcilla natural, con efecto piel pintado a mano y una imagen personalizada en la portada.",
+      "estado": "bajo_pedido",
+      "activarSelectorPersonalizacion": true,
+      "precio": 40,
+      "nombre": "Grimorio Caja – Imagen Personalizable Pequeño",
+      "orden": 2,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "grimorios",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Pensada como cofre personal: para guardar cartas de tarot, oráculos o runas, hierbas y amuletos, joyas con valor emocional, o como caja secreta para rituales propios. También funciona como pieza decorativa con alma propia. Se entrega activada con su propia intención antes de salir del taller.      ",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural de secado al aire, pintada a mano, con acabado efecto piel.",
+      "galeria": [
+        "img/uploads/grimorio-collage.png",
+        "img/uploads/grimorio-imagen-canva1.png",
+        "img/uploads/grimorio-pequeño1.png",
+        "img/uploads/grimorio-abierto.png",
+        "img/uploads/grimorio-4.png",
+        "img/uploads/grimorio-pequeño3.png",
+        "img/uploads/grimorio-interior-canva.png",
+        "img/uploads/grimorio-pequeño2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "Disponible en dos tamaños — Pequeña tamaño cartas Tarot, Oráculo, etc. Mediana (aproximadamente A5, medio folio). Al estar hecha 100% a mano, cada pieza puede variar ligeramente en tamaño.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Imagen central"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "grimorio-caja-personalizable-pequeño"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Solo disponible en tamaño mediano (a diferencia del modelo personalizable, que tiene mediana y pequeña).",
+      "descripcionCompleta": "No todas las puertas están hechas para salir. Algunas están hechas para entrar en lo sagrado.\n\nEn la tapa de este grimorio-caja se abre una puerta tallada a mano en arcilla, rodeada de símbolos de protección. Su diseño se inspira en los portales del bosque y en esos umbrales invisibles que separan lo cotidiano de lo místico, así que no es solo una imagen decorativa: es una pieza pensada para tener presencia propia.\n\nPor dentro, guarda el mismo espíritu de todos los grimorios-caja: un hueco para tus herramientas mágicas, tus cartas, tus notas o esos secretos que prefieres conservar cerca. Por fuera, funciona igual de bien como objeto decorativo, capaz de sostener por sí solo el rincón donde lo coloques.\n\nSe modela y pinta a mano en arcilla natural de secado al aire, por lo que cada pieza conserva pequeñas variaciones que la hacen irrepetible. Tiempo de creación aprox. 10-15 días laborables. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "En el centro, una puerta tallada en arcilla que hace de umbral. Este grimorio caja combina un acabado de libro antiguo con un diseño simbólico, disponible en tamaño mediano.",
+      "estado": "bajo_pedido",
+      "activarSelectorPersonalizacion": false,
+      "precio": 60,
+      "nombre": "Grimorio Caja – Puerta del Otro Mundo",
+      "orden": 3,
+      "personalizable": false,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "grimorios",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Representa un portal entre mundos, protegido por símbolos que enmarcan el umbral. Pensada para guardar herramientas mágicas, cartas o secretos personales, y también como pieza decorativa con fuerte carga simbólica. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural de secado al aire, pintada a mano.",
+      "galeria": [
+        "img/uploads/grimorio-puerta.png",
+        "img/uploads/grimorio-puerta-canva4.png",
+        "img/uploads/grimorio-puerta-canva.png",
+        "img/uploads/grimorio-puerta-canva2.png",
+        "img/uploads/grimorio-puerta-canva3.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "Tamaño Mediano, aproximadamente A5 (medio folio). Al estar hecha 100% a mano, el tamaño puede variar ligeramente.",
+      "elaboracion": "100% a mano.",
+      "id": "grimorio-caja-puerta-otro-mundo"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única e irrepetible (no serie).",
+      "descripcionCompleta": "Desde siempre, el grimorio ha sido el confidente de la bruja: el lugar donde guardar lo que no se dice en voz alta. Este está pensado para continuar esa tradición, con tapas de arcilla natural moldeadas a mano y un acabado que imita el cuero envejecido de los libros antiguos.\n\nEn el centro de la tapa aparece tallada una Triqueta, símbolo de protección, ciclos y sabiduría ancestral, y el grimorio se cierra con un marcador en forma de Nudo de Bruja, pensado como sello energético para lo que escribas dentro.\n\nPor dentro, 200 hojas (400 páginas) en blanco esperan tu letra: hechizos, rituales, sueños, recetas de pociones o cualquier conocimiento que quieras conservar. Es una pieza única e irrepetible, hecha 100% a mano, así que ninguna otra será exactamente igual. Tiempo de creación aprox. 10-15 días laborables. Pieza única e irrepetible. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "200 hojas en blanco dentro de una cubierta de arcilla con efecto piel envejecida. Este grimorio artesanal incluye una triqueta tallada y un marcador con forma de nudo de bruja.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": false,
+      "precio": 40,
+      "nombre": "Grimorio Hechizado con Efecto Piel Antigua",
+      "orden": 2,
+      "personalizable": false,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "grimorios",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La Triqueta central representa protección, ciclos y sabiduría ancestral. El marcador Nudo de Bruja simboliza protección continua, sellando energéticamente lo escrito. Pensado para registrar práctica mágica, rituales, sueños, recetas de pociones y conocimiento esotérico personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, modelada y con acabado efecto piel",
+      "galeria": [
+        "img/uploads/grimorio-libreta-canva1.png",
+        "img/uploads/grimorio-libreta-canva2.png",
+        "img/uploads/grimorio-libreta-canva4.png",
+        "img/uploads/grimorio-libreta-canva3.png",
+        "img/uploads/grimorio-libreta-canva6.png",
+        "img/uploads/grimorio-libreta-canva7.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "Tamaño A5. 200 hojas / 400 páginas en blanco.",
+      "elaboracion": "100% a mano.",
+      "id": "grimorio-hechizado-efecto-piel-antigua"
     },
     {
       "id": "grimorio-mediano",
@@ -109,6 +894,808 @@
       "formatosDisponibles": [],
       "permiteOtroColor": false,
       "notaInterna": "Ficha de prueba conservada como oculta."
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "No mira de frente. Está de espaldas, con su gorro característico, apoyada en la rama de un árbol, en una postura que no busca imponerse sino vigilar y cuidar. Esa es la esencia de esta pieza: la protección que nace de pertenecer a un grupo, no la fuerza de estar sola.\n\nTallada a mano en arcilla natural con acabado efecto piedra, disponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Puede tener un lugar especial para quien siente conexión con la magia compartida en comunidad, o simplemente con la idea de sentirse acompañada por su propio clan espiritual. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "De espaldas, apoyada en la rama de un árbol, así vigila esta figura tallada a mano en arcilla. Este amuleto con efecto piedra representa la protección de un clan espiritual unido.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Guardiana del Aquelarre",
+      "orden": 55,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La imagen de la bruja apoyada en un árbol, vigilando de espaldas, se enmarca dentro del imaginario de la brujería verde y de la tradición del aquelarre como espacio de encuentro y protección mutua entre quienes practican juntas.\n\nDentro de esta interpretación, la pieza se asocia con:\n\nProtección del grupo espiritual o comunidad al que se pertenece.\n\nConexión con guías, ancestros y la magia ancestral ligada al bosque.\n\nEl equilibrio entre la fuerza individual y la fuerza colectiva. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/guardiana-canva2.png",
+        "img/uploads/guardiana-canva1.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Collar"
+        },
+        {
+          "nombre": "Pulsera"
+        },
+        {
+          "nombre": "Llavero"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-guardiana-aquelarre",
+      "imagenPrincipal": ""
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "Su forma no da lugar a dudas: una lanza, o una punta de flecha, apunta siempre hacia delante. Esta pieza traduce esa dirección clara en un amuleto tallado a mano en arcilla natural, con acabado efecto piedra, pensado como recordatorio físico de avanzar sin desviarse.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza que puede tener sentido para quien está atravesando un proceso de cambio, tomando decisiones importantes, o simplemente necesita un empujón simbólico de determinación en su día a día, ya sea en lo personal, lo deportivo o lo profesional. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Su forma no da lugar a dudas: apunta siempre hacia delante. Este amuleto tallado a mano en arcilla, con acabado efecto piedra, representa el coraje para avanzar sin desviarte.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Lanza del Destino",
+      "orden": 58,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La forma de lanza o punta de flecha se asocia, dentro del imaginario simbólico, con el impulso directo y la precisión: la idea de avanzar hacia un objetivo concreto sin desviarse del camino.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nCoraje para enfrentar desafíos y superar miedos.\n\nDeterminación para tomar decisiones firmes.\n\nAcompañamiento simbólico en viajes o procesos de cambio, tanto físicos como personales. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/lanza-canva2.png",
+        "img/uploads/lanza-canva3.png",
+        "img/uploads/lanza-canva1.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-lanza-destino",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Es un pack: collar + pendientes a juego con el mismo diseño de mandala",
+      "opcionesPersonalizacion": "Personaliza el color.",
+      "descripcionCompleta": "Este conjunto reúne un collar y unos pendientes con el mismo diseño de mandala floral, para llevar a juego. El mandala no es circular: su forma simboliza la expansión natural de la vida y el florecimiento del alma, y su diseño invita a la calma, la introspección y la conexión con tu centro interior.\n\nPuedes elegirlo en distintos colores, cada uno con su propio significado: negro para misterio, protección ancestral e introspección; verde para vida, sanación y fertilidad; marrón madera para estabilidad, arraigo y fuerza ancestral; o terracota para creatividad, energía vital y conexión con la Madre Tierra.\n\nLlevado como joya, el conjunto funciona como un pequeño escudo energético personal, acompañándote en la vida diaria con la misma intención de equilibrio y protección que transmite el mandala. Cada pieza se modela y pinta a mano, imitando texturas naturales, así que cada conjunto es único. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un conjunto de collar y pendientes a juego, con el mismo mandala floral grabado en arcilla natural. Una forma de llevar contigo la armonía y el simbolismo del mandala, allá donde vayas.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 12,
+      "nombre": "Conjunto Collar y Pendientes Mandala Floral",
+      "orden": 32,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "mandala",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Marrón madera"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Terracota"
+        }
+      ],
+      "simbolismo": "Simboliza expansión de la vida y florecimiento del alma. Color negro: misterio, protección ancestral, introspección. Verde: vida, sanación, fertilidad. Marrón madera: estabilidad, arraigo, fuerza ancestral. Terracota: creatividad, energía vital, conexión con la Tierra. Pensado como amuleto personal para llevar puesto, escudo energético diario. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.  ",
+      "galeria": [
+        "img/uploads/conjunto-mandala-canva1.png",
+        "img/uploads/conjunto-mandala2.png",
+        "img/uploads/img_20250818_143138-1-.jpg",
+        "img/uploads/conjunto-mandala-canva6.png",
+        "img/uploads/conjunto-mandala-canva3.png",
+        "img/uploads/conjunto-mandala-canva4.png",
+        "img/uploads/conjunto-mandala-canva4.png",
+        "img/uploads/conjunto-mandala8.png",
+        "img/uploads/conjunto-mandala7.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "3 cm. Diámetro 3mm. Grosor",
+      "elaboracion": "100% a mano.",
+      "id": "mandala-conjunto-collar-pendientes"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Envían a toda España. Es la versión \"Grande\" — si existe una versión más pequeña, se hace ficha aparte.",
+      "opcionesPersonalizacion": "Personaliza el color. ",
+      "descripcionCompleta": "Este mandala floral no es circular: su forma simboliza la expansión natural de la vida y el florecimiento del alma. Su diseño invita a la calma, la introspección y la conexión con tu centro interior, pensado como un pequeño portal de energía para tu hogar.\n\nPuedes elegirlo en distintos colores, cada uno con su propio significado: negro para misterio, protección ancestral e introspección; verde para vida, sanación y fertilidad; marrón madera para estabilidad, arraigo y fuerza ancestral; o terracota para creatividad, energía vital y conexión con la Madre Tierra.\n\nFunciona como armonizador de espacios, escudo energético para el aura o el hogar, y apoyo en procesos de sanación y crecimiento interior. También es un buen aliado en rituales de transformación, protección, renovación o meditación.\n\nCada mandala se modela y pinta a mano, imitando texturas naturales, así que cada pieza es única. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un mandala no circular que simboliza la expansión de la vida y el florecimiento del alma, modelado y pintado a mano en arcilla natural. Disponible en varios colores, cada uno con su propio significado.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Mandalas Florales Grandes",
+      "orden": 30,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "mandala",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Azul"
+        },
+        {
+          "disponible": true,
+          "color": "Terracota"
+        }
+      ],
+      "simbolismo": "Simboliza expansión de la vida y florecimiento del alma. Color negro: misterio, protección ancestral, introspección. Verde: vida, sanación, fertilidad. Marrón madera: estabilidad, arraigo, fuerza ancestral. Terracota: creatividad, energía vital, conexión con la Tierra. Pensado para armonizar espacios, proteger el aura/hogar, y como apoyo en rituales de transformación, protección, renovación o meditación. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate. ",
+      "galeria": [
+        "img/uploads/mandala-grande-canva1.png",
+        "img/uploads/mandala-grande-canva2.png",
+        "img/uploads/mandala-grande-canva8.png",
+        "img/uploads/mandala-grande-canva9.png",
+        "img/uploads/mandala-grande-canva6.png",
+        "img/uploads/mandala-grande-canva7.png",
+        "img/uploads/mandala-grande-canva5.png",
+        "img/uploads/mandala-grande-canva4.png",
+        "img/uploads/mandala-grande-canva3.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "4 cm. Alto 3,5 y 4 cm. Ancho 3mm. Grosor Según formas",
+      "elaboracion": "100% a mano.",
+      "id": "mandala-floral-grande"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Envían a toda España. Es la versión \"Grande\" — si existe una versión más pequeña, se hace ficha aparte.",
+      "opcionesPersonalizacion": "Personaliza color y/o forma.",
+      "descripcionCompleta": "Este mandala floral no es circular: su forma simboliza la expansión natural de la vida y el florecimiento del alma. Su diseño invita a la calma, la introspección y la conexión con tu centro interior, pensado como un pequeño portal de energía para tu hogar.\n\nPuedes elegirlo en distintos colores, cada uno con su propio significado: negro para misterio, protección ancestral e introspección; verde para vida, sanación y fertilidad; marrón madera para estabilidad, arraigo y fuerza ancestral; o terracota para creatividad, energía vital y conexión con la Madre Tierra.\n\nFunciona como armonizador de espacios, escudo energético para el aura o el hogar, y apoyo en procesos de sanación y crecimiento interior. También es un buen aliado en rituales de transformación, protección, renovación o meditación.\n\nCada mandala se modela y pinta a mano, imitando texturas naturales, así que cada pieza es única. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un mandala no circular que simboliza la expansión de la vida y el florecimiento del alma, modelado y pintado a mano en arcilla natural. Disponible en varios colores, cada uno con su propio significado.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 8,
+      "nombre": "Mandalas Florales Pequeño",
+      "orden": 31,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "mandala",
+      "mostrarVariantes": false,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Marrón madera"
+        },
+        {
+          "disponible": true,
+          "color": "Terracota"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        }
+      ],
+      "simbolismo": "Simboliza expansión de la vida y florecimiento del alma. Color negro: misterio, protección ancestral, introspección. Verde: vida, sanación, fertilidad. Marrón madera: estabilidad, arraigo, fuerza ancestral. Terracota: creatividad, energía vital, conexión con la Tierra. Pensado para armonizar espacios, proteger el aura/hogar, y como apoyo en rituales de transformación, protección, renovación o meditación. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate. ",
+      "galeria": [
+        "img/uploads/mandala-pequeña-canva1.png",
+        "img/uploads/mandala-pequeña-canva2.png",
+        "img/uploads/mandala-pequeña-canva3.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "3 cm. Diámetro. 3mm. grosor",
+      "elaboracion": "100% a mano.",
+      "id": "mandala-floral-pequeño"
+    },
+    {
+      "opcionesPersonalizacion": "Elige Collar; Pulsera o Llavero",
+      "descripcionCompleta": "Hay dibujos que no tienen un punto donde empezar a seguirlos con la vista. El Nudo de Bruja es uno de ellos: sus lazos se entrelazan formando un ciclo continuo, sin un inicio ni un final claros, y esa misma continuidad es lo que le da su significado.\n\nCada pieza se talla y se acaba a mano en arcilla natural, con acabado efecto piedra, en un tamaño de 3 cm de diámetro y 3 mm de grosor: lo bastante pequeño para llevarlo como collar, colgarlo de las llaves o guardarlo en el bolsillo como talismán discreto. Al ser un trabajo manual, ninguna pieza reproduce exactamente los mismos lazos que otra.\n\nEs un amuleto pensado para acompañar el día a día sin llamar demasiado la atención, como un pequeño recordatorio de resguardo constante. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Un trazo sin principio ni fin, tallado a mano en arcilla con acabado efecto piedra. Este amuleto de protección continua se lleva como collar, llavero o talismán de bolsillo.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Nudo de Bruja — Línea Efecto Piedra",
+      "orden": 52,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El nudo de bruja aparece en el imaginario popular europeo como un motivo apotropaico: un trazo sin principio ni fin utilizado tradicionalmente como símbolo de protección continua frente a influencias no deseadas.\n\nEn el diseño de esta pieza, ese entramado infinito se asocia con:\n\nProtección constante frente a energías que se perciben como negativas.\n\nEquilibrio entre los planos físico, mental y espiritual.\n\nConexión con la propia práctica espiritual y con la sabiduría transmitida entre generaciones.\n\nEste significado pertenece a la tradición popular y a la interpretación espiritual personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/nudo-bruja-piedra-canva.png",
+        "img/uploads/nudo-bruja-piedra-canva2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-nudo-bruja-efecto-piedra",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible. Envían a toda España.",
+      "opcionesPersonalizacion": "Personaliza el color. Elige formato collar o llavero.  ",
+      "descripcionCompleta": "El Nudo de Bruja es un símbolo milenario de protección continua y unión sagrada entre cuerpo, mente y espíritu. Sus lazos infinitos representan un ciclo eterno de energía mágica que te acompaña y te resguarda de aquello que no deseas en tu vida.\n\nTallado a mano en arcilla natural, no es solo una pieza de arte: funciona como un escudo energético que fortalece tu conexión con la sabiduría ancestral. Su tamaño lo hace ideal para llevarlo siempre contigo, ya sea como collar, como llavero o simplemente guardado en el bolsillo como talismán personal.\n\nCada Nudo de Bruja está moldeado y acabado a mano, cargado con la energía de la tierra y la dedicación de quien lo elabora. Por eso, cada pieza es única e irrepetible.Se entrega activada con su propia intención antes de salir del taller. ",
+      "formatosDisponibles": [
+        "Collar",
+        "Llavero"
+      ],
+      "descripcionCorta": "Un símbolo milenario de protección continua y unión sagrada, tallado a mano en arcilla natural. El Nudo de Bruja es un amuleto pequeño para llevar siempre contigo, como collar, llavero o talismán de bolsillo.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 8,
+      "nombre": "Nudo de Bruja",
+      "orden": 20,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": true,
+      "variantes": [],
+      "simbolismo": "Símbolo de protección continua y unión entre cuerpo, mente y espíritu. Ofrece protección frente a energías negativas e influencias no deseadas, favorece el equilibrio interior y activa la intuición y la conexión con la magia ancestral. Se puede llevar como collar, llavero o talismán de bolsillo. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
+      "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+      "galeria": [
+        "img/uploads/nudo-bruja-canva1.png",
+        "img/uploads/nudo-bruja-vanva2.png",
+        "img/uploads/nudo-bruja-canva3.png",
+        "img/uploads/nudo-bruja-canva5.png",
+        "img/uploads/nudo-bruja-canva6.png",
+        "img/uploads/nudo-bruja-canva7.png",
+        "img/uploads/nudo-bruja-canva8.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "Diámetro 3 cm, grosor 3 mm.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-nudo-bruja",
+      "imagenPrincipal": ""
+    },
+    {
+      "opcionesPersonalizacion": "Elige Collar, Pulsera o Llavero",
+      "descripcionCompleta": "ocos símbolos han atravesado tanto tiempo sin perder su fuerza como el Ojo de Horus. Esta pieza lo recoge con un acabado efecto piedra que refuerza su carácter ancestral, tallado con el cuidado suficiente para que cada detalle del diseño se distinga con claridad.\n\nCada amuleto se elabora a mano en arcilla natural, en un tamaño de 3 cm de diámetro y 3 mm de grosor, disponible en formato collar, pulsera o llavero. Es una pieza pensada para llevarse a diario, ideal para quien busca un símbolo con peso histórico real detrás, además de una estética marcada. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "n símbolo egipcio con miles de años de historia, tallado en arcilla con acabado efecto piedra. Este amuleto representa protección y una percepción más allá de lo evidente.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Ojo de Horus — Línea Efecto Piedra",
+      "orden": 53,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El Ojo de Horus, también conocido como Wedjat, es un símbolo documentado en el antiguo Egipto, asociado tradicionalmente a la protección, la salud y la realeza, y vinculado al mito de Horus y su ojo perdido y restaurado. Es uno de los amuletos más representativos y estudiados de esa civilización.\n\nEn el diseño de esta pieza, ese simbolismo histórico se traduce en una interpretación espiritual actual:\n\nProtección frente a energías que se perciben como dañinas.\n\nRefuerzo de la intuición y la percepción, en línea con su asociación tradicional con la visión más allá de lo evidente.\n\nApoyo simbólico en la búsqueda de equilibrio interior.\n\nEl origen histórico del símbolo está documentado; su uso como amuleto de protección espiritual pertenece al terreno de la tradición y la creencia personal. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/ojohorus-canva1.png",
+        "img/uploads/ojo-horus-canva2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Collar"
+        },
+        {
+          "nombre": "Pulsera "
+        },
+        {
+          "nombre": "Llavero"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-ojo-horus",
+      "imagenPrincipal": ""
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie)",
+      "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible-",
+      "descripcionCompleta": "Cuando el otoño viste la tierra de oro y fuego, el arce susurra lecciones de cambio, resiliencia y belleza efímera. Este elixir recoge esa energía en una pieza pensada para quienes quieren soltar lo que ya no les nutre y abrir espacio a lo nuevo.\n\nSobre el frasco, hojas de arce modeladas a mano se pintan en tonos rojizos y dorados que evocan la caída del otoño, símbolo de renacimiento y desapego saludable. La pieza se inspira en la magia natural del arce, asociada tradicionalmente a la protección del alma, la claridad y el equilibrio emocional, y también en el \"momiji\" japonés, que invita a contemplar la vida y la belleza de lo efímero.\n\nPuedes usarla como talismán de acompañamiento en procesos de cambio personal, como amuleto protector en el hogar o el altar, o como objeto meditativo para cultivar calma y claridad.\n\nCada pieza es única, con ligeras variaciones propias del proceso artesanal. Se entrega activada con su propia intención antes de salir del taller.\n\n",
+      "coleccion": "",
+      "descripcionCorta": "Hojas de arce en tonos rojizos y dorados, modeladas a mano sobre el cristal. Esta poción decorativa representa el cambio de estación y el desapego de lo que ya no nutre.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 14,
+      "nombre": "Elixir de Arce",
+      "orden": 15,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Verde",
+          "imagenes": []
+        },
+        {
+          "disponible": true,
+          "color": "Rojo",
+          "imagenes": []
+        },
+        {
+          "disponible": true,
+          "color": "Amarillo"
+        }
+      ],
+      "simbolismo": "El arce simboliza cambio, resiliencia y belleza efímera; sus hojas rojizas y doradas representan renacimiento y desapego saludable. Inspirado también en el \"momiji\" japonés, símbolo de contemplación de lo efímero. Pensado como talismán de renovación, amuleto protector del hogar/altar y objeto meditativo. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo",
+      "materiales": "Arcilla natural, corcho, líquido decorativo con destellos, hojas pintadas a mano.",
+      "galeria": [
+        "img/uploads/arce-canva3.png",
+        "img/uploads/arce-canva2.png"
+      ],
+      "permiteOtroColor": true,
+      "elaboracion": "100% a mano.",
+      "id": "poción-arce"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Incluye certificado y sello de autenticidad Arcilla Hechizada. Pieza única/irrepetible (no serie).",
+      "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible-",
+      "descripcionCompleta": "No es una poción para beber. Es un amuleto sellado con intención, pensado para quien siente la llamada del bosque, de lo oculto y de la energía ancestral.\n\nDentro del frasco, un líquido lila profundo se mueve con destellos que parecen respirar. Delante, una pequeña puerta de arcilla —hecha y pintada a mano, enmarcada con hojas y flores— hace de guardiana, como si protegiera algo que no debe salir a la luz. El tapón es de corcho, sellado con ceras y marcado con el sello de Arcilla Hechizada, tal y como se cerraban los antiguos frascos alquímicos, y todo se une con una cuerda de yute que conecta la pieza con la energía del bosque.\n\nPuedes colocarla en tu altar o rincón sagrado como guardiana energética, sostenerla mientras canalizas una intención que quede sellada en su interior, o simplemente dejar que decore tu espacio con una presencia propia. Es especialmente afín a quienes trabajan con elementales, espíritus del bosque o rituales lunares.\n\nCada poción se hace 100% a mano, así que ninguna es igual a otra: cada una lleva su propia huella energética.\n\n⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un líquido lila se mueve tras una pequeña puerta de arcilla enmarcada en hojas. Esta poción decorativa es un amuleto sellado a mano, pensado para quien siente la llamada del bosque.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 22,
+      "nombre": "Poción del Bosque Encantado",
+      "orden": 10,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Lila"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Azul"
+        }
+      ],
+      "simbolismo": "Amuleto de protección espiritual y manifestación de intenciones. Pensada para colocar en altar o rincón sagrado, sostener al canalizar un deseo, o como pieza decorativa afín a trabajos con elementales, espíritus del bosque o rituales lunares. ⚠️ Producto decorativo. No apto para consumo.  Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos.",
+      "materiales": "Arcilla natural, corcho, ceras, cuerda de yute, líquido con purpurina mineral.",
+      "galeria": [
+        "img/uploads/poción-del-bosque-encantado-canva1.png",
+        "img/uploads/poción-del-bosque-encantado-canva2.png",
+        "img/uploads/poción-del-bosque-encantado-canva3.png",
+        "img/uploads/poción-del-bosque-encantado-canva4.png"
+      ],
+      "permiteOtroColor": true,
+      "elaboracion": "100% a mano.",
+      "id": "poción-bosque-encantado"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie)",
+      "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
+      "descripcionCompleta": "Bajo el manto de la noche y la luz plateada de la luna nace la Poción Lunar. No es una poción para beber: es un amuleto pensado para custodiar tu energía y acompañarte en tus viajes interiores.\n\nEn el centro de la botella está grabado un tetragrama protector, símbolo milenario que une los cuatro elementos y el espíritu como escudo frente a las energías negativas. A cada lado, dos lunas crecientes representan el flujo eterno de la energía mágica, la transformación y el poder de la intuición. Dentro, un líquido lila y azul oscuro se mueve con destellos, como una noche estrellada en movimiento. El tapón está diseñado con acabado mineral, como si sellara una piedra encantada, guardando la energía en su interior.\n\nPuedes usarla para reforzar tu intuición, acompañar sueños lúcidos y meditaciones, crear un ambiente protegido en tu hogar o altar, o como compañera en rituales ligados a las fases de la luna. También funciona simplemente como objeto decorativo que inspira misterio y conexión con el cosmos.\n\nCada pieza se hace 100% a mano, por lo que puede presentar pequeñas variaciones que la hacen única y exclusiva.\n\n⚠️ Producto decorativo. No apto para consumo.  Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Un tetragrama y dos lunas crecientes talladas junto a un líquido que imita el cielo nocturno. Esta poción decorativa acompaña rituales e intenciones ligadas a las fases de la luna.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 18,
+      "nombre": "Poción Lunar",
+      "orden": 13,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Azul"
+        },
+        {
+          "disponible": true,
+          "color": "Lila"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        }
+      ],
+      "simbolismo": "El tetragrama representa protección uniendo los cuatro elementos y el espíritu. Las lunas crecientes simbolizan el flujo de la energía mágica, la transformación y la intuición. Pensada para reforzar la intuición, meditaciones, protección del hogar/altar y rituales lunares. ⚠️ Producto decorativo. No apto para consumo.  Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo",
+      "materiales": "Arcilla natural (en los detalles de tetragrama y lunas), corcho, líquido decorativo, sellos artesanales.",
+      "galeria": [
+        "img/uploads/poción-lunar1.png",
+        "img/uploads/poción-lunar2.png",
+        "img/uploads/pocionlunar3.png",
+        "img/uploads/poción-lunar-canva1.png"
+      ],
+      "permiteOtroColor": true,
+      "medidas": "16,5cm. Alto / 6,5cm. Ancho",
+      "opcionesPersonalizacionCliente": [],
+      "elaboracion": "100% a mano.",
+      "id": "poción-lunar"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
+      "opcionesPersonalizacion": "Personaliza el color del elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
+      "descripcionCompleta": "Porta Silvarum significa \"la puerta del bosque\". Es un amuleto pensado para proteger tu energía y acompañarte con la sabiduría de los árboles, no una poción para beber.\n\nDentro del frasco, un líquido verde vibrante se mueve con destellos que evocan la vida del bosque. Delante, una pequeña puerta tallada en arcilla, rodeada de hojas, hace de guardiana de secretos y mundos invisibles. El cierre es de corcho, sellado con cera verde y marcado con el sello de Arcilla Hechizada como garantía de autenticidad, y una cuerda de yute conecta la pieza con la tradición chamánica y los amuletos del pasado.\n\nPuedes usarla para potenciar tu vínculo con el bosque y sus espíritus guardianes, como apoyo en rituales, meditaciones o caminatas en la naturaleza, o simplemente como talismán en tu altar o espacio sagrado, recordando que siempre hay un camino hacia lo mágico.\n\nCada pieza se hace 100% a mano en arcilla natural, con ligeras variaciones que la hacen exclusiva e irrepetible. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.\n\n⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "\"La puerta del bosque\": un líquido verde vibrante tras una entrada tallada en arcilla. Esta poción artesanal se sella con cera verde como talismán de conexión con la naturaleza.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 22,
+      "nombre": "Porta Silvarum",
+      "orden": 12,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Lila"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Azul"
+        }
+      ],
+      "simbolismo": "Amuleto de conexión con el bosque y sus espíritus guardianes. Pensado para rituales, meditaciones, caminatas en la naturaleza, o como talismán personal en altar o espacio sagrado. ⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo.",
+      "materiales": "Arcilla natural, corcho, cera, cuerda de yute, líquido decorativo.",
+      "galeria": [
+        "img/uploads/poción-porta-silvarum-canva1.png",
+        "img/uploads/poción-porta-silvarum-canva2.png",
+        "img/uploads/poción-porta-silvarum-canva3.png",
+        "img/uploads/poción-porta-silvarum-canva4.png"
+      ],
+      "permiteOtroColor": true,
+      "opcionesPersonalizacionCliente": [],
+      "elaboracion": "100% a mano.",
+      "id": "poción-silvarum"
+    },
+    {
+      "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
+      "opcionesPersonalizacion": "Personaliza el color del Elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
+      "descripcionCompleta": "En la tradición mágica, la belladona es la planta de la dualidad: veneno y medicina, luz y sombra, peligro y sabiduría. Esta pócima recoge esa esencia en un frasco artesanal, pensado como talismán de protección, transformación y conexión con lo oculto.\n\nSobre el cristal, unas hojas verdes representan la vitalidad y el misterio de la planta, portadora de saberes antiguos, mientras tres frutos morados evocan sus bayas enigmáticas, asociadas tradicionalmente a los ungüentos de vuelo y a la apertura de portales hacia otros reinos. El tapón lleva grabado un tetragrama, sello que canaliza los cuatro elementos y el espíritu, manteniendo intacta la energía en su interior.\n\nPuedes usarla como apoyo frente a energías negativas, para potenciar la intuición y la conexión con lo invisible, como acompañante en rituales de transformación y trabajo de sombra, o simplemente como objeto sagrado en tu altar o espacio de meditación.\n\nCada pieza se elabora artesanalmente, con ligeras variaciones que la hacen única. ⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "",
+      "descripcionCorta": "Hojas verdes y frutos morados modelados a mano sobre una botella decorativa. Esta poción representa la dualidad histórica de la belladona como planta de luz y sombra.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 16,
+      "nombre": "Pócima de Belladona",
+      "orden": 14,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "pociones",
+      "mostrarVariantes": true,
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Lila "
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Rojo"
+        }
+      ],
+      "simbolismo": "La belladona simboliza la dualidad (veneno/medicina, luz/sombra). Las hojas representan vitalidad y saberes antiguos; los frutos morados evocan los ungüentos de vuelo y portales a otros reinos. El tetragrama del tapón protege canalizando los cuatro elementos y el espíritu. Pensada para protección, trabajo de sombra, rituales de transformación y altar de meditación. ⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.\n-Mantener alejado de niños y mascotas.\n-Producto decorativo: no beber ni aplicar sobre piel u ojos, no apto para consumo.",
+      "materiales": " Arcilla natural, corcho, líquido decorativo, detalles pintados a mano.",
+      "galeria": [
+        "img/uploads/poción-belladona-canva1.png",
+        "img/uploads/poción-belladona-canva2.png",
+        "img/uploads/poción-belladona-canva3.png",
+        "img/uploads/poción-belladona-canva4.png"
+      ],
+      "permiteOtroColor": true,
+      "elaboracion": "100% a mano.",
+      "id": "poción-belladona"
+    },
+    {
+      "opcionesPersonalizacion": "Elige Collar, Pulsera o Llavero ",
+      "descripcionCompleta": "Dentro de un círculo tallado en arcilla conviven tres elementos: una escoba, un gorro de bruja y enredaderas que los rodean con sus hojas. Juntos forman una escena que representa algo más amplio que un símbolo individual: la idea de un camino que se recorre en compañía.\n\nEl círculo, la forma tradicionalmente asociada al aquelarre como espacio de encuentro, envuelve estos elementos como si los reuniera en un mismo punto de guía. El acabado efecto piedra, propio de esta línea de amuletos, le da a la pieza un aspecto ancestral y duradero.\n\nPuede tener un lugar especial para quien forma parte de un grupo espiritual, participa en rituales colectivos o simplemente valora la idea de sentirse acompañada en su propio camino, aunque lo recorra en solitario.               Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Una escoba, un gorro de bruja y enredaderas talladas dentro de un mismo círculo. Este amuleto en arcilla, con acabado efecto piedra, representa la protección de un clan espiritual",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Sendero del Aquelarre",
+      "orden": 51,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "La escoba y el gorro son dos de los elementos más reconocibles del imaginario popular asociado a la bruja, mientras que el círculo remite a la tradición del aquelarre como espacio de reunión y comunidad mágica. En el diseño de esta pieza, ambos elementos se combinan con enredaderas que representan el crecimiento y el apoyo mutuo.\n\nDentro de esta interpretación, el Sendero del Aquelarre se asocia con:\n\nProtección del clan o comunidad espiritual a la que se pertenece.\n\nConexión con guías espirituales y con la tradición de la magia ancestral.\n\nUnión y colaboración, especialmente en proyectos o rituales realizados en grupo. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/sendero-del-aquelarre-canva1.png",
+        "img/uploads/sendero-del-aquelarre-canva2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "sendero-del-aquelarre",
+      "imagenPrincipal": ""
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "Dentro de un círculo, el tetragrama concentra en un solo trazo la idea de cuatro fuerzas distintas —tierra, aire, fuego y agua— unidas por un quinto elemento: el espíritu. Esta pieza traduce ese equilibrio en un amuleto compacto, tallado en arcilla natural con acabado efecto piedra.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor, fácil de llevar a diario o de colocar en un altar como punto de referencia visual para ese mismo equilibrio elemental. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "El símbolo de los cuatro elementos y el espíritu, tallado dentro de un círculo en arcilla con acabado efecto piedra. Un amuleto compacto para llevar contigo o colocar en tu altar.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Tetragrama de Protección",
+      "orden": 54,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "El tetragrama —también conocido como pentáculo de cinco puntas— es un símbolo esotérico ampliamente documentado, presente en distintas tradiciones espirituales y asociado tradicionalmente a la unión de los cuatro elementos naturales con el espíritu.\n\nEn el diseño de esta pieza, ese simbolismo se traduce en:\n\nProtección frente a energías que se perciben como negativas.\n\nEquilibrio entre las fuerzas elementales, tanto internas como del entorno.\n\nRefuerzo de la conexión espiritual personal.\n\nEste significado pertenece al terreno de la tradición esotérica. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/tetagrama-canva1.png",
+        "img/uploads/tetragrama-canva2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": " 3 cm de diámetro y 3 mm de grosor.",
+      "opcionesPersonalizacionCliente": [
+        {
+          "nombre": "Collar"
+        },
+        {
+          "nombre": "Pulsera"
+        },
+        {
+          "nombre": "Llavero"
+        }
+      ],
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-tetragrama-proteccion",
+      "imagenPrincipal": "img/uploads/tetagrama-canva1.png"
+    },
+    {
+      "opcionesPersonalizacion": "Elige: Collar, Pulsera o Llavero.",
+      "descripcionCompleta": "Tres símbolos, un mismo círculo: el tetragrama, una media luna y una triqueta conviven en esta pieza, cada uno aportando su propio significado dentro de un diseño compacto. Tallada a mano en arcilla natural con acabado efecto piedra, la pieza reúne en un solo amuleto tres tradiciones distintas del simbolismo esotérico.\n\nDisponible en formato collar, pulsera o llavero, en un tamaño de 3 cm de diámetro y 3 mm de grosor. Es una pieza pensada para llevar siempre contigo o colocar en un altar, para quien busca reunir varias capas de significado en un único objeto. Se entrega activada con su propia intención antes de salir del taller.",
+      "coleccion": "linea_efecto_piedra",
+      "formatosDisponibles": [
+        "Collar",
+        "Pulsera",
+        "Llavero"
+      ],
+      "descripcionCorta": "Tetragrama, media luna y triqueta reunidos dentro de un mismo círculo tallado a mano. Este amuleto en arcilla, con acabado efecto piedra, combina tres símbolos de protección en uno.",
+      "estado": "disponible",
+      "activarSelectorPersonalizacion": true,
+      "precio": 9,
+      "nombre": "Triple Escudo",
+      "orden": 59,
+      "personalizable": true,
+      "activarCompra": true,
+      "mostrarCollarLlavero": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "categoria": "amuletos",
+      "mostrarVariantes": false,
+      "variantes": [],
+      "simbolismo": "Cada uno de los tres símbolos que forman esta pieza pertenece a una tradición documentada dentro del esoterismo: el tetragrama representa la unión de los cuatro elementos con el espíritu; la media luna se asocia tradicionalmente con los ciclos y la energía lunar; la triqueta, de origen celta, representa la unión de tres fuerzas o planos.\n\nEn conjunto, dentro del diseño de esta pieza, representan:\n\nProtección integral frente a energías que se perciben como negativas.\n\nConexión con la energía lunar y con la intuición.\n\nEquilibrio entre cuerpo, mente y espíritu. Se entrega activada con su propia intención antes de salir del taller.",
+      "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave.",
+      "materiales": "Arcilla natural, acabado efecto piedra.",
+      "galeria": [
+        "img/uploads/triple-escudo-canva1.png",
+        "img/uploads/triple-escudo-canva2.png"
+      ],
+      "permiteOtroColor": false,
+      "medidas": "3 cm de diámetro y 3 mm de grosor.",
+      "elaboracion": "100% a mano.",
+      "id": "amuleto-triple-escudo",
+      "imagenPrincipal": ""
+    },
+    {
+      "descripcionCompleta": "Sientes que tú o tu hogar se siente pesado?           Con Incienso para realizar limpiezas energéticas, sentirás después de usarlo un cambio. Se respirará una sensación de paz en tú hogar, sentirás el ambiente más ligero... Y todavía eso no es todo. Con este incienso hecho con productos 100% naturales y completamente hechos a mano sus resultados te sorprenderás. No llevan ningún producto químico, así que ya podrás tener esa tranquilidad de no estar respirando ningún gas nocivo para tú salud. ",
+      "modoUso": "Encender con fosforo, cuando la punta esté roja agitar ligeramente y a disfrutar",
+      "descripcionCorta": "Incienso para realizar limpiezas energéticas",
+      "estado": "disponible",
+      "precio": 5,
+      "nombre": "Limpieza energética",
+      "activarCompra": true,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "cuidados": "Mantener en un lugar cerrado, seco y oscuro. ",
+      "notasOlfativas": "Amaderadas",
+      "medidas": "7",
+      "elaboracion": "100% a mano.",
+      "id": "incienso-limpieza",
+      "ingredientes": "Salvia, madera 100% natural, carbón vegetal, resinas vegetales",
+      "categoria": "inciensos"
+    },
+    {
+      "descripcionCompleta": "Esta mezcla de plantas está cuidadosamente preparada para que con una tazita puedas relajarte. Sientes después de un día duro de trabajo, de universidad o simplemente sientes que necesitas relajarte? Esta mezcla te ayudará a conseguirlo. No hay nada como la medicina natural para conseguir algo tan necesario como la relajación. Calienta la medida de una taza de agua hirviendo. Incorpora al agua hirviendo una cucharada de la mezcla de plantas, tapala dejala reposar 10 min. cuela y disfruta",
+      "descripcionCorta": "Infusión para relajarse",
+      "estado": "oculto",
+      "precio": 4.5,
+      "nombre": "Relax",
+      "activarCompra": false,
+      "formasPagoDisponibles": [
+        "Bizum",
+        "PayPal",
+        "Efectivo"
+      ],
+      "cuidados": "Mantener en lugar oscuro y seco ",
+      "medidas": "300 gr.",
+      "modoEmpleo": " Calienta la medida de una taza de agua hirviendo. Incorpora al agua hirviendo una cucharada de la mezcla de plantas, tapa la deja la reposar 10 min. cuela y disfruta. También puedes tomar la enfrio, pasado esos 10 min. tapada y una vez colada añade hielo al gusto y listo!! Una infusión fría para relajarte",
+      "elaboracion": "100% a mano.",
+      "id": "relax",
+      "ingredientes": "Anís estrellado, salvia, lavanda, manzanilla",
+      "categoria": "infusiones"
     }
   ]
 }

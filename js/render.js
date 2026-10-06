@@ -5,7 +5,7 @@ let PRODUCTOS = [], PIEZAS_UNICAS = [], OPINIONES = [], FAQ = [], INICIO = {};
 const WHATSAPP='34722379095', EMAIL='arcillahechizada@gmail.com', CART_KEY='arcillaHechizadaCarrito';
 const BIZUM='722379095';
 const FORMSPREE_ENDPOINT='https://formspree.io/f/xqpanapp';
-const PAYPAL_BACKEND_BASE=window.ARCILLA_PAYPAL_BACKEND||'https://wonderful-sawine-8541d2.netlify.app/.netlify/functions';
+const PAYPAL_BACKEND_BASE=window.ARCILLA_PAYPAL_BACKEND||'/api';
 
 const GITHUB_REPO='arcillahechizada/arcilla-hechizada-web';
 async function cargarCarpetaProductosGitHub(folder){
@@ -249,7 +249,7 @@ async function enviarPedidoFormspree(c,subtotal,envio,cliente,metodo,numero,extr
 }
 
 // ------------------------------------------------------------
-// BACKEND NETLIFY / PAYPAL
+// BACKEND DE PAGOS (Cloudflare Pages Functions, rutas /api/...) / PAYPAL
 // ------------------------------------------------------------
 async function paypalBackend(path,options={}){
   const base=PAYPAL_BACKEND_BASE.replace(/\/$/,'');
@@ -289,7 +289,7 @@ async function obtenerSdk(tipo){
 async function crearOrdenPayPal(p){
   const order=await paypalBackend('/paypal-create-order',{
     method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,numeroPedido:p.numero})
+    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,numeroPedido:p.numero,metodo:p.metodo})
   });
   if(!order.id) throw new Error('PayPal no ha devuelto el número de pedido');
   if(Math.abs(Number(order.total)-p.total)>0.005){
