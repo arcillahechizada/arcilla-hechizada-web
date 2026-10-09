@@ -137,7 +137,31 @@ function renderFicha(){const id=new URLSearchParams(location.search).get('id')||
  c.querySelectorAll('.miniatura').forEach(m=>m.addEventListener('click',()=>{const im=c.querySelector('#foto-principal-ficha');if(im)im.src=m.dataset.foto;c.querySelectorAll('.miniatura').forEach(x=>x.classList.remove('activa'));m.classList.add('activa');}));
  if(comprable){let cantidad=1;const cv=c.querySelector('#cantidad-valor');const menos=c.querySelector('#cantidad-menos');const mas=c.querySelector('#cantidad-mas');if(cv&&menos&&mas){menos.addEventListener('click',()=>{cantidad=Math.max(1,cantidad-1);cv.textContent=cantidad;});mas.addEventListener('click',()=>{cantidad++;cv.textContent=cantidad;});}document.getElementById('btn-carrito').addEventListener('click',()=>añadirAlCarrito(p,opcionesSeleccionadas(),cantidad));document.querySelectorAll('#ficha-contenido select[data-tipo],#ficha-contenido input[data-tipo]').forEach(e=>{e.addEventListener('change',actualizarPedido);e.addEventListener('input',actualizarPedido);});actualizarPedido();}
 }
-function calcularEnvio(cp){const s=String(cp||'').replace(/\D/g,'');if(!/^\d{5}$/.test(s))return null;const pref=Number(s.slice(0,2));if([35,38,51,52].includes(pref))return 7.50;return 6.50;}
+// TABLA ÚNICA DE ENVÍO (el backend /api/paypal-create-order es la autoridad final)
+const ENVIO_TARIFAS={peninsula:5.95,baleares:7.55,canarias:10.90,ceuta:7.55,melilla:7.55};
+const ENVIO_ZONAS_ES=[
+  {zona:'baleares',prefijos:[7]},
+  {zona:'canarias',prefijos:[35,38]},
+  {zona:'ceuta',prefijos:[51]},
+  {zona:'melilla',prefijos:[52]},
+  {zona:'peninsula',prefijos:[1,2,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,36,37,39,40,41,42,43,44,45,46,47,48,49,50]}
+];
+const PAISES_CHECKOUT=[['ES','España'],['PT','Portugal'],['FR','Francia'],['IT','Italia'],['DE','Alemania'],['GB','Reino Unido'],['US','Estados Unidos'],['XX','Otro país']];
+function esPaisEspana(pais){return String(pais||'ES').toUpperCase()==='ES';}
+// Devuelve {tipo:'es',zona,precio} | {tipo:'internacional'} | {tipo:'pendiente'} (sin CP) | {tipo:'invalido'}
+function resolverEnvio(pais,cp){
+  if(!esPaisEspana(pais))return {tipo:'internacional'};
+  const raw=String(cp||'').trim();
+  if(!raw)return {tipo:'pendiente'};
+  if(!/^\d{5}$/.test(raw))return {tipo:'invalido'};
+  const pref=Number(raw.slice(0,2));
+  const z=ENVIO_ZONAS_ES.find(x=>x.prefijos.includes(pref));
+  if(!z)return {tipo:'invalido'};
+  return {tipo:'es',zona:z.zona,precio:ENVIO_TARIFAS[z.zona]};
+}
+function calcularEnvio(cp,pais){const r=resolverEnvio(pais,cp);return r.tipo==='es'?r.precio:null;}
+function paisCheckout(){return document.getElementById('cliente-pais')?.value||'ES';}
+function whatsappInternacionalURL(){return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola, quiero hacer un pedido de Arcilla Hechizada desde fuera de España y quisiera consultar la opción de envío más económica.')}`;}
 function metodosPagoCarrito(c){const listas=c.map(i=>{const actual=PRODUCTOS.find(p=>p.id===i.id)||PIEZAS_UNICAS.find(p=>p.id===i.id);const metodosActuales=actual?normalizarMetodosPago(actual.formasPagoDisponibles):[];return metodosActuales.length?metodosActuales:(normalizarMetodosPago(i.pagos).length?normalizarMetodosPago(i.pagos):['Bizum','PayPal','Efectivo']);});if(!listas.length)return['Bizum','PayPal','Efectivo'];const union=[...new Set(listas.flat())];const orden=['Bizum','PayPal','Efectivo'];return [...orden.filter(x=>union.includes(x)),...union.filter(x=>!orden.includes(x))];}
 
 function generarNumeroPedido(){
@@ -168,31 +192,53 @@ function mostrarError(msg){
 }
 function datosClienteCrudo(){
   const get=id=>(document.getElementById(id)?.value||'').trim();
-  return {nombre:get('cliente-nombre'),email:get('cliente-email'),telefono:get('cliente-telefono'),direccion:get('cliente-direccion'),cp:get('cp-envio')};
+  return {nombre:get('cliente-nombre'),email:get('cliente-email'),telefono:get('cliente-telefono'),direccion:get('cliente-direccion'),cp:get('cp-envio'),pais:(document.getElementById('cliente-pais')?.value||'ES')};
 }
 // En Efectivo (recogida en taller) no se usa ni se envía dirección ni código postal.
 function datosCliente(metodo){
   const c=datosClienteCrudo();
   const m=metodo||document.getElementById('metodo-pago')?.value||'';
-  if(esEfectivo(m)){c.direccion='';c.cp='';}
+  if(esEfectivo(m)){c.direccion='';c.cp='';c.pais='ES';}
   return c;
 }
 function validarDatosCheckout(cliente,metodo){
   if(!cliente.nombre||!cliente.email||!cliente.telefono) return 'Completa nombre y apellidos, correo electrónico y teléfono antes de continuar.';
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cliente.email)) return 'El correo electrónico no parece válido. Revísalo para poder enviarte la confirmación.';
-  if(!esEfectivo(metodo)&&(!cliente.direccion||!/^[0-9]{5}$/.test(cliente.cp))) return 'Completa la dirección de entrega y un código postal válido de 5 cifras.';
+  if(!esEfectivo(metodo)){
+    if(!esPaisEspana(cliente.pais)) return 'Envío internacional — consulta el envío por WhatsApp antes de pagar.';
+    if(!cliente.direccion) return 'Completa la dirección de entrega.';
+    if(resolverEnvio('ES',cliente.cp).tipo!=='es') return 'Introduce un código postal español válido de 5 cifras.';
+  }
   return '';
+}
+// Carrito antiguo: contrasta cada línea con el catálogo actual. Si el precio cambió, lo actualiza y avisa.
+function sincronizarPreciosCarrito(c){
+  const cambios=[];
+  c.forEach(i=>{
+    const act=PRODUCTOS.find(p=>p.id===i.id)||PIEZAS_UNICAS.find(p=>p.id===i.id);
+    if(!act||!sePuedeComprar(act))return;
+    const nuevo=precioNumero(act);
+    if(Math.abs(nuevo-(Number(i.precio)||0))>0.005){
+      cambios.push(`El precio de «${i.nombre}» ha cambiado de ${formatoEuros(i.precio)} a ${formatoEuros(nuevo)}.`);
+      i.precio=nuevo;
+    }
+  });
+  if(cambios.length)guardarCarrito(c);
+  return {cambios};
 }
 function subtotalCarrito(c){return c.reduce((s,i)=>s+(Number(i.precio)||0)*(Number(i.cantidad)||1),0);}
 function actualizarResumenCheckout(c,metodo){
   const subtotal=subtotalCarrito(c);
   const cp=document.getElementById('cp-envio')?.value||'';
   const efectivo=esEfectivo(metodo);
-  const env=efectivo?0:calcularEnvio(cp);
+  const r=efectivo?{tipo:'es',precio:0}:resolverEnvio(paisCheckout(),cp);
+  const env=r.tipo==='es'?r.precio:null;
   const envioEl=document.querySelector('.envio-linea strong'),totalEl=document.querySelector('.ticket-total strong');
-  if(envioEl) envioEl.textContent=efectivo?'No aplica (recogida en taller)':(env===null?'Se calcularán':formatoEuros(env));
-  if(totalEl) totalEl.textContent=formatoEuros(subtotal+(env||0));
-  return {subtotal,env};
+  if(envioEl) envioEl.textContent=efectivo?'No aplica (recogida en taller)':(r.tipo==='internacional'?'A consultar por WhatsApp':(env===null?(r.tipo==='invalido'?'Código postal no válido':'Se calcularán'):formatoEuros(env)));
+  if(totalEl) totalEl.textContent=r.tipo==='internacional'?'A consultar':formatoEuros(subtotal+(env||0));
+  const aviso=document.getElementById('aviso-internacional');
+  if(aviso) aviso.hidden=!(r.tipo==='internacional'&&!efectivo);
+  return {subtotal,env,tipo:r.tipo,zona:r.zona||null};
 }
 function lineasProductos(c){
   return c.map(i=>{
@@ -289,7 +335,7 @@ async function obtenerSdk(tipo){
 async function crearOrdenPayPal(p){
   const order=await paypalBackend('/paypal-create-order',{
     method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,numeroPedido:p.numero,metodo:p.metodo})
+    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,pais:'ES',numeroPedido:p.numero,metodo:p.metodo})
   });
   if(!order.id) throw new Error('PayPal no ha devuelto el número de pedido');
   if(Math.abs(Number(order.total)-p.total)>0.005){
@@ -316,8 +362,11 @@ function prepararPedido(metodo){
   const cliente=datosCliente(metodo);
   const err=validarDatosCheckout(cliente,metodo);
   if(err){mostrarError(err);return null;}
+  const sync=sincronizarPreciosCarrito(items);
+  if(sync.cambios.length){mostrarError(sync.cambios.join(' ')+' Revisa el nuevo total y pulsa de nuevo.');renderCarrito();return null;}
   const calc=actualizarResumenCheckout(items,metodo);
-  if(!esEfectivo(metodo)&&calc.env===null){mostrarError('Introduce un código postal válido de 5 cifras para calcular el envío.');return null;}
+  if(!esEfectivo(metodo)&&calc.tipo==='internacional'){mostrarError('Envío internacional — consulta el envío por WhatsApp antes de pagar.');return null;}
+  if(!esEfectivo(metodo)&&calc.env===null){mostrarError('Introduce un código postal español válido de 5 cifras para calcular el envío.');return null;}
   const envio=calc.env||0;
   return {items,cliente,metodo,subtotal:calc.subtotal,envio,total:calc.subtotal+envio,numero:numeroPedidoActual()};
 }
@@ -485,6 +534,7 @@ function pintarAccion(metodo){
   const box=document.getElementById('checkout-accion'); if(!box||CHK.terminado)return;
   const seq=++CHK.seq;
   mostrarError('');
+  if(!esEfectivo(metodo)&&!esPaisEspana(paisCheckout())){box.innerHTML='';return;}   // internacional: sin pago online
   if(metodo==='Tarjeta'||metodo==='PayPal'){
     box.innerHTML=`<div id="paypal-payment-box"><p class="ayuda-cp">Cargando el pago seguro de PayPal…</p></div>`;
     (metodo==='Tarjeta'?montarTarjeta(seq):montarPayPal(seq)).catch(e=>falloCargaPago(seq,e));
@@ -508,6 +558,7 @@ function renderCarrito(){
   if(!root)return;
   let c=leerCarrito();
   if(!c.length){root.innerHTML=htmlCarritoVacio();return;}
+  const avisoPrecios=sincronizarPreciosCarrito(c).cambios;
   const sub=()=>subtotalCarrito(c);
   function pintar(){
     if(!c.length){root.innerHTML=htmlCarritoVacio();return;}
@@ -533,10 +584,12 @@ function renderCarrito(){
         <label for="cliente-email">Correo electrónico</label><input id="cliente-email" type="email" autocomplete="email" placeholder="tu@email.com" value="${escHTML(clientePrev.email)}">
         <label for="cliente-telefono">Teléfono</label><input id="cliente-telefono" type="tel" autocomplete="tel" placeholder="Tu teléfono" value="${escHTML(clientePrev.telefono)}">
         <div id="datos-entrega">
+          <label for="cliente-pais">País</label><select id="cliente-pais" autocomplete="country">${PAISES_CHECKOUT.map(([v,n])=>`<option value="${v}"${v===(clientePrev.pais||'ES')?' selected':''}>${n}</option>`).join('')}</select>
           <label for="cliente-direccion">Dirección de entrega</label><input id="cliente-direccion" autocomplete="street-address" placeholder="Calle, número, piso..." value="${escHTML(clientePrev.direccion)}">
           <label for="cp-envio">Código postal</label><input id="cp-envio" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="Introduce tu código postal" value="${escHTML(clientePrev.cp)}">
           <p class="ayuda-cp">Introduce el código postal de entrega para calcular los gastos de envío.</p>
         </div>
+        <div id="aviso-internacional" class="pago-instrucciones" hidden><h3>Envío internacional — consultar por WhatsApp</h3><p>¿Tu pedido es fuera de España?<br>Escríbenos por WhatsApp y buscamos la forma de envío más económica para que tu pedido de Arcilla Hechizada llegue hasta ti.</p><a class="btn btn-whatsapp-producto" href="${whatsappInternacionalURL()}" target="_blank" rel="noopener">Consultar envío por WhatsApp</a></div>
         <p id="aviso-efectivo" class="pago-instrucciones" hidden>💶 <strong>Pago en efectivo en el taller.</strong><br>El pago se efectuará el día acordado para la recogida. No se aplican gastos de envío.</p>
         <label for="metodo-pago" class="label-pago">Forma de pago</label>
         <select id="metodo-pago">
@@ -561,10 +614,11 @@ function renderCarrito(){
     const select=document.getElementById('metodo-pago');
     select.value=metodoPrev;
     select.addEventListener('change',()=>pintarCamposCheckout(select.value));
-    ['cliente-nombre','cliente-email','cliente-telefono','cliente-direccion','cp-envio'].forEach(id=>{
-      document.getElementById(id)?.addEventListener('input',()=>{mostrarError('');actualizarResumenCheckout(c,select.value);});
+    ['cliente-nombre','cliente-email','cliente-telefono','cliente-direccion','cp-envio','cliente-pais'].forEach(id=>{
+      document.getElementById(id)?.addEventListener(id==='cliente-pais'?'change':'input',()=>{mostrarError('');if(id==='cliente-pais')pintarCamposCheckout(select.value);else actualizarResumenCheckout(c,select.value);});
     });
     pintarCamposCheckout(select.value);
   }
   pintar();
+  if(avisoPrecios.length)mostrarError(avisoPrecios.join(' '));
 }
