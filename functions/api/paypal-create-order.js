@@ -1,7 +1,7 @@
 // POST /api/paypal-create-order
 // Crea el pedido en PayPal. El importe se calcula AQUÍ con los precios reales
 // del catálogo, nunca con un importe enviado por el navegador.
-import { paypalBase, respuesta, preflight, tokenServidor, envio, cargarCatalogo, sePuedeComprar } from '../lib/paypal.js';
+import { paypalBase, respuesta, preflight, tokenServidor, resolverEnvio, cargarCatalogo, sePuedeComprar } from '../lib/paypal.js';
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -11,10 +11,13 @@ export async function onRequest(context) {
     let b = {};
     try { b = await request.json(); } catch (e) { return respuesta(request, 400, { error: 'Pedido no válido.' }); }
     const items = Array.isArray(b.items) ? b.items : [];
-    const ship = envio(b.cp);
+    const zonaEnvio = resolverEnvio(b.pais, b.cp);
     const numero = String(b.numeroPedido || '').slice(0, 60);
     const esTarjeta = String(b.metodo || '').toLowerCase() === 'tarjeta';
-    if (!items.length || items.length > 50 || ship === null) return respuesta(request, 400, { error: 'Carrito o código postal no válidos.' });
+    if (zonaEnvio.tipo === 'internacional') return respuesta(request, 400, { error: 'Envío internacional — consulta el envío por WhatsApp antes de pagar.' });
+    if (zonaEnvio.tipo !== 'es') return respuesta(request, 400, { error: 'Introduce un código postal español válido de 5 cifras.' });
+    if (!items.length || items.length > 50) return respuesta(request, 400, { error: 'Carrito no válido.' });
+    const ship = zonaEnvio.precio;
 
     const catalogo = await cargarCatalogo(context);
     if (!catalogo.length) return respuesta(request, 503, { error: 'No se pudo comprobar el catálogo. Inténtalo de nuevo en unos segundos.' });
@@ -62,7 +65,7 @@ export async function onRequest(context) {
       console.error('create-order PayPal', r.status, JSON.stringify(d).slice(0, 500));
       return respuesta(request, 502, { error: 'PayPal no ha aceptado el pedido.', detalle: d.name || r.status });
     }
-    return respuesta(request, 200, { id: d.id, total: total, envio: ship.toFixed(2), subtotal: (subtotal / 100).toFixed(2) });
+    return respuesta(request, 200, { id: d.id, total: total, envio: ship.toFixed(2), zona: zonaEnvio.zona, subtotal: (subtotal / 100).toFixed(2) });
   } catch (e) {
     console.error('paypal-create-order:', e.message);
     return respuesta(request, 500, { error: 'No se pudo crear el pedido de PayPal.', code: e.message });
