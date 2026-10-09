@@ -67,11 +67,26 @@ export function tokenNavegador(env) {
   return pedirToken(env, 'grant_type=client_credentials&response_type=client_token&intent=sdk_init', 'client-token');
 }
 
-// Mismos gastos de envío que js/render.js (calcularEnvio): 7,50 € Baleares, Canarias, Ceuta y Melilla; 6,50 € resto.
-export function envio(cp) {
-  const s = String(cp || '').replace(/\D/g, '');
-  if (!/^\d{5}$/.test(s)) return null;
-  return [35, 38, 51, 52].includes(Number(s.slice(0, 2))) ? 7.5 : 6.5;
+// TABLA DE ENVÍO (autoridad final). Debe coincidir con ENVIO_TARIFAS / ENVIO_ZONAS_ES de js/render.js.
+// España: la zona sale del prefijo (2 primeras cifras) del código postal. Fuera de España no se calcula envío.
+export const ENVIO_TARIFAS = { peninsula: 5.95, baleares: 7.55, canarias: 10.90, ceuta: 7.55, melilla: 7.55 };
+const ENVIO_ZONAS_ES = [
+  { zona: 'baleares', prefijos: [7] },
+  { zona: 'canarias', prefijos: [35, 38] },
+  { zona: 'ceuta', prefijos: [51] },
+  { zona: 'melilla', prefijos: [52] },
+  { zona: 'peninsula', prefijos: [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50] }
+];
+
+// Devuelve { tipo: 'es', zona, precio } | { tipo: 'internacional' } | { tipo: 'invalido' }.
+// Un código postal inválido (00xxx, 53xxx-99xxx, formato incorrecto) NUNCA cae por defecto en Península.
+export function resolverEnvio(pais, cp) {
+  const p = String(pais === undefined || pais === null || pais === '' ? 'ES' : pais).trim().toUpperCase();
+  if (p !== 'ES') return { tipo: 'internacional' };
+  const raw = String(cp === undefined || cp === null ? '' : cp).trim();
+  if (!/^\d{5}$/.test(raw)) return { tipo: 'invalido' };
+  const z = ENVIO_ZONAS_ES.find(x => x.prefijos.includes(Number(raw.slice(0, 2))));
+  return z ? { tipo: 'es', zona: z.zona, precio: ENVIO_TARIFAS[z.zona] } : { tipo: 'invalido' };
 }
 
 const esVerdadero = v => v === true || v === 'true';
