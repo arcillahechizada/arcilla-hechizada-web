@@ -62,9 +62,59 @@ export function tokenServidor(env) {
   return pedirToken(env, 'grant_type=client_credentials&response_type=token', 'oauth');
 }
 
+// Dominios para los que se emite el token del navegador (PayPal lo "ata" a ellos, parámetro domains[]).
+// Solo se acepta el dominio propio, su www y los *.pages.dev (web de pruebas y previews de Cloudflare).
+// Se ata el token SOLO al dominio desde el que se pide (la página lo pide en cada visita), sin listas.
+export function dominioParaToken(request, env) {
+  let host = '';
+  try { host = new URL(request.url).hostname.toLowerCase(); } catch (e) { return ''; }
+  const extra = String(env.PAYPAL_DOMAINS || '').split(',').map(x => x.trim().toLowerCase()).filter(Boolean);
+  const ok = host === 'arcillahechizada.com' || host === 'www.arcillahechizada.com' ||
+    host.endsWith('.pages.dev') || extra.includes(host);
+  return ok ? host : '';
+}
+
 // Token seguro para el navegador (SDK v6 / Card Fields). Es distinto del anterior.
-export function tokenNavegador(env) {
-  return pedirToken(env, 'grant_type=client_credentials&response_type=client_token&intent=sdk_init', 'client-token');
+// Según la documentación de PayPal v6 la petición lleva grant_type, response_type=client_token y domains[].
+// Si PayPal rechazase un formato, se prueban los siguientes y, como último recurso, la petición anterior
+// (sin domains). Devuelve { token, variante } (variante = qué petición funcionó; no es secreto).
+export async function tokenNavegador(env, request) {
+  const host = request ? dominioParaToken(request, env) : '';
+  const base = () => new URLSearchParams({ grant_type: 'client_credentials', response_type: 'client_token' });
+  const intentos = [];
+  if (host) {
+    intentos.push(['domains-host', () => { const b = base(); b.append('domains[]', host); return b; }]);
+    intentos.push(['domains-https', () => { const b = base(); b.append('domains[]', 'https://' + host); return b; }]);
+    intentos.push(['domains-host-intent', () => { const b = base(); b.append('intent', 'sdk_init'); b.append('domains[]', host); return b; }]);
+  }
+  intentos.push(['sin-domains', () => { const b = base(); b.append('intent', 'sdk_init'); return b; }]);
+  let ultimo = null;
+  for (const [variante, fn] of intentos) {
+    try {
+      const token = await pedirToken(env, fn().toString(), 'client-token');
+      return { token, variante, host };
+    } catch (e) {
+      ultimo = e;
+      if (e.message === 'missing-credentials') throw e;   // reintentar no arregla credenciales ausentes
+    }
+  }
+  throw ultimo || new Error('client-token');
+}
+
+// Diagnóstico SIN secretos: nombres de los campos del token y dominios a los que está atado (si el token es un JWT).
+export function infoToken(token) {
+  const out = { longitud: String(token || '').length, esJwt: false };
+  try {
+    const partes = String(token).split('.');
+    if (partes.length === 3) {
+      const b64 = partes[1].replace(/-/g, '+').replace(/_/g, '/');
+      const c = JSON.parse(atob(b64 + '='.repeat((4 - b64.length % 4) % 4)));
+      out.esJwt = true;
+      out.campos = Object.keys(c);
+      ['domains', 'aud', 'exp', 'iat'].forEach(k => { if (k in c) out[k] = c[k]; });
+    }
+  } catch (e) { /* no es un JWT legible: no pasa nada */ }
+  return out;
 }
 
 // TABLA DE ENVÍO (autoridad final). Debe coincidir con ENVIO_TARIFAS / ENVIO_ZONAS_ES de js/render.js.
