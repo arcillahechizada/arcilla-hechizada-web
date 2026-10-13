@@ -323,19 +323,30 @@ async function cargarPayPalSdk(){
 async function obtenerSdk(tipo){
   const hit=CHK.sdk[tipo];
   if(hit&&Date.now()-hit.ts<10*60*1000) return hit;   // el token caduca a los 15 min
-  const sdk=await cargarPayPalSdk();
-  const t=await paypalBackend('/paypal-auth');
-  const clientToken=t.accessToken||t.clientToken;
-  if(!clientToken) throw new Error('PayPal no ha devuelto el token de cliente');
-  const inst=await sdk.createInstance({clientToken,components:[tipo==='tarjeta'?'card-fields':'paypal-payments'],pageType:'checkout'});
-  const methods=await inst.findEligibleMethods({currencyCode:'EUR'});
-  CHK.sdk[tipo]={inst,methods,ts:Date.now()};
-  return CHK.sdk[tipo];
+  let fase='sdk';
+  try{
+    const sdk=await cargarPayPalSdk();
+    fase='token';
+    const t=await paypalBackend('/paypal-auth');
+    const clientToken=t.accessToken||t.clientToken;
+    if(!clientToken) throw new Error('PayPal no ha devuelto el token de cliente');
+    fase='createInstance';
+    // Botón amarillo = 'paypal-payments'; botón negro de tarjeta (ventana oficial de PayPal) = 'paypal-guest-payments'.
+    const inst=await sdk.createInstance({clientToken,components:[tipo==='tarjeta'?'paypal-guest-payments':'paypal-payments'],pageType:'checkout'});
+    // La comprobación de elegibilidad es solo informativa: si PayPal la rechaza (p. ej. 403) NO se bloquea el pago;
+    // los botones se muestran igualmente y PayPal validará todo al abrir la ventana de pago.
+    let methods=null;
+    fase='elegibilidad';
+    try{ methods=await inst.findEligibleMethods({currencyCode:'EUR'}); }
+    catch(e){ console.warn('PayPal: no se pudo comprobar la elegibilidad; se muestran los botones igualmente.',e&&e.message); }
+    CHK.sdk[tipo]={inst,methods,ts:Date.now()};
+    return CHK.sdk[tipo];
+  }catch(e){ if(e&&typeof e==='object')e.fasePago=fase; throw e; }
 }
-async function crearOrdenPayPal(p){
+async function crearOrdenPayPal(p,metodoPedido){
   const order=await paypalBackend('/paypal-create-order',{
     method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,pais:'ES',numeroPedido:p.numero,metodo:p.metodo})
+    body:JSON.stringify({items:p.items.map(i=>({id:i.id,cantidad:Number(i.cantidad)||1})),cp:p.cliente.cp,pais:'ES',numeroPedido:p.numero,metodo:metodoPedido||p.metodo})
   });
   if(!order.id) throw new Error('PayPal no ha devuelto el número de pedido');
   if(Math.abs(Number(order.total)-p.total)>0.005){
@@ -423,7 +434,46 @@ async function pagarConTarjeta(sesion,btn){
     if(!completado&&!CHK.terminado&&btn.isConnected){btn.disabled=false;btn.textContent='Pagar con tarjeta';}
   }
 }
+// Callbacks comunes de las ventanas oficiales de PayPal (botón amarillo y botón negro de tarjeta).
+function callbacksPagoPopup(){
+  return {
+    onApprove:async(data)=>{
+      const p=CHK.ctx; if(!p)return;
+      try{
+        await capturarOrden(data.orderId);
+        await terminarPagoOnline(p,data.orderId);
+      }catch(e){
+        console.error(e);
+        mostrarError(e&&e.fase==='captura'?mensajeFalloCaptura(p):'PayPal no ha podido completar el pago. Inténtalo de nuevo.');
+      }finally{CHK.ocupado=false;}
+    },
+    onCancel:()=>{CHK.ocupado=false;mostrarError('Has cancelado el pago. Puedes intentarlo de nuevo cuando quieras.');},
+    onError:(e)=>{console.error('PayPal',e);CHK.ocupado=false;mostrarError('PayPal no ha podido completar el pago. Inténtalo de nuevo.');},
+    onWarn:(e)=>{console.warn('PayPal aviso',e);}
+  };
+}
+function iniciarPagoPopup(sesion,metodo,metodoParaOrden){
+  if(CHK.ocupado||CHK.terminado)return;
+  const p=prepararPedido(metodo); if(!p)return;
+  CHK.ocupado=true;CHK.ctx=p;mostrarError('');
+  // start() debe llamarse dentro del clic; el pedido se crea mientras se abre la ventana de PayPal.
+  sesion.start({presentationMode:'auto'},crearOrdenPayPal(p,metodoParaOrden).then(o=>({orderId:o.id}))).catch(e=>{
+    console.error(e);CHK.ocupado=false;
+    mostrarError(mensajeUsuario(e,'No se ha podido abrir la ventana de pago. Inténtalo de nuevo.'));
+  });
+}
+// Botón negro «Tarjeta de débito o crédito»: ventana emergente oficial y segura de PayPal (sin cajetines propios).
 async function montarTarjeta(seq){
+  const {inst}=await obtenerSdk('tarjeta');
+  if(seq!==CHK.seq)return;
+  const box=document.getElementById('paypal-payment-box'); if(!box)return;
+  box.innerHTML='<paypal-basic-card-container><paypal-basic-card-button id="paypal-card-btn-ah"></paypal-basic-card-button></paypal-basic-card-container>';
+  const sesion=inst.createPayPalGuestOneTimePaymentSession(callbacksPagoPopup());
+  // El pedido se crea como pedido normal de PayPal (el pago con tarjeta lo gestiona la ventana oficial).
+  document.getElementById('paypal-card-btn-ah').addEventListener('click',()=>iniciarPagoPopup(sesion,'Tarjeta','PayPal'));
+}
+// (Conservado por si se quisiera volver a los campos de tarjeta propios; ahora no se usa.)
+async function montarTarjetaCardFields(seq){
   const {inst,methods}=await obtenerSdk('tarjeta');
   if(seq!==CHK.seq)return;
   const box=document.getElementById('paypal-payment-box'); if(!box)return;
@@ -452,41 +502,19 @@ async function montarPayPal(seq){
   const {inst,methods}=await obtenerSdk('paypal');
   if(seq!==CHK.seq)return;
   const box=document.getElementById('paypal-payment-box'); if(!box)return;
-  if(!methods.isEligible('paypal')){
+  if(methods&&typeof methods.isEligible==='function'&&!methods.isEligible('paypal')){
     box.innerHTML='<div class="pago-instrucciones"><p>PayPal no está disponible para este pedido en este momento. Puedes elegir otra forma de pago.</p></div>';
     return;
   }
   box.innerHTML='<paypal-button id="paypal-btn-ah" type="pay" class="paypal-gold"></paypal-button>';
-  const sesion=inst.createPayPalOneTimePaymentSession({
-    onApprove:async(data)=>{
-      const p=CHK.ctx; if(!p)return;
-      try{
-        await capturarOrden(data.orderId);
-        await terminarPagoOnline(p,data.orderId);
-      }catch(e){
-        console.error(e);
-        mostrarError(e&&e.fase==='captura'?mensajeFalloCaptura(p):'PayPal no ha podido completar el pago. Inténtalo de nuevo.');
-      }finally{CHK.ocupado=false;}
-    },
-    onCancel:()=>{CHK.ocupado=false;mostrarError('Has cancelado el pago en PayPal. Puedes intentarlo de nuevo cuando quieras.');},
-    onError:(e)=>{console.error('PayPal',e);CHK.ocupado=false;mostrarError('PayPal no ha podido completar el pago. Inténtalo de nuevo.');}
-  });
-  document.getElementById('paypal-btn-ah').addEventListener('click',()=>{
-    if(CHK.ocupado||CHK.terminado)return;
-    const p=prepararPedido('PayPal'); if(!p)return;
-    CHK.ocupado=true;CHK.ctx=p;mostrarError('');
-    // start() debe llamarse dentro del clic; el pedido se crea mientras se abre la ventana de PayPal.
-    sesion.start({presentationMode:'auto'},crearOrdenPayPal(p).then(o=>({orderId:o.id}))).catch(e=>{
-      console.error(e);CHK.ocupado=false;
-      mostrarError(mensajeUsuario(e,'No se ha podido abrir PayPal. Inténtalo de nuevo.'));
-    });
-  });
+  const sesion=inst.createPayPalOneTimePaymentSession(callbacksPagoPopup());
+  document.getElementById('paypal-btn-ah').addEventListener('click',()=>iniciarPagoPopup(sesion,'PayPal'));
 }
 function falloCargaPago(seq,e){
   console.error('No se pudo preparar el pago:',e);
   if(seq!==CHK.seq)return;
   const box=document.getElementById('paypal-payment-box'); if(!box)return;
-  box.innerHTML=`<div class="pago-instrucciones"><h3>No hemos podido cargar el pago seguro</h3><p>Recarga la página e inténtalo de nuevo. Si el problema continúa, puedes pagar por Bizum o escribirnos por <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>.</p></div>`;
+  box.innerHTML=`<div class="pago-instrucciones"><h3>No hemos podido cargar el pago seguro</h3><p>Recarga la página e inténtalo de nuevo. Si el problema continúa, puedes pagar por Bizum o escribirnos por <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>.</p>${/[?&]diag=1/.test(location.search)?'<p style="font-size:12px;opacity:.7">Diagnóstico: fase «'+String((e&&e.fasePago)||'?').replace(/[<>&]/g,'')+'» — '+String((e&&e.message)||e).slice(0,160).replace(/[<>&]/g,'')+'</p>':''}</div>`;
 }
 async function copiarTexto(t,aviso){
   try{await navigator.clipboard.writeText(t);mostrarAvisoCarrito(aviso);}catch(_){alert(t);}
