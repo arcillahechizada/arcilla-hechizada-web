@@ -1216,7 +1216,24 @@
       ],
       "categoria": "amuletos",
       "mostrarVariantes": true,
-      "variantes": [],
+      "variantes": [
+        {
+          "disponible": true,
+          "color": "Negro"
+        },
+        {
+          "disponible": true,
+          "color": "Marrón"
+        },
+        {
+          "disponible": true,
+          "color": "Verde"
+        },
+        {
+          "disponible": true,
+          "color": "Azul"
+        }
+      ],
       "simbolismo": "Símbolo de protección continua y unión entre cuerpo, mente y espíritu. Ofrece protección frente a energías negativas e influencias no deseadas, favorece el equilibrio interior y activa la intuición y la conexión con la magia ancestral. Se puede llevar como collar, llavero o talismán de bolsillo. Se entrega activada con su propia intención antes de salir del taller.",
       "cuidados": "-No mojar ni exponer a humedad.\n-Limpiar con paño seco y suave",
       "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
