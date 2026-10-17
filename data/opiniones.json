@@ -1,28 +1,308 @@
 {
   "opiniones": [
     {
-      "id": "op-1",
-      "nombre": "Clienta anónima",
-      "texto": "En fotos se ve bonito… pero en mano es impresionante.",
+      "id": "op-01",
+      "nombre": "Anónima",
+      "texto": "Este Grimorio es una obra de arte. Cada detalle de la encuadernación refleja dedicación, a parte de venir con un par de detalles. 100% recomendable",
       "producto": "",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
     },
     {
-      "id": "op-2",
-      "nombre": "Clienta anónima",
-      "texto": "Se nota que está hecho con amor.",
+      "id": "op-02",
+      "nombre": "Anónima",
+      "texto": "Tenía miedo por el envío al ser una pieza delicada, pero venía tan bien envuelto y mimado que llegó en perfecto estado.",
       "producto": "",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
     },
     {
-      "id": "op-3",
-      "nombre": "Clienta anónima",
-      "texto": "Nunca había sentido algo así con un amuleto.",
+      "id": "op-03",
+      "nombre": "Anónima",
+      "texto": "Recomendable 100%. Lo hace particular para cada persona con mucho amor, muy buena atención",
       "producto": "",
       "fecha": "",
-      "estado": "pendiente"
+      "estado": "publicada"
+    },
+    {
+      "id": "op-04",
+      "nombre": "Anónima",
+      "texto": "Me has hecho un Bellísimo Amuleto y perfumero me has dejado feliz con tu magia, atención y amistad. Gracias tesoro por tu dedicación, Amor y simpatía.",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-05",
+      "nombre": "Anónima",
+      "texto": "Me quedé sin palabras al abrir la caja. Venía todo super bien protegido, empaquetado con un gusto exquisito y listo para regalar sin tener que tocarle nada.",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-06",
+      "nombre": "Anónima",
+      "texto": "Te enamoras de todos sus productos y no sabes cuál escoger... ¡es que me los llevaría todos a casa!",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-07",
+      "nombre": "Anónima",
+      "texto": "Ha sido un placer conocer a esta persona tan mágica! Me ha encantado el pedido!",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-08",
+      "nombre": "Anónima",
+      "texto": "Da gusto encontrarse con gente así, a parte de todo super detallista, muchas gracias!!",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-09",
+      "nombre": "Anónima",
+      "texto": "Una experiencia de diez de principio a fin. Comunicación muy cercana, envío impecable y el producto es todavía más bonito en persona.",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-10",
+      "nombre": "Anónima",
+      "texto": "Un trato super cercano y amable. Me asesoró con muchísima paciencia para elegir lo que mejor se adaptaba a lo que buscaba. ¡Repetiré seguro!",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-11",
+      "nombre": "Anónima",
+      "texto": "Las fotos no le hacen justicia... ¡cuando lo tienes en las manos es mil veces más bonito! Se nota que hay un alma artesana detrás de todo.",
+      "producto": "",
+      "fecha": "",
+      "estado": "publicada"
+    },
+    {
+      "id": "op-12",
+      "nombre": "Anónima",
+      "texto": "Sinceramente, da gusto comprar en sitios así. La atención es de una delicadeza absoluta y las piezas tienen un encanto que no se encuentra en ningún otro lado.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-13",
+      "nombre": "Anónima",
+      "texto": "Se nota muchísimo el cariño que le pone a cada creación. Llegó impecable, súper rápido y la presentación cuidada al milímetro.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-14",
+      "nombre": "Anónima",
+      "texto": "Iba con la idea de hacer un regalo original y no pude haber elegido mejor. Llegó a tiempo, en perfectas condiciones y a la persona le pareció un detalle lleno de magia.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-15",
+      "nombre": "Anónima",
+      "texto": "¡Es que lo quieres todo! Cada pieza tiene algo tan especial que cuesta muchísimo decidirse solo por una.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-16",
+      "nombre": "Anónima",
+      "texto": "El paquete transmite una energía preciosa desde que lo tienes en las manos. Venía tan bien embalado que da total tranquilidad para próximos envíos.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-17",
+      "nombre": "Anónima",
+      "texto": "Comprar aquí es regalarse un momento de ilusión. Todo llega mimado, con un empaquetado precioso que te hace sentir que estás recibiendo un tesoro.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-18",
+      "nombre": "Anónima",
+      "texto": "Calidad excelente y un trabajo artesanal impecable. Se ha convertido en mi sitio de confianza para cuando quiero hacer un regalo de los que se recuerdan.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-19",
+      "nombre": "Anónima",
+      "texto": "Llegó facilísimo, rápido y super bien envuelto para que no sufriera ningún daño en el camino. ¡Un 10 absoluto en todo!",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-20",
+      "nombre": "Anónima",
+      "texto": "¡El mejor servicio que he recibido! La comunicación fue fluida y el producto es de la mejor calidad.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-21",
+      "nombre": "Anónima",
+      "texto": "Espectacular no tengo palabras",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-22",
+      "nombre": "Anónima",
+      "texto": "Cómo siempre todo genial gracias.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-23",
+      "nombre": "Anónima",
+      "texto": "El paquete llegó super rápido y en perfectas condiciones. Se nota el cariño y el cuidado en cada capa del embalaje, cuidando hasta el más mínimo detalle.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-24",
+      "nombre": "Anónima",
+      "texto": "Venía tan bonito preparado que daba hasta pena abrirlo. Es perfecto para enviar directamente como regalo, la persona que lo recibió quedó fascinada.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-25",
+      "nombre": "Anónima",
+      "texto": "Superó todas mis expectativas. En vivo y en directo las piezas transmiten una energía única y unos acabados preciosos.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-26",
+      "nombre": "Anónima",
+      "texto": "Es una auténtica maravilla. La calidad del trabajo artesanal es de 10, no se ven cosas hechas con tanta dedicación hoy en día.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-27",
+      "nombre": "Anónima",
+      "texto": "Pedí una botellita y un amuleto y me quedé sin palabras al abrir la caja. Desprende una magia especial desde el primer momento.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-28",
+      "nombre": "Anónima",
+      "texto": "Empaquetado impecable, llegó todo intacto y super protegido. Además venía con una presentación tan cuidada que sentí que me estaba haciendo un auto regalo increíble.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-29",
+      "nombre": "Anónima",
+      "texto": "Buscaba un regalo especial y diferente para alguien muy querido y acerté de lleno. Quedó completamente enamorada del detalle.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-30",
+      "nombre": "Anónima",
+      "texto": "No es solo la pieza en sí, que es bellísima, sino la experiencia completa al abrir el paquete. Hacía tiempo que no compraba algo hecho con tanto amor.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-31",
+      "nombre": "Anónima",
+      "texto": "Calidad excelente y un envío imprevistamente rápido. Viene todo tan bien sujeto y protegido que no hay riesgo de que sufra ningún daño.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-32",
+      "nombre": "Anónima",
+      "texto": "Comprar aquí es un gustazo de principio a fin. Atención de diez, envío rapidísimo y el paquete una auténtica fantasía.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-33",
+      "nombre": "Anónima",
+      "texto": "Totalmente recomendable si buscas piezas con significado, hechas a mano y con un nivel de detalle único.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-34",
+      "nombre": "Anónima",
+      "texto": "La presentación es tan bonita y envolvente que es una opción genial si quieres sorprender a alguien enviándoselo como regalo directo.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-35",
+      "nombre": "Anónima",
+      "texto": "Atención impecable y una sensibilidad maravillosa para plasmar exactamente lo que querías. ¡Mil gracias por todo!",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-36",
+      "nombre": "Anónima",
+      "texto": "Ha sido mi primera compra pero desde luego no va a ser la última. Me ha dejado con una sonrisa de oreja a oreja.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-37",
+      "nombre": "Anónima",
+      "texto": "Se nota cuando alguien ama su trabajo. Cada detalle del paquete, desde el envoltorio hasta la pieza, transmite muchísima luz.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
+    },
+    {
+      "id": "op-38",
+      "nombre": "Anónima",
+      "texto": "Llegó rapidísimo, todo impecable y con un aroma y una presentación preciosa. Una experiencia de compra mágica de verdad.",
+      "producto": "",
+      "fecha": "",
+      "estado": "oculta"
     }
   ]
 }

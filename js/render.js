@@ -69,12 +69,26 @@ function bool(v){return v===true||v==='true';}
 function etiquetaEstado(e){return ({disponible:'Disponible',bajo_pedido:'Bajo pedido',agotado:'Agotado',vendido:'Vendido',reservada:'Reservada',vendida:'Vendida',oculto:'No publicado'})[e]||e||'';}
 function imagenProducto(p){return p.imagenPrincipal||(Array.isArray(p.galeria)&&p.galeria[0])||'';}
 function bloqueSinFoto(){return '<div class="foto-pendiente">Fotografía pendiente</div>';}
-function tarjetaProductoHTML(p){const est=etiquetaEstado(p.estado);return `<a class="tarjeta-producto" href="ficha.html?id=${encodeURIComponent(p.id)}"><div class="foto imagen-tarjeta">${imagenProducto(p)?`<img src="${escHTML(imagenProducto(p))}" alt="${escHTML(p.nombre||'Producto')}" loading="lazy">`:bloqueSinFoto()}${est?`<span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span>`:''}</div><div class="info info-tarjeta"><h3>${escHTML(p.nombre||'Producto')}</h3><p class="precio">${precioTexto(p)}</p>${p.descripcionCorta?`<p>${texto(p.descripcionCorta)}</p>`:''}</div></a>`;}
+function tarjetaProductoHTML(p){const est=etiquetaEstado(p.estado);return `<div class="producto-item"><a class="tarjeta-producto" href="ficha.html?id=${encodeURIComponent(p.id)}"><div class="foto imagen-tarjeta">${imagenProducto(p)?`<img src="${escHTML(imagenProducto(p))}" alt="${escHTML(p.nombre||'Producto')}" loading="lazy">`:bloqueSinFoto()}${est?`<span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span>`:''}</div><div class="info info-tarjeta"><h3>${escHTML(p.nombre||'Producto')}</h3><p class="precio">${precioTexto(p)}</p>${p.descripcionCorta?`<p>${texto(p.descripcionCorta)}</p>`:''}</div></a>${accionTarjetaHTML(p)}</div>`;}
+// Opciones compactas para comprar desde la tarjeta: mismos datos y mismas etiquetas que la ficha (así el carrito recibe lo mismo).
+function opcionesTarjeta(p){const out=[];
+if(bool(p.personalizable)&&bool(p.activarSelectorPersonalizacion)){(Array.isArray(p.opcionesPersonalizacionCliente)?p.opcionesPersonalizacionCliente:[]).forEach(s=>{const os=normalizarLista(s.opciones);if(os.length)out.push({tipo:'personalizacion',label:s.nombre||'Personalización',aria:s.nombre||'Elige una opción',ops:os});});}
+if(bool(p.mostrarVariantes)){const vs=Array.isArray(p.variantes)?p.variantes.filter(v=>v&&v.disponible!==false&&v.disponible!=='false'):[];if(vs.length)out.push({tipo:'variante',label:'Color / variante',aria:'Elige tu opción',ops:vs.map(v=>{const n=String(v.color||v.nombre||'');return{nombre:n||'Variante',valor:n};})});}
+if(bool(p.mostrarCollarLlavero)){let fs=normalizarLista(p.formatosDisponibles);if(!fs.length)fs=[{nombre:'Collar',valor:'Collar'},{nombre:'Llavero',valor:'Llavero'}];out.push({tipo:'formato',label:'Formato',aria:'¿Cómo lo quieres?',ops:fs});}
+return out;}
+function accionTarjetaHTML(p){const href=`ficha.html?id=${encodeURIComponent(p.id)}`;
+if(!sePuedeComprar(p))return `<div class="tarjeta-acciones"><a class="btn btn-secundario btn-tarjeta" href="${href}">Ver detalles</a></div>`;
+const ops=opcionesTarjeta(p);
+if(ops.length>2)return `<div class="tarjeta-acciones"><a class="btn btn-secundario btn-tarjeta" href="${href}">Elegir opciones</a></div>`;
+const sels=ops.map(o=>`<select aria-label="${escHTML(o.aria)}" data-tipo="${o.tipo}" data-label="${escHTML(o.label)}">${o.ops.map(x=>`<option value="${escHTML(x.valor)}">${escHTML(x.nombre)}</option>`).join('')}</select>`).join('');
+return `<div class="tarjeta-acciones">${sels}<button type="button" class="btn btn-primario btn-tarjeta" data-add-carrito="${escHTML(p.id)}">Añadir al carrito</button></div>`;}
+document.addEventListener('click',function(e){const b=e.target.closest&&e.target.closest('[data-add-carrito]');if(!b)return;e.preventDefault();const id=b.getAttribute('data-add-carrito'),p=PRODUCTOS.find(x=>x.id===id)||PIEZAS_UNICAS.find(x=>x.id===id);if(!p||!sePuedeComprar(p))return;const o={};b.closest('.tarjeta-acciones').querySelectorAll('select[data-tipo]').forEach(s=>{const v=(s.value||'').trim();if(v)o[s.dataset.label||'Opción']=v;});añadirAlCarrito(p,o,1);});
+
 
 function mediaInicioHTML(seccion, alt){
   const datos=INICIO&&INICIO[seccion] ? INICIO[seccion] : {};
   const media=Array.isArray(datos.media)?datos.media.filter(x=>x&&(x.src||x.video)):[];
-  if(!media.length) return '<div class="inicio-media-placeholder">Foto o vídeo pendiente de incorporar</div>';
+  if(!media.length) return '';
   const id='inicio-media-'+seccion;
   return `<div class="inicio-media" id="${id}" data-count="${media.length}">
     <div class="inicio-media-viewport">
@@ -92,7 +106,7 @@ function mediaInicioHTML(seccion, alt){
 }
 function renderInicio(){
   const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana']];
-  map.forEach(([key,id,alt])=>{const c=document.getElementById(id);if(c)c.innerHTML=mediaInicioHTML(key,alt);});
+  map.forEach(([key,id,alt])=>{const c=document.getElementById(id);if(!c)return;const h=mediaInicioHTML(key,alt);c.innerHTML=h;if(!h){c.style.display='none';const g=c.closest('.bloque-2col');if(g)g.classList.add('sin-media');}});
   document.querySelectorAll('.inicio-media').forEach(g=>{
     const slides=[...g.querySelectorAll('.inicio-media-slide')],dots=[...g.querySelectorAll('.inicio-media-dot')];
     if(slides.length<2)return;
@@ -126,8 +140,10 @@ function itemCarrito(p,o){return{key:p.id+'::'+JSON.stringify(o||{}),id:p.id,nom
 function leerCarrito(){try{const c=JSON.parse(localStorage.getItem(CART_KEY)||'[]');return Array.isArray(c)?c:[];}catch(e){return[];}}
 function guardarCarrito(c){localStorage.setItem(CART_KEY,JSON.stringify(c));actualizarContadorCarrito();}
 function actualizarContadorCarrito(){const n=leerCarrito().reduce((s,i)=>s+(Number(i.cantidad)||0),0);document.querySelectorAll('#contador-carrito').forEach(e=>e.textContent=n);}
-function añadirAlCarrito(p,o,cantidad=1){const c=leerCarrito(),it=itemCarrito(p,o),old=c.find(x=>x.key===it.key);if(old)old.cantidad+=cantidad;else{it.cantidad=cantidad;c.push(it);}guardarCarrito(c);mostrarAvisoCarrito('Producto añadido al carrito.');}
-function mostrarAvisoCarrito(t){let a=document.getElementById('aviso-carrito');if(!a){a=document.createElement('div');a.id='aviso-carrito';a.className='aviso-carrito';document.body.appendChild(a);}a.textContent=t;a.classList.add('visible');clearTimeout(window._aviso);window._aviso=setTimeout(()=>a.classList.remove('visible'),2400);}
+function añadirAlCarrito(p,o,cantidad=1){const c=leerCarrito(),it=itemCarrito(p,o),old=c.find(x=>x.key===it.key);if(old)old.cantidad+=cantidad;else{it.cantidad=cantidad;c.push(it);}guardarCarrito(c);mostrarAvisoCarrito('Producto añadido al carrito',{nombre:p.nombre,enlace:true});}
+function mostrarAvisoCarrito(t,op){op=op||{};let a=document.getElementById('aviso-carrito');if(!a){a=document.createElement('div');a.id='aviso-carrito';a.className='aviso-carrito';a.setAttribute('role','status');a.setAttribute('aria-live','polite');document.body.appendChild(a);}
+a.innerHTML=`<div class="aviso-carrito-texto"><strong>${op.enlace?'✓ ':''}${escHTML(t)}</strong>${op.nombre?`<span>${escHTML(op.nombre)}</span>`:''}</div>${op.enlace?'<a class="aviso-carrito-enlace" href="carrito.html">Ver carrito</a>':''}`;
+a.classList.add('visible');clearTimeout(window._aviso);window._aviso=setTimeout(()=>a.classList.remove('visible'),op.enlace?5000:2400);}
 function sePuedeComprar(p){return bool(p.activarCompra)&&!['agotado','vendido','vendida','reservada','oculto'].includes(p.estado)&&Number.isFinite(Number(p.precio));}
 function accionesCompra(p){if(!sePuedeComprar(p))return '';const cantidad=(p.categoria==='infusiones'||p.categoria==='inciensos')?`<div class="cantidad-ficha"><span>Cantidad</span><button type="button" id="cantidad-menos">−</button><strong id="cantidad-valor">1</strong><button type="button" id="cantidad-mas">+</button></div>`:'';return `${cantidad}<div class="ficha-botones ficha-botones-tienda"><button id="btn-carrito" class="btn btn-carrito" type="button">Añadir al carrito</button><a id="btn-wa" href="#" class="btn btn-whatsapp-producto" target="_blank" rel="noopener">WhatsApp · dudas / personalizar</a><a id="btn-email" href="#" class="btn btn-secundario">Enviar correo</a></div>`;}
 function fichaEspecial(p){if(p.categoria==='infusiones'){return `${descripcionConLeerMas(p.descripcionCompleta||p.descripcion)}${detalleDesplegable('Modo de empleo',p.modoEmpleo)}${detalleDesplegable('Ingredientes',p.ingredientes)}${p.medidas?`<section class="ficha-detalle"><h3>Cantidad / formato</h3><p>${texto(p.medidas)}</p></section>`:''}`;}

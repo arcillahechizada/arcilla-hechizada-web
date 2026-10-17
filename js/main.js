@@ -84,6 +84,7 @@ function construirNavegacionTienda() {
     link.addEventListener('click', function(e){ e.preventDefault(); var abierto = wrap.classList.toggle('abierto'); link.setAttribute('aria-expanded', abierto ? 'true' : 'false'); });
     wrap.addEventListener('focusout', function(e){ if(!wrap.contains(e.relatedTarget) && !wrap.classList.contains('abierto')) link.setAttribute('aria-expanded','false'); });
     document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ wrap.classList.remove('abierto'); link.setAttribute('aria-expanded','false'); } });
+    if(!nav.querySelector('a[href="reserva-de-llamada.html"]')){var rv=document.createElement('a'); rv.href='reserva-de-llamada.html'; rv.textContent='Reserva una llamada'; var ct=Array.from(nav.children).find(function(a){return a.tagName==='A' && a.getAttribute('href')==='contacto.html';}); if(ct) nav.insertBefore(rv,ct); else nav.appendChild(rv);}
     var cart=document.createElement('a'); cart.href='carrito.html'; cart.className='enlace-carrito'; cart.innerHTML='🛒 Carrito <span id="contador-carrito">0</span>'; nav.parentElement.appendChild(cart);
   });
   document.querySelectorAll('.menu-movil').forEach(function(menu){
@@ -94,6 +95,7 @@ function construirNavegacionTienda() {
     var sum=document.createElement('summary'); sum.textContent='Tienda'; d.appendChild(sum);
     cats.forEach(function(c){var a=document.createElement('a');a.href=c[1];a.textContent=c[0];d.appendChild(a);});
     menu.replaceChild(d,tienda);
+    if(!menu.querySelector('a[href="reserva-de-llamada.html"]')){var rvm=document.createElement('a'); rvm.href='reserva-de-llamada.html'; rvm.textContent='Reserva una llamada'; var ctm=Array.from(menu.children).find(function(a){return a.tagName==='A' && a.getAttribute('href')==='contacto.html';}); if(ctm) menu.insertBefore(rvm,ctm); else menu.appendChild(rvm);}
     var cart=document.createElement('a');cart.href='carrito.html';cart.className='enlace-carrito-movil';cart.textContent='🛒 Carrito';menu.insertBefore(cart,menu.firstChild);
   });
   var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});

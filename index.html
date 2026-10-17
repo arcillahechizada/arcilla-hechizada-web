@@ -90,6 +90,18 @@
     <div id="hero-media" class="hero-media-slot"></div>
   </section>
 
+  <!-- FRANJA DE CONFIANZA Y PAGOS -->
+  <section class="franja-confianza" aria-label="Por qué comprar en Arcilla Hechizada">
+    <div class="contenedor">
+      <ul>
+        <li><span class="ico" aria-hidden="true">✋</span><span>Hecho a mano, pieza a pieza</span></li>
+        <li><span class="ico" aria-hidden="true">🎁</span><span>Caja de regalo y certificado de autenticidad</span></li>
+        <li><span class="ico" aria-hidden="true">📦</span><span>Envío con seguimiento desde 5,95&nbsp;€</span></li>
+        <li><span class="ico" aria-hidden="true">💳</span><span>Paga con tarjeta, Bizum o PayPal</span></li>
+      </ul>
+    </div>
+  </section>
+
   <!-- HECHO A MANO -->
   <section class="seccion seccion--alt">
     <div class="contenedor bloque-2col">
@@ -98,7 +110,7 @@
         <span class="eyebrow">Hecho a mano, de verdad</span>
         <h2>Cada pieza empieza siendo solo arcilla</h2>
         <p>En Arcilla Hechizada no hay producción en serie. Cada grimorio, amuleto o poción se forma, se seca al aire y se pinta a mano, una pieza a la vez, en un taller real.</p>
-        <p class="aviso-pendiente">Contenido pendiente de completar: texto definitivo sobre el proceso y la artesana, a partir de la información que se confirme.</p>
+        <p>Los símbolos se graban sobre la arcilla fresca y se pintan a mano. Cada pieza se entrega activada con su propia intención antes de salir del taller.</p>
       </div>
     </div>
   </section>
@@ -120,6 +132,19 @@
     </div>
   </div>
 </section>
+
+  <!-- RESERVA DE LLAMADA -->
+  <section class="seccion seccion--alt centro">
+    <div class="contenedor">
+      <span class="eyebrow">Hablemos</span>
+      <h2>¿Quieres consultarme algo? Reserva una llamada</h2>
+      <p style="max-width:640px;margin:0 auto 24px;">Reserva tu llamada o escríbeme por WhatsApp: así te atiendo con calma y no me pillas con las manos en el caldero, ni subida a mi escoba intentando atrapar a un duende que mete las narices donde no debe. Por WhatsApp puedes escribirme a cualquier hora y te respondo en cuanto pueda.</p>
+      <div class="hero-cta">
+        <a href="reserva-de-llamada.html" class="btn btn-primario">Reserva tu llamada</a>
+        <a href="https://wa.me/34722379095" class="btn btn-secundario" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+      </div>
+    </div>
+  </section>
 
   <!-- PIEZAS ÚNICAS -->
   <section class="seccion">
@@ -165,14 +190,6 @@
         <h2>Lo que dicen quienes ya tienen su pieza</h2>
       </div>
       <div id="opiniones-destacadas" class="grid-opiniones">
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"En fotos se ve bonito… pero en mano es impresionante."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Se nota que está hecho con amor."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Nunca había sentido algo así con un amuleto."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Me llegó super rápido y muy bien embalado. La caja grimorio es preciosa, con detalles impecables."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Una maravilla de artesanía. La textura y los colores transmiten muchísima paz."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Buscaba algo especial y único para regalar y fue un acierto total. Le encantó."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"El trato por WhatsApp insuperable, muy cercana y atenta. Repetiré seguro."</p></div>
-        <div class="tarjeta-opinion"><div class="estrellas">⭐⭐⭐⭐⭐</div><p>"Es una obra de arte. La energía que transmite al tenerla cerca es especial."</p></div>
         <a class="tarjeta-opinion opinion-mas" href="opiniones.html"><div class="estrellas">✦</div><h3>¿Quieres leer más?</h3><p>Descubre todas las opiniones sobre Arcilla Hechizada.</p><span>Ver todas las opiniones →</span></a>
       </div>
       </div>
@@ -184,7 +201,7 @@
     <div class="contenedor centro">
       <span class="eyebrow">Envíos y recogida</span>
       <h2>Tu pieza, allá donde estés</h2>
-<p style="max-width:560px;margin:0 auto 24px;">Opciones de envío Exprés, Certificado y Ordinario. También puedes recoger en mano en Riells i Viabrea, con cita previa.</p>
+<p style="max-width:560px;margin:0 auto 24px;">Envíos por Correos con número de seguimiento desde 5,95 €. Si vives fuera de España, escríbeme antes de finalizar el pedido y buscamos juntas la mejor opción. También puedes recoger en mano en Riells i Viabrea, con cita previa.</p>
       <a href="envios-y-recogida.html" class="btn btn-secundario">Ver detalles</a>
     </div>
   </section>
@@ -248,6 +265,7 @@
 </footer>
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
 <script src="js/opiniones.js"></script>
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
 <script>
   cargarDatos().then(function(){ renderInicio(); });
