@@ -692,3 +692,56 @@ nav.principal a,.menu-tienda .tienda-trigger{white-space:nowrap}
 /* Sin foto todavía: el texto ocupa su sitio, sin cajas vacías ni avisos (2026-10) */
 .bloque-2col.sin-media{grid-template-columns:1fr;max-width:720px;margin-left:auto;margin-right:auto;text-align:center}
 .tarjeta-opinion{justify-content:flex-start}
+
+
+/* ===== Retoques 2026-10-17 ===== */
+/* Tarjetas: todas las opciones del producto, con su nombre encima */
+.tarjeta-campo{display:flex;flex-direction:column;gap:3px;text-align:left}
+.tarjeta-campo>span{font-size:.78rem;color:var(--marron-gris);letter-spacing:.02em}
+
+/* Ficha: formas de pago */
+.pagos-ficha{margin:22px 0 0;padding:16px 18px;border:1px solid var(--linea);border-radius:var(--radio-tarjeta);background:var(--crema)}
+.pagos-ficha h3{margin:0 0 10px;font-size:1rem}
+.pagos-ficha ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px}
+.pagos-ficha li{display:flex;align-items:flex-start;gap:10px;font-size:.92rem;line-height:1.35}
+.pagos-ficha .pago-ico{font-size:1.15rem;line-height:1.2}
+.pagos-ficha small{display:block;color:var(--marron-gris);font-size:.8rem;font-weight:400}
+@media(max-width:520px){.pagos-ficha ul{grid-template-columns:1fr}}
+
+/* Menú: «Tienda» (lleva a inicio) + flecha que despliega categorías */
+.menu-tienda .tienda-trigger::after{content:none}
+.tienda-flecha{background:none;border:0;cursor:pointer;color:inherit;font:inherit;font-size:.95rem;line-height:1;padding:6px 6px;margin-left:-2px}
+.tienda-flecha:hover,.tienda-flecha:focus-visible{color:var(--terracota)}
+.menu-tienda-movil{border-bottom:1px solid var(--linea)}
+.menu-tienda-fila{display:flex;align-items:center;justify-content:space-between}
+.menu-movil .menu-tienda-fila a{flex:1;border-bottom:0}
+.tienda-flecha-movil{background:none;border:0;cursor:pointer;color:inherit;font-size:1.2rem;line-height:1;padding:10px 12px}
+.menu-tienda-movil.abierto .tienda-flecha-movil{transform:rotate(180deg)}
+.menu-tienda-lista[hidden]{display:none}
+.menu-tienda-lista a{display:block;padding:9px 0 9px 18px;border-bottom:0;font-size:.94rem}
+
+/* Portada: texto a un lado y carrusel cuadrado al otro */
+.hero.hero-2col{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;text-align:center}
+.hero-2col .hero-media-slot .inicio-media{max-width:520px;margin:0 auto;aspect-ratio:1/1;border-radius:var(--radio-tarjeta);overflow:hidden;background:var(--beige)}
+.hero-2col .inicio-media-slide img,.hero-2col .inicio-media-slide video{object-fit:contain}
+.hero.hero-2col.sin-media{max-width:760px}
+@media(min-width:900px){
+  .hero.hero-2col{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;text-align:left;padding:56px 0 48px}
+  .hero-2col .eyebrow{text-align:left}
+  .hero-2col p.lead{margin:0 0 28px;max-width:520px}
+  .hero-2col .hero-cta{justify-content:flex-start}
+  .hero.hero-2col.sin-media{grid-template-columns:1fr;text-align:center}
+  .hero-2col.sin-media .eyebrow{text-align:center}
+  .hero-2col.sin-media p.lead{margin:0 auto 28px}
+  .hero-2col.sin-media .hero-cta{justify-content:center}
+}
+@media(max-width:899px){.hero.hero-2col{padding:44px 20px 36px}}
+
+/* Calendario pequeño (vista previa de Cal.com) */
+.reserva-mini{max-width:420px;margin:0 auto 26px}
+.reserva-mini-marco{position:relative;width:100%;overflow:hidden;border:1px solid var(--linea);border-radius:var(--radio-tarjeta);background:var(--blanco);box-shadow:var(--sombra-suave)}
+.reserva-mini-marco iframe{position:absolute;top:0;left:0;width:720px;height:520px;border:0;transform-origin:top left;pointer-events:none}
+.reserva-mini-enlace{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:14px;text-decoration:none;background:linear-gradient(transparent 65%,rgba(58,51,44,.28))}
+.reserva-mini-enlace span{background:var(--terracota);color:var(--blanco);padding:9px 16px;border-radius:999px;font-size:.9rem;font-weight:600}
+.reserva-mini-enlace:hover span,.reserva-mini-enlace:focus-visible span{background:var(--terracota-oscuro)}
+.menu-movil .menu-tienda-fila a{padding:12px 0;font-size:1rem;border-bottom:0}

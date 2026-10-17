@@ -79,13 +79,15 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero contenedor">
-    <span class="eyebrow">Arcilla Hechizada</span>
-    <h1>Magia hecha con las manos.</h1>
-    <p class="lead">Piezas de arcilla natural, creadas y pintadas una a una. Grimorios, amuletos, pociones y objetos con intención, nacidos en un taller real.</p>
-    <div class="hero-cta">
-      <a href="tienda.html#categorias-tienda" class="btn btn-primario">Ver la tienda</a>
-      <a href="el-taller.html" class="btn btn-secundario">Conoce el taller</a>
+  <section class="hero hero-2col contenedor">
+    <div class="hero-texto">
+      <span class="eyebrow">Arcilla Hechizada</span>
+      <h1>Magia hecha con las manos.</h1>
+      <p class="lead">Piezas de arcilla natural, creadas y pintadas una a una. Grimorios, amuletos, pociones y objetos con intención, nacidos en un taller real.</p>
+      <div class="hero-cta">
+        <a href="tienda.html#categorias-tienda" class="btn btn-primario">Ver la tienda</a>
+        <a href="el-taller.html" class="btn btn-secundario">Conoce el taller</a>
+      </div>
     </div>
     <div id="hero-media" class="hero-media-slot"></div>
   </section>
@@ -139,6 +141,12 @@
       <span class="eyebrow">Hablemos</span>
       <h2>¿Quieres consultarme algo? Reserva una llamada</h2>
       <p style="max-width:640px;margin:0 auto 24px;">Reserva tu llamada o escríbeme por WhatsApp: así te atiendo con calma y no me pillas con las manos en el caldero, ni subida a mi escoba intentando atrapar a un duende que mete las narices donde no debe. Por WhatsApp puedes escribirme a cualquier hora y te respondo en cuanto pueda.</p>
+      <div class="reserva-mini" id="reserva-mini">
+        <div class="reserva-mini-marco" id="reserva-mini-marco">
+          <iframe id="reserva-mini-iframe" src="https://cal.com/arcillahechizada/consulta-arcilla-hechizada?embed=true&amp;layout=month_view" title="Vista previa del calendario para reservar una llamada" width="720" height="520" loading="lazy" tabindex="-1" scrolling="no"></iframe>
+          <a class="reserva-mini-enlace" href="reserva-de-llamada.html" aria-label="Abrir el calendario completo para elegir día y hora de tu llamada"><span>Pulsa para elegir día y hora</span></a>
+        </div>
+      </div>
       <div class="hero-cta">
         <a href="reserva-de-llamada.html" class="btn btn-primario">Reserva tu llamada</a>
         <a href="https://wa.me/34722379095" class="btn btn-secundario" target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
@@ -269,6 +277,12 @@
 <script src="js/main.js"></script>
 <script>
   cargarDatos().then(function(){ renderInicio(); });
+</script>
+<script>
+// Calendario pequeño: es una vista previa del mismo calendario de Cal.com (se ve más pequeño); al pulsarlo se abre la página completa.
+(function(){var m=document.getElementById('reserva-mini-marco'),f=document.getElementById('reserva-mini-iframe');if(!m||!f)return;
+function ajustar(){var w=m.clientWidth||340,k=w/720;f.style.transform='scale('+k+')';m.style.height=Math.round(520*k)+'px';}
+ajustar();window.addEventListener('resize',ajustar);if('ResizeObserver' in window)new ResizeObserver(ajustar).observe(m);})();
 </script>
 </body>
 </html>
