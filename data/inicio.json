@@ -1,12 +1,46 @@
 {
   "hero": {
-    "media": []
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20261006-wa0014-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/inshot_20250311_204645070-1-1-.jpg"
+      }
+    ]
   },
   "hecho_a_mano": {
     "media": []
   },
   "personalizacion": {
-    "media": []
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img_20260401_175703-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img_20250312_104454-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img_20250831_080007-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20250324-wa0069-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20250324-wa0077-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20250324-wa0079-1-.jpg"
+      }
+    ]
   },
   "taller": {
     "media": []
