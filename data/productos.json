@@ -17,7 +17,7 @@
       "orden": 43,
       "personalizable": true,
       "activarCompra": true,
-      "mostrarCollarLlavero": true,
+      "mostrarCollarLlavero": false,
       "formasPagoDisponibles": [
         "Bizum",
         "PayPal",
