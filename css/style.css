@@ -745,3 +745,21 @@ nav.principal a,.menu-tienda .tienda-trigger{white-space:nowrap}
 .reserva-mini-enlace span{background:var(--terracota);color:var(--blanco);padding:9px 16px;border-radius:999px;font-size:.9rem;font-weight:600}
 .reserva-mini-enlace:hover span,.reserva-mini-enlace:focus-visible span{background:var(--terracota-oscuro)}
 .menu-movil .menu-tienda-fila a{padding:12px 0;font-size:1rem;border-bottom:0}
+
+
+/* ===== Retoques 2026-10-18 ===== */
+/* Portada: 8 categorías (Infusiones e Inciensos incluidas) en filas completas */
+@media(min-width:700px) and (max-width:899px){ .grid-categorias{ grid-template-columns: repeat(2,1fr);} }
+@media(min-width:900px){ .grid-categorias{ grid-template-columns: repeat(4,1fr);} }
+
+/* Todos los huecos de fotos de la portada y de Personalizados: CUADRADOS 1:1, la foto se ve entera */
+.imagen-placeholder-slot .inicio-media{aspect-ratio:1/1;background:var(--beige)}
+.inicio-media-slide img,.inicio-media-slide video{object-fit:contain}
+@media(max-width:799px){.imagen-placeholder-slot .inicio-media{aspect-ratio:1/1}}
+.slot-centrado .inicio-media{max-width:520px;margin:0 auto}
+/* Tarjetas: la foto NUNCA estira la tarjeta; el recuadro es siempre cuadrado (1:1) y la foto lo rellena */
+.tarjeta-producto .foto img{position:absolute;inset:0}
+/* Todas las fotos de las tarjetas (categorías y piezas únicas) en el MISMO tamaño: cuadrado 1:1.
+   (Las páginas de categoría tenían 3:4 puesto aparte, lo que recortaba los lados de las fotos cuadradas.
+   Para volver a vertical: cambiar 1 / 1 por 3 / 4 en esta línea.) */
+.producto-item .tarjeta-producto .imagen-tarjeta{aspect-ratio:1 / 1}

@@ -103,8 +103,12 @@ function mediaInicioHTML(seccion, alt){
     ${media.length>1?`<button class="inicio-media-prev" type="button" aria-label="Anterior">‹</button><button class="inicio-media-next" type="button" aria-label="Siguiente">›</button><div class="inicio-media-dots">${media.map((_,i)=>`<button type="button" class="inicio-media-dot${i===0?' activa':''}" data-index="${i}" aria-label="Ir a la imagen ${i+1}"></button>`).join('')}</div>`:''}
   </div>`;
 }
+// Imagen de cabecera de Infusiones / Inciensos: si hay una subida desde el panel (Inicio), sustituye a la de «próximamente».
+function aplicarCabeceraCategoria(id,clave){const d=INICIO&&INICIO[clave];const img=document.getElementById(id);if(!img||!d||!d.imagen)return;img.src=d.imagen;if(d.alt)img.alt=d.alt;}
 function renderInicio(){
-  const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana']];
+  const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana'],['personalizados','personalizados-media','Pieza personalizada']];
+  // Página Personalizados: si no tiene fotos propias, usa las de «Personalización» de la portada.
+  if(!(INICIO.personalizados&&Array.isArray(INICIO.personalizados.media)&&INICIO.personalizados.media.some(x=>x&&(x.src||x.video)))&&INICIO.personalizacion)INICIO.personalizados=INICIO.personalizacion;
   map.forEach(([key,id,alt])=>{const c=document.getElementById(id);if(!c)return;const h=mediaInicioHTML(key,alt);c.innerHTML=h;if(!h){c.style.display='none';const g=c.closest('.bloque-2col, .hero-2col');if(g)g.classList.add('sin-media');}});
   document.querySelectorAll('.inicio-media').forEach(g=>{
     const slides=[...g.querySelectorAll('.inicio-media-slide')],dots=[...g.querySelectorAll('.inicio-media-dot')];

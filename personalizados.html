@@ -52,6 +52,7 @@
     <p class="lead">Cuéntame tu idea o la intención que quieres plasmar y la modelaré a mano especialmente para ti.</p>
   </div>
 
+  <div id="personalizados-media" class="imagen-placeholder-slot slot-centrado" style="margin-bottom:40px;"></div>
   <div class="grid-2" style="align-items:start; gap:40px;">
     <div>
       <h2>¿Qué podemos personalizar?</h2>
@@ -121,6 +122,8 @@
 </footer>
 
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
+<script>cargarDatos().then(function(){ renderInicio(); });</script>
 </body>
 </html>

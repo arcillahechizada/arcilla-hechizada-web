@@ -369,7 +369,7 @@ collections:
         label: "Fotos y vídeos de la página de inicio"
         name: "inicio"
         fields:
-          - label: "Portada — Magia hecha con las manos"
+          - label: "Portada — Magia hecha con las manos (fotos cuadradas, 1200 × 1200 px)"
             name: "hero"
             widget: "object"
             fields:
@@ -401,7 +401,7 @@ collections:
                   - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
                   - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
 
-          - label: "Hecho a mano — manos trabajando la arcilla"
+          - label: "Hecho a mano — manos trabajando la arcilla (fotos cuadradas, 1200 × 1200 px)"
             name: "hecho_a_mano"
             widget: "object"
             fields:
@@ -417,7 +417,7 @@ collections:
                   - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
                   - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
 
-          - label: "Personalización — pieza personalizada"
+          - label: "Personalización — pieza personalizada (fotos cuadradas, 1200 × 1200 px)"
             name: "personalizacion"
             widget: "object"
             fields:
@@ -433,7 +433,7 @@ collections:
                   - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
                   - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
 
-          - label: "El Taller — taller o artesana"
+          - label: "El Taller — taller o artesana (fotos cuadradas, 1200 × 1200 px)"
             name: "taller"
             widget: "object"
             fields:
@@ -449,3 +449,33 @@ collections:
                   - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
                   - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
 
+          - label: "Personalizados — fotos de la página «Personalizados»"
+            name: "personalizados"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                hint: "Si lo dejas vacío, la página Personalizados enseña las fotos de «Personalización». Medida recomendada: 1200 × 1200 px (cuadrada)."
+                fields:
+                  - { label: "Tipo", name: "tipo", widget: "select", options: [{ label: "Foto", value: "imagen" }, { label: "Vídeo", value: "video" }], default: "imagen" }
+                  - { label: "Foto", name: "src", widget: "image", required: false, choose_url: false }
+                  - { label: "Vídeo", name: "video", widget: "file", required: false, choose_url: false, hint: "Vídeo MP4" }
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
+
+          - label: "Infusiones — imagen de la parte de arriba de la página"
+            name: "infusiones_cabecera"
+            widget: "object"
+            fields:
+              - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
+              - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
+
+          - label: "Inciensos — imagen de la parte de arriba de la página"
+            name: "inciensos_cabecera"
+            widget: "object"
+            fields:
+              - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
+              - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
