@@ -37,10 +37,18 @@
   "medidas": "Entre 2,5 y 3 cm de diámetro.",
   "opcionesPersonalizacionCliente": [
     {
-      "nombre": "Pack-2 uni. 17€"
+      "opciones": [
+        "Collar",
+        "Llavero"
+      ],
+      "nombre": "Botellita 1"
     },
     {
-      "nombre": "Pack-1 uni. 10€"
+      "opciones": [
+        "Collar",
+        "Llavero "
+      ],
+      "nombre": "Botellita 2"
     }
   ],
   "elaboracion": "100% a mano.",
