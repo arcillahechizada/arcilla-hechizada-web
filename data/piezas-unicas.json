@@ -2,17 +2,13 @@
   "piezas": [
     {
       "galeria": [
-        "img/uploads/img_20251028_122259-1-.jpg",
+        "img/uploads/bbuhojpg.jpg",
         "img/uploads/img_20251028_122444-1-.jpg",
         "img/uploads/img_20251028_122544-1-.jpg"
-      ]
-    },
-    {
-      "galeria": [
-        "img/uploads/img_20251108_164738-1-.jpg",
-        "img/uploads/img_20251112_145430-1-.jpg",
-        "img/uploads/img_20251107_153807-1-.jpg"
-      ]
+      ],
+      "estado": "vendida",
+      "id": "piezas-unicas ",
+      "nombre": "Grimorio Búho "
     }
   ]
 }
