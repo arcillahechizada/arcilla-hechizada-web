@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infusiones naturales y mezclas de plantas | Arcilla Hechizada</title>
-<meta name="description" content="Infusiones de plantas seleccionadas para acompañar momentos de calma, con el cuidado y la esencia artesanal de Arcilla Hechizada.">
+<title>Infusiones naturales con plantas de huerto | Arcilla Hechizada</title>
+<meta name="description" content="Infusiones artesanales con plantas de mi huerto, cultivadas sin pesticidas ni abonos químicos y regadas con agua de lluvia. Pequeños rituales de calma.">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,7 +20,7 @@
     <p class="lead" style="margin:0 auto 12px;">Aquí las plantas, los aromas y las antiguas tradiciones encuentran su lugar. Cada mezcla nace con calma, seleccionando los ingredientes y cuidando cada detalle para convertir una sencilla infusión en un pequeño ritual cotidiano.</p>
   </div>
 </section>
-<div id="productos-infusiones" class="grid-productos"></div>
+<aside class="aviso-huerto" id="aviso-huerto"><img hidden alt="" width="84" height="84" loading="lazy"><p><strong>Del huerto a tu casa.</strong> La base de mis infusiones sale de mi propio huerto: cultivada sin pesticidas ni abonos químicos y regada con agua de lluvia. <a href="index.html#huerto">Conoce mi huerto →</a></p></aside><div id="productos-infusiones" class="grid-productos"></div>
 <section class="seccion seccion--alt cuestionario-infusiones">
   <div class="contenedor">
     <div class="centro" style="margin-bottom:32px;">
@@ -46,7 +46,7 @@
 </main>
 <footer class="site"><div class="contenedor"><div class="footer-grid"><div><h4>Arcilla Hechizada</h4><p style="opacity:.85;font-size:.9rem;">Artesanía mágica hecha a mano, pieza a pieza, con arcilla natural.</p></div><div><h4>Explora</h4><ul><li><a href="tienda.html">Tienda</a></li><li><a href="piezas-unicas.html">Piezas únicas</a></li><li><a href="personalizados.html">Personalizados</a></li><li><a href="el-taller.html">Taller</a></li></ul></div><div><h4>Ayuda</h4><ul><li><a href="envios-y-recogida.html">Envíos y recogida</a></li><li><a href="faq.html">Preguntas frecuentes</a></li><li><a href="opiniones.html">Opiniones</a></li><li><a href="para-tiendas.html">Para tiendas</a></li></ul></div><div><h4>Contacto</h4><ul><li><a href="https://wa.me/34722379095" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:arcillahechizada@gmail.com">arcillahechizada@gmail.com</a></li></ul></div></div><div class="footer-bottom"><span>© Arcilla Hechizada. Todos los derechos reservados.</span><span>Riells i Viabrea, Girona</span></div></div></footer>
 <a href="https://wa.me/34722379095" class="wa-flotante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">💬</a>
-<script src="js/render.js"></script><script src="js/main.js"></script><script>cargarDatos().then(() => { renderCategoria('productos-infusiones', 'infusiones'); aplicarCabeceraCategoria('cabecera-infusiones','infusiones_cabecera'); });</script>
+<script src="js/render.js"></script><script src="js/main.js"></script><script>cargarDatos().then(() => { renderCategoria('productos-infusiones', 'infusiones'); aplicarCabeceraCategoria('cabecera-infusiones','infusiones_cabecera'); aplicarAvisoHuerto(); });</script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{const b=document.getElementById('btn-enviar-cuestionario');if(!b)return;b.addEventListener('click',()=>{const ok=document.getElementById('inf-consent').checked;if(!ok){alert('Marca primero la casilla de consentimiento para enviar el cuestionario.');return;}const v=id=>(document.getElementById(id).value||'').trim();const msg=`Hola, me gustaría consultar una mezcla personalizada de infusión en Arcilla Hechizada.\n\nObjetivo: ${v('inf-objetivo')}\n\nDolencias / condiciones de salud: ${v('inf-dolencias')}\n\nMedicamentos o suplementos: ${v('inf-medicacion')}\n\nAlergias, embarazo/lactancia u otras circunstancias: ${v('inf-alergias')}\n\nHe leído el aviso de privacidad y envío voluntariamente estos datos para valorar mi consulta.`;window.location.href='https://wa.me/34722379095?text='+encodeURIComponent(msg);});});
 </script>

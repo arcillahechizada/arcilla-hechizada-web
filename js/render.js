@@ -105,8 +105,10 @@ function mediaInicioHTML(seccion, alt){
 }
 // Imagen de cabecera de Infusiones / Inciensos: si hay una subida desde el panel (Inicio), sustituye a la de «próximamente».
 function aplicarCabeceraCategoria(id,clave){const d=INICIO&&INICIO[clave];const img=document.getElementById(id);if(!img||!d||!d.imagen)return;img.src=d.imagen;if(d.alt)img.alt=d.alt;}
+// Aviso del huerto (Infusiones / Inciensos / Plantas): enseña la primera FOTO de «Huerto» (panel > Inicio) si existe.
+function aplicarAvisoHuerto(){const a=document.getElementById('aviso-huerto');if(!a)return;const img=a.querySelector('img');if(!img)return;const lista=(INICIO&&INICIO.huerto&&Array.isArray(INICIO.huerto.media))?INICIO.huerto.media:[];const m=lista.find(x=>x&&x.src&&String(x.tipo||'imagen').toLowerCase()==='imagen');if(m){img.src=m.src;img.alt=m.alt||'Mi huerto';img.hidden=false;}else{img.hidden=true;}}
 function renderInicio(){
-  const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana'],['personalizados','personalizados-media','Pieza personalizada']];
+  const map=[['hero','hero-media','Imagen o vídeo del taller o pieza destacada'],['hecho_a_mano','manos-media','Manos trabajando la arcilla'],['personalizacion','personalizacion-media','Pieza personalizada'],['taller','taller-media','Taller o artesana'],['personalizados','personalizados-media','Pieza personalizada'],['huerto','huerto-media','El huerto de Arcilla Hechizada']];
   // Página Personalizados: si no tiene fotos propias, usa las de «Personalización» de la portada.
   if(!(INICIO.personalizados&&Array.isArray(INICIO.personalizados.media)&&INICIO.personalizados.media.some(x=>x&&(x.src||x.video)))&&INICIO.personalizacion)INICIO.personalizados=INICIO.personalizacion;
   map.forEach(([key,id,alt])=>{const c=document.getElementById(id);if(!c)return;const h=mediaInicioHTML(key,alt);c.innerHTML=h;if(!h){c.style.display='none';const g=c.closest('.bloque-2col, .hero-2col');if(g)g.classList.add('sin-media');}});

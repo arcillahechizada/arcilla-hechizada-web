@@ -479,3 +479,20 @@ collections:
             fields:
               - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
               - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
+
+          - label: "Huerto — fotos de mi huerto (cuadradas, 1200 × 1200 px)"
+            name: "huerto"
+            widget: "object"
+            fields:
+              - label: "Carrusel de fotos y vídeos"
+                name: "media"
+                widget: "list"
+                required: false
+                label_singular: "Foto o vídeo"
+                hint: "Salen en la sección «Mi huerto» de la portada. La PRIMERA foto también sale pequeñita en las páginas de Infusiones, Inciensos y Plantas / Semillas."
+                fields:
+                  - { label: "Tipo", name: "tipo", widget: "select", options: [{ label: "Foto", value: "imagen" }, { label: "Vídeo", value: "video" }], default: "imagen" }
+                  - { label: "Foto", name: "src", widget: "image", required: false, choose_url: false }
+                  - { label: "Vídeo", name: "video", widget: "file", required: false, choose_url: false, hint: "Vídeo MP4" }
+                  - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
+                  - { label: "Texto alternativo (describe la foto)", name: "alt", widget: "string", required: false }
