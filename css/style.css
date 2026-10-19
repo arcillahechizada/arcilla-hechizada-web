@@ -773,3 +773,10 @@ nav.principal a,.menu-tienda .tienda-trigger{white-space:nowrap}
 .aviso-huerto p{margin:0;font-size:.95rem;line-height:1.55}
 .aviso-huerto a{font-weight:600;white-space:nowrap}
 @media(max-width:520px){.aviso-huerto{flex-direction:column;text-align:center}}
+
+
+/* ===== Elección obligatoria 2026-10-19 ===== */
+select.campo-error{border-color:#B3261E!important;box-shadow:0 0 0 3px rgba(179,38,30,.2);background:#FFF4F3;animation:ah-sacudir .45s}
+.mensaje-eleccion{margin:4px 0 0;color:#B3261E;font-size:.82rem;font-weight:600;line-height:1.3}
+@keyframes ah-sacudir{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@media(prefers-reduced-motion:reduce){select.campo-error{animation:none}}
