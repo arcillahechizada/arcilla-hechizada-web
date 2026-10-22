@@ -24,6 +24,37 @@
     height: 100%;
     object-fit: cover;
   }
+  /* Rectángulo de la Línea Efecto Piedra: compacto para que las tarjetas se vean enseguida */
+  .coleccion-destacada{margin:0 0 28px}
+  .coleccion-destacada .tarjeta-coleccion{grid-template-columns:minmax(150px,.4fr) 1fr}
+  .coleccion-destacada .tarjeta-coleccion-foto{min-height:0;height:100%}
+  .coleccion-destacada .tarjeta-coleccion-info{padding:18px 24px}
+  .coleccion-destacada .tarjeta-coleccion-info h2{font-size:1.45rem;margin:2px 0 6px}
+  .coleccion-destacada .tarjeta-coleccion-info p{margin:0;font-size:.92rem}
+  .coleccion-destacada .tarjeta-coleccion-info strong{margin-top:8px}
+  @media(max-width:700px){
+    .coleccion-destacada .tarjeta-coleccion{grid-template-columns:110px 1fr}
+    .coleccion-destacada .tarjeta-coleccion-foto{min-height:110px}
+    .coleccion-destacada .tarjeta-coleccion-foto small{display:none}
+    .coleccion-destacada .tarjeta-coleccion-info{padding:12px 14px}
+    .coleccion-destacada .tarjeta-coleccion-info p{display:none}
+    .coleccion-destacada .tarjeta-coleccion-info h2{font-size:1.15rem}
+  }
+  /* Rectángulo de la Línea Efecto Piedra: versión compacta para que los amuletos se vean enseguida */
+  .coleccion-destacada{margin:0 0 28px}
+  .coleccion-destacada .tarjeta-coleccion{grid-template-columns:170px 1fr;align-items:stretch}
+  .coleccion-destacada .tarjeta-coleccion-foto{min-height:0;height:100%}
+  .coleccion-destacada .tarjeta-coleccion-foto span{font-size:2rem}
+  .coleccion-destacada .tarjeta-coleccion-info{padding:16px 22px;gap:2px}
+  .coleccion-destacada .tarjeta-coleccion-info h2{font-size:1.35rem;margin:0 0 4px}
+  .coleccion-destacada .tarjeta-coleccion-info p{font-size:.92rem;margin:0;line-height:1.45}
+  .coleccion-destacada .tarjeta-coleccion-info strong{margin-top:8px;font-size:.92rem}
+  @media(max-width:700px){
+    .coleccion-destacada .tarjeta-coleccion{grid-template-columns:96px 1fr}
+    .coleccion-destacada .tarjeta-coleccion-info{padding:12px 14px}
+    .coleccion-destacada .tarjeta-coleccion-info p{display:none}
+    .coleccion-destacada .tarjeta-coleccion-info h2{font-size:1.15rem}
+  }
 </style>
 </head>
 <body>
