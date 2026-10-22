@@ -73,6 +73,18 @@
     <p class="lead" style="max-width: 600px; margin: 0 auto;">Piezas de protección, equilibrio y energía positiva hechas a mano en arcilla natural.</p>
   </div>
 
+  <div class="coleccion-destacada">
+    <a class="tarjeta-coleccion" href="linea-efecto-piedra.html" id="banner-efecto-piedra">
+      <div class="tarjeta-coleccion-foto" id="foto-efecto-piedra"><span aria-hidden="true">🪨</span><small>Colección</small></div>
+      <div class="tarjeta-coleccion-info">
+        <span class="eyebrow">Colección</span>
+        <h2>Línea Efecto Piedra</h2>
+        <p>Amuletos moldeados y acabados a mano en arcilla natural, con aspecto de piedra antigua. Cada símbolo tiene su propia historia y significado.</p>
+        <strong id="texto-efecto-piedra">Ver la colección →</strong>
+      </div>
+    </a>
+  </div>
+
   <div id="productos-amuletos" class="grid-productos"></div>
 </main>
 
@@ -124,6 +136,22 @@
 
 <script src="js/render.js"></script>
 <script src="js/main.js"></script>
-<script>cargarDatos().then(() => renderCategoria('productos-amuletos', 'amuletos'));</script>
+<script>
+cargarDatos().then(() => {
+  renderCategoria('productos-amuletos', 'amuletos');
+  // Rectángulo de la Línea Efecto Piedra: foto y número de amuletos salen de las fichas de esa colección.
+  const col = PRODUCTOS.filter(p => p.coleccion === 'linea_efecto_piedra' && p.estado !== 'oculto').sort(ordenProductos);
+  const banner = document.getElementById('banner-efecto-piedra');
+  if (!col.length) { if (banner) banner.parentElement.style.display = 'none'; return; }
+  const t = document.getElementById('texto-efecto-piedra');
+  if (t) t.textContent = 'Ver los ' + col.length + ' amuletos de la colección →';
+  const conFoto = col.find(p => imagenProducto(p));
+  const f = document.getElementById('foto-efecto-piedra');
+  if (f && conFoto) {
+    f.style.padding = '0';
+    f.innerHTML = '<img src="' + escHTML(imagenProducto(conFoto)) + '" alt="Línea Efecto Piedra" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">';
+  }
+});
+</script>
 </body>
 </html>
