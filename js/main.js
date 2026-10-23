@@ -52,15 +52,37 @@ document.addEventListener('DOMContentLoaded', function () {
   // Tienda desplegable y carrito en la barra superior.
   construirNavegacionTienda();
 
-  // Navegación contextual: vuelve a la página anterior dentro del sitio.
-  document.querySelectorAll('.btn-volver-atras').forEach(function (btn) {
+  // Navegación contextual: TODAS las páginas (menos la portada) tienen un «← Volver atrás».
+  // Vuelve a la página donde estabas; si se entra directo (enlace, WhatsApp…) va a una página lógica.
+  (function volverAtras() {
+    var pagina = (window.location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    if (pagina === '' || pagina === 'index.html' || pagina === '404.html' || pagina === 'gracias.html') return;
+    var main = document.querySelector('main');
+    if (!main) return;
+    var destinoPorDefecto = (pagina === 'tienda.html') ? 'index.html' : 'tienda.html';
+    var etiqueta = '← Volver atrás';
+    // ¿Ya hay un botón de volver en la página? Se aprovecha y se unifica.
+    var existente = main.querySelector('.btn-volver-atras') ||
+      Array.from(main.querySelectorAll('a.btn')).find(function (a) { return /^\s*←/.test(a.textContent); });
+    var btn = existente;
+    if (!btn) {
+      var barra = document.createElement('div');
+      barra.className = 'volver-atras-barra' + (main.classList.contains('contenedor') ? '' : ' contenedor');
+      btn = document.createElement('a');
+      btn.className = 'btn btn-secundario btn-volver-atras';
+      btn.href = destinoPorDefecto;
+      barra.appendChild(btn);
+      main.insertBefore(barra, main.firstChild);
+    }
+    btn.textContent = etiqueta;
+    btn.classList.add('btn-volver-atras');
     btn.addEventListener('click', function (e) {
       var ref = document.referrer || '';
       var mismoSitio = false;
       try { mismoSitio = ref && new URL(ref, window.location.href).origin === window.location.origin; } catch (_) {}
       if (window.history.length > 1 && mismoSitio) { e.preventDefault(); window.history.back(); }
     });
-  });
+  })();
 });
 
 function construirNavegacionTienda() {
