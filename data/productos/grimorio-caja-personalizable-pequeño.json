@@ -37,7 +37,11 @@
   "medidas": "Disponible en dos tamaños — Pequeña tamaño cartas Tarot, Oráculo, etc. Mediana (aproximadamente A5, medio folio). Al estar hecha 100% a mano, cada pieza puede variar ligeramente en tamaño.",
   "opcionesPersonalizacionCliente": [
     {
-      "nombre": "Imagen central"
+      "nombre": "Imagen central",
+      "opciones": [
+        "Imagen aportada por ti",
+        "Imagen diseñada por Arcilla Hechizada"
+      ]
     }
   ],
   "elaboracion": "100% a mano.",
