@@ -529,18 +529,7 @@
       "mostrarCollarLlavero": false,
       "categoria": "grimorios",
       "mostrarVariantes": true,
-      "variantes": [
-        {
-          "color": "Marrón-Negro",
-          "imagenes": [],
-          "disponible": true
-        },
-        {
-          "color": "Marrón-rojo",
-          "imagenes": [],
-          "disponible": true
-        }
-      ],
+      "variantes": [],
       "simbolismo": "La apariencia de libro antiguo conecta con la figura del grimorio dentro de la tradición esotérica: el cuaderno o volumen donde históricamente se recogían conocimientos, fórmulas y secretos de quien lo poseía. Esta pieza traslada esa idea a un objeto funcional distinto: una caja que oculta su verdadera naturaleza tras una apariencia familiar.",
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
       "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
