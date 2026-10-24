@@ -545,11 +545,14 @@
       "cuidados": "Mantener en lugar seco y limpiar suavemente con paño seco.",
       "materiales": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
       "galeria": [
-        "img/uploads/grimorio-collage.png",
-        "img/uploads/grimorio-imagen-canva1.png",
-        "img/uploads/grimorio-interior-canva.png",
-        "img/uploads/grimorio-imagen-1-canva.png",
-        "img/uploads/grimorio-abierto.png"
+        "img/uploads/collage-caja-imagen-jpg.jpg",
+        "img/uploads/caja-grimorio01-jpg.jpg",
+        "img/uploads/caja-grimorio4-jpg.jpg",
+        "img/uploads/caja-grimorio7-jpg.jpg",
+        "img/uploads/caja-grimorio3-jpg.jpg",
+        "img/uploads/grimorio-imagen2-jpg.jpg",
+        "img/uploads/caja-grimorio5-jpg.jpg",
+        "img/uploads/caja-grimorio6-jpg.jpg"
       ],
       "permiteOtroColor": false,
       "medidas": "Tamaño A5 aproximado.",
@@ -564,7 +567,7 @@
       ],
       "elaboracion": "100% a mano.",
       "id": "caja-grimorio-mediano-personalizable",
-      "imagenPrincipal": "img/uploads/grimorio-collage.png"
+      "imagenPrincipal": ""
     },
     {
       "opcionesPersonalizacion": "Elige la botellita pequeña, collar o llavero",
