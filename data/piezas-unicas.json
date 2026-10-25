@@ -10,8 +10,48 @@
         "img/uploads/img_20251028_131146-1-.jpg"
       ],
       "estado": "vendida",
-      "id": "piezas-unicas ",
-      "nombre": "Grimorio Búho "
+      "id": "grimorio-buho ",
+      "nombre": "Grimorio Búho ",
+      "precio": 55
+    },
+    {
+      "galeria": [
+        "img/uploads/grimorio-grandenudo-flow_2k_20261025161157_-2-1-.jpg",
+        "img/uploads/editing_product_image_background_2k_20261025160427-1-.jpg",
+        "img/uploads/composite_handmade_grimoire_image_2k_20261025160429-1-.jpg",
+        "img/uploads/hojas-cosidas-jpg.jpg",
+        "img/uploads/compositing_product_onto_new_bac…_2k_20260924125530-1-.jpg"
+      ],
+      "id": "grimorio-700pag-nudo-bruja",
+      "nombre": "Grimorio Nudo de Bruja",
+      "estado": "vendida",
+      "precio": 60
+    },
+    {
+      "galeria": [
+        "img/uploads/collar-arce-flow_2k_20261025160536-1-.jpg",
+        "img/uploads/compositing_handmade_product_int…_2k_20261025160528-1-.jpg",
+        "img/uploads/img_20251107_153354-1-.jpg",
+        "img/uploads/img_20251112_145231-1-.jpg",
+        "img/uploads/img_20251107_153807-1-.jpg",
+        "img/uploads/img_20251107_135150-1-.jpg",
+        "img/uploads/img_20251107_134451-1-.jpg"
+      ],
+      "id": "raiz-del-bosque",
+      "nombre": "Raíz del Bosque",
+      "precio": 45
+    },
+    {
+      "galeria": [
+        "img/uploads/carpesano-flow_2k_20261021145802-1-.jpg",
+        "img/uploads/img_20250109_155114-1-.jpg",
+        "img/uploads/img_20250109_192315-1-.jpg",
+        "img/uploads/img_20250109_155810-1-.jpg"
+      ],
+      "id": "carpesano-arbol",
+      "nombre": "Carpesano Árbol de la Vida",
+      "estado": "vendida",
+      "precio": 40
     }
   ]
 }
