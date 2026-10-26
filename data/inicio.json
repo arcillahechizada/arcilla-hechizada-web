@@ -98,5 +98,41 @@
         "src": "img/uploads/photoroom-20261021_205814262_-3-1-.jpg"
       }
     ]
+  },
+  "huerto": {
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/videoshot_20250424_091818-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/videoshot_20250424_091945-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/20230705_203501-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250424_094414_edit-4-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/videoshot_20250424_091938-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250424_094414_edit-2-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250424_094414_edit-1-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250424_094414_edit-3-1-.jpg"
+      }
+    ]
   }
 }
