@@ -12,7 +12,32 @@
     ]
   },
   "hecho_a_mano": {
-    "media": []
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250408_094226_edit-1-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250408_094226_edit-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20251013-wa0006-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/lv_0_20250322203700-1-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250408_094226_edit-2-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/img-20251013-wa0010-1-.jpg"
+      }
+    ]
   },
   "personalizacion": {
     "media": [
