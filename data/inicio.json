@@ -68,7 +68,16 @@
     ]
   },
   "taller": {
-    "media": []
+    "media": [
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250408_094226_edit-1-1-.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "img/uploads/video_20250408_094226_edit-2-1-.jpg"
+      }
+    ]
   },
   "personalizados": {
     "media": [
