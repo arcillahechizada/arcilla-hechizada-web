@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "data" / "productos.json"
@@ -40,3 +41,24 @@ OUTPUT.write_text(
     encoding="utf-8",
 )
 print(f"Catálogo generado: {len(productos)} producto(s).")
+
+
+# --- Mapa del sitio (sitemap.xml): páginas fijas + una entrada por cada ficha publicada ---
+BASE = "https://www.arcillahechizada.com"
+PAGINAS = [
+    "", "tienda", "amuletos", "botellitas", "pociones", "grimorios", "mandalas",
+    "piezas-unicas", "personalizados", "el-taller", "envios-y-recogida",
+    "reserva-de-llamada", "opiniones", "faq", "para-tiendas", "contacto",
+    "condiciones-de-compra", "aviso-legal", "privacidad", "cookies",
+]
+urls = [f"{BASE}/{p}" for p in PAGINAS]
+for prod in productos:
+    if prod.get("estado") == "oculto":
+        continue
+    urls.append(f"{BASE}/ficha?id={quote(prod['id'].strip())}")
+sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+sitemap += [f"  <url><loc>{u}</loc></url>" for u in urls]
+sitemap.append("</urlset>")
+(ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
+print(f"Mapa del sitio generado: {len(urls)} direcciones.")
