@@ -1,6 +1,6 @@
 {
-  "notaInterna": "Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible (no serie).",
-  "opcionesPersonalizacion": "Personaliza el color del Elixir. Tiempo de creación aprox. 10-15 días laborables. Pieza única/irrepetible.",
+  "notaInterna": "Tiempo de creación: de 3 a 4 días. Pieza única/irrepetible (no serie).",
+  "opcionesPersonalizacion": "Personaliza el color del Elixir. Tiempo de creación: de 3 a 4 días. Pieza única/irrepetible.",
   "descripcionCompleta": "En la tradición mágica, la belladona es la planta de la dualidad: veneno y medicina, luz y sombra, peligro y sabiduría. Esta pócima recoge esa esencia en un frasco artesanal, pensado como talismán de protección, transformación y conexión con lo oculto.\n\nSobre el cristal, unas hojas verdes representan la vitalidad y el misterio de la planta, portadora de saberes antiguos, mientras tres frutos morados evocan sus bayas enigmáticas, asociadas tradicionalmente a los ungüentos de vuelo y a la apertura de portales hacia otros reinos. El tapón lleva grabado un tetragrama, sello que canaliza los cuatro elementos y el espíritu, manteniendo intacta la energía en su interior.\n\nPuedes usarla como apoyo frente a energías negativas, para potenciar la intuición y la conexión con lo invisible, como acompañante en rituales de transformación y trabajo de sombra, o simplemente como objeto sagrado en tu altar o espacio de meditación.\n\nCada pieza se elabora artesanalmente, con ligeras variaciones que la hacen única. ⚠️ Producto decorativo. No apto para consumo. Se entrega activada con su propia intención antes de salir del taller.",
   "coleccion": "",
   "descripcionCorta": "Hojas verdes y frutos morados modelados a mano sobre una botella decorativa. Esta poción representa la dualidad histórica de la belladona como planta de luz y sombra.",
@@ -42,5 +42,6 @@
   ],
   "permiteOtroColor": true,
   "elaboracion": "100% a mano.",
-  "id": "poción-belladona"
+  "id": "poción-belladona",
+  "medidas": "Aprox. 9 cm de alto x 5,5-6 cm de ancho. Las medidas son aproximadas: al ser piezas modeladas y decoradas una a una a mano, pueden variar ligeramente."
 }

@@ -168,7 +168,13 @@ const PAGOS_FICHA=[['💳','Tarjeta bancaria',''],['📲','Bizum',''],['🅿️'
 function pagosFichaHTML(){return `<section class="pagos-ficha" aria-label="Formas de pago"><h3>Formas de pago</h3><ul>${PAGOS_FICHA.map(([i,n,nota])=>`<li><span class="pago-ico" aria-hidden="true">${i}</span><span><strong>${n}</strong>${nota?`<small>${nota}</small>`:''}</span></li>`).join('')}</ul></section>`;}
 // «Volver atrás» de la ficha: si se entra directo (enlace, WhatsApp…) lleva a la categoría del producto, no a la tienda general.
 function destinoVolverFicha(p){const pag={amuletos:'amuletos.html',botellitas:'botellitas.html',pociones:'pociones.html',grimorios:'grimorios.html',mandala:'mandalas.html',mandalas:'mandalas.html',infusiones:'infusiones.html',inciensos:'inciensos.html',plantas_semillas:'plantas-semillas.html',difusores:'difusores-y-plantas.html'};const d=p.coleccion==='linea_efecto_piedra'?'linea-efecto-piedra.html':(pag[p.categoria]||'');const b=document.querySelector('main .btn-volver-atras');if(b&&d)b.setAttribute('href',d);}
-function renderFicha(){const id=new URLSearchParams(location.search).get('id')||new URLSearchParams(location.search).get('producto'),c=document.getElementById('ficha-contenido');if(!c)return;if(!id){c.innerHTML='<p class="aviso-pendiente">No se ha indicado ningún producto.</p>';return;}const p=PRODUCTOS.find(x=>x.id===id)||PIEZAS_UNICAS.find(x=>x.id===id);if(!p||p.estado==='oculto'){c.innerHTML='<p class="aviso-pendiente">Este producto todavía no está publicado.</p>';return;}window.PRODUCTO_ACTUAL=p;destinoVolverFicha(p);document.title=`${p.nombre||'Producto'} — Arcilla Hechizada`;const est=etiquetaEstado(p.estado),comprable=sePuedeComprar(p);c.innerHTML=`<article class="ficha-producto ficha-universal">${galeriaHTML(p)}<div class="detalles-ficha"><span class="eyebrow">${escHTML(p.categoria||'Pieza artesanal')}</span><h1>${escHTML(p.nombre||'Producto')}</h1><div class="estado-ficha"><span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span></div><p class="ficha-precio">${precioTexto(p)}</p>${fichaEspecial(p)}${opcionesProducto(p)}${accionesCompra(p)}${comprable?pagosFichaHTML():''}${!comprable?'<p class="aviso-pendiente aviso-no-compra">Este producto no está disponible para compra online en este momento.</p>':''}</div></article>`;
+function seoFicha(p){try{const base='https://www.arcillahechizada.com',url=base+'/ficha?id='+encodeURIComponent(p.id),titulo=`${p.nombre||'Pieza artesanal'} — Arcilla Hechizada`;const desc=String(p.descripcionCorta||p.descripcion||'').replace(/\s+/g,' ').trim().slice(0,300);let img=imagenProducto(p)||'';if(img&&!/^https?:/i.test(img))img=base+'/'+encodeURI(String(img).replace(/^\/+/,''));
+const meta=(attr,key,val)=>{if(!val)return;let m=document.head.querySelector(`meta[${attr}="${key}"]`);if(!m){m=document.createElement('meta');m.setAttribute(attr,key);document.head.appendChild(m);}m.setAttribute('content',val);};
+meta('name','description',desc);meta('property','og:type','product');meta('property','og:title',titulo);meta('property','og:description',desc);meta('property','og:url',url);meta('property','og:image',img);meta('name','twitter:card','summary_large_image');
+let can=document.head.querySelector('link[rel="canonical"]');if(!can){can=document.createElement('link');can.rel='canonical';document.head.appendChild(can);}can.href=url;
+const ld={'@context':'https://schema.org','@type':'Product',name:p.nombre,description:desc,url};if(img)ld.image=[img];ld.brand={'@type':'Brand',name:'Arcilla Hechizada'};const pr=precioNumero(p);const vendida=['vendido','vendida'].includes(p.estado);if(pr>0){ld.offers={'@type':'Offer',price:pr.toFixed(2),priceCurrency:'EUR',url};if(vendida)ld.offers.availability='https://schema.org/SoldOut';}
+let sc=document.getElementById('ld-producto');if(!sc){sc=document.createElement('script');sc.type='application/ld+json';sc.id='ld-producto';document.head.appendChild(sc);}sc.textContent=JSON.stringify(ld);}catch(e){}}
+function renderFicha(){const id=new URLSearchParams(location.search).get('id')||new URLSearchParams(location.search).get('producto'),c=document.getElementById('ficha-contenido');if(!c)return;if(!id){c.innerHTML='<p class="aviso-pendiente">No se ha indicado ningún producto.</p>';return;}const p=PRODUCTOS.find(x=>x.id===id)||PIEZAS_UNICAS.find(x=>x.id===id);if(!p||p.estado==='oculto'){c.innerHTML='<p class="aviso-pendiente">Este producto todavía no está publicado.</p>';return;}window.PRODUCTO_ACTUAL=p;destinoVolverFicha(p);document.title=`${p.nombre||'Producto'} — Arcilla Hechizada`;seoFicha(p);const est=etiquetaEstado(p.estado),comprable=sePuedeComprar(p);c.innerHTML=`<article class="ficha-producto ficha-universal">${galeriaHTML(p)}<div class="detalles-ficha"><span class="eyebrow">${escHTML(p.categoria||'Pieza artesanal')}</span><h1>${escHTML(p.nombre||'Producto')}</h1><div class="estado-ficha"><span class="etiqueta ${['vendido','vendida'].includes(p.estado)?'etiqueta-vendida':'etiqueta-disponible'}">${escHTML(est)}</span></div><p class="ficha-precio">${precioTexto(p)}</p>${fichaEspecial(p)}${opcionesProducto(p)}${accionesCompra(p)}${comprable?pagosFichaHTML():''}${!comprable?'<p class="aviso-pendiente aviso-no-compra">Este producto no está disponible para compra online en este momento.</p>':''}</div></article>`;
  c.querySelectorAll('.miniatura').forEach(m=>m.addEventListener('click',()=>{const im=c.querySelector('#foto-principal-ficha');if(im)im.src=m.dataset.foto;c.querySelectorAll('.miniatura').forEach(x=>x.classList.remove('activa'));m.classList.add('activa');}));
  if(comprable){let cantidad=1;const cv=c.querySelector('#cantidad-valor');const menos=c.querySelector('#cantidad-menos');const mas=c.querySelector('#cantidad-mas');if(cv&&menos&&mas){menos.addEventListener('click',()=>{cantidad=Math.max(1,cantidad-1);cv.textContent=cantidad;});mas.addEventListener('click',()=>{cantidad++;cv.textContent=cantidad;});}document.getElementById('btn-carrito').addEventListener('click',()=>{if(!comprobarEleccion(document.getElementById('ficha-contenido')))return;añadirAlCarrito(p,opcionesSeleccionadas(),cantidad);});document.querySelectorAll('#ficha-contenido select[data-tipo],#ficha-contenido input[data-tipo]').forEach(e=>{e.addEventListener('change',actualizarPedido);e.addEventListener('input',actualizarPedido);});actualizarPedido();}
 }
@@ -425,7 +431,7 @@ function cerrarPedido(p){
 function mostrarPagoCompletado(p,correoOk){
   const box=document.getElementById('checkout-accion');
   mostrarError('');
-  if(box) box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(p.numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(p.total)}</strong></p><p>Forma de pago: <strong>${escHTML(p.metodo)}</strong></p>${correoOk?'<p>Hemos enviado los datos del pedido al correo indicado.</p>':`<p>El pago se ha completado, pero no hemos podido enviar el correo de confirmación. Guarda tu número de pedido <strong>${escHTML(p.numero)}</strong> y escríbenos a <a href="mailto:${EMAIL}">${EMAIL}</a> si lo necesitas.</p>`}</div>`;
+  if(box) box.innerHTML=`<div class="pago-instrucciones"><h3>¡Pago realizado!</h3><p>Tu pedido <strong>${escHTML(p.numero)}</strong> ha sido registrado correctamente.</p><p>Total: <strong>${formatoEuros(p.total)}</strong></p><p>Forma de pago: <strong>${escHTML(p.metodo)}</strong></p>${correoOk?'<p>Hemos enviado los datos del pedido al correo indicado.</p>':`<p>El pago se ha completado, pero no he podido enviar el correo de confirmación. Guarda tu número de pedido <strong>${escHTML(p.numero)}</strong> y escríbeme a <a href="mailto:${EMAIL}">${EMAIL}</a> si lo necesitas.</p>`}</div>`;
 }
 // Se llama cuando el cobro YA está capturado: nunca debe presentarse como un fallo de pago.
 async function terminarPagoOnline(p,orderId){
@@ -436,7 +442,7 @@ async function terminarPagoOnline(p,orderId){
   mostrarPagoCompletado(p,correoOk);
 }
 function mensajeFalloCaptura(p){
-  return `El pago ha sido autorizado pero no hemos podido confirmar el cobro. NO repitas el pago: escríbenos por WhatsApp o a ${EMAIL} indicando el pedido ${p.numero}.`;
+  return `El pago ha sido autorizado pero no he podido confirmar el cobro. NO repitas el pago: escríbeme por WhatsApp o a ${EMAIL} indicando el pedido ${p.numero}.`;
 }
 function mensajeUsuario(e,porDefecto){return (e&&e.userMessage)||porDefecto;}
 
@@ -549,7 +555,7 @@ function falloCargaPago(seq,e){
   console.error('No se pudo preparar el pago:',e);
   if(seq!==CHK.seq)return;
   const box=document.getElementById('paypal-payment-box'); if(!box)return;
-  box.innerHTML=`<div class="pago-instrucciones"><h3>No hemos podido cargar el pago seguro</h3><p>Recarga la página e inténtalo de nuevo. Si el problema continúa, puedes pagar por Bizum o escribirnos por <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>.</p>${/[?&]diag=1/.test(location.search)?'<p style="font-size:12px;opacity:.7">Diagnóstico: fase «'+String((e&&e.fasePago)||'?').replace(/[<>&]/g,'')+'» — '+String((e&&e.message)||e).slice(0,160).replace(/[<>&]/g,'')+'</p>':''}</div>`;
+  box.innerHTML=`<div class="pago-instrucciones"><h3>No he podido cargar el pago seguro</h3><p>Recarga la página e inténtalo de nuevo. Si el problema continúa, puedes pagar por Bizum o escribirnos por <a href="https://wa.me/${WHATSAPP}" target="_blank" rel="noopener">WhatsApp</a>.</p>${/[?&]diag=1/.test(location.search)?'<p style="font-size:12px;opacity:.7">Diagnóstico: fase «'+String((e&&e.fasePago)||'?').replace(/[<>&]/g,'')+'» — '+String((e&&e.message)||e).slice(0,160).replace(/[<>&]/g,'')+'</p>':''}</div>`;
 }
 async function copiarTexto(t,aviso){
   try{await navigator.clipboard.writeText(t);mostrarAvisoCarrito(aviso);}catch(_){alert(t);}
@@ -572,7 +578,7 @@ async function confirmarPedidoSinPagoOnline(metodo){
         <p><strong>Número:</strong> ${BIZUM_VISIBLE}</p>
         <p><strong>Importe:</strong> ${formatoEuros(p.total)}</p>
         <p><strong>Concepto:</strong> ${escHTML(p.numero)}</p>
-        <p>El pedido quedará pendiente de confirmación hasta que recibamos el Bizum. Te hemos enviado los datos al correo indicado.</p>
+        <p>El pedido quedará pendiente de confirmación hasta que reciba el Bizum. Te he enviado los datos al correo indicado.</p>
         <button type="button" class="btn btn-pagar" id="copiar-bizum">Copiar número Bizum</button>
         <button type="button" class="btn btn-pagar" id="copiar-concepto">Copiar concepto</button>
       </div>`;
@@ -583,12 +589,12 @@ async function confirmarPedidoSinPagoOnline(metodo){
         <h3>Pedido ${escHTML(p.numero)} recibido</h3>
         <p><strong>Pago en efectivo en el taller.</strong> El pago se efectuará el día acordado para la recogida. No se aplican gastos de envío.</p>
         <p><strong>Total a pagar: ${formatoEuros(p.total)}</strong></p>
-        <p>Te hemos enviado la confirmación al correo indicado.</p>
+        <p>Te he enviado la confirmación al correo indicado.</p>
       </div>`;
     }
   }catch(e){
     console.error(e);
-    mostrarError('No hemos podido registrar tu pedido. Inténtalo de nuevo en unos segundos o escríbenos por WhatsApp.');
+    mostrarError('No he podido registrar tu pedido. Inténtalo de nuevo en unos segundos o escríbeme por WhatsApp.');
     if(btn&&btn.isConnected){btn.disabled=false;btn.textContent=metodo==='Bizum'?'Confirmar pedido y ver datos de Bizum':'Confirmar pedido (pago en el taller)';}
   }finally{CHK.ocupado=false;}
 }
@@ -652,7 +658,7 @@ function renderCarrito(){
           <label for="cp-envio">Código postal</label><input id="cp-envio" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="Introduce tu código postal" value="${escHTML(clientePrev.cp)}">
           <p class="ayuda-cp">Introduce el código postal de entrega para calcular los gastos de envío.</p>
         </div>
-        <div id="aviso-internacional" class="pago-instrucciones" hidden><h3>Envío internacional — consultar por WhatsApp</h3><p>¿Tu pedido es fuera de España?<br>Escríbenos por WhatsApp y buscamos la forma de envío más económica para que tu pedido de Arcilla Hechizada llegue hasta ti.</p><a class="btn btn-whatsapp-producto" href="${whatsappInternacionalURL()}" target="_blank" rel="noopener">Consultar envío por WhatsApp</a></div>
+        <div id="aviso-internacional" class="pago-instrucciones" hidden><h3>Envío internacional — consultar por WhatsApp</h3><p>¿Tu pedido es fuera de España?<br>Escríbeme por WhatsApp y busco contigo la forma de envío más económica para que tu pedido de Arcilla Hechizada llegue hasta ti.</p><a class="btn btn-whatsapp-producto" href="${whatsappInternacionalURL()}" target="_blank" rel="noopener">Consultar envío por WhatsApp</a></div>
         <p id="aviso-efectivo" class="pago-instrucciones" hidden>💶 <strong>Pago en efectivo en el taller.</strong><br>El pago se efectuará el día acordado para la recogida. No se aplican gastos de envío.</p>
         <label for="metodo-pago" class="label-pago">Forma de pago</label>
         <select id="metodo-pago">

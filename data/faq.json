@@ -2,7 +2,7 @@
   "faq": [
     {
       "pregunta": "¿Cómo hago un pedido?",
-      "respuesta": "Escríbenos por WhatsApp o email indicando el producto que te interesa, y confirmamos juntas los detalles y el pedido.",
+      "respuesta": "Escríbeme por WhatsApp o por email indicando la pieza que te interesa, y concretamos contigo los detalles de tu pedido.",
       "estado": "publicada"
     },
     {
@@ -11,8 +11,8 @@
       "estado": "publicada"
     },
     {
-      "pregunta": "¿Cuánto tarda el envío?",
-      "respuesta": "Depende de la opción elegida: Exprés (24/48h), Certificado (72h) u Ordinario.",
+      "pregunta": "¿Cuánto tarda mi pedido?",
+      "respuesta": "Cada pieza se elabora después de tu pedido y está lista en un plazo de entre 2 y 10 días, según su tipo: unos 2 días para las botellitas y el Agua de Luna, y de 8 a 10 para las cajas grimorio. Las piezas ya elaboradas salen al día siguiente laborable. Tienes el detalle completo en Envíos y recogida.",
       "estado": "publicada"
     },
     {
@@ -32,13 +32,13 @@
     },
     {
       "pregunta": "¿De qué materiales están hechas las piezas?",
-      "respuesta": "[CONTENIDO PENDIENTE]",
-      "estado": "borrador"
+      "respuesta": "Arcilla natural de secado al aire, pigmentos al agua y barniz protector mate.",
+      "estado": "publicada"
     },
     {
       "pregunta": "¿Cómo cuido mi pieza de arcilla?",
-      "respuesta": "[CONTENIDO PENDIENTE]",
-      "estado": "borrador"
+      "respuesta": "No mojar ni exponer a la humedad. Limpiar suavemente con un paño seco.",
+      "estado": "publicada"
     }
   ]
 }
