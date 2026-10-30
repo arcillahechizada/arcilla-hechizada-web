@@ -134,3 +134,40 @@ function construirNavegacionTienda() {
   });
   var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});
 }
+
+/* ---- Cookies: aviso de consentimiento (Google Maps y Cal.com solo se cargan si lo aceptas) ---- */
+(function(){
+  var KEY='arcillaHechizadaCookies';
+  function leer(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function guardar(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  function cargarExternos(){
+    document.querySelectorAll('iframe[data-consent-src]').forEach(function(f){
+      f.src=f.getAttribute('data-consent-src'); f.removeAttribute('data-consent-src');
+      var p=f.parentNode&&f.parentNode.querySelector('.consent-placeholder'); if(p) p.remove();
+    });
+  }
+  function marcadores(){
+    if(leer()==='todas') return;
+    document.querySelectorAll('iframe[data-consent-src]').forEach(function(f){
+      if(f.hasAttribute('data-consent-nolabel')||f.parentNode.querySelector('.consent-placeholder')) return;
+      var d=document.createElement('div'); d.className='consent-placeholder';
+      d.innerHTML='<p>Para ver '+(f.getAttribute('data-consent-label')||'este contenido')+' necesito tu permiso, porque lo ofrece un servicio externo que puede guardar cookies.</p><button type="button" class="btn btn-primario">Aceptar y ver</button>';
+      d.querySelector('button').addEventListener('click',function(){guardar('todas');cargarExternos();cerrar();});
+      f.parentNode.insertBefore(d,f);
+    });
+  }
+  function cerrar(){var b=document.getElementById('aviso-cookies'); if(b) b.remove();}
+  function abrir(){
+    cerrar();
+    var b=document.createElement('div'); b.id='aviso-cookies'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Aviso de cookies');
+    b.innerHTML='<p><strong>🍪 Cookies, con transparencia.</strong> Uso solo lo necesario para que la tienda funcione. El mapa (Google Maps) y el calendario de reservas (Cal.com) son servicios externos y solo se cargan si me das permiso. Más información en la <a href="cookies.html">política de cookies</a>.</p><div class="aviso-cookies-botones"><button type="button" class="btn btn-primario" data-acepto="todas">Aceptar todo</button><button type="button" class="btn btn-secundario" data-acepto="necesarias">Solo las necesarias</button></div>';
+    b.querySelectorAll('button').forEach(function(x){x.addEventListener('click',function(){var v=x.getAttribute('data-acepto');guardar(v);if(v==='todas')cargarExternos(); else marcadores(); cerrar();});});
+    document.body.appendChild(b);
+  }
+  window.ahCookies={abrir:abrir};
+  function iniciar(){
+    var v=leer();
+    if(v==='todas') cargarExternos(); else { marcadores(); if(!v) abrir(); }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',iniciar); else iniciar();
+})();

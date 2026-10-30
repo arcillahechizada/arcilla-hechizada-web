@@ -785,3 +785,10 @@ select.campo-error{border-color:#B3261E!important;box-shadow:0 0 0 3px rgba(179,
 .volver-atras-barra{margin:0 0 18px;padding-top:18px}
 .volver-atras-barra.contenedor{padding-top:18px}
 main.contenedor>.volver-atras-barra{padding-top:0}
+
+/* ---------- Aviso de cookies ---------- */
+#aviso-cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:1000;max-width:760px;margin:0 auto;padding:16px 20px;background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio-tarjeta);box-shadow:0 6px 24px rgba(58,51,44,.18);display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+#aviso-cookies p{margin:0;flex:1 1 320px;font-size:.9rem;line-height:1.55;color:var(--carbon)}
+.aviso-cookies-botones{display:flex;gap:10px;flex-wrap:wrap}
+.consent-placeholder{padding:28px 20px;text-align:center;background:var(--beige);border-radius:var(--radio-tarjeta)}
+.consent-placeholder p{margin:0 0 14px;color:var(--marron-gris);line-height:1.6}

@@ -130,8 +130,11 @@ function renderInicio(){
     g.querySelector('.inicio-media-next')?.addEventListener('click',()=>show(n+1));
     dots.forEach(d=>d.addEventListener('click',()=>show(Number(d.dataset.index)||0)));
   });
+  irAAncla();
 }
 
+// Si se llega con #ancla (p. ej. index.html#huerto), recoloca la vista cuando el contenido de la portada ya se ha cargado.
+function irAAncla(){const h=location.hash;if(!h||h.length<2)return;const ir=()=>{const t=document.getElementById(decodeURIComponent(h.slice(1)));if(t)t.scrollIntoView({behavior:'auto',block:'start'});};ir();setTimeout(ir,400);setTimeout(ir,1200);window.addEventListener('load',()=>setTimeout(ir,300),{once:true});}
 function renderCategoria(id,cat){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.categoria===cat&&p.estado!=='oculto'&&p.coleccion!=='linea_efecto_piedra').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta categoría.</p>';}
 function renderColeccion(id,coleccion){const c=document.getElementById(id);if(!c)return;const ps=PRODUCTOS.filter(p=>p.coleccion===coleccion&&p.estado!=='oculto').sort(ordenProductos);c.innerHTML=ps.length?ps.map(tarjetaProductoHTML).join(''):'<p class="aviso-pendiente">Todavía no hay productos publicados en esta colección.</p>';}
 function renderPiezasUnicas(id){const c=document.getElementById(id);if(!c)return;c.innerHTML=PIEZAS_UNICAS.filter(p=>p.estado!=='oculto').map(tarjetaProductoHTML).join('');}
