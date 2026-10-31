@@ -613,7 +613,7 @@
       "orden": 16,
       "personalizable": true,
       "activarCompra": true,
-      "mostrarCollarLlavero": false,
+      "mostrarCollarLlavero": true,
       "formasPagoDisponibles": [
         "Bizum",
         "PayPal",
