@@ -94,7 +94,7 @@
       "texto": "Sinceramente, da gusto comprar en sitios así. La atención es de una delicadeza absoluta y las piezas tienen un encanto que no se encuentra en ningún otro lado.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-13",
@@ -102,7 +102,7 @@
       "texto": "Se nota muchísimo el cariño que le pone a cada creación. Llegó impecable, súper rápido y la presentación cuidada al milímetro.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-14",
@@ -110,7 +110,7 @@
       "texto": "Iba con la idea de hacer un regalo original y no pude haber elegido mejor. Llegó a tiempo, en perfectas condiciones y a la persona le pareció un detalle lleno de magia.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-15",
@@ -118,7 +118,7 @@
       "texto": "¡Es que lo quieres todo! Cada pieza tiene algo tan especial que cuesta muchísimo decidirse solo por una.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-16",
@@ -126,7 +126,7 @@
       "texto": "El paquete transmite una energía preciosa desde que lo tienes en las manos. Venía tan bien embalado que da total tranquilidad para próximos envíos.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-17",
@@ -134,7 +134,7 @@
       "texto": "Comprar aquí es regalarse un momento de ilusión. Todo llega mimado, con un empaquetado precioso que te hace sentir que estás recibiendo un tesoro.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-18",
@@ -142,7 +142,7 @@
       "texto": "Calidad excelente y un trabajo artesanal impecable. Se ha convertido en mi sitio de confianza para cuando quiero hacer un regalo de los que se recuerdan.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-19",
@@ -150,7 +150,7 @@
       "texto": "Llegó facilísimo, rápido y super bien envuelto para que no sufriera ningún daño en el camino. ¡Un 10 absoluto en todo!",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-20",
@@ -158,7 +158,7 @@
       "texto": "¡El mejor servicio que he recibido! La comunicación fue fluida y el producto es de la mejor calidad.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-21",
@@ -166,7 +166,7 @@
       "texto": "Espectacular no tengo palabras",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-22",
@@ -174,7 +174,7 @@
       "texto": "Cómo siempre todo genial gracias.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-23",
@@ -182,7 +182,7 @@
       "texto": "El paquete llegó super rápido y en perfectas condiciones. Se nota el cariño y el cuidado en cada capa del embalaje, cuidando hasta el más mínimo detalle.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-24",
@@ -190,7 +190,7 @@
       "texto": "Venía tan bonito preparado que daba hasta pena abrirlo. Es perfecto para enviar directamente como regalo, la persona que lo recibió quedó fascinada.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-25",
@@ -198,7 +198,7 @@
       "texto": "Superó todas mis expectativas. En vivo y en directo las piezas transmiten una energía única y unos acabados preciosos.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-26",
@@ -206,7 +206,7 @@
       "texto": "Es una auténtica maravilla. La calidad del trabajo artesanal es de 10, no se ven cosas hechas con tanta dedicación hoy en día.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-27",
@@ -214,7 +214,7 @@
       "texto": "Pedí una botellita y un amuleto y me quedé sin palabras al abrir la caja. Desprende una magia especial desde el primer momento.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-28",
@@ -222,7 +222,7 @@
       "texto": "Empaquetado impecable, llegó todo intacto y super protegido. Además venía con una presentación tan cuidada que sentí que me estaba haciendo un auto regalo increíble.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-29",
@@ -230,7 +230,7 @@
       "texto": "Buscaba un regalo especial y diferente para alguien muy querido y acerté de lleno. Quedó completamente enamorada del detalle.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-30",
@@ -238,7 +238,7 @@
       "texto": "No es solo la pieza en sí, que es bellísima, sino la experiencia completa al abrir el paquete. Hacía tiempo que no compraba algo hecho con tanto amor.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-31",
@@ -246,7 +246,7 @@
       "texto": "Calidad excelente y un envío imprevistamente rápido. Viene todo tan bien sujeto y protegido que no hay riesgo de que sufra ningún daño.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-32",
@@ -254,7 +254,7 @@
       "texto": "Comprar aquí es un gustazo de principio a fin. Atención de diez, envío rapidísimo y el paquete una auténtica fantasía.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-33",
@@ -262,7 +262,7 @@
       "texto": "Totalmente recomendable si buscas piezas con significado, hechas a mano y con un nivel de detalle único.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-34",
@@ -270,7 +270,7 @@
       "texto": "La presentación es tan bonita y envolvente que es una opción genial si quieres sorprender a alguien enviándoselo como regalo directo.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-35",
@@ -278,7 +278,7 @@
       "texto": "Atención impecable y una sensibilidad maravillosa para plasmar exactamente lo que querías. ¡Mil gracias por todo!",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-36",
@@ -286,7 +286,7 @@
       "texto": "Ha sido mi primera compra pero desde luego no va a ser la última. Me ha dejado con una sonrisa de oreja a oreja.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-37",
@@ -294,7 +294,7 @@
       "texto": "Se nota cuando alguien ama su trabajo. Cada detalle del paquete, desde el envoltorio hasta la pieza, transmite muchísima luz.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     },
     {
       "id": "op-38",
@@ -302,7 +302,7 @@
       "texto": "Llegó rapidísimo, todo impecable y con un aroma y una presentación preciosa. Una experiencia de compra mágica de verdad.",
       "producto": "",
       "fecha": "",
-      "estado": "oculta"
+      "estado": "publicada"
     }
   ]
 }

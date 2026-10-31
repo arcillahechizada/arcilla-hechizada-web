@@ -792,3 +792,19 @@ main.contenedor>.volver-atras-barra{padding-top:0}
 .aviso-cookies-botones{display:flex;gap:10px;flex-wrap:wrap}
 .consent-placeholder{padding:28px 20px;text-align:center;background:var(--beige);border-radius:var(--radio-tarjeta)}
 .consent-placeholder p{margin:0 0 14px;color:var(--marron-gris);line-height:1.6}
+
+/* ---------- Carrusel de opiniones ---------- */
+.opiniones-carrusel{display:flex;align-items:stretch;gap:8px;position:relative}
+.opi-pista{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;flex:1;padding:4px 2px 10px;scrollbar-width:none}
+.opi-pista::-webkit-scrollbar{display:none}
+.opi-slide{flex:0 0 100%;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-start}
+@media(min-width:700px){.opi-slide{flex-basis:calc((100% - 32px)/3)}}
+.opi-texto{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;margin:0}
+.opi-texto.abierto{-webkit-line-clamp:unset;display:block}
+.opi-leer{align-self:flex-start;margin-top:10px;background:none;border:0;padding:0;color:var(--terracota);font-weight:600;cursor:pointer;font-family:var(--font-texto)}
+.opi-flecha{flex:none;align-self:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--linea);background:var(--blanco);color:var(--carbon);font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:var(--sombra-suave)}
+.opi-flecha:hover{background:var(--terracota);color:var(--blanco);border-color:var(--terracota)}
+@media(max-width:520px){.opi-flecha{width:34px;height:34px;font-size:1.3rem}}
+.opi-pie{text-align:center;margin-top:18px}
+.opi-pie a{font-weight:600}
+.opi-slide{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio-tarjeta);padding:22px}
