@@ -116,35 +116,45 @@
     "media": [
       {
         "tipo": "imagen",
-        "src": "img/uploads/cultivo-mielrama-natural-sin-quimicos-agua-lluvia-02.jpg"
+        "titulo": "Cultivo orgánico de Milenrama en el huerto de Arcilla Hechizada",
+        "alt": "Flores blancas de milenrama cultivadas de forma orgánica sin pesticidas en el huerto de Arcilla Hechizada para elaboración de infusiones e inciensos.",
+        "src": "img/uploads/donde-comprar-milenrama-organica-para-rituales.jpg"
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/salvia-blanca-cultivo-natural-sin-quimicos-agua-lluvia-02.jpg"
+        "titulo": "Hojas de salvia fresca en el huerto artesanal | Arcilla Hechizada",
+        "alt": "Primer plano de hojas de salvia fresca cultivada en la tierra sin pesticidas y regada con agua de lluvia en el huerto artesanal de Arcilla Hechizada.",
+        "src": "img/uploads/hierbas-esotericas-cultivo-propio-sin-quimicos.jpg"
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/cultivo-natural-sin-quimicos-agua-lluvia-02.jpg"
+        "titulo": "Cultivo artesanal de belladona en el huerto mágico | Arcilla Hechizada",
+        "alt": "Planta de belladona en floración cultivada en tierra de manera artesanal y regada con agua de lluvia en el huerto de Arcilla Hechizada.",
+        "src": "img/uploads/plantas-esotericas-tradicionales-magia-natural.jpg"
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/consuelda-cultivo-natural-sin-quimicos-agua-lluvia-02.jpg"
+        "src": "img/uploads/huerto-sin-pesticidas-plantas-y-botanica-artesanal.jpg",
+        "alt": "Vista del huerto ecológico en tierra de Arcilla Hechizada donde crecen plantas e ingredientes cultivados sin pesticidas ni abonos químicos.  5. Título SEO",
+        "titulo": "El huerto ecológico y natural de Arcilla Hechizada | Ingredientes reales"
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/menta-cultivo-natural-sin-quimicos-agua-lluvia-05.jpg"
+        "src": "img/uploads/consuelda-y-plantas-rituales-huerto-natural-arcilla-hechizada.jpg",
+        "alt": "Plantas de consuelda y vegetación aromática creciendo libremente en la tierra del huerto de Arcilla Hechizada.",
+        "titulo": "Cultivo natural de consuelda y botánica artesanal | Arcilla Hechizada"
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/belladona-cultivo-natural-sin-quimicos-agua-lluvia-02.jpg"
+        "src": "img/uploads/belladona-planta-rituales-huerto-arcilla-hechizada.jpg",
+        "titulo": "Plantas mágicas y botánica ritual de cultivo propio | Arcilla Hechizada",
+        "alt": "Variedad de plantas mágicas como belladona y milenrama creciendo juntas en el huerto de cultivo natural de Arcilla Hechizada."
       },
       {
         "tipo": "imagen",
-        "src": "img/uploads/cultivo-belladona-natural-sin-quimicos-agua-lluvia-03.jpg"
-      },
-      {
-        "tipo": "imagen",
-        "src": "img/uploads/mielrama-cultivo-natural-sin-quimicos-agua-lluvia-04.jpg"
+        "src": "img/uploads/menta-cultivo-natural-sin-quimicos-agua-lluvia-05.jpg",
+        "titulo": "Cultivo orgánico de menta y hierbas aromáticas | Arcilla Hechizada",
+        "alt": "Planta de menta fresca con hojas verdes cultivada en tierra sin agroquímicos y regada con agua de lluvia en el huerto de Arcilla Hechizada."
       }
     ]
   }
