@@ -64,6 +64,7 @@ collections:
           - { label: "Otros", value: "otros" }
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
+      - { label: "Destacar en la portada", name: "destacado", widget: "boolean", default: false, required: false, hint: "Si la activas, esta pieza sale en el bloque «Para empezar» de la portada. Mejor entre 4 y 6 piezas. Si no marcas ninguna, la portada elige sola." }
       - label: "Colección (opcional)"
         name: "coleccion"
         widget: "select"

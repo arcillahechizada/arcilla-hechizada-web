@@ -47,7 +47,7 @@ print(f"Catálogo generado: {len(productos)} producto(s).")
 BASE = "https://www.arcillahechizada.com"
 PAGINAS = [
     "", "tienda", "amuletos", "botellitas", "pociones", "grimorios", "mandalas",
-    "piezas-unicas", "personalizados", "el-taller", "envios-y-recogida",
+    "piezas-unicas", "personalizados", "eventos", "el-taller", "envios-y-recogida",
     "reserva-de-llamada", "opiniones", "faq", "para-tiendas", "contacto",
     "condiciones-de-compra", "aviso-legal", "privacidad", "cookies",
 ]

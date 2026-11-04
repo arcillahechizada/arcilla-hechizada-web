@@ -808,3 +808,49 @@ main.contenedor>.volver-atras-barra{padding-top:0}
 .opi-pie{text-align:center;margin-top:18px}
 .opi-pie a{font-weight:600}
 .opi-slide{background:var(--blanco);border:1px solid var(--linea);border-radius:var(--radio-tarjeta);padding:22px}
+
+
+/* ============ Mejoras aprobadas (nov 2026) ============ */
+/* Ficha: precio + etiqueta juntos; opciones y botón de compra a la vista; WhatsApp/correo en segundo plano */
+.ficha-precio-fila{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+.ficha-precio-fila .ficha-precio{margin:0}
+.etiqueta.etiqueta-ficha{position:static}
+.ficha-universal .opciones-ficha{padding:12px 14px;margin-top:12px}
+.ficha-universal .opciones-ficha h3{font-size:1rem;margin:0 0 4px}
+.ficha-universal .opciones-ficha p{margin:4px 0 0;font-size:.92rem}
+.ficha-universal .campo-opcion{margin-top:8px}
+.ficha-botones-tienda{margin-top:16px;gap:10px}
+.ficha-botones-tienda .btn-carrito{flex:1 1 100%;padding:14px 18px;font-size:1.05rem;justify-content:center;text-align:center;cursor:pointer}
+.ficha-botones-tienda .btn-whatsapp-producto,.ficha-botones-tienda .btn-secundario{flex:1 1 auto;padding:9px 14px;font-size:.9rem;justify-content:center;text-align:center}
+.ficha-botones-tienda .btn-whatsapp-producto{background:transparent;color:var(--oliva);border:1px solid var(--oliva)}
+.ficha-universal .ficha-detalle:first-of-type,.ficha-universal .ficha-acordeon:first-of-type{margin-top:28px}
+
+/* Tarjetas de listado: precio justo bajo el nombre, texto con la misma altura y opciones/botón alineados abajo */
+.tarjeta-producto .precio{margin-top:2px;padding-top:2px}
+.tarjeta-producto .info p:not(.precio){display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin-top:8px}
+@supports (grid-template-rows: subgrid){
+  .grid-productos{row-gap:0}
+  .grid-productos>.producto-item{display:grid;grid-row:span 2;grid-template-rows:subgrid;gap:0;margin-bottom:28px}
+  .grid-productos>.producto-item>.tarjeta-producto{margin-bottom:10px}
+  .grid-productos>.producto-item>.tarjeta-acciones{justify-content:flex-end}
+}
+
+/* Categorías con foto */
+.categoria-card.con-foto{padding:0;overflow:hidden;transition:box-shadow .3s ease,transform .3s ease}
+.categoria-card.con-foto:hover{box-shadow:0 14px 30px rgba(58,51,44,.12);transform:translateY(-3px)}
+.categoria-card .cat-foto{aspect-ratio:4/3;overflow:hidden;background:var(--beige)}
+.categoria-card .cat-foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.categoria-card.con-foto:hover .cat-foto img{transform:scale(1.05)}
+.categoria-card.con-foto h3{padding:12px 10px 14px}
+.grid-categorias .categoria-card:not(.con-foto){display:flex;flex-direction:column;justify-content:center;align-items:center}
+
+/* Portada: piezas destacadas */
+.grid-destacados{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:700px){.grid-destacados{grid-template-columns:repeat(3,1fr);gap:24px}}
+.tarjeta-destacada{text-decoration:none;color:inherit}
+.tarjeta-destacada .info{padding:14px 16px}
+.tarjeta-destacada h3{font-size:1.02rem}
+.destacados-cta{margin-top:28px;text-align:center}
+/* Ficha: el nombre del grupo hace de etiqueta (evita repetirlo) */
+.ficha-universal .opciones-ficha .campo-opcion label:not([for^="personalizacion-"]):not([for="input-otro-color"]){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.ficha-universal .opciones-ficha .campo-opcion{margin-top:6px}
