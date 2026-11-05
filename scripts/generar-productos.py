@@ -51,9 +51,22 @@ PAGINAS = [
     "reserva-de-llamada", "opiniones", "faq", "para-tiendas", "contacto",
     "condiciones-de-compra", "aviso-legal", "privacidad", "cookies",
 ]
+try:
+    _aj = json.loads((ROOT / "data" / "ajustes.json").read_text(encoding="utf-8"))
+except Exception:
+    _aj = {}
+_ocultas = set()
+if _aj.get("mostrarPacks"):
+    PAGINAS.append("packs")
+else:
+    _ocultas.add("packs")
+if _aj.get("mostrarVelas"):
+    PAGINAS.append("velas")
+else:
+    _ocultas.add("velas")
 urls = [f"{BASE}/{p}" for p in PAGINAS]
 for prod in productos:
-    if prod.get("estado") == "oculto":
+    if prod.get("estado") == "oculto" or prod.get("categoria") in _ocultas:
         continue
     urls.append(f"{BASE}/ficha?id={quote(prod['id'].strip())}")
 sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',

@@ -85,6 +85,21 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 });
 
+// Ajustes de la web (data/ajustes.json): qué secciones opcionales se ven (Packs, Velas). Se cambian desde el panel > Ajustes.
+window.AJUSTES_P = window.AJUSTES_P || fetch('data/ajustes.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});
+function aplicarAjustesWeb(){
+  window.AJUSTES_P.then(function(a){
+    [['mostrarPacks','packs','Packs para rituales','packs.html'],['mostrarVelas','velas','Velas','velas.html']].forEach(function(s){
+      if(!a||!a[s[0]]) return;
+      document.querySelectorAll('[data-seccion="'+s[1]+'"]').forEach(function(e){ e.hidden=false; });
+      document.querySelectorAll('.submenu-tienda, .menu-tienda-lista').forEach(function(box){
+        if(box.querySelector('a[href="'+s[3]+'"]')) return;
+        var l=document.createElement('a'); l.href=s[3]; l.textContent=s[2];
+        var op=box.querySelector('a[href="opiniones.html"]'); if(op) box.insertBefore(l,op); else box.appendChild(l);
+      });
+    });
+  });
+}
 function construirNavegacionTienda() {
   var cats = [
     ['Ver tienda','tienda.html'], ['Grimorios','grimorios.html'], ['Amuletos','amuletos.html'], ['Pociones','pociones.html'],
@@ -106,7 +121,7 @@ function construirNavegacionTienda() {
     wrap.addEventListener('focusout', function(e){ if(!wrap.contains(e.relatedTarget) && !wrap.classList.contains('abierto')) flecha.setAttribute('aria-expanded','false'); });
     document.addEventListener('click', function(e){ if(!wrap.contains(e.target)){ wrap.classList.remove('abierto'); flecha.setAttribute('aria-expanded','false'); } });
   }
-  var ayuda = [['Envíos y recogida','envios-y-recogida.html'],['Preguntas frecuentes','faq.html'],['Opiniones','opiniones.html'],['Para tiendas','para-tiendas.html'],['Contacto','contacto.html']];
+  var ayuda = [['Envíos y recogida','envios-y-recogida.html'],['Preguntas frecuentes','faq.html'],['Opiniones','opiniones.html'],['Para tiendas','para-tiendas.html'],['Reserva una llamada','reserva-de-llamada.html'],['Contacto','contacto.html']];
   document.querySelectorAll('nav.principal').forEach(function(nav) {
     if (nav.querySelector('.menu-tienda')) return;
     var tienda = Array.from(nav.children).find(function(a){ return a.tagName === 'A' && a.getAttribute('href') === 'tienda.html'; });
@@ -136,6 +151,7 @@ function construirNavegacionTienda() {
     menu.replaceChild(d,tienda);
     var cart=document.createElement('a');cart.href='carrito.html';cart.className='enlace-carrito-movil';cart.textContent='🛒 Carrito';menu.insertBefore(cart,menu.firstChild);
   });
+  aplicarAjustesWeb();
   var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});
 }
 

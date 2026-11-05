@@ -61,10 +61,14 @@ collections:
           - { label: "Mandala", value: "mandala" }
           - { label: "Botellitas", value: "botellitas" }
           - { label: "Plantas / Semillas", value: "plantas_semillas" }
+          - { label: "Packs para rituales", value: "packs" }
+          - { label: "Velas", value: "velas" }
           - { label: "Otros", value: "otros" }
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
       - { label: "Destacar en la portada", name: "destacado", widget: "boolean", default: false, required: false, hint: "Si la activas, esta pieza sale en el bloque «Para empezar» de la portada. Mejor entre 4 y 6 piezas. Si no marcas ninguna, la portada elige sola." }
+      - { label: "Qué incluye el pack (un producto por línea)", name: "contenidoPack", widget: "list", required: false, field: { label: "Producto", name: "item", widget: "string" }, hint: "Solo para packs: vela, sal negra, mineral, incienso… Se muestra como lista en la ficha." }
+      - { label: "Paso a paso del ritual (solo packs)", name: "pasoAPaso", widget: "text", required: false, hint: "Escribe un paso por línea. Se muestra en la ficha del pack." }
       - label: "Colección (opcional)"
         name: "coleccion"
         widget: "select"
@@ -497,3 +501,16 @@ collections:
             fields:
               - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
               - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
+
+  # ---------------------------------------------------------------
+  # AJUSTES — mostrar u ocultar secciones opcionales
+  # ---------------------------------------------------------------
+  - name: "ajustes"
+    label: "Ajustes — Secciones visibles"
+    files:
+      - file: "data/ajustes.json"
+        label: "Mostrar u ocultar secciones"
+        name: "ajustes"
+        fields:
+          - { label: "Mostrar la sección «Packs para rituales»", name: "mostrarPacks", widget: "boolean", default: false, hint: "Actívala cuando tengas packs listos. Si está apagada, no sale en el menú ni en la tienda." }
+          - { label: "Mostrar la sección «Velas»", name: "mostrarVelas", widget: "boolean", default: false, hint: "Actívala cuando tengas velas listas. Si está apagada, no sale en el menú ni en la tienda." }

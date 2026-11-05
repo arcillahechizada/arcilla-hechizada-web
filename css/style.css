@@ -854,3 +854,8 @@ main.contenedor>.volver-atras-barra{padding-top:0}
 /* Ficha: el nombre del grupo hace de etiqueta (evita repetirlo) */
 .ficha-universal .opciones-ficha .campo-opcion label:not([for^="personalizacion-"]):not([for="input-otro-color"]){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ficha-universal .opciones-ficha .campo-opcion{margin-top:6px}
+
+/* Secciones opcionales ocultas hasta activarlas en Ajustes + texto de valor */
+[hidden]{display:none!important}
+.texto-valor{max-width:640px;margin:26px auto 0;text-align:center;font-style:italic;color:var(--marron-gris);line-height:1.7}
+.lista-pack{margin:8px 0 0;padding-left:1.2em;line-height:1.8}
