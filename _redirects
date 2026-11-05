@@ -10,3 +10,17 @@
 /tienda/pociones/poci%C3%B3n-belladona /ficha?id=poción-belladona 301
 /tienda/pociones/poción-porta-silvarum /ficha?id=poción-silvarum 301
 /tienda/pociones/poci%C3%B3n-porta-silvarum /ficha?id=poción-silvarum 301
+
+# URLs antiguas (Google Sites) que Google todavía enseña -> destino actual (una a una)
+/sobre-mi /el-taller 301
+/sólo-para-tiendas /para-tiendas 301
+/s%C3%B3lo-para-tiendas /para-tiendas 301
+/tienda/pociones/poción-de-arce /ficha?id=poción-arce 301
+/tienda/pociones/poci%C3%B3n-de-arce /ficha?id=poción-arce 301
+/tienda/grimorios/grimorio-anillas /grimorios 301
+/tienda/botellitas/amor-amor-eterno /botellitas 301
+/tienda/mandala/* /mandalas 301
+/tienda/botellitas /botellitas 301
+/tienda/pociones /pociones 301
+/tienda/grimorios /grimorios 301
+/tienda/mandala /mandalas 301
