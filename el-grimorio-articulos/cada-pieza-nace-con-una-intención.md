@@ -1,6 +1,7 @@
 ---
 title: Cada pieza nace con una intención
-date: 2026-11-01T13:17:00.000+01:00
+date: ""
+imagen: img/uploads/dibujo-caldero-activacion-amuletos_a0d3bc96_2k-1-.jpg
 categoria: Magia popular
 estado: publicado
 seo_titulo: "Cómo activo mis amuletos y grimorios: cada pieza nace con una intención"
