@@ -2,7 +2,7 @@
 title: Qué color elegir según tus necesidades
 imagen: img/uploads/grimorio-usos-colores-en-la-magia_eed0d227_2k-1-.jpg
 categoria: Simbolismo
-estado: borrador
+estado: publicado
 seo_titulo: "Significado de los colores: qué color elegir según tus necesidades"
 seo_descripcion: "Guía sencilla del simbolismo de los colores en la tradición
   esotérica: blanco, negro, rojo, verde, azul y más, para elegir tu amuleto o tu
