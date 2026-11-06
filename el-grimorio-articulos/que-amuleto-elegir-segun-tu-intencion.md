@@ -1,9 +1,12 @@
 ---
 title: Qué amuleto elegir según tu intención
+imagen: img/uploads/dibujo-caldero-con-plantas_bd2adfe9_2k-1-.jpg
 categoria: Simbolismo
 estado: borrador
 seo_titulo: "Qué amuleto elegir según tu intención: guía de símbolos"
-seo_descripcion: "Cómo elegir un amuleto según lo que necesitas: protección, cambio, amor propio o conexión con la naturaleza. Símbolos y su significado en la tradición."
+seo_descripcion: "Cómo elegir un amuleto según lo que necesitas: protección,
+  cambio, amor propio o conexión con la naturaleza. Símbolos y su significado en
+  la tradición."
 ---
 Elegir un amuleto no tiene reglas fijas. La mejor guía suele ser la más sencilla: quédate con el que te llame la atención y pregúntate qué quieres acompañar en este momento.
 
