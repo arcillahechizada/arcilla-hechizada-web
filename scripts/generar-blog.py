@@ -69,7 +69,8 @@ for ruta in sorted(CARPETA.glob("*.md")):
         "cuerpo": cuerpo,
     })
 
-articulos.sort(key=lambda a: a["fecha"], reverse=True)
+# Sin fecha = el más nuevo (sale primero). La fecha nunca se muestra en la web.
+articulos.sort(key=lambda a: a["fecha"] or "9999", reverse=True)
 SALIDA.write_text(json.dumps({"articulos": articulos}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"Blog generado: {len(articulos)} artículo(s) publicado(s).")
 

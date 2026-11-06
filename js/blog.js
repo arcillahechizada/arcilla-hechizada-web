@@ -76,7 +76,7 @@
           '<div class="foto">' + img + '</div><div class="info">' +
           (a.categoria ? '<span class="eyebrow">' + esc(a.categoria) + '</span>' : '') +
           '<h3>' + esc(a.titulo) + '</h3><p style="font-size:.9rem;">' + esc(a.resumen) + '</p>' +
-          '<span class="blog-fecha">' + esc(fechaBonita(a.fecha)) + '</span></div></a>';
+          '</div></a>';
       }).join('');
       var aviso = document.getElementById('aviso-blog');
       if (aviso) aviso.style.display = 'none';
@@ -101,13 +101,13 @@
       ponMeta('meta[property="og:type"]', 'content', 'article');
       if (img) ponMeta('meta[property="og:image"]', 'content', img);
       ponMeta('link[rel="canonical"]', 'href', url);
-      var ld = { '@context': 'https://schema.org', '@type': 'Article', headline: a.titulo, description: desc, datePublished: a.fecha,
+      var ld = { '@context': 'https://schema.org', '@type': 'Article', headline: a.titulo, description: desc,
         author: { '@type': 'Organization', name: 'Arcilla Hechizada' }, publisher: { '@type': 'Organization', name: 'Arcilla Hechizada' }, mainEntityOfPage: url };
       if (img) ld.image = img;
       var s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld); document.head.appendChild(s);
       cont.innerHTML =
         (a.categoria ? '<span class="eyebrow">' + esc(a.categoria) + '</span>' : '') +
-        '<h1>' + esc(a.titulo) + '</h1><p class="blog-fecha">' + esc(fechaBonita(a.fecha)) + '</p>' +
+        '<h1>' + esc(a.titulo) + '</h1>' +
         (a.imagen ? '<img class="blog-portada" src="' + rutaImg(a.imagen) + '" alt="' + esc(a.titulo) + '">' : '') +
         '<div class="blog-cuerpo">' + markdown(a.cuerpo) + '</div>' +
         '<aside class="aviso-pendiente">Si enciendes velas o incienso, hazlo siempre sobre una superficie que no arda, lejos de telas, papeles y plantas secas, y nunca dejes el fuego sin vigilar.</aside>' +

@@ -346,7 +346,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Fecha", name: "date", widget: "datetime" }
+      - { label: "Fecha (opcional; no se muestra en la web)", name: "date", widget: "datetime", required: false, hint: "Puedes dejarla vacía. No se enseña a quien visita. Solo sirve para ordenar: sin fecha, el artículo sale el primero." }
       - { label: "Imagen destacada", name: "imagen", widget: "image", required: false, choose_url: false }
       - label: "Categoría"
         name: "categoria"
