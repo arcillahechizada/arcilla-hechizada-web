@@ -11,11 +11,7 @@ seo_descripcion: "Así preparo cada amuleto y grimorio antes de enviarlo: sol,
 ---
 Un ritual no empieza cuando enciendo la vela. Empieza cuando sé qué necesita la persona que va a recibir la pieza.
 
-
-
 Aquí te cuento cómo trabajo y las pautas que uso, por si quieres llevarlas a tus propios rituales.
-
-
 
 Cómo activo cada pieza
 
@@ -31,4 +27,4 @@ El ritual. Recito el ritual con la pieza dentro del círculo.
 
 El sello. Lo cierro con palo santo y con las palabras que cierran todo ritual: Sic est, sic erit, factum est. (así es, así será, hecho está). Después guardo la pieza enseguida en su cajita.
 
-La entrega. Lo coloco todo con cuidado y detalle, para que quien lo reciba lo abra como un regalo. Uso virutilla de madera: protege la pieza de cualquier daño y también de cualquier energía. Silo deseas esa misma cajita siempre la podrás conservar para tú amuleto, siempre se mantendrá protegido.
+La entrega. Lo coloco todo con cuidado y detalle, para que quien lo reciba lo abra como un regalo. Uso virutilla de madera: protege la pieza de cualquier daño y también de cualquier energía. Si lo deseas esa misma cajita siempre la podrás conservar para tú amuleto, siempre se mantendrá protegido.
