@@ -1,0 +1,8 @@
+{
+  "nombre": "Mandalas",
+  "identificador": "mandalas",
+  "publicada": true,
+  "orden": 40,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

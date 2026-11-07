@@ -1,0 +1,8 @@
+{
+  "nombre": "Amuletos",
+  "identificador": "amuletos",
+  "publicada": true,
+  "orden": 20,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

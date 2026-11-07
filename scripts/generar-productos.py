@@ -51,22 +51,37 @@ PAGINAS = [
     "reserva-de-llamada", "opiniones", "faq", "para-tiendas", "contacto",
     "condiciones-de-compra", "aviso-legal", "privacidad", "cookies",
 ]
-try:
-    _aj = json.loads((ROOT / "data" / "ajustes.json").read_text(encoding="utf-8"))
-except Exception:
-    _aj = {}
+# Qué secciones están publicadas: se lee de data/secciones/*.json (panel > Secciones de la tienda).
+# Si esa carpeta no existe, se usa el ajuste antiguo data/ajustes.json.
+_publicadas = None
+_carpeta_sec = ROOT / "data" / "secciones"
+if _carpeta_sec.exists() and any(_carpeta_sec.glob("*.json")):
+    _publicadas = set()
+    for _f in _carpeta_sec.glob("*.json"):
+        try:
+            _d = json.loads(_f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+        if _d.get("publicada") in (True, "true", "True"):
+            _publicadas.add(str(_d.get("identificador") or _f.stem).strip())
+if _publicadas is None:
+    try:
+        _aj = json.loads((ROOT / "data" / "ajustes.json").read_text(encoding="utf-8"))
+    except Exception:
+        _aj = {}
+    _publicadas = {n for n, k in (("packs", "mostrarPacks"), ("velas", "mostrarVelas")) if _aj.get(k)}
 _ocultas = set()
-if _aj.get("mostrarPacks"):
-    PAGINAS.append("packs")
-else:
-    _ocultas.add("packs")
-if _aj.get("mostrarVelas"):
-    PAGINAS.append("velas")
-else:
-    _ocultas.add("velas")
+for _n in ("packs", "velas"):
+    if _n in _publicadas:
+        PAGINAS.append(_n)
+    else:
+        _ocultas.add(_n)
 urls = [f"{BASE}/{p}" for p in PAGINAS]
 for prod in productos:
     if prod.get("estado") == "oculto" or prod.get("categoria") in _ocultas:
+        continue
+    # Un producto que solo vive en una sección nueva (categoría «Otros») no se anuncia si esa sección está oculta
+    if prod.get("categoria") == "otros" and prod.get("seccion") and prod.get("seccion") not in _publicadas:
         continue
     urls.append(f"{BASE}/ficha?id={quote(prod['id'].strip())}")
 sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',

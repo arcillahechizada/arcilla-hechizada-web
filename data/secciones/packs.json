@@ -1,0 +1,8 @@
+{
+  "nombre": "Packs para rituales",
+  "identificador": "packs",
+  "publicada": false,
+  "orden": 90,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

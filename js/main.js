@@ -85,33 +85,134 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 });
 
-// Ajustes de la web (data/ajustes.json): qué secciones opcionales se ven (Packs, Velas). Se cambian desde el panel > Ajustes.
-window.AJUSTES_P = window.AJUSTES_P || fetch('data/ajustes.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});
-function aplicarAjustesWeb(){
-  window.AJUSTES_P.then(function(a){
-    [['mostrarPacks','packs','Packs para rituales','packs.html'],['mostrarVelas','velas','Velas','velas.html']].forEach(function(s){
-      if(!a||!a[s[0]]) return;
-      document.querySelectorAll('[data-seccion="'+s[1]+'"]').forEach(function(e){ e.hidden=false; });
-      document.querySelectorAll('.submenu-tienda, .menu-tienda-lista').forEach(function(box){
-        if(box.querySelector('a[href="'+s[3]+'"]')) return;
-        var l=document.createElement('a'); l.href=s[3]; l.textContent=s[2];
-        var op=box.querySelector('a[href="opiniones.html"]'); if(op) box.insertBefore(l,op); else box.appendChild(l);
+// Secciones de la tienda (data/secciones.json, se crean y se publican desde el panel > Secciones de la tienda).
+// Si ese archivo no se puede leer, la web funciona como siempre (todo lo clásico visible; Packs y Velas según data/ajustes.json).
+window.SECCIONES_P = window.SECCIONES_P || fetch('data/secciones.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).then(function(d){
+  var l = (d && Array.isArray(d.secciones)) ? d.secciones : [];
+  try { if (l.length) localStorage.setItem('arcillaSecciones', JSON.stringify(l)); } catch (_) {}
+  return l;
+}).catch(function(){return [];});
+window.AJUSTES_P = window.AJUSTES_P || window.SECCIONES_P.then(function(l){
+  if (l.length) {
+    var g = function(id){ return l.find(function(x){return x.id===id;}); };
+    return { mostrarPacks: !!(g('packs') && g('packs').publicada), mostrarVelas: !!(g('velas') && g('velas').publicada) };
+  }
+  return fetch('data/ajustes.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():{};}).catch(function(){return {};});
+});
+
+var MENU_CLASICO = [
+  ['Grimorios','grimorios.html'], ['Amuletos','amuletos.html'], ['Pociones','pociones.html'],
+  ['Mandalas','mandalas.html'], ['Botellitas','botellitas.html'], ['Infusiones','infusiones.html'],
+  ['Inciensos','inciensos.html'], ['Plantas / Semillas','plantas-semillas.html']
+];
+var EMOJI_SECCION = { 'grimorios':'📖','amuletos':'✦','pociones':'🧪','mandalas':'◎','botellitas':'🍶','infusiones':'🍵','inciensos':'🕯️','plantas-semillas':'🌿','packs':'🎁','velas':'🕯️' };
+var SECCIONES_ANTIGUAS = ['grimorios','amuletos','pociones','mandalas','botellitas','infusiones','inciensos','plantas-semillas','packs','velas'];
+
+function itemsMenuTienda(lista){
+  var items = [['Ver tienda','tienda.html']];
+  if (lista && lista.length) {
+    lista.filter(function(s){return s.publicada && s.mostrarEnMenu!==false;}).forEach(function(s){ items.push([s.nombre, s.pagina || (s.id+'.html')]); });
+  } else {
+    MENU_CLASICO.forEach(function(c){ items.push(c); });
+  }
+  items.push(['Opiniones','opiniones.html']);
+  return items;
+}
+function pintarEnlaces(box, items){
+  box.textContent='';
+  items.forEach(function(c){ var a=document.createElement('a'); a.href=c[1]; a.textContent=c[0]; box.appendChild(a); });
+}
+function aplicarSecciones(){
+  window.SECCIONES_P.then(function(lista){
+    window.__secciones = lista;
+    if (lista.length) {
+      var items = itemsMenuTienda(lista);
+      document.querySelectorAll('.submenu-tienda[data-menu="tienda"], .menu-tienda-lista').forEach(function(box){ pintarEnlaces(box, items); });
+    }
+    // Compatibilidad: tarjetas antiguas ocultas (Packs / Velas) en páginas que aún las lleven fijas
+    window.AJUSTES_P.then(function(a){
+      [['mostrarPacks','packs'],['mostrarVelas','velas']].forEach(function(s){
+        if(!a||!a[s[0]]) return;
+        document.querySelectorAll('[data-seccion="'+s[1]+'"]').forEach(function(e){ e.hidden=false; });
       });
     });
+    pintarCabecerasSecciones(lista);
+    ocultarPaginaSiNoPublicada(lista);
+    refrescarTarjetas();
   });
 }
+// Foto de la parte de arriba de Infusiones / Inciensos (y de cualquier sección clásica que la tenga), editable desde el panel.
+function pintarCabecerasSecciones(lista){
+  lista.forEach(function(s){
+    if (!s.fotoCabecera) return;
+    var img = document.getElementById('cabecera-'+s.id);
+    if (!img) return;
+    img.src = s.fotoCabecera;
+    if (s.altCabecera) img.alt = s.altCabecera;
+  });
+}
+// Si una sección clásica está oculta (Publicada apagada), su página enseña «muy pronto» y no se indexa.
+function ocultarPaginaSiNoPublicada(lista){
+  var m = (location.pathname.split('/').pop() || '').replace(/\.html$/,'');
+  if (m==='packs' || m==='velas' || SECCIONES_ANTIGUAS.indexOf(m)<0) return; // Packs y Velas ya lo hacen sus páginas
+  var s = lista.find(function(x){return x.id===m;});
+  if (!s || s.publicada) return;
+  var main = document.querySelector('main');
+  if (!main) return;
+  main.innerHTML = '<div style="margin-bottom:24px;"><a href="tienda.html" class="btn btn-secundario">← Volver a la tienda</a></div><div class="centro" style="margin-bottom:40px;"><span class="eyebrow">Colección</span><h1></h1><p class="aviso-pendiente">Esta sección estará disponible muy pronto.</p></div>';
+  main.querySelector('h1').textContent = s.nombre;
+  var mt=document.createElement('meta'); mt.name='robots'; mt.content='noindex'; document.head.appendChild(mt);
+}
+// Tarjetas de «Mis creaciones» (portada) y de la tienda: salen de las secciones publicadas.
+function refrescarTarjetas(){
+  var lista = window.__secciones;
+  if (!lista || !lista.length) return;
+  var hayProductos = (typeof PRODUCTOS !== 'undefined') && PRODUCTOS.length;
+  document.querySelectorAll('.grid-categorias').forEach(function(grid){
+    if (!grid.querySelector('.categoria-card')) return;
+    grid.textContent='';
+    lista.filter(function(s){return s.publicada && s.mostrarEnTarjetas!==false;}).forEach(function(s){
+      var a=document.createElement('a'); a.className='categoria-card'; a.href=s.pagina || (s.id+'.html');
+      var ic=document.createElement('div'); ic.className='icono'; ic.textContent=EMOJI_SECCION[s.id]||'✧';
+      var h=document.createElement('h3'); h.textContent=s.nombre;
+      a.appendChild(ic); a.appendChild(h);
+      var foto = s.fotoTarjeta;
+      if (!foto && SECCIONES_ANTIGUAS.indexOf(s.id)<0 && hayProductos) {
+        var ps = PRODUCTOS.filter(function(p){return p.seccion===s.id && p.estado!=='oculto' && (p.imagenPrincipal || (p.galeria && p.galeria[0]));});
+        var p0 = ps.find(function(p){return !/collage/i.test(p.imagenPrincipal || p.galeria[0]);}) || ps[0];
+        if (p0) foto = p0.imagenPrincipal || p0.galeria[0];
+      }
+      if (foto) {
+        var d=document.createElement('div'); d.className='cat-foto';
+        var im=document.createElement('img'); im.src=foto; im.alt=''; im.loading='lazy'; d.appendChild(im);
+        a.replaceChild(d, ic); a.classList.add('con-foto');
+      }
+      grid.appendChild(a);
+    });
+    grid.dataset.secciones='1';
+  });
+  // Las secciones clásicas sin foto propia usan la primera pieza de su categoría (como siempre)
+  if (hayProductos && typeof fotosCategorias === 'function') { try { fotosCategorias(); } catch (_) {} }
+}
+// Cuando los productos terminan de cargarse, se completan las fotos de las tarjetas (sin cambiar nada de lo que devuelve cargarDatos)
+if (typeof window.cargarDatos === 'function' && !window.__cargarDatosEnvuelto) {
+  window.__cargarDatosEnvuelto = true;
+  var cargarDatosOriginal = window.cargarDatos;
+  window.cargarDatos = function(){
+    var p = cargarDatosOriginal.apply(this, arguments);
+    try { p.then(function(){ refrescarTarjetas(); }, function(){}); } catch (_) {}
+    return p;
+  };
+}
 function construirNavegacionTienda() {
-  var cats = [
-    ['Ver tienda','tienda.html'], ['Grimorios','grimorios.html'], ['Amuletos','amuletos.html'], ['Pociones','pociones.html'],
-    ['Mandalas','mandalas.html'], ['Botellitas','botellitas.html'], ['Infusiones','infusiones.html'],
-    ['Inciensos','inciensos.html'], ['Plantas / Semillas','plantas-semillas.html'], ['Opiniones','opiniones.html']
-  ];
+  var guardadas = []; try { guardadas = JSON.parse(localStorage.getItem('arcillaSecciones') || '[]'); } catch (_) {}
+  var cats = itemsMenuTienda(Array.isArray(guardadas) ? guardadas : []);
   function desplegable(nav, original, texto, href, items, etiquetaAria){
     var wrap = document.createElement('div'); wrap.className='menu-tienda';
     var link = document.createElement('a'); link.href=href; link.textContent=texto; link.className='tienda-trigger';
     var flecha = document.createElement('button'); flecha.type='button'; flecha.className='tienda-flecha'; flecha.textContent='⌄';
     flecha.setAttribute('aria-label',etiquetaAria); flecha.setAttribute('aria-haspopup','true'); flecha.setAttribute('aria-expanded','false');
-    var sub = document.createElement('div'); sub.className='submenu-tienda';
+    var sub = document.createElement('div'); sub.className='submenu-tienda'; sub.setAttribute('data-menu', texto==='Tienda' ? 'tienda' : 'ayuda');
     items.forEach(function(c){ var a=document.createElement('a'); a.href=c[1]; a.textContent=c[0]; sub.appendChild(a); });
     wrap.appendChild(link); wrap.appendChild(flecha); wrap.appendChild(sub); nav.replaceChild(wrap,original);
     wrap.addEventListener('mouseenter', function(){ flecha.setAttribute('aria-expanded','true'); });
@@ -151,7 +252,7 @@ function construirNavegacionTienda() {
     menu.replaceChild(d,tienda);
     var cart=document.createElement('a');cart.href='carrito.html';cart.className='enlace-carrito-movil';cart.textContent='🛒 Carrito';menu.insertBefore(cart,menu.firstChild);
   });
-  aplicarAjustesWeb();
+  aplicarSecciones();
   var n=0; try{n=JSON.parse(localStorage.getItem('arcillaHechizadaCarrito')||'[]').reduce(function(t,i){return t+(Number(i.cantidad)||0);},0);}catch(e){} document.querySelectorAll('#contador-carrito').forEach(function(e){e.textContent=n;});
 }
 

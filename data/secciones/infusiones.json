@@ -1,0 +1,8 @@
+{
+  "nombre": "Infusiones",
+  "identificador": "infusiones",
+  "publicada": true,
+  "orden": 60,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

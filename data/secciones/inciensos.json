@@ -1,0 +1,8 @@
+{
+  "nombre": "Inciensos",
+  "identificador": "inciensos",
+  "publicada": true,
+  "orden": 70,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

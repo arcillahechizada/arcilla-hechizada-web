@@ -1,0 +1,8 @@
+{
+  "nombre": "Plantas / Semillas",
+  "identificador": "plantas-semillas",
+  "publicada": true,
+  "orden": 80,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

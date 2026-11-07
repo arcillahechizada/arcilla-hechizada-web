@@ -1,0 +1,8 @@
+{
+  "nombre": "Grimorios",
+  "identificador": "grimorios",
+  "publicada": true,
+  "orden": 10,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

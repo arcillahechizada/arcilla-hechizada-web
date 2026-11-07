@@ -1,0 +1,8 @@
+{
+  "nombre": "Velas",
+  "identificador": "velas",
+  "publicada": false,
+  "orden": 100,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

@@ -1,0 +1,8 @@
+{
+  "nombre": "Pociones",
+  "identificador": "pociones",
+  "publicada": true,
+  "orden": 30,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}

@@ -64,6 +64,7 @@ collections:
           - { label: "Packs para rituales", value: "packs" }
           - { label: "Velas", value: "velas" }
           - { label: "Otros", value: "otros" }
+      - { label: "Sección nueva (opcional)", name: "seccion", widget: "relation", collection: "secciones", search_fields: ["nombre"], value_field: "identificador", display_fields: ["nombre"], required: false, hint: "Para meter este producto en una sección que hayas creado (San Valentín, Minerales, Fin de año…). Si es una sección nueva y no encaja en ninguna categoría, pon arriba la categoría «Otros». Las secciones de siempre (Amuletos, Packs, Velas…) se eligen con «Categoría»." }
       - { label: "Nombre", name: "nombre", widget: "string" }
       - { label: "Orden de visualización", name: "orden", widget: "number", required: false, value_type: "int", default: 9999, hint: "Número menor = aparece antes. Usa 1, 2, 3... Si lo dejas en 9999, queda al final." }
       - { label: "Destacar en la portada", name: "destacado", widget: "boolean", default: false, required: false, hint: "Si la activas, esta pieza sale en el bloque «Para empezar» de la portada. Mejor entre 4 y 6 piezas. Si no marcas ninguna, la portada elige sola." }
@@ -488,29 +489,30 @@ collections:
                   - { label: "Texto opcional", name: "titulo", widget: "string", required: false }
                   - { label: "Texto alternativo", name: "alt", widget: "string", required: false }
 
-          - label: "Infusiones — imagen de la parte de arriba de la página"
-            name: "infusiones_cabecera"
-            widget: "object"
-            fields:
-              - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
-              - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
-
-          - label: "Inciensos — imagen de la parte de arriba de la página"
-            name: "inciensos_cabecera"
-            widget: "object"
-            fields:
-              - { label: "Imagen", name: "imagen", widget: "image", required: false, choose_url: false, hint: "Medida recomendada: 1448 × 540 px (alargada). Si la dejas vacía, se ve la imagen de «próximamente». Se enseña entera, sin recortes." }
-              - { label: "Texto alternativo (describe la imagen)", name: "alt", widget: "string", required: false }
-
   # ---------------------------------------------------------------
-  # AJUSTES — mostrar u ocultar secciones opcionales
+  # SECCIONES DE LA TIENDA — crear, publicar u ocultar secciones
   # ---------------------------------------------------------------
-  - name: "ajustes"
-    label: "Ajustes — Secciones visibles"
-    files:
-      - file: "data/ajustes.json"
-        label: "Mostrar u ocultar secciones"
-        name: "ajustes"
-        fields:
-          - { label: "Mostrar la sección «Packs para rituales»", name: "mostrarPacks", widget: "boolean", default: false, hint: "Actívala cuando tengas packs listos. Si está apagada, no sale en el menú ni en la tienda." }
-          - { label: "Mostrar la sección «Velas»", name: "mostrarVelas", widget: "boolean", default: false, hint: "Actívala cuando tengas velas listas. Si está apagada, no sale en el menú ni en la tienda." }
+  - name: "secciones"
+    label: "Secciones de la tienda"
+    label_singular: "Sección"
+    folder: "data/secciones"
+    create: true
+    delete: true
+    identifier_field: "nombre"
+    slug: "{{identificador}}"
+    extension: "json"
+    format: "json"
+    summary: "{{nombre}} — {{publicada | ternary('● PUBLICADA','○ oculta')}}"
+    sortable_fields: ["orden", "nombre"]
+    fields:
+      - { label: "Nombre de la sección", name: "nombre", widget: "string", hint: "Es lo que se ve en el menú y en las tarjetas. Ej.: San Valentín" }
+      - { label: "Identificador (sin espacios ni tildes)", name: "identificador", widget: "string", pattern: ["^[a-z0-9-]+$", "Solo letras minúsculas sin tilde, números y guiones. Ej.: san-valentin"], hint: "Es la dirección de la sección. No lo cambies una vez publicada. Ej.: san-valentin" }
+      - { label: "¿Publicada? (visible en la web)", name: "publicada", widget: "boolean", default: false, hint: "ACTIVADA = la sección se ve en la web. APAGADA = se oculta (sin borrar nada) y puedes volver a activarla cuando quieras." }
+      - { label: "Orden", name: "orden", widget: "number", value_type: "int", default: 500, required: false, hint: "Número menor = sale antes. Las de siempre van de 10 en 10 (Grimorios 10, Amuletos 20…)." }
+      - { label: "Mostrar en el menú Tienda", name: "mostrarEnMenu", widget: "boolean", default: true, required: false }
+      - { label: "Mostrar como tarjeta en la portada y en la tienda", name: "mostrarEnTarjetas", widget: "boolean", default: true, required: false }
+      - { label: "Foto de la tarjeta", name: "fotoTarjeta", widget: "image", required: false, choose_url: false, hint: "Foto de la tarjeta de la portada y la tienda. Si la dejas vacía, sale la foto de la primera pieza de la sección (o un símbolo)." }
+      - { label: "Foto de la parte de arriba de la página", name: "fotoCabecera", widget: "image", required: false, choose_url: false, hint: "Imagen alargada (1448 × 540 px). En Infusiones e Inciensos sustituye a la imagen de «próximamente»." }
+      - { label: "Texto de la foto de arriba (describe la imagen)", name: "altCabecera", widget: "string", required: false }
+      - { label: "Texto de presentación", name: "introduccion", widget: "text", required: false, hint: "Aparece bajo el título en las secciones nuevas. Escribe 2–3 frases que expliquen qué hay aquí." }
+      - { label: "Descripción para Google (opcional)", name: "descripcionSeo", widget: "text", required: false, hint: "Una frase (máx. 150 letras) que aparece en Google. Si la dejas vacía, se usa el texto de presentación." }

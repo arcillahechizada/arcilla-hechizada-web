@@ -1,0 +1,8 @@
+{
+  "nombre": "Botellitas",
+  "identificador": "botellitas",
+  "publicada": true,
+  "orden": 50,
+  "mostrarEnMenu": true,
+  "mostrarEnTarjetas": true
+}
