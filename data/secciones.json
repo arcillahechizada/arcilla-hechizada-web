@@ -101,10 +101,10 @@
     {
       "id": "plantas-semillas",
       "nombre": "Plantas / Semillas",
-      "publicada": true,
+      "publicada": false,
       "orden": 80,
-      "mostrarEnMenu": true,
-      "mostrarEnTarjetas": true,
+      "mostrarEnMenu": false,
+      "mostrarEnTarjetas": false,
       "fotoTarjeta": "",
       "fotoCabecera": "",
       "altCabecera": "",
