@@ -4,5 +4,7 @@
   "publicada": true,
   "orden": 60,
   "mostrarEnMenu": true,
-  "mostrarEnTarjetas": true
+  "mostrarEnTarjetas": true,
+  "fotoCabecera": "img/teasers/infusiones-proximamente.jpg",
+  "altCabecera": "El herbario de Arcilla Hechizada con un caldero y una taza de infusión de plantas"
 }
