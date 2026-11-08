@@ -32,7 +32,13 @@ async function cargarDatos(){
 
   // Cada carpeta se carga de forma independiente. Si una falla, las demás
   // siguen funcionando y nunca hacen desaparecer el catálogo general.
-  const [generalesResult,infusionesResult,inciensosResult]=await Promise.all([
+  // Camino rápido: el catálogo data/productos.json (lo regenera GitHub solo cada vez que cambias un producto)
+  // ya trae TODO, así que no hace falta preguntar a GitHub en cada visita (eso tardaba ~12 s).
+  // Solo si ese archivo no se puede leer, se usa el camino antiguo (leer carpeta por carpeta en GitHub).
+  const catalogoRapido=Array.isArray(productosFallback.productos)?productosFallback.productos:[];
+  const [generalesResult,infusionesResult,inciensosResult]=catalogoRapido.length
+    ? [catalogoRapido.filter(p=>p.categoria!=='infusiones'&&p.categoria!=='inciensos'),catalogoRapido.filter(p=>p.categoria==='infusiones'),catalogoRapido.filter(p=>p.categoria==='inciensos')]
+    : await Promise.all([
     cargarCarpetaProductosGitHub('data/productos').catch(()=>[]),
     cargarCarpetaProductosGitHub('data/infusiones').catch(()=>[]),
     cargarCarpetaProductosGitHub('data/inciensos').catch(()=>[])
