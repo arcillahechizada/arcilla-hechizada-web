@@ -1,8 +1,8 @@
 ---
 title: "Nudo de bruja: significado, origen y cómo llevarlo"
-imagen: img/uploads/900211111_1447370473588257_3517233295442281235_n.webp.jpg
+imagen: img/uploads/nudo-debruja-significado-arcilla-hechizada.jpg
 categoria: Simbolismo
-estado: borrador
+estado: publicado
 seo_titulo: "Nudo de bruja: significado, origen y cómo llevarlo"
 seo_descripcion: Qué es el nudo de bruja, qué simboliza en la tradición popular,
   qué se sabe de su origen y cómo llevarlo y cuidarlo como amuleto.
