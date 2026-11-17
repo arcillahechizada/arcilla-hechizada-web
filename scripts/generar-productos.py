@@ -44,7 +44,7 @@ print(f"Catálogo generado: {len(productos)} producto(s).")
 
 
 # --- Mapa del sitio (sitemap.xml): páginas fijas + una entrada por cada ficha publicada ---
-BASE = "https://www.arcillahechizada.com"
+BASE = "https://arcillahechizada.com"
 PAGINAS = [
     "", "tienda", "amuletos", "botellitas", "pociones", "grimorios", "mandalas",
     "piezas-unicas", "personalizados", "eventos", "el-taller", "envios-y-recogida",

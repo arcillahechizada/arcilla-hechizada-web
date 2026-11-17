@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CARPETA = ROOT / "data" / "secciones"
 SALIDA = ROOT / "data" / "secciones.json"
 SITEMAP = ROOT / "sitemap.xml"
-BASE = "https://www.arcillahechizada.com"
+BASE = "https://arcillahechizada.com"
 # Secciones que ya tienen página propia desde siempre (el resto usa seccion.html?s=...)
 CON_PAGINA = {"grimorios", "amuletos", "pociones", "mandalas", "botellitas", "infusiones",
               "inciensos", "plantas-semillas", "packs", "velas"}

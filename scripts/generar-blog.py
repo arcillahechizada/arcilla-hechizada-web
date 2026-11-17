@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CARPETA = ROOT / "el-grimorio-articulos"
 SALIDA = ROOT / "data" / "blog.json"
 SITEMAP = ROOT / "sitemap.xml"
-BASE = "https://www.arcillahechizada.com"
+BASE = "https://arcillahechizada.com"
 
 
 def slug_de(nombre: str) -> str:
